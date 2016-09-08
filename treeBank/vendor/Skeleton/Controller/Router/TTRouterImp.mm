@@ -256,9 +256,13 @@ static NSMutableDictionary* splitQuery(NSString* query, NSStringEncoding encodin
         }
         const char* retType = [methodSig methodReturnType];
         if(strcmp(retType, @encode(id)) == 0){
-            handleResult =[handler performSelector:sel withObject:context];
+            if ([handler respondsToSelector:sel]) {
+                handleResult =[handler performSelector:sel withObject:context];
+            }
         }else{
-            [handler performSelector:sel withObject:context];
+            if ([handler respondsToSelector:sel]) {
+                [handler performSelector:sel withObject:context];
+            }
             handleResult =  nil;
         }
        TTRouterResult *result = [TTRouterResult new];

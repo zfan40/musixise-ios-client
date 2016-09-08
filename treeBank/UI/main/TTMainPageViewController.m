@@ -44,15 +44,7 @@
     self.title = @"Musixise";
     [self initViews];
     self.customNavigationBar.backButton.hidden = YES;
-
-//    UIButton *button =[UIButton buttonWithType:UIButtonTypeCustom];
-//    [button addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
-////    [self.view addSubview:button];
-//    button.frame = CGRectMake(0, self.view.frame.size.height-100, self.view.frame.size.width, 50);
-//    button.backgroundColor = [UIColor grayColor];
-//    [button setTitle:@"room" forState:UIControlStateNormal ];
 }
-
 
 -(void)onClick{
     [[TTRouter defaultRouter]route:@"treeBank://interPage/TTWebViewController" withParam:nil];
@@ -104,7 +96,7 @@
 
 
 -(void)play:(NSArray*)data{
-    NSLog(@"%d-----",[data[0]integerValue]);
+    NSLog(@"%ld-----",(long)[data[0]integerValue]);
     MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0]integerValue], [data[1]integerValue], [data[2]integerValue], 0);
 }
 

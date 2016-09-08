@@ -45,7 +45,7 @@
     
     [_bridge2 registerHandler:@"MusicDeviceMIDIEvent" handler:^(id data, WVJBResponseCallback responseCallback) {
       //  [self performSelector:@selector(play:) withObject:data afterDelay:[data[3]integerValue]];
-
+        //TODO: wmy 去警告
         MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0] integerValue], [data[1]integerValue], [data[2]integerValue], [data[3]integerValue]);
         
     }];

@@ -217,7 +217,7 @@ static NSString* kIdx;
                         id value = [super data:index key:key];
                         NSUInteger filterIndex = filterFun(self, sel, value, key);
                         if (NSNotFound != filterIndex) {
-                            if (needFilterIndexSorted) index.idx = [NSString stringWithFormat:@"%d:%u",keyIndex,filterIndex];
+                            if (needFilterIndexSorted) index.idx = [NSString stringWithFormat:@"%d:%lu",keyIndex,(unsigned long)filterIndex];
                             @synchronized(sectionItems) {
                                 [sectionItems addObject:index];
                             }

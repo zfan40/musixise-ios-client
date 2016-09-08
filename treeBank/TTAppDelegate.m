@@ -36,27 +36,22 @@ void setupRouter() {
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    // 用于显示欢迎页page
     BOOL firstRun = [[NSUserDefaults standardUserDefaults]objectForKey:@"appFirstRun"];
     if(!firstRun){
         [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:@"appFirstRun"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         TTWalkThroughViewController *walkThroughView =[TTWalkThroughViewController new];
         walkThroughView.frame = [UIScreen mainScreen].bounds;
         [self.otherWindow makeKeyAndVisible];
         [self.otherWindow addSubview:walkThroughView];
         
     }
-    
-    
     TTMainViewController *mainViewController = [TTMainViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:mainViewController];
     [TTNavigator sharedInstance].navigationController = navigationController;
     navigationController.navigationBarHidden = YES;
     navigationController.delegate = [TTNavigator sharedInstance];
-    
-    
-    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];

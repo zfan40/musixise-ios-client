@@ -176,7 +176,7 @@
         NSAssert(nil, @"error");
         return nil;
     }
-    NSString *key = [NSString stringWithFormat:@"%d",indexPath.row];
+    NSString *key = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     UIView* view =[self.stackDics objectForKey:key];
     NSAssert(self.registerDic&&[[self.registerDic allValues]count]>0, @"registerDic is nil");
     if(!view){
@@ -243,7 +243,7 @@
         UIView *curView = [_delegate bannerScrollView:self viewForPageAtIndexPath:[NSIndexPath indexPathForRow:page  inSection:0]];
         
         if( pre==last ){
-            NSString *key = [NSString stringWithFormat:@"%d",pre];
+            NSString *key = [NSString stringWithFormat:@"%ld",(long)pre];
             [self.stackDics removeObjectForKey:key];
         }
         UIView *lastView = [_delegate bannerScrollView:self viewForPageAtIndexPath:[NSIndexPath indexPathForRow:last inSection:0]];

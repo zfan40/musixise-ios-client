@@ -33,9 +33,9 @@
     self.title = @"MusicList";
     return;
     
-    [self initViews];
-    [self initDatas];
-    [_tableView reloadData];
+//    [self initViews];
+//    [self initDatas];
+//    [_tableView reloadData];
 }
 
 -(void)initDatas{

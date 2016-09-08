@@ -73,7 +73,7 @@
     
     NSArray *array =@[@{@"logo":@"authenticate",@"title":@"实名认证",@"detailText":[self authenticatText:user.authstatus]},
                       @{@"logo":@"infoReview",@"title":@"信息审核",@"detailText":[self auditText:user.auditstatus]},
-                      @{@"logo":@"myCard",@"title":[NSString stringWithFormat:@"我的银行卡(%d张)",user.banknum]},
+                      @{@"logo":@"myCard",@"title":[NSString stringWithFormat:@"我的银行卡(%ld张)",(long)user.banknum]},
                       @{@"logo":@"deviceManager",@"title":@"设备管理",@"detailText":user.deviceno?user.deviceno:@""},
                       @{@"logo":@"revisePassword",@"title":@"修改登录密码"},
                       @{@"logo":@"questions",@"title":@"常见问题"}];

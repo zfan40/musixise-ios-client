@@ -37,26 +37,26 @@
     [super viewDidLoad];
     self.title = @"我的";
     return;
-    _accountModel =[TTMyCountModel new];
-    _headView =[TTMainHeadView new];
-    _headView.rightButton.titleLabel.font = [UIFont systemFontOfSize:12];
-    _headView.titleLab.text = @"我的账户";
-    [_headView.leftButton setTitle:@"" forState:UIControlStateNormal];
-    [_headView.leftButton setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
-    _headView.collectionMoney.hidden = YES;
-    _headView.getMoney.hidden = YES;
-    _avatImageView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"avatar"]];
-    [_headView addSubview:_avatImageView];
-    _tableView =[UITableView new];
-    [self.view addSubview:_tableView];
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [_headView.leftButton addTarget:self action:@selector(onMessage) forControlEvents:UIControlEventTouchUpInside];
-    [_headView.rightButton addTarget:self action:@selector(onLogoOut) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_headView];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onUserChanged) name:kTTUserChangedNotification  object:nil];
-    [self onUserChanged];
+//    _accountModel =[TTMyCountModel new];
+//    _headView =[TTMainHeadView new];
+//    _headView.rightButton.titleLabel.font = [UIFont systemFontOfSize:12];
+//    _headView.titleLab.text = @"我的账户";
+//    [_headView.leftButton setTitle:@"" forState:UIControlStateNormal];
+//    [_headView.leftButton setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
+//    _headView.collectionMoney.hidden = YES;
+//    _headView.getMoney.hidden = YES;
+//    _avatImageView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"avatar"]];
+//    [_headView addSubview:_avatImageView];
+//    _tableView =[UITableView new];
+//    [self.view addSubview:_tableView];
+//    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    _tableView.delegate = self;
+//    _tableView.dataSource = self;
+//    [_headView.leftButton addTarget:self action:@selector(onMessage) forControlEvents:UIControlEventTouchUpInside];
+//    [_headView.rightButton addTarget:self action:@selector(onLogoOut) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:_headView];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onUserChanged) name:kTTUserChangedNotification  object:nil];
+//    [self onUserChanged];
 
 }
 

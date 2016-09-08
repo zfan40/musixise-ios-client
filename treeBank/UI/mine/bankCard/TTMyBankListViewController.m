@@ -34,7 +34,7 @@
 
 -(void)loadData{
     [theApiService  postRequest:@"/account/userbank.htm" parameter:@{@"token":[TTRunTime instance].user.token,@"memberid":[TTRunTime instance].user.objId} block:^(id result, BOOL ret, NSError *error) {
-        BOOL status =[[result objectForKey:@"success"]boolValue];
+//        BOOL status =[[result objectForKey:@"success"] boolValue];
         NSString *message =[result objectForKey:@"message"];
         
         
@@ -46,16 +46,7 @@
 }
 
 -(IBAction)onRevise:(id)sender{
-    [self route:@"treeBank://interPage/TTReviseBankInfoViewController" withParam:@{ @"model":[TTAuthModel new] }];
-
-    
-}
-
--(void)viewWillLayoutSubviews{
-    [super viewWillLayoutSubviews];
-    CGSize size = self.view.frame.size;
-    
-    
+    [self route:@"treeBank://interPage/TTReviseBankInfoViewController" withParam:@{ @"model":[TTAuthModel new] }];   
 }
 
 

@@ -19,47 +19,44 @@
     NSArray *_datas;
 }
 
+#pragma mark - --------------------退出清空------------------
+#pragma mark - --------------------初始化--------------------
 
 - (id)initWithFrame:(CGRect)frame {
-    self =[super initWithFrame:frame];
-    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectZero];
-    self.pageControl.numberOfPages = 3;
-    self.pageControl.currentPage = 0;
-    
-    UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [collectionViewFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewFlowLayout];
-    collectionViewFlowLayout.minimumLineSpacing =0;
-    collectionViewFlowLayout.minimumInteritemSpacing = 0;
-    
-    collectionView.backgroundColor = [UIColor clearColor];
-    collectionView.frame = self.bounds;
-    [collectionView registerClass:[UICollectionViewCell class]
-       forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
-    self.collectionView = collectionView;
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
-    [self addSubview:collectionView];
-    self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _datas = @[@"1",@"2",@"3"];
-    self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.collectionView.pagingEnabled = YES;
-    [self addSubview:self.pageControl];
-    [self.collectionView reloadData];
+    if (self = [super initWithFrame:frame]) {
+        [self addSubview:self.collectionView];
+        _datas = @[@"1",@"2",@"3"];
+        [self addSubview:self.pageControl];
+        [self.collectionView reloadData];
+    }
     return self;
+}
+#pragma mark - --------------------接口API------------------
+#pragma mark - --------------------父类方法重写--------------
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.collectionView.frame = self.bounds;
+    self.pageControl.frame = CGRectMake(0, self.height-40, self.width, 30);
 }
 
 -(BOOL)shouldHideNavigationBar{
     return YES;
 }
 
+#pragma mark - --------------------功能函数------------------
 
--(void)layoutSubviews{
-    [super layoutSubviews];
-    _collectionView.frame = self.bounds;
-    _pageControl.frame = CGRectMake(0, self.height-40  , self.width, 30);
+-(void)onGo{
+    [self removeFromSuperview];
+    TTAppDelegate *deleage =[UIApplication sharedApplication].delegate;
+    [deleage.otherWindow resignKeyWindow];
+    deleage.otherWindow = nil;
+    [deleage.window makeKeyAndVisible];
 }
 
+#pragma mark - --------------------手势事件------------------
+#pragma mark - --------------------按钮事件------------------
+#pragma mark - --------------------代理方法------------------
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
@@ -89,15 +86,6 @@
     button.frame = CGRectMake( (self.width-buttonImageSize.width)/2.0, self.height-50-buttonImageSize.height, buttonImageSize.width, buttonImageSize.height);
     return cell;
 }
-
--(void)onGo{
-    [self removeFromSuperview];
-    TTAppDelegate *deleage =[UIApplication sharedApplication].delegate;
-    [deleage.otherWindow resignKeyWindow];
-    deleage.otherWindow = nil;
-    [deleage.window makeKeyAndVisible];
-}
-
 
 #pragma mark UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView
@@ -139,6 +127,37 @@ referenceSizeForFooterInSection:(NSInteger)section {
     _pageControl.currentPage = index;
 }
 
+#pragma mark - --------------------属性相关------------------
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+        [collectionViewFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+        collectionViewFlowLayout.minimumLineSpacing =0;
+        collectionViewFlowLayout.minimumInteritemSpacing = 0;
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewFlowLayout];
+        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.frame = self.bounds;
+        [_collectionView registerClass:[UICollectionViewCell class]
+            forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.pagingEnabled = YES;
+        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _collectionView.bounces = NO;
+    }
+    return _collectionView;
+}
+
+- (UIPageControl *)pageControl {
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
+        _pageControl.numberOfPages = 3;
+        _pageControl.currentPage = 0;
+    }
+    return _pageControl;
+}
 
 
 

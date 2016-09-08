@@ -173,6 +173,7 @@
 //                                                   object: [AVAudioSession sharedInstance]];
 //    }
 //    else {
+    //TODO: wmy 这个可以不用去掉
         [_audioSession setDelegate:self];
 //    }
     
@@ -207,6 +208,7 @@
         
         OSStatus propertySetError = 0;
         UInt32 allowMixing = true;
+        //TODO: wmy 这个可以不用去掉
         propertySetError = AudioSessionSetProperty (kAudioSessionProperty_OverrideCategoryMixWithOthers,
                                                     sizeof (allowMixing),                               
                                                     &allowMixing);

@@ -44,7 +44,6 @@
     _device1TextBtn.backgroundColor =[UIColor whiteColor];
     _device2TextBtn.backgroundColor =[UIColor whiteColor];
     [theApiService  postRequest:@"/account/poslist.htm" parameter:@{@"token":[TTRunTime instance].user.token,@"memberid":[TTRunTime instance].user.objId} block:^(id result, BOOL ret, NSError *error) {
-        BOOL status =[[result objectForKey:@"success"]boolValue];
         NSString *message =[result objectForKey:@"message"];
         
         

@@ -147,6 +147,26 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
     return self.rightBarButtonItems.firstObject;
 }
 
+//TODO: wmy 为了去警告，之后有可能会删掉
+- (void)optionSelectedAction:(NSInteger)buttonIndex {
+    
+}
+
+//TODO: wmy 为了去警告，之后有可能会删掉
+- (void)doSearch:(id)sender {
+    
+}
+
+//TODO: wmy 为了去警告，之后有可能会删掉
+- (void)showMore:(id)sender {
+    
+}
+
+//TODO: wmy 为了去警告，之后有可能会删掉
+- (void)showMessage:(id)sender {
+    
+}
+
 - (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {
     if (rightBarButtonItem) {
         self.rightBarButtonItems = @[rightBarButtonItem];
@@ -176,7 +196,6 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
 //    self.customNavigationBar.barTintColor = [UIColor colorWithRed:0 green:0 blue:255 alpha:0.6];
     
     [self setupLeftItem:self.customNavigationBar];
-    __weak TTViewController *weak = self;
     [self.customNavigationBar.backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchDragInside];
     [self.view addSubview:self.customNavigationBar];
 }

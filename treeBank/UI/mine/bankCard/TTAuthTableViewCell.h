@@ -13,5 +13,5 @@
 @property(nonatomic ,strong) NSString *detailTitle;
 @property(nonatomic ,assign) BOOL  showIndicator;
 
-@property(nonatomic ,strong) UITextField *textFiled; 
+@property(nonatomic ,strong) UITextField *textFiled;
 @end
