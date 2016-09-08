@@ -19,7 +19,7 @@
 #import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
 #import "BAudioController.h"
 
-@interface TTMainPageViewController ()<UITableViewDelegate,UITextFieldDelegate,UITableViewDataSource,TTBannerScrollViewDelegate>
+@interface TTMainPageViewController ()
 
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) WebViewJavascriptBridge *bridge;
@@ -30,14 +30,8 @@
     UITextField *_textFiled;
 }
 
--(BOOL)shouldHideNavigationBar{
-    return NO;
-}
-
-
--(BOOL)shouldHideBackgroundImage{
-    return YES;
-}
+#pragma mark - --------------------退出清空------------------
+#pragma mark - --------------------初始化--------------------
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,12 +39,6 @@
     [self initViews];
     self.customNavigationBar.backButton.hidden = YES;
 }
-
--(void)onClick{
-    [[TTRouter defaultRouter]route:@"treeBank://interPage/TTWebViewController" withParam:nil];
-
-}
-
 
 -(void)initViews{
     
@@ -63,11 +51,11 @@
     [_audioPlayer setInputVolume:1.0 withBus:0];
     
     _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView
-                                         webViewDelegate:nil
-                                                 handler:^(id data, WVJBResponseCallback responseCallback) {
-                                                     //默认的handler
-                                                     responseCallback(@"Response for message from ObjC");
-                                                 }];
+                                        webViewDelegate:nil
+                                                handler:^(id data, WVJBResponseCallback responseCallback) {
+                                                    //默认的handler
+                                                    responseCallback(@"Response for message from ObjC");
+                                                }];
     
     [_bridge registerHandler:@"MusicDeviceMIDIEvent" handler:^(id data, WVJBResponseCallback responseCallback) {
         MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0]integerValue], [data[1]integerValue], [data[2]integerValue], [data[3]integerValue]);
@@ -77,38 +65,38 @@
         
         [[TTRouter defaultRouter]route:@"treeBank://interPage/TTWebViewController" withParam:@{@"url":data?data:@""}];
     }];
-
-    
-    
     //@"http://m.musixise.com/"
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.musixise.com/stagelist"]];
     [_webView loadRequest:request];
-    //        _webView.delegate = self;
-    //    NSString *resourcePath = [ [NSBundle mainBundle] resourcePath];
-    //    NSString *filePath  = [resourcePath stringByAppendingPathComponent:@"piano.html"];
-    //    NSString *htmlstring =[[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    //    [self.webView loadHTMLString:htmlstring  baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle]  bundlePath]]];
-    
-    
+}
+
+#pragma mark - --------------------接口API------------------
+#pragma mark - --------------------父类方法重写--------------
+
+-(BOOL)shouldHideNavigationBar{
+    return NO;
 }
 
 
+-(BOOL)shouldHideBackgroundImage{
+    return YES;
+}
+#pragma mark - --------------------功能函数------------------
+
+-(void)onClick{
+    [[TTRouter defaultRouter]route:@"treeBank://interPage/TTWebViewController" withParam:nil];
+    
+}
+#pragma mark - --------------------手势事件------------------
+#pragma mark - --------------------按钮事件------------------
+#pragma mark - --------------------代理方法------------------
+#pragma mark - --------------------属性相关------------------
 
 -(void)play:(NSArray*)data{
     NSLog(@"%ld-----",(long)[data[0]integerValue]);
     MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0]integerValue], [data[1]integerValue], [data[2]integerValue], 0);
 }
 
-
-
-
-//-(void)onLeftSearchPay{
-//    if([TTRunTime instance].user){
-//        [TTTipsHelper showTip:@"正在开发中..." ];
-//    }else{
-//        [[TTRouter defaultRouter]route:@"treeBank://interPage/TTLoginViewController" withParam:nil];
-//    }
-//}
 
 @end

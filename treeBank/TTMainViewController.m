@@ -18,8 +18,6 @@
 
 @implementation TTMainViewController{
     TTMainBottomView *_bottomView;
-    TTMyMainViewController *_myMainViewController;
-    TTBusinessViewController *_businessViewController;
     TTMainPageViewController *_mainPageViewController;
 }
 
@@ -28,14 +26,8 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    _myMainViewController =[TTMyMainViewController new];
-    _businessViewController =[TTBusinessViewController new];
     _mainPageViewController =[TTMainPageViewController new];
-    [self.view addSubview:_myMainViewController.view];
-    [self.view addSubview:_businessViewController.view];
     [self.view addSubview:_mainPageViewController.view];
-    _businessViewController.view.hidden = YES;
-    _myMainViewController.view.hidden = YES;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -48,8 +40,6 @@
     [super viewWillLayoutSubviews];
     CGRect viewCt = self.view.bounds;
     viewCt.size.height = self.view.height;
-    _myMainViewController.view.frame = viewCt;
-    _businessViewController.view.frame = viewCt;
     _mainPageViewController.view.frame = viewCt;
     
 }
