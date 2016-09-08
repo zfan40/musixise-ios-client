@@ -8,96 +8,65 @@
 
 #import "NSArray+safe.h"
 
-@implementation  NSArray (XSafe)
+@implementation NSArray (XSafe)
 
-+ (id)arrayWithObjectForX:(id)anObject
-{
++ (id)arrayWithObjectForX:(id)anObject {
     if (nil != anObject) {
         return [self arrayWithObject:anObject];
-    }
-    else
-    {
+    } else {
         return nil;
     }
-    
 }
 
-- (id)objectAtIndexForX:(NSUInteger)index
-{
-    
-    if (index < self.count)
-    {
+- (id)objectAtIndexForX:(NSUInteger)index {
+
+    if (index < self.count) {
         return [self objectAtIndex:index];
-    }
-    else
-    {
+    } else {
         return nil;
     }
 }
 
-- (NSArray *)arrayByAddingObjectForX:(id)anObject
-{
-    if (nil != anObject)
-    {
+- (NSArray *)arrayByAddingObjectForX:(id)anObject {
+    if (nil != anObject) {
         return [self arrayByAddingObject:anObject];
-    }
-    else
-    {
+    } else {
         return nil;
     }
 }
 
-- (NSArray *)subarrayWithRangeForX:(NSRange)range
-{
-    if (range.location+range.length <= self.count)
-    {
+- (NSArray *)subarrayWithRangeForX:(NSRange)range {
+    if (range.location + range.length <= self.count) {
         return [self subarrayWithRange:range];
-    }
-    else
-    {
+    } else {
         return nil;
     }
-    
 }
 
-- (void)getObjectsForX:(id __unsafe_unretained [])objects range:(NSRange)range
-{
-    if (range.location+range.length <= self.count)
-    {
+- (void)getObjectsForX:(id __unsafe_unretained[])objects range:(NSRange)range {
+    if (range.location + range.length <= self.count) {
         return [self getObjects:objects range:range];
-    }
-    else
-    {
+    } else {
         return;
     }
-    
 }
 
-- (NSArray *)objectsAtIndexesForX:(NSIndexSet *)indexes
-{
-    if (indexes.firstIndex < self.count && indexes.lastIndex < self.count)
-    {
+- (NSArray *)objectsAtIndexesForX:(NSIndexSet *)indexes {
+    if (indexes.firstIndex < self.count && indexes.lastIndex < self.count) {
         return [self objectsAtIndexes:indexes];
-    }
-    else
-    {
+    } else {
         return nil;
     }
 }
 
-+ (NSArray *)arrayWithArrayForX:(NSArray *) array
-{
++ (NSArray *)arrayWithArrayForX:(NSArray *)array {
     @try {
-        if (nil != array
-            && [array count] > 0) {
+        if (nil != array && [array count] > 0) {
             return [self arrayWithArray:array];
-        }
-        else
-        {
+        } else {
             return nil;
         }
-    }
-    @catch (NSException *exception) {
+    } @catch (NSException *exception) {
         return nil;
     }
 }

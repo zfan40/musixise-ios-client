@@ -19,9 +19,9 @@
  *@param selectorName: 处理对象的方法名
  */
 
-- (void)addPattern:(NSString*)pattern
+- (void)addPattern:(NSString *)pattern
     withHandlerClassName:(NSString *)handlerClassName
-      selectorName:(NSString *)selectorName;
+            selectorName:(NSString *)selectorName;
 
 /*
  * 添加到指定scheme下，如ttpod ，http，xiami等
@@ -32,6 +32,6 @@
  */
 - (void)addPattern:(NSString *)pattern
     withHandlerClassName:(NSString *)handlerClassName
-      selectorName:(NSString *)selectorName
-         forScheme:(NSString *)scheme;
+            selectorName:(NSString *)selectorName
+               forScheme:(NSString *)scheme;
 @end

@@ -1,5 +1,5 @@
 //
-//  
+//
 //
 //  Created by kimziv on 13-9-14.
 //
@@ -12,7 +12,7 @@
 @class NSMutableDictionary;
 
 @interface ChineseToPinyinResource : NSObject {
-    NSString* _directory;
+    NSString *_directory;
     NSDictionary *_unicodeToHanyuPinyinTable;
 }
 //@property(nonatomic, strong)NSDictionary *unicodeToHanyuPinyinTable;
@@ -26,6 +26,4 @@
 
 @end
 
-
-
-#endif // _ChineseToPinyinResource_H_
+#endif  // _ChineseToPinyinResource_H_

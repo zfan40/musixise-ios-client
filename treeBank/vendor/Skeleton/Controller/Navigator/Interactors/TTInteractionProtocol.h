@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 xiami. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "TTTransition.h"
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @protocol TTTransitionInteractionController;
@@ -32,7 +32,6 @@
 @property (nonatomic, assign, readwrite) TTTransitionStyle style;
 
 @property (nonatomic, weak) id<TTTransitionInteractionControllerDelegate> nextViewControllerDelegate;
-
 
 - (void)attachViewController:(UIViewController *)viewController withStyle:(TTTransitionStyle)style;
 @end

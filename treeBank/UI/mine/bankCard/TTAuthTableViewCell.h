@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TTAuthTableViewCell : UITableViewCell
-@property(nonatomic ,strong) NSString *title;
-@property(nonatomic ,strong) NSString *detailTitle;
-@property(nonatomic ,assign) BOOL  showIndicator;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *detailTitle;
+@property (nonatomic, assign) BOOL showIndicator;
 
-@property(nonatomic ,strong) UITextField *textFiled;
+@property (nonatomic, strong) UITextField *textFiled;
 @end

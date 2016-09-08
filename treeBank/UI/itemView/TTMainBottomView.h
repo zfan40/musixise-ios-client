@@ -6,12 +6,12 @@
 //  Copyright © 2016年 kebi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "TTMainHeadView.h"
+#import <UIKit/UIKit.h>
 
 @interface TTMainBottomView : UIView
-@property ( nonatomic, strong ) TTMainButton *mainButton;
-@property ( nonatomic, strong ) TTMainButton *mineButton;
-@property ( nonatomic, strong ) TTMainButton *businessButton;
--(void)updateButton:(TTMainButton*)button selected:(BOOL)selected;
+@property (nonatomic, strong) TTMainButton *mainButton;
+@property (nonatomic, strong) TTMainButton *mineButton;
+@property (nonatomic, strong) TTMainButton *businessButton;
+- (void)updateButton:(TTMainButton *)button selected:(BOOL)selected;
 @end

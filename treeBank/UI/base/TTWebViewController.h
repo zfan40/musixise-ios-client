@@ -9,5 +9,5 @@
 #import "TTViewController.h"
 
 @interface TTWebViewController : TTViewController
-@property (nonatomic, strong )NSString *url;
+@property (nonatomic, strong) NSString *url;
 @end

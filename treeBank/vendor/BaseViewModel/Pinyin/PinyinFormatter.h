@@ -1,5 +1,5 @@
 //
-//  
+//
 //
 //  Created by kimziv on 13-9-14.
 //
@@ -19,4 +19,4 @@
 - (id)init;
 @end
 
-#endif // _PinyinFormatter_H_
+#endif  // _PinyinFormatter_H_

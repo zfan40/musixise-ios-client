@@ -123,6 +123,7 @@ typedef enum : NSUInteger {
 //                          representation was encoded.
 //
 // Returns nil by default, indicating that conversion failed.
-+ (NSDictionary *)dictionaryValueFromArchivedExternalRepresentation:(NSDictionary *)externalRepresentation version:(NSUInteger)fromVersion;
++ (NSDictionary *)dictionaryValueFromArchivedExternalRepresentation:(NSDictionary *)externalRepresentation
+                                                            version:(NSUInteger)fromVersion;
 
 @end

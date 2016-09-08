@@ -6,19 +6,20 @@
 //  Copyright (c) 2013 GitHub. All rights reserved.
 //
 
-#import "NSValueTransformer+MTLInversionAdditions.h"
 #import "MTLValueTransformer.h"
+#import "NSValueTransformer+MTLInversionAdditions.h"
 
 @implementation NSValueTransformer (MTLInversionAdditions)
 
 - (NSValueTransformer *)mtl_invertedTransformer {
-	NSParameterAssert(self.class.allowsReverseTransformation);
+    NSParameterAssert(self.class.allowsReverseTransformation);
 
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(id value) {
-		return [self reverseTransformedValue:value];
-	} reverseBlock:^(id value) {
-		return [self transformedValue:value];
-	}];
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(id value) {
+        return [self reverseTransformedValue:value];
+    }
+        reverseBlock:^(id value) {
+            return [self transformedValue:value];
+        }];
 }
 
 @end

@@ -8,8 +8,6 @@
 
 #import "TTAuthModel.h"
 
-
-
 @implementation TTAuthModel
 
 @end

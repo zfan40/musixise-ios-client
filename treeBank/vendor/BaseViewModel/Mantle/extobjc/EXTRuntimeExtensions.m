@@ -11,35 +11,41 @@
 
 #import <Foundation/Foundation.h>
 
-mtl_propertyAttributes *mtl_copyPropertyAttributes (objc_property_t property) {
-    const char * const attrString = property_getAttributes(property);
+mtl_propertyAttributes *mtl_copyPropertyAttributes(objc_property_t property) {
+    const char *const attrString = property_getAttributes(property);
     if (!attrString) {
         fprintf(stderr, "ERROR: Could not get attribute string from property %s\n", property_getName(property));
         return NULL;
     }
 
     if (attrString[0] != 'T') {
-        fprintf(stderr, "ERROR: Expected attribute string \"%s\" for property %s to start with 'T'\n", attrString, property_getName(property));
+        fprintf(stderr, "ERROR: Expected attribute string \"%s\" for property %s to start with 'T'\n", attrString,
+                property_getName(property));
         return NULL;
     }
 
     const char *typeString = attrString + 1;
     const char *next = NSGetSizeAndAlignment(typeString, NULL, NULL);
     if (!next) {
-        fprintf(stderr, "ERROR: Could not read past type in attribute string \"%s\" for property %s\n", attrString, property_getName(property));
+        fprintf(stderr, "ERROR: Could not read past type in attribute string \"%s\" for property %s\n", attrString,
+                property_getName(property));
         return NULL;
     }
 
     size_t typeLength = next - typeString;
     if (!typeLength) {
-        fprintf(stderr, "ERROR: Invalid type in attribute string \"%s\" for property %s\n", attrString, property_getName(property));
+        fprintf(stderr, "ERROR: Invalid type in attribute string \"%s\" for property %s\n", attrString,
+                property_getName(property));
         return NULL;
     }
 
     // allocate enough space for the structure and the type string (plus a NUL)
     mtl_propertyAttributes *attributes = calloc(1, sizeof(mtl_propertyAttributes) + typeLength + 1);
     if (!attributes) {
-        fprintf(stderr, "ERROR: Could not allocate mtl_propertyAttributes structure for attribute string \"%s\" for property %s\n", attrString, property_getName(property));
+        fprintf(
+            stderr,
+            "ERROR: Could not allocate mtl_propertyAttributes structure for attribute string \"%s\" for property %s\n",
+            attrString, property_getName(property));
         return NULL;
     }
 
@@ -54,7 +60,8 @@ mtl_propertyAttributes *mtl_copyPropertyAttributes (objc_property_t property) {
         next = strchr(className, '"');
 
         if (!next) {
-            fprintf(stderr, "ERROR: Could not read class name in attribute string \"%s\" for property %s\n", attrString, property_getName(property));
+            fprintf(stderr, "ERROR: Could not read class name in attribute string \"%s\" for property %s\n", attrString,
+                    property_getName(property));
             return NULL;
         }
 
@@ -80,28 +87,27 @@ mtl_propertyAttributes *mtl_copyPropertyAttributes (objc_property_t property) {
         next += 2;
 
         switch (flag) {
-        case '\0':
-            break;
+            case '\0':
+                break;
 
-        case 'R':
-            attributes->readonly = YES;
-            break;
+            case 'R':
+                attributes->readonly = YES;
+                break;
 
-        case 'C':
-            attributes->memoryManagementPolicy = mtl_propertyMemoryManagementPolicyCopy;
-            break;
+            case 'C':
+                attributes->memoryManagementPolicy = mtl_propertyMemoryManagementPolicyCopy;
+                break;
 
-        case '&':
-            attributes->memoryManagementPolicy = mtl_propertyMemoryManagementPolicyRetain;
-            break;
+            case '&':
+                attributes->memoryManagementPolicy = mtl_propertyMemoryManagementPolicyRetain;
+                break;
 
-        case 'N':
-            attributes->nonatomic = YES;
-            break;
+            case 'N':
+                attributes->nonatomic = YES;
+                break;
 
-        case 'G':
-        case 'S':
-            {
+            case 'G':
+            case 'S': {
                 const char *nextFlag = strchr(next, ',');
                 SEL name = NULL;
 
@@ -114,7 +120,9 @@ mtl_propertyAttributes *mtl_copyPropertyAttributes (objc_property_t property) {
                 } else {
                     size_t selectorLength = nextFlag - next;
                     if (!selectorLength) {
-                        fprintf(stderr, "ERROR: Found zero length selector name in attribute string \"%s\" for property %s\n", attrString, property_getName(property));
+                        fprintf(stderr,
+                                "ERROR: Found zero length selector name in attribute string \"%s\" for property %s\n",
+                                attrString, property_getName(property));
                         goto errorOut;
                     }
 
@@ -135,47 +143,52 @@ mtl_propertyAttributes *mtl_copyPropertyAttributes (objc_property_t property) {
 
             break;
 
-        case 'D':
-            attributes->dynamic = YES;
-            attributes->ivar = NULL;
-            break;
-
-        case 'V':
-            // assume that the rest of the string (if present) is the ivar name
-            if (*next == '\0') {
-                // if there's nothing there, let's assume this is dynamic
+            case 'D':
+                attributes->dynamic = YES;
                 attributes->ivar = NULL;
-            } else {
-                attributes->ivar = next;
-                next = "";
-            }
+                break;
 
-            break;
+            case 'V':
+                // assume that the rest of the string (if present) is the ivar name
+                if (*next == '\0') {
+                    // if there's nothing there, let's assume this is dynamic
+                    attributes->ivar = NULL;
+                } else {
+                    attributes->ivar = next;
+                    next = "";
+                }
 
-        case 'W':
-            attributes->weak = YES;
-            break;
+                break;
 
-        case 'P':
-            attributes->canBeCollected = YES;
-            break;
+            case 'W':
+                attributes->weak = YES;
+                break;
 
-        case 't':
-            fprintf(stderr, "ERROR: Old-style type encoding is unsupported in attribute string \"%s\" for property %s\n", attrString, property_getName(property));
+            case 'P':
+                attributes->canBeCollected = YES;
+                break;
 
-            // skip over this type encoding
-            while (*next != ',' && *next != '\0')
-                ++next;
+            case 't':
+                fprintf(stderr,
+                        "ERROR: Old-style type encoding is unsupported in attribute string \"%s\" for property %s\n",
+                        attrString, property_getName(property));
 
-            break;
+                // skip over this type encoding
+                while (*next != ',' && *next != '\0')
+                    ++next;
 
-        default:
-            fprintf(stderr, "ERROR: Unrecognized attribute string flag '%c' in attribute string \"%s\" for property %s\n", flag, attrString, property_getName(property));
+                break;
+
+            default:
+                fprintf(stderr,
+                        "ERROR: Unrecognized attribute string flag '%c' in attribute string \"%s\" for property %s\n",
+                        flag, attrString, property_getName(property));
         }
     }
 
     if (next && *next != '\0') {
-        fprintf(stderr, "Warning: Unparsed data \"%s\" in attribute string \"%s\" for property %s\n", next, attrString, property_getName(property));
+        fprintf(stderr, "Warning: Unparsed data \"%s\" in attribute string \"%s\" for property %s\n", next, attrString,
+                property_getName(property));
     }
 
     if (!attributes->getter) {

@@ -12,11 +12,13 @@
 @implementation NSObject (TTRouter)
 
 - (id)route:(NSString *)urlString withParam:(NSDictionary *)param {
-    return   [[TTRouter defaultRouter] route:urlString withParam:param];
+    return [[TTRouter defaultRouter] route:urlString withParam:param];
 }
 
-- (id)route:(NSString *)urlString withParam:(NSDictionary *)param fromViewController:(UIViewController *)viewController {
-    return   [[TTRouter defaultRouter] route:urlString withParam:param fromViewController:viewController];
+- (id)route:(NSString *)urlString
+             withParam:(NSDictionary *)param
+    fromViewController:(UIViewController *)viewController {
+    return [[TTRouter defaultRouter] route:urlString withParam:param fromViewController:viewController];
 }
 
 @end

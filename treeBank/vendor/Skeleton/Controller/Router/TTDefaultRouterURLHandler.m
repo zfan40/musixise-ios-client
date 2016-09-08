@@ -10,8 +10,8 @@
 #import "TTNavigator.h"
 #import "TTRouterContext.h"
 @implementation TTDefaultRouterURLHandler
-- (void)back:(TTRouterContext* )ctx {
-    id viewCon =  [ctx.queryParams objectForKey:@"viewController"];
+- (void)back:(TTRouterContext *)ctx {
+    id viewCon = [ctx.queryParams objectForKey:@"viewController"];
     Class viewController = NSClassFromString(viewCon);
     if (viewController == nil) {
         [[TTNavigator sharedInstance].navigationController popViewControllerAnimated:YES];
@@ -27,8 +27,8 @@
         }
     }
 }
--(void)interPage:(TTRouterContext* )ctx{
-    NSString *viewControllerName =ctx.matchPaths[0];
-    [[TTNavigator sharedInstance]  showController:NSClassFromString(viewControllerName) withParam:ctx.queryParams];
+- (void)interPage:(TTRouterContext *)ctx {
+    NSString *viewControllerName = ctx.matchPaths[0];
+    [[TTNavigator sharedInstance] showController:NSClassFromString(viewControllerName) withParam:ctx.queryParams];
 }
 @end

@@ -27,41 +27,43 @@
 #pragma mark Lifecycle
 
 + (instancetype)transformerWithBlock:(MTLValueTransformerBlock)transformationBlock {
-	return [[self alloc] initWithForwardBlock:transformationBlock reverseBlock:nil];
+    return [[self alloc] initWithForwardBlock:transformationBlock reverseBlock:nil];
 }
 
 + (instancetype)reversibleTransformerWithBlock:(MTLValueTransformerBlock)transformationBlock {
-	return [self reversibleTransformerWithForwardBlock:transformationBlock reverseBlock:transformationBlock];
+    return [self reversibleTransformerWithForwardBlock:transformationBlock reverseBlock:transformationBlock];
 }
 
-+ (instancetype)reversibleTransformerWithForwardBlock:(MTLValueTransformerBlock)forwardBlock reverseBlock:(MTLValueTransformerBlock)reverseBlock {
-	return [[MTLReversibleValueTransformer alloc] initWithForwardBlock:forwardBlock reverseBlock:reverseBlock];
++ (instancetype)reversibleTransformerWithForwardBlock:(MTLValueTransformerBlock)forwardBlock
+                                         reverseBlock:(MTLValueTransformerBlock)reverseBlock {
+    return [[MTLReversibleValueTransformer alloc] initWithForwardBlock:forwardBlock reverseBlock:reverseBlock];
 }
 
 - (id)initWithForwardBlock:(MTLValueTransformerBlock)forwardBlock reverseBlock:(MTLValueTransformerBlock)reverseBlock {
-	NSParameterAssert(forwardBlock != nil);
+    NSParameterAssert(forwardBlock != nil);
 
-	self = [super init];
-	if (self == nil) return nil;
+    self = [super init];
+    if (self == nil)
+        return nil;
 
-	_forwardBlock = [forwardBlock copy];
-	_reverseBlock = [reverseBlock copy];
+    _forwardBlock = [forwardBlock copy];
+    _reverseBlock = [reverseBlock copy];
 
-	return self;
+    return self;
 }
 
 #pragma mark NSValueTransformer
 
 + (BOOL)allowsReverseTransformation {
-	return NO;
+    return NO;
 }
 
 + (Class)transformedValueClass {
-	return [NSObject class];
+    return [NSObject class];
 }
 
 - (id)transformedValue:(id)value {
-	return self.forwardBlock(value);
+    return self.forwardBlock(value);
 }
 
 @end
@@ -71,18 +73,18 @@
 #pragma mark Lifecycle
 
 - (id)initWithForwardBlock:(MTLValueTransformerBlock)forwardBlock reverseBlock:(MTLValueTransformerBlock)reverseBlock {
-	NSParameterAssert(reverseBlock != nil);
-	return [super initWithForwardBlock:forwardBlock reverseBlock:reverseBlock];
+    NSParameterAssert(reverseBlock != nil);
+    return [super initWithForwardBlock:forwardBlock reverseBlock:reverseBlock];
 }
 
 #pragma mark NSValueTransformer
 
 + (BOOL)allowsReverseTransformation {
-	return YES;
+    return YES;
 }
 
 - (id)reverseTransformedValue:(id)value {
-	return self.reverseBlock(value);
+    return self.reverseBlock(value);
 }
 
 @end

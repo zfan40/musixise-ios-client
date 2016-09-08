@@ -110,4 +110,4 @@ typedef struct {
  * You must \c free() the returned pointer. Returns \c NULL if there is an error
  * obtaining information from \a property.
  */
-mtl_propertyAttributes *mtl_copyPropertyAttributes (objc_property_t property);
+mtl_propertyAttributes *mtl_copyPropertyAttributes(objc_property_t property);

@@ -6,8 +6,8 @@
 //  Copyright © 2016年 kebi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "TTUISkeleton.h"
+#import <UIKit/UIKit.h>
 @interface TTSettingViewController : TTViewController
 
 @end

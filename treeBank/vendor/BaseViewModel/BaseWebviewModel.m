@@ -7,20 +7,20 @@
 //
 
 #import "BaseWebviewModel.h"
-@interface BaseWebviewModel()
+@interface BaseWebviewModel ()
 
 @end
 @implementation BaseWebviewModel
--(instancetype)initWithURL:(NSURL *)URL{
-    if (self =[super init]) {
-       _url =URL;
+- (instancetype)initWithURL:(NSURL *)URL {
+    if (self = [super init]) {
+        _url = URL;
     }
     return self;
 }
--(NSInteger)itemCount:(NSInteger)section {
+- (NSInteger)itemCount:(NSInteger)section {
     return 1;
 }
--(void)dealloc{
+- (void)dealloc {
     _url = nil;
 }
 @end

@@ -8,16 +8,16 @@
 
 #import "TTBaseModel.h"
 
-#define kTTRankListDataChangedNotification  @"kTTRankListDataChangedNotification"
+#define kTTRankListDataChangedNotification @"kTTRankListDataChangedNotification"
 
 @interface TTBankModel : TTBaseModel
-@property (nonatomic ,strong) NSString *bankCode;
-@property (nonatomic ,strong) NSString *bankShortname;
--(void)parseData:(NSDictionary*)dics;
+@property (nonatomic, strong) NSString *bankCode;
+@property (nonatomic, strong) NSString *bankShortname;
+- (void)parseData:(NSDictionary *)dics;
 
 @end
 
 @interface TTRankListModel : TTBaseModel
 @property (nonatomic, strong) NSMutableArray *datas;
--(void)load;
+- (void)load;
 @end

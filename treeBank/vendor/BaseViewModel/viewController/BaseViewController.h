@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 @class BaseViewModel;
 @interface BaseViewController : UIViewController
-@property(nonatomic,strong) BaseViewModel* viewModel;
+@property (nonatomic, strong) BaseViewModel *viewModel;
 
--(void)viewModelStateChanged;
--(void)viewModelDataChanged;
+- (void)viewModelStateChanged;
+- (void)viewModelDataChanged;
 @end

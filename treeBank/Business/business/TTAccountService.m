@@ -8,46 +8,51 @@
 
 #import "TTAccountService.h"
 #import "TTApiService.h"
-#import "TTTipsHelper.h"
 #import "TTIntroductionView.h"
+#import "TTTipsHelper.h"
 
 @implementation TTAccountService
-+(instancetype)shareInstance{
++ (instancetype)shareInstance {
     static TTAccountService *instance = nil;
-    if( !instance){
-        instance =[TTAccountService new];
+    if (!instance) {
+        instance = [TTAccountService new];
     }
     return instance;
 }
 
--(id)init{
+- (id)init {
     self = [super init];
     return self;
 }
 
+- (void)accountMember:(NSString *)token
+                objId:(NSString *)objId
+                block:(void (^)(id result, BOOL ret, NSError *error))block {
 
--(void)accountMember:(NSString*)token  objId:(NSString*)objId block:(void(^)(id result ,BOOL ret,NSError *error))block{
-    
-    [theApiService postRequest:@"/account/index.htm" parameter:@{@"token":token,@"memberid":objId?objId:@""} block:^(id result, BOOL ret, NSError *error) {
-        BOOL state =[[result objectForKey:@"success"]boolValue];
-        if(state){
-            TTUser *user =[TTUser new];
-            user.token = token;
-            user.objId = objId;
-            [user parseData:result];
-            [TTRunTime instance].user = user;
-            [[NSNotificationCenter defaultCenter]postNotificationName:kTTUserChangedNotification object:nil];
-            [TTIntroductionView showIntroductionView];
-        }else{
-            [TTTipsHelper showTip:@"登录失败"];
-        }
-        block(result, YES, nil);
-    }];
-
+    [theApiService
+        postRequest:@"/account/index.htm"
+          parameter:@{
+              @"token": token,
+              @"memberid": objId ? objId : @""
+          }
+              block:^(id result, BOOL ret, NSError *error) {
+                  BOOL state = [[result objectForKey:@"success"] boolValue];
+                  if (state) {
+                      TTUser *user = [TTUser new];
+                      user.token = token;
+                      user.objId = objId;
+                      [user parseData:result];
+                      [TTRunTime instance].user = user;
+                      [[NSNotificationCenter defaultCenter] postNotificationName:kTTUserChangedNotification object:nil];
+                      [TTIntroductionView showIntroductionView];
+                  } else {
+                      [TTTipsHelper showTip:@"登录失败"];
+                  }
+                  block(result, YES, nil);
+              }];
 }
 
--(void)autoLogin{
-    
+- (void)autoLogin {
 }
 
 @end

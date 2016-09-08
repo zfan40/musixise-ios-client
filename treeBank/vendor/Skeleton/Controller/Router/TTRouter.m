@@ -8,8 +8,8 @@
 
 #import "TTRouter.h"
 #import "TTRouterImp.h"
-@implementation TTRouter{
-    NSMutableDictionary  *_routerMap;
+@implementation TTRouter {
+    NSMutableDictionary *_routerMap;
 }
 + (instancetype)defaultRouter {
     static dispatch_once_t onceToken;
@@ -19,7 +19,7 @@
     });
     return router;
 }
--(instancetype)init{
+- (instancetype)init {
     if (self = [super init]) {
         _routerMap = [NSMutableDictionary dictionaryWithCapacity:5];
     }
@@ -41,38 +41,48 @@
             split.viewControllers.firstObject;
         });
     }
-    
-    return  [self route:urlString withParam:param fromViewController:sourceViewController];
+
+    return [self route:urlString withParam:param fromViewController:sourceViewController];
 }
 
-- (TTRouterResult *)route:(NSString *)urlString withParam:(NSDictionary *)param fromViewController:(UIViewController *)viewController {
+- (TTRouterResult *)route:(NSString *)urlString
+                withParam:(NSDictionary *)param
+       fromViewController:(UIViewController *)viewController {
     // TODO: 跳转
-    return [[TTRouterImp instance]route:urlString parameters:param];
+    return [[TTRouterImp instance] route:urlString parameters:param];
 }
-- (void)addPattern:(NSString*)pattern withHandlerClassName:(NSString *)handlerClassName selectorName:(nonnull NSString *)selectorName{
+- (void)addPattern:(NSString *)pattern
+    withHandlerClassName:(NSString *)handlerClassName
+            selectorName:(nonnull NSString *)selectorName {
     [self addRoute:pattern withObject:NSClassFromString(handlerClassName) selector:NSSelectorFromString(selectorName)];
 }
 
-- (void)addPattern:(NSString *)pattern withHandlerClassName:(NSString *)handlerClassName selectorName:(nonnull NSString *)selectorName forScheme:(NSString *)scheme{
-    [self addRoute:pattern withObject: NSClassFromString(handlerClassName) selector:NSSelectorFromString(selectorName) forScheme:scheme];
+- (void)addPattern:(NSString *)pattern
+    withHandlerClassName:(NSString *)handlerClassName
+            selectorName:(nonnull NSString *)selectorName
+               forScheme:(NSString *)scheme {
+    [self addRoute:pattern
+        withObject:NSClassFromString(handlerClassName)
+          selector:NSSelectorFromString(selectorName)
+         forScheme:scheme];
 }
 
--(void)addRoute:(NSString *)pattern withObject:(id)obj selector:(SEL)selector{
-    return [self   addRoute:pattern withObject:obj selector:selector forScheme:@"treeBank"];
+- (void)addRoute:(NSString *)pattern withObject:(id)obj selector:(SEL)selector {
+    return [self addRoute:pattern withObject:obj selector:selector forScheme:@"treeBank"];
 }
-- (TTRouterImp *)routerForScheme:(NSString *)scheme{
+- (TTRouterImp *)routerForScheme:(NSString *)scheme {
     TTRouterImp *imp = nil;
     if (scheme == nil) {
-         scheme = @"treeBank";
+        scheme = @"treeBank";
     }
     imp = _routerMap[scheme];
     if (!imp) {
-        imp = [[TTRouterImp instance]newSubRouter:[NSString stringWithFormat:@"%@://",scheme]];
+        imp = [[TTRouterImp instance] newSubRouter:[NSString stringWithFormat:@"%@://", scheme]];
         _routerMap[scheme] = imp;
     }
-    return  imp;
+    return imp;
 }
--(void)addRoute:(NSString *)pattern withObject:(id)obj selector:(SEL)selector forScheme:(NSString *)scheme{
-   [[self routerForScheme:scheme] addRoute:pattern withObject:obj selector:selector,nil];
+- (void)addRoute:(NSString *)pattern withObject:(id)obj selector:(SEL)selector forScheme:(NSString *)scheme {
+    [[self routerForScheme:scheme] addRoute:pattern withObject:obj selector:selector, nil];
 }
 @end

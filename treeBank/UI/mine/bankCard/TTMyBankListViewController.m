@@ -8,22 +8,22 @@
 
 #import "TTMyBankListViewController.h"
 
-#import "TTDeviceManagerViewController.h"
-#import "TTUIViewAdditons.h"
-#import "TTUser.h"
-#import "TTUtility.h"
-#import "TTRunTime.h"
-#import "TTRouter.h"
-#import "TTTipsHelper.h"
 #import "TTActionSheet.h"
 #import "TTApiService.h"
 #import "TTAuthModel.h"
 #import "TTAuthModel.h"
+#import "TTDeviceManagerViewController.h"
+#import "TTRouter.h"
+#import "TTRunTime.h"
+#import "TTTipsHelper.h"
+#import "TTUIViewAdditons.h"
+#import "TTUser.h"
+#import "TTUtility.h"
 
 @interface TTMyBankListViewController ()
 @end
 
-@implementation TTMyBankListViewController{
+@implementation TTMyBankListViewController {
     TTAuthModel *_model;
 }
 
@@ -32,23 +32,23 @@
     self.title = @"我的银行卡";
 }
 
--(void)loadData{
-    [theApiService  postRequest:@"/account/userbank.htm" parameter:@{@"token":[TTRunTime instance].user.token,@"memberid":[TTRunTime instance].user.objId} block:^(id result, BOOL ret, NSError *error) {
-//        BOOL status =[[result objectForKey:@"success"] boolValue];
-        NSString *message =[result objectForKey:@"message"];
-        
-        
-        {
-            [TTTipsHelper showTip:message];
-        }
-        
-    }];
+- (void)loadData {
+    [theApiService postRequest:@"/account/userbank.htm"
+                     parameter:@{
+                         @"token": [TTRunTime instance].user.token,
+                         @"memberid": [TTRunTime instance].user.objId
+                     }
+                         block:^(id result, BOOL ret, NSError *error) {
+                             //        BOOL status =[[result objectForKey:@"success"] boolValue];
+                             NSString *message = [result objectForKey:@"message"];
+
+                             { [TTTipsHelper showTip:message]; }
+
+                         }];
 }
 
--(IBAction)onRevise:(id)sender{
-    [self route:@"treeBank://interPage/TTReviseBankInfoViewController" withParam:@{ @"model":[TTAuthModel new] }];   
+- (IBAction)onRevise:(id)sender {
+    [self route:@"treeBank://interPage/TTReviseBankInfoViewController" withParam:@{ @"model": [TTAuthModel new] }];
 }
-
-
 
 @end

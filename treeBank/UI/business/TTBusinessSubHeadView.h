@@ -6,12 +6,12 @@
 //  Copyright © 2016年 kebi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "TTItemView.h"
+#import <UIKit/UIKit.h>
 
-#define kClickDealResultSubSort  @"kClickDealResultSubSort"
+#define kClickDealResultSubSort @"kClickDealResultSubSort"
 
 @interface TTBusinessSubHeadView : UIView
-@property(nonatomic, strong) NSArray *datas;
+@property (nonatomic, strong) NSArray *datas;
 @property (nonatomic, weak) id<TTViewEventProtocal> eventDelegate;
 @end

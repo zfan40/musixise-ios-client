@@ -14,7 +14,7 @@
 - (id)objectAtIndexForX:(NSUInteger)index;
 - (NSArray *)arrayByAddingObjectForX:(id)anObject;
 - (NSArray *)subarrayWithRangeForX:(NSRange)range;
-- (void)getObjectsForX:(id __unsafe_unretained [])objects range:(NSRange)range;
+- (void)getObjectsForX:(id __unsafe_unretained[])objects range:(NSRange)range;
 - (NSArray *)objectsAtIndexesForX:(NSIndexSet *)indexes;
-+ (NSArray *)arrayWithArrayForX:(NSArray *) array;
++ (NSArray *)arrayWithArrayForX:(NSArray *)array;
 @end

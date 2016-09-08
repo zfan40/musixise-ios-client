@@ -10,5 +10,5 @@
 
 @interface TTIntroductionView : UIView
 
-+(TTIntroductionView*)showIntroductionView;
++ (TTIntroductionView *)showIntroductionView;
 @end

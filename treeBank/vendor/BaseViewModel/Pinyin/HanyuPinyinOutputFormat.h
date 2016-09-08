@@ -5,32 +5,20 @@
 #define _HanyuPinyinOutputFormat_H_
 #import <Foundation/Foundation.h>
 
-typedef enum {
-  ToneTypeWithToneNumber,
-  ToneTypeWithoutTone,
-  ToneTypeWithToneMark
-}ToneType;
+typedef enum { ToneTypeWithToneNumber, ToneTypeWithoutTone, ToneTypeWithToneMark } ToneType;
 
-typedef enum {
-    CaseTypeUppercase,
-    CaseTypeLowercase
-}CaseType;
+typedef enum { CaseTypeUppercase, CaseTypeLowercase } CaseType;
 
-typedef enum {
-    VCharTypeWithUAndColon,
-    VCharTypeWithV,
-    VCharTypeWithUUnicode
-}VCharType;
-
+typedef enum { VCharTypeWithUAndColon, VCharTypeWithV, VCharTypeWithUUnicode } VCharType;
 
 @interface HanyuPinyinOutputFormat : NSObject
 
-@property(nonatomic, assign) VCharType vCharType;
-@property(nonatomic, assign) CaseType caseType;
-@property(nonatomic, assign) ToneType toneType;
+@property (nonatomic, assign) VCharType vCharType;
+@property (nonatomic, assign) CaseType caseType;
+@property (nonatomic, assign) ToneType toneType;
 
 - (id)init;
 - (void)restoreDefault;
 @end
 
-#endif // _HanyuPinyinOutputFormat_H_
+#endif  // _HanyuPinyinOutputFormat_H_

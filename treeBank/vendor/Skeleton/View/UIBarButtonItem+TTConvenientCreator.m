@@ -22,8 +22,6 @@
     return [self tt_iconBarButtonItemWithTitleExLeft:@"iconFont-sousuo" target:target action:action];
 }
 
-
-
 + (instancetype)tt_messageBarButtonItemWithTarget:(id)target action:(SEL)action {
     return [self tt_iconBarButtonItemWithTitleExRight:@"iconFont-zhukesixin" target:target action:action];
 }
@@ -37,11 +35,13 @@
 }
 
 + (instancetype)tt_barButtonItemWithTitle:(NSString *)title target:(id)target action:(SEL)action {
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:target action:action];
+    UIBarButtonItem *barButtonItem =
+        [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:target action:action];
     [barButtonItem setTitleTextAttributes:@{
-                                       NSForegroundColorAttributeName: [UIColor whiteColor],
-                                       NSFontAttributeName: [UIFont systemFontOfSize:14]
-                                       } forState:UIControlStateNormal];
+        NSForegroundColorAttributeName: [UIColor whiteColor],
+        NSFontAttributeName: [UIFont systemFontOfSize:14]
+    }
+                                 forState:UIControlStateNormal];
     return barButtonItem;
 }
 
@@ -62,7 +62,7 @@
         buttonSize = 44;
         xOffset = -2.5f;
     }
-    
+
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     button.frame = CGRectMake(0, 0, buttonSize, buttonSize);
@@ -84,7 +84,5 @@
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
     return barButtonItem;
 }
-
-
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2016年 kebi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "TTDealResultListModel.h"
+#import <UIKit/UIKit.h>
 
 @interface TTDealTableViewCell : UITableViewCell
-@property (nonatomic, strong)TTDealItemModel *model;
+@property (nonatomic, strong) TTDealItemModel *model;
 @end

@@ -9,23 +9,19 @@
 #import "TTRunTime.h"
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 
-
 @implementation TTRunTime
 
-
-+(instancetype)instance{
++ (instancetype)instance {
     static TTRunTime *instance = nil;
-    if(!instance){
+    if (!instance) {
         instance = [TTRunTime new];
     }
     return instance;
 }
 
--(TTNetworkStatus)netWorkStatus{
-    _netWorkStatus = (TTNetworkStatus)[ AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
+- (TTNetworkStatus)netWorkStatus {
+    _netWorkStatus = (TTNetworkStatus)[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
     return _netWorkStatus;
 }
-
-
 
 @end

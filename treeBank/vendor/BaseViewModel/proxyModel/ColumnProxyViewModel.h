@@ -6,10 +6,10 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import "BaseProxyViewModel.h"
+#import <Foundation/Foundation.h>
 @interface ColumnProxyViewModel : BaseProxyViewModel
-@property(nonatomic,assign) NSInteger columnNum;
--(instancetype)initWithViewModel:(BaseViewModel *)viewModel columnNum:(NSInteger)columnNum;
--(instancetype)initWithViewModel:(BaseViewModel *)viewModel;
+@property (nonatomic, assign) NSInteger columnNum;
+- (instancetype)initWithViewModel:(BaseViewModel *)viewModel columnNum:(NSInteger)columnNum;
+- (instancetype)initWithViewModel:(BaseViewModel *)viewModel;
 @end

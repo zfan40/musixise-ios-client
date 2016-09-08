@@ -6,14 +6,16 @@
 //  Copyright © 2016年 kebi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "TTRunTime.h"
+#import <Foundation/Foundation.h>
 
 @interface TTAccountService : NSObject
 
-+(instancetype)shareInstance;
++ (instancetype)shareInstance;
 
--(void)accountMember:(NSString*)token  objId:(NSString*)objId block:(void(^)(id result ,BOOL ret,NSError *error))block;
+- (void)accountMember:(NSString *)token
+                objId:(NSString *)objId
+                block:(void (^)(id result, BOOL ret, NSError *error))block;
 
--(void)autoLogin;
+- (void)autoLogin;
 @end

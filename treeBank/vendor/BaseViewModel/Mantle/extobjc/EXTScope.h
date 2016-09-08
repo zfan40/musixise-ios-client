@@ -28,9 +28,12 @@
  * (like a one line \c if). In practice, this is not an issue, since \@onExit is
  * a useless construct in such a case anyways.
  */
-#define onExit \
-    try {} @finally {} \
-    __strong mtl_cleanupBlock_t metamacro_concat(mtl_exitBlock_, __LINE__) __attribute__((cleanup(mtl_executeCleanupBlock), unused)) = ^
+#define onExit                                                             \
+    try {                                                                  \
+    } @finally {                                                           \
+    }                                                                      \
+    __strong mtl_cleanupBlock_t metamacro_concat(mtl_exitBlock_, __LINE__) \
+        __attribute__((cleanup(mtl_executeCleanupBlock), unused)) = ^
 
 /**
  * Creates \c __weak shadow variables for each of the variables provided as
@@ -43,16 +46,20 @@
  * See #strongify for an example of usage.
  */
 #define weakify(...) \
-    try {} @finally {} \
-    metamacro_foreach_cxt(mtl_weakify_,, __weak, __VA_ARGS__)
+    try {            \
+    } @finally {     \
+    }                \
+    metamacro_foreach_cxt(mtl_weakify_, , __weak, __VA_ARGS__)
 
 /**
  * Like #weakify, but uses \c __unsafe_unretained instead, for targets or
  * classes that do not support weak references.
  */
 #define unsafeify(...) \
-    try {} @finally {} \
-    metamacro_foreach_cxt(mtl_weakify_,, __unsafe_unretained, __VA_ARGS__)
+    try {              \
+    } @finally {       \
+    }                  \
+    metamacro_foreach_cxt(mtl_weakify_, , __unsafe_unretained, __VA_ARGS__)
 
 /**
  * Strongly references each of the variables provided as arguments, which must
@@ -80,20 +87,18 @@
 
  * @endcode
  */
-#define strongify(...) \
-    try {} @finally {} \
-    _Pragma("clang diagnostic push") \
-    _Pragma("clang diagnostic ignored \"-Wshadow\"") \
-    metamacro_foreach(mtl_strongify_,, __VA_ARGS__) \
-    _Pragma("clang diagnostic pop")
+#define strongify(...)                                                                \
+    try {                                                                             \
+    } @finally {                                                                      \
+    }                                                                                 \
+    _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Wshadow\"") \
+        metamacro_foreach(mtl_strongify_, , __VA_ARGS__) _Pragma("clang diagnostic pop")
 
 /*** implementation details follow ***/
 typedef void (^mtl_cleanupBlock_t)();
 
-void mtl_executeCleanupBlock (__strong mtl_cleanupBlock_t *block);
+void mtl_executeCleanupBlock(__strong mtl_cleanupBlock_t *block);
 
-#define mtl_weakify_(INDEX, CONTEXT, VAR) \
-    CONTEXT __typeof__(VAR) metamacro_concat(VAR, _weak_) = (VAR);
+#define mtl_weakify_(INDEX, CONTEXT, VAR) CONTEXT __typeof__(VAR) metamacro_concat(VAR, _weak_) = (VAR);
 
-#define mtl_strongify_(INDEX, VAR) \
-    __strong __typeof__(VAR) VAR = metamacro_concat(VAR, _weak_);
+#define mtl_strongify_(INDEX, VAR) __strong __typeof__(VAR) VAR = metamacro_concat(VAR, _weak_);

@@ -9,6 +9,6 @@
 #import "BaseViewModel.h"
 
 @interface BaseWebviewModel : BaseViewModel
-@property(nonatomic,strong,readonly)NSURL *url;
--(instancetype)initWithURL:(NSURL *)URL;
+@property (nonatomic, strong, readonly) NSURL *url;
+- (instancetype)initWithURL:(NSURL *)URL;
 @end

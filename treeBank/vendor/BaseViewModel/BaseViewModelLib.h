@@ -8,8 +8,8 @@
 
 #import "MTLJSONAdapter.h"
 #import "MTLManagedObjectAdapter.h"
-#import "MTLModel.h"
 #import "MTLModel+NSCoding.h"
+#import "MTLModel.h"
 #import "MTLValueTransformer.h"
 #import "NSArray+MTLManipulationAdditions.h"
 #import "NSDictionary+MTLManipulationAdditions.h"

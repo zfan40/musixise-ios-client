@@ -6,8 +6,8 @@
 //
 //
 
-#import "TTRouting.h"
 #import "TTNavigationBar.h"
+#import "TTRouting.h"
 #import "TTViewControllerPresentStyle.h"
 
 @protocol TTViewControllerNavigatingStyle <NSObject>
@@ -19,8 +19,8 @@
 @property (nonatomic, assign) NavigationBarLeftButtonStyle navigationBarLeftButtonStyle;
 @property (nonatomic, assign) NavigationBarTitleViewStyle navigationBarTitleViewStyle;
 @property (nonatomic, assign) NavigationBarRightButtonStyle navigationBarRightButtonStyle;
-@property (nonatomic, assign) CGFloat searchBarWidth; // 搜索栏宽度
-@property (nonatomic, assign) BOOL bShowRedPoint; // 是否显示消息红点
+@property (nonatomic, assign) CGFloat searchBarWidth;  // 搜索栏宽度
+@property (nonatomic, assign) BOOL bShowRedPoint;      // 是否显示消息红点
 @property (nonatomic, strong) TTNavigationBar *customNavigationBar;
 @property (nonatomic, strong) UIBarButtonItem *rightBarButtonItem;
 @property (nonatomic, strong) NSArray<UIBarButtonItem *> *rightBarButtonItems;
@@ -31,8 +31,8 @@
 
 /// 返回相关逻辑
 - (UIBarButtonItem *)backItem;
--(BOOL)canDismissWithGesture;
--(IBAction)goBack:(id)sender;
+- (BOOL)canDismissWithGesture;
+- (IBAction)goBack:(id)sender;
 - (void)doSearch:(id)sender;
 - (void)showMore:(id)sender;
 - (void)showMessage:(id)sender;
@@ -42,9 +42,9 @@
 @interface TTViewController : UIViewController <TTRouting, TTViewControllerNavigatingStyle, UISearchBarDelegate>
 
 @property (nonatomic, assign) BOOL shouldHideBackgroundImage;
-@property (nonatomic, strong) NSMutableArray *moreOptions; // 更多点击后的选项，可配置
+@property (nonatomic, strong) NSMutableArray *moreOptions;  // 更多点击后的选项，可配置
 @property (nonatomic, assign) NSInteger moreButtonIndex;
-@property (nonatomic, assign) CGPoint moreActionSheetPoint; // 更多弹窗的位置
+@property (nonatomic, assign) CGPoint moreActionSheetPoint;  // 更多弹窗的位置
 
 - (void)viewWillFirstAppear;
 - (void)viewDidFirstAppear;

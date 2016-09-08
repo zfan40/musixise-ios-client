@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TTMyMainTableViewCell : UITableViewCell
-@property (nonatomic , strong )NSString *logoUrl;
-@property (nonatomic , strong )NSString *title;
-@property (nonatomic , strong )UILabel *detailLab;
-@property (nonatomic , assign )BOOL showIndicator;
+@property (nonatomic, strong) NSString *logoUrl;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UILabel *detailLab;
+@property (nonatomic, assign) BOOL showIndicator;
 @end

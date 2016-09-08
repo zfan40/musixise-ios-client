@@ -10,10 +10,9 @@
 
 @implementation UIView (DeviceOrientationChanged)
 
-- (void)transformViewByCurrentOrientation
-{
+- (void)transformViewByCurrentOrientation {
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-    if ([[UIDevice currentDevice].systemVersion floatValue]>=8.0) {
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
         interfaceOrientation = UIInterfaceOrientationPortrait;
     }
     CGFloat newAngle = [self angleFromOrientation:interfaceOrientation];
@@ -21,15 +20,13 @@
     self.transform = CGAffineTransformMakeRotation(newAngle);
 }
 
-- (void)transformViewWithOrientation:(UIInterfaceOrientation)orientation
-{
+- (void)transformViewWithOrientation:(UIInterfaceOrientation)orientation {
     CGFloat newAngle = [self angleFromOrientation:orientation];
     self.transform = CGAffineTransformIdentity;
     self.transform = CGAffineTransformMakeRotation(newAngle);
 }
 
-- (CGFloat)angleFromOrientation:(UIInterfaceOrientation)orientation
-{
+- (CGFloat)angleFromOrientation:(UIInterfaceOrientation)orientation {
     CGFloat currentAngle = 0.0f;
     switch (orientation) {
         case UIInterfaceOrientationPortrait:
@@ -42,7 +39,7 @@
             currentAngle = M_PI_2;
             break;
         case UIInterfaceOrientationLandscapeLeft:
-            currentAngle = - M_PI_2;
+            currentAngle = -M_PI_2;
         default:
             break;
     }

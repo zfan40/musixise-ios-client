@@ -9,9 +9,9 @@
 #import "TTUtilHelper.h"
 
 @implementation TTUtilHelper
-+(NSString*)traceNo:(NSString*)objId{
-    NSTimeInterval curDate = [[NSDate date]timeIntervalSince1970]*1000;
-    NSString *traceNo = [NSString stringWithFormat:@"%@%f", objId,curDate];
++ (NSString *)traceNo:(NSString *)objId {
+    NSTimeInterval curDate = [[NSDate date] timeIntervalSince1970] * 1000;
+    NSString *traceNo = [NSString stringWithFormat:@"%@%f", objId, curDate];
     return traceNo;
 }
 

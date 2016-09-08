@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TTAreaTableViewCell : UITableViewCell
-@property (nonatomic ,strong) NSString *title;
-@property (nonatomic ,assign) BOOL showIndicator;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, assign) BOOL showIndicator;
 
 @end

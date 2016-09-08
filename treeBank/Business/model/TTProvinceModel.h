@@ -11,14 +11,13 @@
 #define kTTProvinceDataChangedNotification @"kTTProvinceDataChangedNotification"
 
 @interface TTProvinceModel : TTBaseModel
-@property (nonatomic, assign)NSInteger provid;
-@property (nonatomic, strong)NSString *provname;
-@property (nonatomic, strong)NSString *provshortname;
--(void)parseData:(NSDictionary*)dics;
+@property (nonatomic, assign) NSInteger provid;
+@property (nonatomic, strong) NSString *provname;
+@property (nonatomic, strong) NSString *provshortname;
+- (void)parseData:(NSDictionary *)dics;
 @end
 
-
 @interface TTProvinceListModel : TTBaseModel
-@property (nonatomic, strong)NSMutableArray *datas;
--(void)load;
+@property (nonatomic, strong) NSMutableArray *datas;
+- (void)load;
 @end

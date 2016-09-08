@@ -7,28 +7,29 @@
 //
 
 #import "TTMyCountModel.h"
-#import "TTUser.h"
 #import "TTRunTime.h"
+#import "TTUser.h"
 
 @implementation TTMyCountItem
-
-
 
 @end
 
 @implementation TTMyCountModel
 
--(id)init{
-    self =[ super init];
+- (id)init {
+    self = [super init];
     [self updateDatas];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onUserChanged) name:kTTUserChangedNotification  object:nil];
-    return  self;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUserChanged)
+                                                 name:kTTUserChangedNotification
+                                               object:nil];
+    return self;
 }
--(void)onUserChanged{
+- (void)onUserChanged {
     [self updateDatas];
 }
 
--(NSString*)authenticatText:(TTAuthStatus)status{
+- (NSString *)authenticatText:(TTAuthStatus)status {
     NSString *text = @"未校验";
     switch (status) {
         case TTAuthStatus_N0:
@@ -48,7 +49,7 @@
     }
     return text;
 }
--(NSString*)auditText:(TTAuditStatus)status{
+- (NSString *)auditText:(TTAuditStatus)status {
     NSString *text = @"";
     switch (status) {
         case TTAuditStatus_Default:
@@ -68,18 +69,29 @@
     }
     return text;
 }
--(void)updateDatas{
-    TTUser *user  =[TTRunTime instance].user;
-    
-    NSArray *array =@[@{@"logo":@"authenticate",@"title":@"实名认证",@"detailText":[self authenticatText:user.authstatus]},
-                      @{@"logo":@"infoReview",@"title":@"信息审核",@"detailText":[self auditText:user.auditstatus]},
-                      @{@"logo":@"myCard",@"title":[NSString stringWithFormat:@"我的银行卡(%ld张)",(long)user.banknum]},
-                      @{@"logo":@"deviceManager",@"title":@"设备管理",@"detailText":user.deviceno?user.deviceno:@""},
-                      @{@"logo":@"revisePassword",@"title":@"修改登录密码"},
-                      @{@"logo":@"questions",@"title":@"常见问题"}];
-    _datas =[NSMutableArray new];
-    for ( NSDictionary*dic in array ){
-        TTMyCountItem *item =[ TTMyCountItem new];
+- (void)updateDatas {
+    TTUser *user = [TTRunTime instance].user;
+
+    NSArray *array = @[
+        @{ @"logo": @"authenticate",
+           @"title": @"实名认证",
+           @"detailText": [self authenticatText:user.authstatus] },
+        @{ @"logo": @"infoReview",
+           @"title": @"信息审核",
+           @"detailText": [self auditText:user.auditstatus] },
+        @{ @"logo": @"myCard",
+           @"title": [NSString stringWithFormat:@"我的银行卡(%ld张)", (long)user.banknum] },
+        @{ @"logo": @"deviceManager",
+           @"title": @"设备管理",
+           @"detailText": user.deviceno ? user.deviceno : @"" },
+        @{ @"logo": @"revisePassword",
+           @"title": @"修改登录密码" },
+        @{ @"logo": @"questions",
+           @"title": @"常见问题" }
+    ];
+    _datas = [NSMutableArray new];
+    for (NSDictionary *dic in array) {
+        TTMyCountItem *item = [TTMyCountItem new];
         item.logo = [dic objectForKey:@"logo"];
         item.title = [dic objectForKey:@"title"];
         item.detailTitle = [dic objectForKey:@"detailText"];

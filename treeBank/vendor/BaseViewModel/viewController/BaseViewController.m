@@ -15,8 +15,7 @@
 
 @implementation BaseViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -28,27 +27,24 @@
     self.viewModel = nil;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     if (self.viewModel && MS_FAILED == self.viewModel.state)
         [self.viewModel load];
 }
 
--(void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
@@ -63,7 +59,7 @@
 }
 */
 
--(void)setViewModel:(BaseViewModel *)viewModel {
+- (void)setViewModel:(BaseViewModel *)viewModel {
     if (_viewModel) {
         [_viewModel removeObserver:self forKeyPath:kStateKey];
         [_viewModel removeObserver:self forKeyPath:kDataKey];
@@ -74,25 +70,29 @@
     if (_viewModel) {
         [_viewModel addObserver:self forKeyPath:kStateKey options:NSKeyValueObservingOptionNew context:nil];
         [_viewModel addObserver:self forKeyPath:kDataKey options:NSKeyValueObservingOptionNew context:nil];
-        if (_viewModel.needLoad) [_viewModel load];
+        if (_viewModel.needLoad)
+            [_viewModel load];
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
     if (object == _viewModel) {
         if ([keyPath isEqualToString:kStateKey]) {
             [self viewModelStateChanged];
             return;
-        }else if([keyPath isEqualToString:kDataKey]) {
+        } else if ([keyPath isEqualToString:kDataKey]) {
             [self viewModelDataChanged];
             return;
         }
     }
-    
+
     return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
--(void)viewModelStateChanged {
+- (void)viewModelStateChanged {
     /*
     const MODESTATE st = _viewModel.state;
     switch (st) {
@@ -111,9 +111,9 @@
             break;
     }*/
 }
--(void)viewModelDataChanged {
+- (void)viewModelDataChanged {
     if (self.view && [self.view isKindOfClass:[UITableView class]]) {
-        [(UITableView*)self.view reloadData];
+        [(UITableView *)self.view reloadData];
     }
 }
 

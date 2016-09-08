@@ -10,46 +10,46 @@
 //#import "UIDevice+platformType.h"
 @implementation UIView (xiamiUIView)
 
--(CGFloat)left {
+- (CGFloat)left {
     return self.frame.origin.x;
 }
--(void)setLeft:(CGFloat)x {
+- (void)setLeft:(CGFloat)x {
     CGRect frame = self.frame;
     frame.origin.x = x;
     self.frame = frame;
 }
 
--(CGFloat)top {
+- (CGFloat)top {
     return self.frame.origin.y;
 }
--(void)setTop:(CGFloat)top {
+- (void)setTop:(CGFloat)top {
     CGRect frame = self.frame;
     frame.origin.y = top;
     self.frame = frame;
 }
 
--(CGFloat)right {
+- (CGFloat)right {
     return self.frame.origin.x + self.frame.size.width;
 }
--(void)setRight:(CGFloat)right {
+- (void)setRight:(CGFloat)right {
     CGRect frame = self.frame;
     frame.origin.x = right - frame.size.width;
     self.frame = frame;
 }
 
--(CGFloat)bottom {
+- (CGFloat)bottom {
     return self.frame.origin.y + self.frame.size.height;
 }
--(void)setBottom:(CGFloat)bottom {
+- (void)setBottom:(CGFloat)bottom {
     CGRect frame = self.frame;
     frame.origin.y = bottom - frame.size.height;
     self.frame = frame;
 }
 
--(CGFloat)centerX {
+- (CGFloat)centerX {
     return self.center.x;
 }
--(void)setCenterX:(CGFloat)centerX {
+- (void)setCenterX:(CGFloat)centerX {
     self.center = CGPointMake(centerX, self.center.y);
 }
 
@@ -78,49 +78,49 @@
     self.frame = frame;
 }
 
--(CGFloat)cornerRadius {
+- (CGFloat)cornerRadius {
     return self.layer.cornerRadius;
 }
--(void)setCornerRadius:(CGFloat)cornerRadius {
+- (void)setCornerRadius:(CGFloat)cornerRadius {
     self.layer.cornerRadius = cornerRadius;
-    self.layer.masksToBounds=YES;
+    self.layer.masksToBounds = YES;
 }
--(CGFloat)borderWidth {
+- (CGFloat)borderWidth {
     return self.layer.borderWidth;
 }
--(void)setBorderWidth:(CGFloat)borderWidth {
+- (void)setBorderWidth:(CGFloat)borderWidth {
     self.layer.borderWidth = borderWidth;
 }
--(UIColor*)borderColor {
+- (UIColor *)borderColor {
     return [UIColor colorWithCGColor:self.layer.borderColor];
 }
--(void)setBorderColor:(UIColor *)borderColor {
+- (void)setBorderColor:(UIColor *)borderColor {
     self.layer.borderColor = borderColor.CGColor;
 }
--(UIColor *)shadowColor {
+- (UIColor *)shadowColor {
     return [UIColor colorWithCGColor:self.layer.shadowColor];
 }
--(void)setShadowColor:(UIColor *)shadowColor {
-    self.layer.shadowOpacity=0.5;
+- (void)setShadowColor:(UIColor *)shadowColor {
+    self.layer.shadowOpacity = 0.5;
     self.layer.shadowColor = [shadowColor CGColor];
 }
--(CGSize)shadowOffset {
+- (CGSize)shadowOffset {
     return self.layer.shadowOffset;
 }
--(void)setShadowOffset:(CGSize)shadowOffset {
+- (void)setShadowOffset:(CGSize)shadowOffset {
     self.layer.shadowOffset = shadowOffset;
 }
 
-//add by lijianfeng
--(CGSize)size{
-  return   self.frame.size;
+// add by lijianfeng
+- (CGSize)size {
+    return self.frame.size;
 }
--(void)setSize:(CGSize)size{
+- (void)setSize:(CGSize)size {
     CGPoint center = self.center;
     CGRect frame = self.frame;
-    frame.size =size;
-    self.frame =frame;
-    self.center =center;
+    frame.size = size;
+    self.frame = frame;
+    self.center = center;
 }
 #pragma mark action--
 //- (void)removeAllSubViews {
@@ -205,13 +205,13 @@
 //    [self addSubview:active];
 //    return active;
 //}
--(void)setBackgroundImage:(UIImage *)img {
+- (void)setBackgroundImage:(UIImage *)img {
     [self.layer setContents:(id)[img CGImage]];
 }
-+(CGFloat)screenHeight{
-   return [[UIScreen mainScreen]bounds].size.height;
++ (CGFloat)screenHeight {
+    return [[UIScreen mainScreen] bounds].size.height;
 }
-+(CGFloat)screenWidth{
-    return [[UIScreen mainScreen]bounds].size.width;
++ (CGFloat)screenWidth {
+    return [[UIScreen mainScreen] bounds].size.width;
 }
 @end

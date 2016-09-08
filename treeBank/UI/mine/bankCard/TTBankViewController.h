@@ -12,5 +12,5 @@
 
 @interface TTBankViewController : TTViewController
 
-@property (nonatomic, copy) void(^bankBlock)(TTBankModel* model );
+@property (nonatomic, copy) void (^bankBlock)(TTBankModel *model);
 @end

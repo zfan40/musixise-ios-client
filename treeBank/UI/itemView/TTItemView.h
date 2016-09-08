@@ -10,7 +10,7 @@
 
 @protocol TTViewEventProtocal <NSObject>
 
--(void)onEvent:(NSString*)event view:(UIView*)view  parameter:(NSDictionary*)dics;
+- (void)onEvent:(NSString *)event view:(UIView *)view parameter:(NSDictionary *)dics;
 
 @end
 

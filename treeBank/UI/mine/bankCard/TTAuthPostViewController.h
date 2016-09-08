@@ -6,8 +6,8 @@
 //  Copyright © 2016年 kebi. All rights reserved.
 //
 
-#import "TTViewController.h"
 #import "TTAuthModel.h"
+#import "TTViewController.h"
 @interface TTAuthPostViewController : TTViewController
-@property (nonatomic ,strong )TTAuthModel *model;
+@property (nonatomic, strong) TTAuthModel *model;
 @end

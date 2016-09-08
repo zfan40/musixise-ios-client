@@ -6,12 +6,12 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import "BaseViewModel.h"
+#import <Foundation/Foundation.h>
 @interface BaseProxyViewModel : BaseViewModel
-@property(nonatomic,strong) BaseViewModel* srcViewModel;
+@property (nonatomic, strong) BaseViewModel *srcViewModel;
 
--(instancetype)initWithViewModel:(BaseViewModel*)viewModel;
--(void)viewModelStateChanged;
--(void)viewModelDataChanged;
+- (instancetype)initWithViewModel:(BaseViewModel *)viewModel;
+- (void)viewModelStateChanged;
+- (void)viewModelDataChanged;
 @end

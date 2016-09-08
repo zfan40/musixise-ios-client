@@ -6,12 +6,12 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import "BaseProxyViewModel.h"
+#import <Foundation/Foundation.h>
 @interface DetailToListProxyViewModel : BaseProxyViewModel
-@property(nonatomic,copy) NSArray* keys;
-@property(nonatomic,copy) NSArray* formats;
-@property(nonatomic,copy) NSArray* defaultValues;
+@property (nonatomic, copy) NSArray *keys;
+@property (nonatomic, copy) NSArray *formats;
+@property (nonatomic, copy) NSArray *defaultValues;
 
--(void)apply;
+- (void)apply;
 @end

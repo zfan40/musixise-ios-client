@@ -13,12 +13,8 @@
  */
 
 @interface TTPhotoPicker : NSObject
-+(TTPhotoPicker*)showCameraToAllowsEditing:(BOOL)allowsEditing
-                              singleSelect:(BOOL)isSingleSelect
-                                     block:(void(^)(NSArray *image))block;
-
-
-
-
++ (TTPhotoPicker *)showCameraToAllowsEditing:(BOOL)allowsEditing
+                                singleSelect:(BOOL)isSingleSelect
+                                       block:(void (^)(NSArray *image))block;
 
 @end

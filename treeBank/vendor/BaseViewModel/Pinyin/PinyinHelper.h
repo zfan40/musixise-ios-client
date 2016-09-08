@@ -1,5 +1,5 @@
 //
-//  
+//
 //
 //  Created by kimziv on 13-9-14.
 //
@@ -15,16 +15,16 @@
 
 + (NSArray *)toHanyuPinyinStringArrayWithChar:(unichar)ch;
 + (NSArray *)toHanyuPinyinStringArrayWithChar:(unichar)ch
-                         withHanyuPinyinOutputFormat:(HanyuPinyinOutputFormat *)outputFormat;
+                  withHanyuPinyinOutputFormat:(HanyuPinyinOutputFormat *)outputFormat;
 + (NSArray *)getFormattedHanyuPinyinStringArrayWithChar:(unichar)ch
-                                   withHanyuPinyinOutputFormat:(HanyuPinyinOutputFormat *)outputFormat;
+                            withHanyuPinyinOutputFormat:(HanyuPinyinOutputFormat *)outputFormat;
 + (NSArray *)getUnformattedHanyuPinyinStringArrayWithChar:(unichar)ch;
 + (NSArray *)toTongyongPinyinStringArrayWithChar:(unichar)ch;
 + (NSArray *)toWadeGilesPinyinStringArrayWithChar:(unichar)ch;
 + (NSArray *)toMPS2PinyinStringArrayWithChar:(unichar)ch;
 + (NSArray *)toYalePinyinStringArrayWithChar:(unichar)ch;
 + (NSArray *)convertToTargetPinyinStringArrayWithChar:(unichar)ch
-                                  withPinyinRomanizationType:(NSString *)targetPinyinSystem;
+                           withPinyinRomanizationType:(NSString *)targetPinyinSystem;
 + (NSArray *)toGwoyeuRomatzyhStringArrayWithChar:(unichar)ch;
 + (NSArray *)convertToGwoyeuRomatzyhStringArrayWithChar:(unichar)ch;
 + (NSString *)toHanyuPinyinStringWithNSString:(NSString *)str
@@ -33,9 +33,11 @@
 + (NSString *)getFirstHanyuPinyinStringWithChar:(unichar)ch
                     withHanyuPinyinOutputFormat:(HanyuPinyinOutputFormat *)outputFormat;
 
-+ (NSString *)getPinYin:(NSString*)str shortedPinyin:(NSMutableString*)shortedPinyin withNSString:(NSString *)seperater;
-+ (char)getFirstChar:(NSString*)str;
++ (NSString *)getPinYin:(NSString *)str
+          shortedPinyin:(NSMutableString *)shortedPinyin
+           withNSString:(NSString *)seperater;
++ (char)getFirstChar:(NSString *)str;
 - (id)init;
 @end
 
-#endif // _PinyinHelper_H_
+#endif  // _PinyinHelper_H_

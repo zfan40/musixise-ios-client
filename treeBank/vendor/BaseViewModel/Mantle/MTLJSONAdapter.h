@@ -55,7 +55,7 @@
 @end
 
 // The domain for errors originating from MTLJSONAdapter.
-extern NSString * const MTLJSONAdapterErrorDomain;
+extern NSString *const MTLJSONAdapterErrorDomain;
 
 // +classForParsingJSONDictionary: returned nil for the given dictionary.
 extern const NSInteger MTLJSONAdapterErrorNoClassFound;
@@ -166,7 +166,11 @@ extern const NSInteger MTLJSONAdapterErrorInvalidJSONMapping;
 
 @interface MTLJSONAdapter (Deprecated)
 
-+ (id)modelOfClass:(Class)modelClass fromJSONDictionary:(NSDictionary *)JSONDictionary __attribute__((deprecated("Replaced by +modelOfClass:fromJSONDictionary:error:")));
-- (id)initWithJSONDictionary:(NSDictionary *)JSONDictionary modelClass:(Class)modelClass __attribute__((deprecated("Replaced by -initWithJSONDictionary:modelClass:error:")));
++ (id)modelOfClass:(Class)modelClass
+fromJSONDictionary:(NSDictionary *)JSONDictionary
+    __attribute__((deprecated("Replaced by +modelOfClass:fromJSONDictionary:error:")));
+- (id)initWithJSONDictionary:(NSDictionary *)JSONDictionary
+                  modelClass:(Class)modelClass
+    __attribute__((deprecated("Replaced by -initWithJSONDictionary:modelClass:error:")));
 
 @end

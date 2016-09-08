@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 go886. All rights reserved.
 //
 
-#import "BaseTableViewController.h"
 #import "BaseTableView.h"
+#import "BaseTableViewController.h"
 #import "BaseViewModel.h"
 
 @interface BaseTableViewController ()
@@ -22,16 +22,16 @@
         _tableStyle = style;
         _clearsSelectionOnViewWillAppear = YES;
     }
-    
+
     return self;
 }
 
--(void)setTableView:(UITableView *)tableView {
+- (void)setTableView:(UITableView *)tableView {
     _tableView = tableView;
     [self.view addSubview:tableView];
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (_clearsSelectionOnViewWillAppear) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -44,7 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UITableView* table = [[UITableView alloc] initWithFrame:self.view.bounds style:_tableStyle];
+    UITableView *table = [[UITableView alloc] initWithFrame:self.view.bounds style:_tableStyle];
     table.frame = self.view.bounds;
     table.delegate = self;
     table.dataSource = self;
@@ -65,8 +65,8 @@
     // Pass the selected object to the new view controller.
 }
 */
--(void)viewModelDataChanged {
-    UITableView* tableview = self.tableView;
+- (void)viewModelDataChanged {
+    UITableView *tableview = self.tableView;
     if (tableview) {
         [tableview reloadData];
     }
@@ -80,7 +80,7 @@
     return [self.viewModel itemCount:section];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView cellForClass:[UITableViewCell class] style:UITableViewCellStyleDefault kIdentifier:nil];
 }
 

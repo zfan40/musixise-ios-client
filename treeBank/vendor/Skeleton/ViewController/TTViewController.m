@@ -6,13 +6,13 @@
 //
 //
 
-#import "TTViewController.h"
 #import "NSObject+TTRouter.h"
-#import "UIBarButtonItem+TTConvenientCreator.h"
 #import "TTNavigator.h"
-#import <libextobjc/EXTScope.h>
 #import "TTRouter.h"
 #import "TTUtility.h"
+#import "TTViewController.h"
+#import "UIBarButtonItem+TTConvenientCreator.h"
+#import <libextobjc/EXTScope.h>
 
 const CGFloat TTViewControllerNavigationBarHeight = 64;
 
@@ -45,34 +45,32 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
 @synthesize customBackGesture;
 - (void)viewDidLoad {
     [super viewDidLoad];
-//
-//    self.theImageViewBehideOtherViews = ({
-//        UIImageView *imageView = [UIImageView new];
-//        imageView.image = self.shouldHideBackgroundImage ? nil : [UIImage imageNamed:@"view-background.jpg"];
-//        imageView.frame = self.view.bounds;
-//        imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//        [self.view insertSubview:imageView atIndex:0];
-//        imageView;
-//    });
-    self.view.backgroundColor = RGB(0, 0, 0);//nav bar
-    
+    //
+    //    self.theImageViewBehideOtherViews = ({
+    //        UIImageView *imageView = [UIImageView new];
+    //        imageView.image = self.shouldHideBackgroundImage ? nil : [UIImage imageNamed:@"view-background.jpg"];
+    //        imageView.frame = self.view.bounds;
+    //        imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    //        [self.view insertSubview:imageView atIndex:0];
+    //        imageView;
+    //    });
+    self.view.backgroundColor = RGB(0, 0, 0);  // nav bar
+
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setNeedsStatusBarAppearanceUpdate];
     self.navigationBarLeftButtonStyle = NavigationBarLeftButtonStyleBack;
     self.navigationBarRightButtonStyle = NavigationBarRightButtonStyleMore | NavigationBarRightButtonStylePlayer;
-    
-    
+
     _hidesNavigationBarWhenLoaded = self.shouldHideNavigationBar;
-    
+
     if (!_hidesNavigationBarWhenLoaded) {
         [self setupCustomNavigationBar];
     }
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     if (!self.viewWillAppearIsCalledBefore) {
         self.viewWillAppearIsCalledBefore = YES;
         [self viewWillFirstAppear];
@@ -87,28 +85,25 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+
     if (!self.viewDidAppearIsCalledBefore) {
         self.viewDidAppearIsCalledBefore = YES;
         [self viewDidFirstAppear];
     }
 }
 
-- (void)viewDidFirstAppear{
-    
+- (void)viewDidFirstAppear {
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
-//    if (!self.shouldHideNavigationBar) {
-//        CGSize size = self.view.bounds.size;
-//        self.customNavigationBar.frame = CGRectMake(0, 0, size.width, TTViewControllerNavigationBarHeight);
-//        [self.view bringSubviewToFront:self.customNavigationBar];
-//    }
+
+    //    if (!self.shouldHideNavigationBar) {
+    //        CGSize size = self.view.bounds.size;
+    //        self.customNavigationBar.frame = CGRectMake(0, 0, size.width, TTViewControllerNavigationBarHeight);
+    //        [self.view bringSubviewToFront:self.customNavigationBar];
+    //    }
 }
-
-
 
 - (UINavigationController *)navigationController {
     UINavigationController *navigationController = [super navigationController];
@@ -134,12 +129,12 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
 
 - (void)setSearchBarWidth:(CGFloat)searchBarWidth {
     _searchBarWidth = searchBarWidth;
-    
+
     if (self.searchView) {
         CGRect rect = self.searchView.frame;
         rect.size.width = searchBarWidth;
         self.searchView.frame = rect;
-//        self.customNavigationBar.navigationItem.titleView = self.searchView;
+        //        self.customNavigationBar.navigationItem.titleView = self.searchView;
     }
 }
 
@@ -147,24 +142,20 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
     return self.rightBarButtonItems.firstObject;
 }
 
-//TODO: wmy 为了去警告，之后有可能会删掉
+// TODO: wmy 为了去警告，之后有可能会删掉
 - (void)optionSelectedAction:(NSInteger)buttonIndex {
-    
 }
 
-//TODO: wmy 为了去警告，之后有可能会删掉
+// TODO: wmy 为了去警告，之后有可能会删掉
 - (void)doSearch:(id)sender {
-    
 }
 
-//TODO: wmy 为了去警告，之后有可能会删掉
+// TODO: wmy 为了去警告，之后有可能会删掉
 - (void)showMore:(id)sender {
-    
 }
 
-//TODO: wmy 为了去警告，之后有可能会删掉
+// TODO: wmy 为了去警告，之后有可能会删掉
 - (void)showMessage:(id)sender {
-    
 }
 
 - (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {
@@ -177,34 +168,37 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
 
 - (UINavigationItem *)navigationItem {
     if (self.customNavigationBar.navigationItem) {
-         return self.customNavigationBar.navigationItem;
-    }else{
+        return self.customNavigationBar.navigationItem;
+    } else {
         return [super navigationItem];
     }
 }
 
 - (void)setTitle:(NSString *)title {
-//    self.navigationItem.title = title;
+    //    self.navigationItem.title = title;
     self.customNavigationBar.titleLabel.text = title;
-//    self.customNavigationBar.titleLabel.width = [self.customNavigationBar.titleLabel
-//                                                 sizeThatFits:CGSizeMake([UIScreen mainScreen].bounds.size.width, 44)].width;
+    //    self.customNavigationBar.titleLabel.width = [self.customNavigationBar.titleLabel
+    //                                                 sizeThatFits:CGSizeMake([UIScreen mainScreen].bounds.size.width,
+    //                                                 44)].width;
 }
 
 - (void)setupCustomNavigationBar {
     CGSize size = self.view.bounds.size;
-    self.customNavigationBar = [[TTNavigationBar alloc] initWithFrame:CGRectMake(0, 0, size.width, TTViewControllerNavigationBarHeight)];
-//    self.customNavigationBar.barTintColor = [UIColor colorWithRed:0 green:0 blue:255 alpha:0.6];
-    
+    self.customNavigationBar =
+        [[TTNavigationBar alloc] initWithFrame:CGRectMake(0, 0, size.width, TTViewControllerNavigationBarHeight)];
+    //    self.customNavigationBar.barTintColor = [UIColor colorWithRed:0 green:0 blue:255 alpha:0.6];
+
     [self setupLeftItem:self.customNavigationBar];
-    [self.customNavigationBar.backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchDragInside];
+    [self.customNavigationBar.backButton addTarget:self
+                                            action:@selector(goBack:)
+                                  forControlEvents:UIControlEventTouchDragInside];
     [self.view addSubview:self.customNavigationBar];
 }
-
 
 - (void)setupLeftItem:(TTNavigationBar *)navigationBar {
     navigationBar.navigationItem.leftBarButtonItem = nil;
     navigationBar.navigationItem.leftBarButtonItems = nil;
-    
+
     if (self.navigationBarLeftButtonStyle == NavigationBarLeftButtonStyleSearch) {
     } else if (self.navigationBarLeftButtonStyle == NavigationBarLeftButtonStyleBack) {
         [self showBackItem];
@@ -215,20 +209,20 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
 
 - (void)showBackItem {
     UIBarButtonItem *backItem = [self backItem];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
-                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                       target:nil action:nil];
+    UIBarButtonItem *negativeSpacer =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     negativeSpacer.width = -15;
-    self.customNavigationBar.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, backItem, nil];
+    self.customNavigationBar.navigationItem.leftBarButtonItems =
+        [NSArray arrayWithObjects:negativeSpacer, backItem, nil];
 }
 
 - (void)showCloseItem {
     UIBarButtonItem *closeItem = [self closeItem];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
-                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                       target:nil action:nil];
+    UIBarButtonItem *negativeSpacer =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     negativeSpacer.width = -15;
-    self.customNavigationBar.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, closeItem, nil];
+    self.customNavigationBar.navigationItem.leftBarButtonItems =
+        [NSArray arrayWithObjects:negativeSpacer, closeItem, nil];
 }
 
 - (void)setupTitleView:(TTNavigationBar *)navigationBar {
@@ -239,14 +233,13 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
     navigationBar.navigationItem.titleView = titleLabel;
 }
 
-
 - (void)setRightBarButtonItems:(NSArray<UIBarButtonItem *> *)rightBarButtonItems {
     BOOL bothNil = !_rightBarButtonItems && !rightBarButtonItems;
     if (bothNil || [_rightBarButtonItems isEqualToArray:rightBarButtonItems]) {
         return;
     }
     _rightBarButtonItems = rightBarButtonItems.copy;
-    
+
     NSMutableArray *rightItems = [NSMutableArray arrayWithObject:self.rightNegativeSpacer];
     if (self.navigationBarRightButtonStyle & NavigationBarRightButtonStylePlayer) {
         [rightItems addObject:self.playerItem];
@@ -257,9 +250,8 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
 
 - (UIBarButtonItem *)rightNegativeSpacer {
     if (!_rightNegativeSpacer) {
-        _rightNegativeSpacer = [[UIBarButtonItem alloc]
-                                initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                target:nil action:nil];
+        _rightNegativeSpacer =
+            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         _rightNegativeSpacer.width = -10;
     }
     return _rightNegativeSpacer;
@@ -272,29 +264,32 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
 }
 
 - (UIBarButtonItem *)backItem {
-    UIBarButtonItem * item =[UIBarButtonItem tt_backBarButtonItemWithTarget:self action:@selector(goBack:)];
+    UIBarButtonItem *item = [UIBarButtonItem tt_backBarButtonItemWithTarget:self action:@selector(goBack:)];
 #ifdef DEBUG
     if (item) {
         return item;
     }
-    return [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
+    return [[UIBarButtonItem alloc] initWithTitle:@"返回"
+                                            style:UIBarButtonItemStylePlain
+                                           target:self
+                                           action:@selector(goBack:)];
 #endif
     return item;
-
 }
 
 - (UIBarButtonItem *)closeItem {
-    UIBarButtonItem * item =[UIBarButtonItem tt_closeBarButtonItemWithTarget:self action:@selector(goBack:)];
+    UIBarButtonItem *item = [UIBarButtonItem tt_closeBarButtonItemWithTarget:self action:@selector(goBack:)];
 #ifdef DEBUG
     if (item) {
         return item;
     }
-    return [[UIBarButtonItem alloc]initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
+    return [[UIBarButtonItem alloc] initWithTitle:@"关闭"
+                                            style:UIBarButtonItemStylePlain
+                                           target:self
+                                           action:@selector(goBack:)];
 #endif
     return item;
-    
 }
-
 
 - (void)goBack:(id)sender {
     if (self.presentingViewController) {
@@ -303,7 +298,6 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
-
 
 #pragma mark - TTRouting
 
@@ -331,25 +325,27 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
     }
 
     _shouldHideBackgroundImage = shouldHideBackgroundImage;
-    self.theImageViewBehideOtherViews.image = _shouldHideBackgroundImage ? nil : [UIImage imageNamed:@"view-background.jpg"];
+    self.theImageViewBehideOtherViews.image =
+        _shouldHideBackgroundImage ? nil : [UIImage imageNamed:@"view-background.jpg"];
 }
 
 - (TTViewControllerPresentStyle)presentStyle {
     return TTViewControllerPresentStylePush;
 }
 
--(void)adjustScrollViewContentInsets {
+- (void)adjustScrollViewContentInsets {
     if (!self.automaticallyAdjustsScrollViewInsets) {
         return;
     }
-    
+
     if ([self.view isKindOfClass:[UIScrollView class]]) {
         [self adjustContentInsetsForScrollView:(UIScrollView *)self.view];
         return;
     }
-    
+
     for (UIView *subView in self.view.subviews) {
-        if ([subView isKindOfClass:[UIScrollView class]] && CGSizeEqualToSize(self.view.bounds.size, subView.frame.size)) {
+        if ([subView isKindOfClass:[UIScrollView class]] &&
+            CGSizeEqualToSize(self.view.bounds.size, subView.frame.size)) {
             [self adjustContentInsetsForScrollView:(UIScrollView *)subView];
             break;
         }
@@ -363,6 +359,5 @@ const CGFloat TTViewControllerNavigationBarHeight = 64;
     scrollView.scrollIndicatorInsets = insets;
     scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, -insets.top);
 }
-
 
 @end

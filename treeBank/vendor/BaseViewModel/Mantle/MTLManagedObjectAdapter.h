@@ -153,7 +153,7 @@
 @end
 
 // The domain for errors originating from MTLManagedObjectAdapter.
-extern NSString * const MTLManagedObjectAdapterErrorDomain;
+extern NSString *const MTLManagedObjectAdapterErrorDomain;
 
 // +classForDeserializingManagedObject: returned nil for the given object.
 extern const NSInteger MTLManagedObjectAdapterErrorNoClassFound;
@@ -210,6 +210,8 @@ extern const NSInteger MTLManagedObjectAdapterErrorInvalidManagedObjectMapping;
 //           argument must not be nil.
 // error   - If not NULL, this may be set to an error that occurs during
 //           serialization or insertion.
-+ (id)managedObjectFromModel:(MTLModel<MTLManagedObjectSerializing> *)model insertingIntoContext:(NSManagedObjectContext *)context error:(NSError **)error;
++ (id)managedObjectFromModel:(MTLModel<MTLManagedObjectSerializing> *)model
+        insertingIntoContext:(NSManagedObjectContext *)context
+                       error:(NSError **)error;
 
 @end

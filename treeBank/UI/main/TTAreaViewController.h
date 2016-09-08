@@ -9,5 +9,5 @@
 #import "TTViewController.h"
 @class TTProvinceModel, TTCityModel;
 @interface TTAreaViewController : TTViewController
-@property (nonatomic, copy) void(^provinceBlock)(TTProvinceModel* model,TTCityModel *cityModel );
+@property (nonatomic, copy) void (^provinceBlock)(TTProvinceModel *model, TTCityModel *cityModel);
 @end

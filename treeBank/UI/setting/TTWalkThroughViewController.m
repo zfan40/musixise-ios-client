@@ -6,16 +6,16 @@
 //  Copyright © 2016年 kebi. All rights reserved.
 //
 
-#import "TTWalkThroughViewController.h"
-#import "TTUIViewAdditons.h"
 #import "TTAppDelegate.h"
+#import "TTUIViewAdditons.h"
+#import "TTWalkThroughViewController.h"
 
-@interface TTWalkThroughViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
-@property (nonatomic, strong )UICollectionView *collectionView;
-@property(nonatomic, strong)UIPageControl* pageControl;
+@interface TTWalkThroughViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UIPageControl *pageControl;
 @end
 
-@implementation TTWalkThroughViewController{
+@implementation TTWalkThroughViewController {
     NSArray *_datas;
 }
 
@@ -25,7 +25,7 @@
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self addSubview:self.collectionView];
-        _datas = @[@"1",@"2",@"3"];
+        _datas = @[@"1", @"2", @"3"];
         [self addSubview:self.pageControl];
         [self.collectionView reloadData];
     }
@@ -34,21 +34,21 @@
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
 
--(void)layoutSubviews{
+- (void)layoutSubviews {
     [super layoutSubviews];
     self.collectionView.frame = self.bounds;
-    self.pageControl.frame = CGRectMake(0, self.height-40, self.width, 30);
+    self.pageControl.frame = CGRectMake(0, self.height - 40, self.width, 30);
 }
 
--(BOOL)shouldHideNavigationBar{
+- (BOOL)shouldHideNavigationBar {
     return YES;
 }
 
 #pragma mark - --------------------功能函数------------------
 
--(void)onGo{
+- (void)onGo {
     [self removeFromSuperview];
-    TTAppDelegate *deleage =[UIApplication sharedApplication].delegate;
+    TTAppDelegate *deleage = [UIApplication sharedApplication].delegate;
     [deleage.otherWindow resignKeyWindow];
     deleage.otherWindow = nil;
     [deleage.window makeKeyAndVisible];
@@ -62,28 +62,32 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
--(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = (UICollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-    UIImageView *imageView = [cell viewWithTag:9999 ];
-    if(!imageView){
-        imageView =[UIImageView new];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = (UICollectionViewCell *)[collectionView
+        dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])
+                                  forIndexPath:indexPath];
+    UIImageView *imageView = [cell viewWithTag:9999];
+    if (!imageView) {
+        imageView = [UIImageView new];
         [cell.contentView addSubview:imageView];
-        imageView.backgroundColor =[UIColor blueColor];
+        imageView.backgroundColor = [UIColor blueColor];
     }
-    UIButton *button = [cell viewWithTag:1111 ];
-    if(!button){
-        button =[UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *button = [cell viewWithTag:1111];
+    if (!button) {
+        button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(onGo) forControlEvents:UIControlEventTouchUpInside];
         [button setImage:[UIImage imageNamed:@"goUse"] forState:UIControlStateNormal];
         [cell addSubview:button];
     }
     imageView.frame = self.frame;
-    NSString *imageName =[_datas objectAtIndex:indexPath.row];
-    imageView.image =[UIImage imageNamed:imageName];
-    
-    button.hidden = !(indexPath.row==2);
+    NSString *imageName = [_datas objectAtIndex:indexPath.row];
+    imageView.image = [UIImage imageNamed:imageName];
+
+    button.hidden = !(indexPath.row == 2);
     CGSize buttonImageSize = button.imageView.image.size;
-    button.frame = CGRectMake( (self.width-buttonImageSize.width)/2.0, self.height-50-buttonImageSize.height, buttonImageSize.width, buttonImageSize.height);
+    button.frame = CGRectMake((self.width - buttonImageSize.width) / 2.0, self.height - 50 - buttonImageSize.height,
+                              buttonImageSize.width, buttonImageSize.height);
     return cell;
 }
 
@@ -101,17 +105,16 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-referenceSizeForHeaderInSection:(NSInteger)section {
+                             layout:(UICollectionViewLayout *)collectionViewLayout
+    referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeZero;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout*)collectionViewLayout
-referenceSizeForFooterInSection:(NSInteger)section {
+                             layout:(UICollectionViewLayout *)collectionViewLayout
+    referenceSizeForFooterInSection:(NSInteger)section {
     return CGSizeZero;
 }
-
 
 #pragma mark UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -122,8 +125,8 @@ referenceSizeForFooterInSection:(NSInteger)section {
     return _datas.count;
 }
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSInteger index = scrollView.contentOffset.x /scrollView.width;
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
     _pageControl.currentPage = index;
 }
 
@@ -133,9 +136,10 @@ referenceSizeForFooterInSection:(NSInteger)section {
     if (!_collectionView) {
         UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
         [collectionViewFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-        collectionViewFlowLayout.minimumLineSpacing =0;
+        collectionViewFlowLayout.minimumLineSpacing = 0;
         collectionViewFlowLayout.minimumInteritemSpacing = 0;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewFlowLayout];
+        _collectionView =
+            [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewFlowLayout];
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.frame = self.bounds;
         [_collectionView registerClass:[UICollectionViewCell class]
@@ -158,7 +162,5 @@ referenceSizeForFooterInSection:(NSInteger)section {
     }
     return _pageControl;
 }
-
-
 
 @end

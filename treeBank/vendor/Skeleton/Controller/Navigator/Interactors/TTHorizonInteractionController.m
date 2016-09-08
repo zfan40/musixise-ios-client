@@ -12,39 +12,35 @@
 
 @implementation TTHorizonInteractionController
 
-- (BOOL)isGesturePositive:(UIPanGestureRecognizer *)panGestureRecognizer
-{
+- (BOOL)isGesturePositive:(UIPanGestureRecognizer *)panGestureRecognizer {
     return [self translationWithPanGestureRecongizer:panGestureRecognizer] < 0;
 }
 
-- (CGFloat)swipeCompletionPercent
-{
+- (CGFloat)swipeCompletionPercent {
     return kTTHorizontalTransitionCompletionPercentage;
 }
 
-- (CGFloat)translationPercentageWithPanGestureRecongizer:(UIPanGestureRecognizer *)panGestureRecognizer
-{
-    return [self translationWithPanGestureRecongizer:panGestureRecognizer] / panGestureRecognizer.view.bounds.size.width;
+- (CGFloat)translationPercentageWithPanGestureRecongizer:(UIPanGestureRecognizer *)panGestureRecognizer {
+    return
+        [self translationWithPanGestureRecongizer:panGestureRecognizer] / panGestureRecognizer.view.bounds.size.width;
 }
 
-- (CGFloat)translationWithPanGestureRecongizer:(UIPanGestureRecognizer *)panGestureRecognizer
-{
+- (CGFloat)translationWithPanGestureRecongizer:(UIPanGestureRecognizer *)panGestureRecognizer {
     return [panGestureRecognizer translationInView:panGestureRecognizer.view].x;
 }
 
 #pragma mark - UIGestureRecognizerDelegate
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
-        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer*)gestureRecognizer;
-//        CGFloat yTranslation = [panGestureRecognizer translationInView:panGestureRecognizer.view].y;
-        
-        CGPoint xTranslation=   [panGestureRecognizer velocityInView:panGestureRecognizer.view];
-        return xTranslation.x>0;
-//        return yTranslation == 0 ;
+        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
+        //        CGFloat yTranslation = [panGestureRecognizer translationInView:panGestureRecognizer.view].y;
+
+        CGPoint xTranslation = [panGestureRecognizer velocityInView:panGestureRecognizer.view];
+        return xTranslation.x > 0;
+        //        return yTranslation == 0 ;
     }
-    
+
     return YES;
 }
 @end

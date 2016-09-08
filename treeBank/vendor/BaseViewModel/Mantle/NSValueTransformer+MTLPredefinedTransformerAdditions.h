@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 // The name for a value transformer that converts strings into URLs and back.
-extern NSString * const MTLURLValueTransformerName;
+extern NSString *const MTLURLValueTransformerName;
 
 // Ensure an NSNumber is backed by __NSCFBoolean/CFBooleanRef
 //
@@ -18,7 +18,7 @@ extern NSString * const MTLURLValueTransformerName;
 // 0/1. The exception is when the NSNumber is backed by __NSCFBoolean, which,
 // though very much an implementation detail, is detected and serialized as a
 // proper boolean.
-extern NSString * const MTLBooleanValueTransformerName;
+extern NSString *const MTLBooleanValueTransformerName;
 
 @interface NSValueTransformer (MTLPredefinedTransformerAdditions)
 
@@ -67,7 +67,9 @@ extern NSString * const MTLBooleanValueTransformerName;
 // for forward transformation, and from values to keys for reverse
 // transformations. If no matching key or value can be found, the respective
 // default value is returned.
-+ (NSValueTransformer *)mtl_valueMappingTransformerWithDictionary:(NSDictionary *)dictionary defaultValue:(id)defaultValue reverseDefaultValue:(id)reverseDefaultValue;
++ (NSValueTransformer *)mtl_valueMappingTransformerWithDictionary:(NSDictionary *)dictionary
+                                                     defaultValue:(id)defaultValue
+                                              reverseDefaultValue:(id)reverseDefaultValue;
 
 // Returns a value transformer created by calling
 // `+mtl_valueMappingTransformerWithDictionary:defaultValue:reverseDefaultValue:`
@@ -78,7 +80,9 @@ extern NSString * const MTLBooleanValueTransformerName;
 
 @interface NSValueTransformer (UnavailableMTLPredefinedTransformerAdditions)
 
-+ (NSValueTransformer *)mtl_externalRepresentationTransformerWithModelClass:(Class)modelClass __attribute__((deprecated("Replaced by +mtl_JSONDictionaryTransformerWithModelClass:")));
-+ (NSValueTransformer *)mtl_externalRepresentationArrayTransformerWithModelClass:(Class)modelClass __attribute__((deprecated("Replaced by +mtl_JSONArrayTransformerWithModelClass:")));
++ (NSValueTransformer *)mtl_externalRepresentationTransformerWithModelClass:(Class)modelClass
+    __attribute__((deprecated("Replaced by +mtl_JSONDictionaryTransformerWithModelClass:")));
++ (NSValueTransformer *)mtl_externalRepresentationArrayTransformerWithModelClass:(Class)modelClass
+    __attribute__((deprecated("Replaced by +mtl_JSONArrayTransformerWithModelClass:")));
 
 @end

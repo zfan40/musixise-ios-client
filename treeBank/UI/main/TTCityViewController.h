@@ -7,8 +7,8 @@
 //
 
 #import "TTViewController.h"
-@class TTProvinceModel,TTCityModel;
+@class TTProvinceModel, TTCityModel;
 @interface TTCityViewController : TTViewController
-@property (nonatomic, copy) void(^block)(TTProvinceModel* model,TTCityModel *cityModel );
-@property (nonatomic, strong)TTProvinceModel *model;
+@property (nonatomic, copy) void (^block)(TTProvinceModel *model, TTCityModel *cityModel);
+@property (nonatomic, strong) TTProvinceModel *model;
 @end

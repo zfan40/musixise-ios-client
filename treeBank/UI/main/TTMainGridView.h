@@ -6,8 +6,8 @@
 //  Copyright © 2016年 kebi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "TTMainHeadView.h"
+#import <UIKit/UIKit.h>
 @interface TTMainGridView : UIView
 
 @property (nonatomic, strong) TTMainButton *transferButton;

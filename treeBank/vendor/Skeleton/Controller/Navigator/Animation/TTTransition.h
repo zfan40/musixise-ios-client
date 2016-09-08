@@ -7,21 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef NS_ENUM (NSInteger, TTTransitionStyle) {
-    TTTransitionStylePush             = (1 << 0),
-    TTTransitionStylePresent          = (1 << 1),
-    TTTransitionStyleShare          = (1 << 2),
-   
+typedef NS_ENUM(NSInteger, TTTransitionStyle) {
+    TTTransitionStylePush = (1 << 0),
+    TTTransitionStylePresent = (1 << 1),
+    TTTransitionStyleShare = (1 << 2),
+
 };
 @interface TTTransition : NSObject
 
 @property (assign, nonatomic) TTTransitionStyle transitionStyle;
 
-
 @property (assign, nonatomic) Class fromViewControllerClass;
 
 @property (assign, nonatomic) Class toViewControllerClass;
-
-
 
 @end

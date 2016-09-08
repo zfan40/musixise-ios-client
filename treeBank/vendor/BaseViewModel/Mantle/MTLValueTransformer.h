@@ -24,6 +24,7 @@ typedef id (^MTLValueTransformerBlock)(id);
 + (instancetype)reversibleTransformerWithBlock:(MTLValueTransformerBlock)transformationBlock;
 
 // Returns a transformer which transforms values using the given blocks.
-+ (instancetype)reversibleTransformerWithForwardBlock:(MTLValueTransformerBlock)forwardBlock reverseBlock:(MTLValueTransformerBlock)reverseBlock;
++ (instancetype)reversibleTransformerWithForwardBlock:(MTLValueTransformerBlock)forwardBlock
+                                         reverseBlock:(MTLValueTransformerBlock)reverseBlock;
 
 @end

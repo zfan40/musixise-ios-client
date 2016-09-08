@@ -10,16 +10,15 @@
 #import <UIKit/UIKit.h>
 
 #import "TTInteractionProtocol.h"
-@interface TTInteractionController : UIPercentDrivenInteractiveTransition
-<TTTransitionInteractionController, UIGestureRecognizerDelegate>
+@interface TTInteractionController
+    : UIPercentDrivenInteractiveTransition <TTTransitionInteractionController, UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) UIViewController *fromViewController;
 @property (nonatomic, strong) UIPanGestureRecognizer *gestureRecognizer;
 @property (nonatomic, assign) BOOL reverseGestureDirection;
 
 //被替换的手势
-@property (nonatomic ,strong)UIPanGestureRecognizer *replacedGestureRecognizer;
-
+@property (nonatomic, strong) UIPanGestureRecognizer *replacedGestureRecognizer;
 
 - (BOOL)isGesturePositive:(UIPanGestureRecognizer *)panGestureRecognizer;
 - (CGFloat)swipeCompletionPercent;

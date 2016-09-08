@@ -9,9 +9,11 @@
 #import "TTRouterContext.h"
 
 @implementation TTRouterContext
-+(TTRouterContext *)contextWithUrl:(NSURL *)url matchPaths:(NSArray *)matchPaths queryParam:(NSDictionary *)queryParams{
++ (TTRouterContext *)contextWithUrl:(NSURL *)url
+                         matchPaths:(NSArray *)matchPaths
+                         queryParam:(NSDictionary *)queryParams {
     TTRouterContext *c = [TTRouterContext new];
-    c.url= url;
+    c.url = url;
     c.matchPaths = matchPaths;
     c.queryParams = queryParams;
     return c;

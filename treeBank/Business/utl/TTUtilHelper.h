@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface TTUtilHelper : NSObject
-+(NSString*)traceNo:(NSString*)objId;
++ (NSString *)traceNo:(NSString *)objId;
 @end

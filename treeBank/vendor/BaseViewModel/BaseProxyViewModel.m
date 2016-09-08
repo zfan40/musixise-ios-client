@@ -9,26 +9,26 @@
 #import "BaseProxyViewModel.h"
 
 @implementation BaseProxyViewModel
--(instancetype)initWithViewModel:(BaseViewModel *)viewModel {
+- (instancetype)initWithViewModel:(BaseViewModel *)viewModel {
     self = [super init];
     if (self) {
         self.srcViewModel = viewModel;
     }
     return self;
 }
--(void)dealloc {
+- (void)dealloc {
     self.srcViewModel = nil;
 }
 
--(void)setSrcViewModel:(BaseViewModel *)viewModel {
+- (void)setSrcViewModel:(BaseViewModel *)viewModel {
     if (viewModel != _srcViewModel) {
         if (_srcViewModel) {
             [_srcViewModel removeObserver:self forKeyPath:kStateKey context:nil];
             [_srcViewModel removeObserver:self forKeyPath:kDataKey context:nil];
         }
-        
+
         _srcViewModel = viewModel;
-        
+
         if (_srcViewModel) {
             NSAssert([_srcViewModel isKindOfClass:[BaseViewModel class]], @"viewModel error");
             [_srcViewModel addObserver:self forKeyPath:kStateKey options:NSKeyValueObservingOptionNew context:nil];
@@ -37,97 +37,99 @@
     }
 }
 
-
--(MODESTATE)state {
+- (MODESTATE)state {
     return [_srcViewModel state];
 }
--(void)setState:(MODESTATE)state {
+- (void)setState:(MODESTATE)state {
     return [_srcViewModel setState:state];
 }
--(BOOL)hasMore {
+- (BOOL)hasMore {
     return [_srcViewModel hasMore];
 }
--(BOOL)isLoading {
+- (BOOL)isLoading {
     return [_srcViewModel isLoading];
 }
--(BOOL)isRefreshing {
+- (BOOL)isRefreshing {
     return [_srcViewModel isRefreshing];
 }
--(NSInteger)size {
+- (NSInteger)size {
     return [_srcViewModel size];
 }
--(NSInteger)page {
+- (NSInteger)page {
     return [_srcViewModel page];
 }
--(void)load {
+- (void)load {
     return [_srcViewModel load];
 }
--(void)refresh {
+- (void)refresh {
     return [_srcViewModel refresh];
 }
--(void)cancelLoad {
+- (void)cancelLoad {
     return [_srcViewModel cancelLoad];
 }
--(void)reload {
+- (void)reload {
     return [_srcViewModel reload];
 }
--(void)reset {
+- (void)reset {
     return [_srcViewModel reset];
 }
--(void)beginDataChanged {
+- (void)beginDataChanged {
     return [_srcViewModel beginDataChanged];
 }
--(void)endDataChanged {
+- (void)endDataChanged {
     return [_srcViewModel endDataChanged];
 }
--(void)emitDataChanged {
+- (void)emitDataChanged {
     return [_srcViewModel emitDataChanged];
 }
--(NSInteger)sectionCount {
+- (NSInteger)sectionCount {
     return [_srcViewModel sectionCount];
 }
--(NSInteger)itemCount:(NSInteger)section {
+- (NSInteger)itemCount:(NSInteger)section {
     return [_srcViewModel itemCount:section];
 }
--(id)data:(NSIndexPath* const)indexPath {
+- (id)data:(NSIndexPath *const)indexPath {
     return [_srcViewModel data:indexPath];
 }
--(id)data:(NSIndexPath* const)indexPath key:(NSString*)key {
+- (id)data:(NSIndexPath *const)indexPath key:(NSString *)key {
     return [_srcViewModel data:indexPath key:key];
 }
--(void)setData:(NSIndexPath* const)indexPath key:(NSString*)key value:(id)value {
+- (void)setData:(NSIndexPath *const)indexPath key:(NSString *)key value:(id)value {
     return [_srcViewModel setData:indexPath key:key value:value];
 }
--(void)insert:(NSIndexPath* const)indexPath data:(NSArray*)data {
+- (void)insert:(NSIndexPath *const)indexPath data:(NSArray *)data {
     return [_srcViewModel insert:indexPath data:data];
 }
--(void)remove:(NSIndexPath* const)indexPath count:(NSInteger)count {
+- (void)remove:(NSIndexPath *const)indexPath count:(NSInteger)count {
     return [_srcViewModel remove:indexPath count:count];
 }
 
--(void)bind:(id)obj indexPath:(NSIndexPath*)indexPath keys:(NSArray*)keys keysMap:(NSDictionary*)keysmap {
+- (void)bind:(id)obj indexPath:(NSIndexPath *)indexPath keys:(NSArray *)keys keysMap:(NSDictionary *)keysmap {
     return [_srcViewModel bind:obj indexPath:indexPath keys:keys keysMap:keysmap];
 }
 
 //
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
     if (object == _srcViewModel) {
         if ([keyPath isEqualToString:kStateKey]) {
             [self viewModelStateChanged];
             return;
-        }else if([keyPath isEqualToString:kDataKey]) {
+        } else if ([keyPath isEqualToString:kDataKey]) {
             [self viewModelDataChanged];
             return;
         }
     }
-    
+
     return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
--(void)viewModelStateChanged {
+- (void)viewModelStateChanged {
     [self willChangeValueForKey:kStateKey];
     [self didChangeValueForKey:kStateKey];
 }
--(void)viewModelDataChanged {
+- (void)viewModelDataChanged {
     [self willChangeValueForKey:kDataKey];
     [self didChangeValueForKey:kDataKey];
 }

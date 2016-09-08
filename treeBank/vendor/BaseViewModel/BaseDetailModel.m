@@ -15,11 +15,10 @@
 @end
 
 @implementation BaseDetailModel {
-//    id _data;
+    //    id _data;
 }
 
--(instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.isNotFirstLoad = YES;
@@ -27,22 +26,22 @@
     return self;
 }
 
--(instancetype)initWithObj:(id)data {
+- (instancetype)initWithObj:(id)data {
     self = [self init];
     if (self) {
         self.data = data;
-//        [self setLoadFinished:YES];
+        //        [self setLoadFinished:YES];
     }
     return self;
 }
--(NSInteger)size {
+- (NSInteger)size {
     return _data ? 1 : 0;
 }
--(NSInteger)itemCount:(NSInteger)section {
+- (NSInteger)itemCount:(NSInteger)section {
     return _data ? 1 : 0;
 }
 
--(void)setData:(id)data {
+- (void)setData:(id)data {
     if (_data != data) {
         if (self.isNotFirstLoad) {
             [self beginDataChanged];
@@ -52,7 +51,7 @@
             [self endDataChanged];
         }
     }
-    
+
     if (_data) {
         self.isNotFirstLoad = YES;
     }
@@ -65,32 +64,29 @@
 //    [self setData:data];
 //}
 
--(id)data:(NSIndexPath *const)indexPath {
+- (id)data:(NSIndexPath *const)indexPath {
     return self.data;
 }
 
--(id)data:(NSIndexPath *const)indexPath key:(NSString *)key {
+- (id)data:(NSIndexPath *const)indexPath key:(NSString *)key {
     return [self valueForKey:key];
 }
 
--(id)valueForUndefinedKey:(NSString *)key {
+- (id)valueForUndefinedKey:(NSString *)key {
     if (self.data) {
         @try {
             return [self.data valueForKey:key];
-        }
-        @catch (NSException *exception) {
-            
-        }
-        @finally {
-            
+        } @catch (NSException *exception) {
+
+        } @finally {
         }
     }
-  
+
     return [super valueForUndefinedKey:key];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)sel {
-    NSMethodSignature* sig = [super methodSignatureForSelector:sel];
+    NSMethodSignature *sig = [super methodSignatureForSelector:sel];
     if (!sig) {
         return [_data methodSignatureForSelector:sel];
     }
@@ -102,7 +98,7 @@
     }
     return YES;
 }
--(void)forwardInvocation:(NSInvocation *)invocation {
+- (void)forwardInvocation:(NSInvocation *)invocation {
     SEL invSEL = invocation.selector;
     if (_data && [_data respondsToSelector:invSEL]) {
         [invocation invokeWithTarget:_data];

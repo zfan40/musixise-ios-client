@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface TTRouterContext : NSObject
-@property (nonatomic ,strong) NSURL *url;
-@property (nonatomic ,strong) NSArray *matchPaths;
-@property (nonatomic ,strong) NSDictionary* queryParams;
-@property (nonatomic ,assign) BOOL handled;
-+(TTRouterContext *)contextWithUrl:(NSURL *)url matchPaths:(NSArray *)matchPaths queryParam:(NSDictionary *)queryParams;
+@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) NSArray *matchPaths;
+@property (nonatomic, strong) NSDictionary *queryParams;
+@property (nonatomic, assign) BOOL handled;
++ (TTRouterContext *)contextWithUrl:(NSURL *)url
+                         matchPaths:(NSArray *)matchPaths
+                         queryParam:(NSDictionary *)queryParams;
 @end

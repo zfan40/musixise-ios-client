@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 xiami. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "TTAnimationController.h"
+#import <Foundation/Foundation.h>
 @interface TTPushAnimationController : TTAnimationController
 
 @end

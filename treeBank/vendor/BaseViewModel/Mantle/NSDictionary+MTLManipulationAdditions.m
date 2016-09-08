@@ -11,15 +11,15 @@
 @implementation NSDictionary (MTLManipulationAdditions)
 
 - (NSDictionary *)mtl_dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary {
-	NSMutableDictionary *result = [self mutableCopy];
-	[result addEntriesFromDictionary:dictionary];
-	return result;
+    NSMutableDictionary *result = [self mutableCopy];
+    [result addEntriesFromDictionary:dictionary];
+    return result;
 }
 
 - (NSDictionary *)mtl_dictionaryByRemovingEntriesWithKeys:(NSSet *)keys {
-	NSMutableDictionary *result = [self mutableCopy];
-	[result removeObjectsForKeys:keys.allObjects];
-	return result;
+    NSMutableDictionary *result = [self mutableCopy];
+    [result removeObjectsForKeys:keys.allObjects];
+    return result;
 }
 
 @end

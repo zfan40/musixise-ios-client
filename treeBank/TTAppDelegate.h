@@ -14,4 +14,3 @@
 @property (strong, nonatomic) UIWindow *otherWindow;
 
 @end
-

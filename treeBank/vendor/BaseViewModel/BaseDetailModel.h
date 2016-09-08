@@ -6,12 +6,12 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import "BaseViewModel.h"
+#import <Foundation/Foundation.h>
 
 @interface BaseDetailModel : BaseViewModel
-@property(nonatomic,strong) id data;
+@property (nonatomic, strong) id data;
 
--(instancetype)initWithObj:(id)data;
+- (instancetype)initWithObj:(id)data;
 
 @end
