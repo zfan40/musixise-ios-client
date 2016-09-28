@@ -1,0 +1,1 @@
+../../../../LocalPods/MYMVVM/Classes/Model/MYBaseModel.h

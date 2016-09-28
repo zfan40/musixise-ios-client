@@ -58,9 +58,39 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "../LocalPods/MYIconFont/Classes/demo.css"
+  install_resource "../LocalPods/MYIconFont/Classes/demo.html"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.css"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.eot"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.plist"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.svg"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.ttf"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.woff"
+  install_resource "../LocalPods/MYUtils/Resources/model.csv"
+  install_resource "../LocalPods/MYWidget/Resources/order_protocol_check_icon@2x.png"
+  install_resource "../LocalPods/MYWidget/Resources/order_protocol_check_icon@3x.png"
+  install_resource "../LocalPods/MYWidget/Resources/order_protocol_not_icon@2x.png"
+  install_resource "../LocalPods/MYWidget/Resources/order_protocol_not_icon@3x.png"
+  install_resource "../LocalPods/MYWidget/Resources/skins.json"
   install_resource "WebViewJavascriptBridge/WebViewJavascriptBridge/WebViewJavascriptBridge.js.txt"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "../LocalPods/MYIconFont/Classes/demo.css"
+  install_resource "../LocalPods/MYIconFont/Classes/demo.html"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.css"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.eot"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.plist"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.svg"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.ttf"
+  install_resource "../LocalPods/MYIconFont/Classes/iconfont.woff"
+  install_resource "../LocalPods/MYUtils/Resources/model.csv"
+  install_resource "../LocalPods/MYWidget/Resources/order_protocol_check_icon@2x.png"
+  install_resource "../LocalPods/MYWidget/Resources/order_protocol_check_icon@3x.png"
+  install_resource "../LocalPods/MYWidget/Resources/order_protocol_not_icon@2x.png"
+  install_resource "../LocalPods/MYWidget/Resources/order_protocol_not_icon@3x.png"
+  install_resource "../LocalPods/MYWidget/Resources/skins.json"
   install_resource "WebViewJavascriptBridge/WebViewJavascriptBridge/WebViewJavascriptBridge.js.txt"
 fi
 

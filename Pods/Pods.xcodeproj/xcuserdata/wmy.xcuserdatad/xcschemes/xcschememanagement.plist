@@ -9,7 +9,52 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MBProgressHUD.xcscheme</key>
+		<key>CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSONModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MYAudio.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MYIconFont.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MYImageService.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MYMVVM.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MYNetwork.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MYUtils.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MYWidget.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -19,12 +64,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ReactiveCocoa.xcscheme</key>
+		<key>Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TPKeyboardAvoiding.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,7 +79,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>libextobjc.xcscheme</key>
+		<key>libwebp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +87,82 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2699EEE4E59385F3F1EB4E4C237C4F54</key>
+		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>462C6B9FCE57FD37EC164A57B92142DE</key>
+		<key>2A454EB7FF7B851A6C8CFE3929A52667</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E2B736082F43EAA3B861CE19FFA9A63</key>
+		<key>3C291FB3B03A727FDC402CAF9EC7B892</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E41CA2ECB40C640963734378302229C</key>
+		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8623C3B4212AB0217C598E7FF46334CB</key>
+		<key>43FE871D4590DE54D05DE127CD6BBA2D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>50F09F21F0370197B306CA3AA040B0B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
+		<key>5F0120C956BE11A44E8ED0DB0EEFC06F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>653937E6CA1C6191825CA30C4745224D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79C85DE68D69FB8195DF92F72EAE84A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D4386E6BBC507C37DF89D5452113E29</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9DD0E5D62C54801DC0EBA47F651DFD93</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0F5C28E18F817AD22B626432C6155B6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC2F70891DF2A97ABD3B9C0C52E0BFF7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF8E97EAB1E5A0E970F4AFDCEC22A5D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E89EA0620E22EDB775A7C107518644DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

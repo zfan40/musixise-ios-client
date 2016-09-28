@@ -1,0 +1,29 @@
+{
+    "white":{
+        "c0":"0xfa7829ff",
+        "c1":"0x818fffff",
+        "c2":"0x000000ff",
+        "c3":"0xffffffff",
+        "c4":"0xff0000ff",
+        "c5":"0x00000019",
+        
+        "itemViewColor":"0x0000000f",
+        "seperatorColor":"0x00000019",
+        "maskColor":"0xffffffff",
+        "backgroundColor":"0xFFFFFFFF"
+    },
+    "default":{
+        "c0":"0xf53172ff",
+        "c1":"0x818fffff",
+        "c2":"0xffffffff",
+        "c3":"0x000000ff",
+        "c4":"0x282f33ff",
+        "c5":"0x282f33ff",
+        
+        "itemViewColor":"0x0000000f",
+        "seperatorColor":"0xffffff0f",
+        "maskColor":"0x00000026",
+        "backgroundColor":"0x202020FF"
+    }
+    
+}

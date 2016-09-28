@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8A17D4C91C9F90E70001A4DC"
+               BlueprintIdentifier = "F79D9A1A1D9562E9007AA167"
                BuildableName = "musixise.app"
                BlueprintName = "musixise"
                ReferencedContainer = "container:musixise.xcodeproj">
@@ -28,11 +28,31 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F79D9A331D9562E9007AA167"
+               BuildableName = "musixiseTests.xctest"
+               BlueprintName = "musixiseTests"
+               ReferencedContainer = "container:musixise.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F79D9A3E1D9562E9007AA167"
+               BuildableName = "musixiseUITests.xctest"
+               BlueprintName = "musixiseUITests"
+               ReferencedContainer = "container:musixise.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A17D4C91C9F90E70001A4DC"
+            BlueprintIdentifier = "F79D9A1A1D9562E9007AA167"
             BuildableName = "musixise.app"
             BlueprintName = "musixise"
             ReferencedContainer = "container:musixise.xcodeproj">
@@ -55,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A17D4C91C9F90E70001A4DC"
+            BlueprintIdentifier = "F79D9A1A1D9562E9007AA167"
             BuildableName = "musixise.app"
             BlueprintName = "musixise"
             ReferencedContainer = "container:musixise.xcodeproj">
@@ -74,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A17D4C91C9F90E70001A4DC"
+            BlueprintIdentifier = "F79D9A1A1D9562E9007AA167"
             BuildableName = "musixise.app"
             BlueprintName = "musixise"
             ReferencedContainer = "container:musixise.xcodeproj">

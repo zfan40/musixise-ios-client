@@ -1,0 +1,1 @@
+../../../../LocalPods/MYUtils/Classes/BaseSingleton/MYSingleDefine.h

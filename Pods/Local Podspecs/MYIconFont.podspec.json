@@ -1,0 +1,21 @@
+{
+  "name": "MYIconFont",
+  "version": "0.0.1",
+  "summary": "MYIconFont, xiaplay",
+  "description": "A longer description of MYIconFont in Markdown format.\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "http://EXAMPLE/MYIconFont",
+  "license": "MIT",
+  "authors": {
+    "wmy": "mingyan.wmy@alibaba-inc.com"
+  },
+  "source": {
+    "git": "git@gitlab.alibaba-inc.com:xiaplay-core/MYIconFont.git",
+    "tag": "0.0.1"
+  },
+  "source_files": [
+    "Classes",
+    "Classes/**/*.{h,m}"
+  ],
+  "exclude_files": "Exclude",
+  "resources": "Classes/*.{png,css,ttf,html,svg,woff,eot,plist}"
+}
