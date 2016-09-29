@@ -8,7 +8,7 @@
 
 #import "MYBaseViewController.h"
 #import <MYUtils/UIView+MYAdditons.h>
-
+#import <MYUtils/UIImage+MYImage.h>
 #import <MYWidget/MYWidget.h>
 #import "MYBaseViewModel.h"
 #import <MYWidget/UILabel+MYStyle.h>
@@ -16,6 +16,8 @@
 #import "MYNoDataViewManager.h"
 #import <MYNetwork/MYBaseNetWorkUtil.h>
 #import <Reachability/Reachability.h>
+#import <MYWidget/MYTipsHelper.h>
+#import <MYUtils/UIImage+MYImage.h>
 
 @interface MYBaseViewController () <MYNoDataViewDelegate>
 
@@ -65,7 +67,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置背景
-    self.view.backgroundColor = theMYWidget.backgroundColor;
+    self.view.backgroundColor = [UIColor whiteColor];
     self.view.height = kScreenHeight;
     // 设置noDataView
     [self.noDataViewManager setViewType:[self noDataType]];
@@ -79,11 +81,28 @@
                                              selector:@selector(onChangeNetwork)
                                                  name:kReachabilityChangedNotification
                                                object:nil];
-
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.isBarAlpha) {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage new];
+        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    } else {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:[UIColor blackColor]] forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage createImageWithColor:[UIColor blackColor]];
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -91,6 +110,10 @@
     [self.view insertSubview:self.noDataView atIndex:0];
 }
 #pragma mark - --------------------功能函数------------------
+
+- (void)showTip:(NSString *)string {
+    [[MYTipsHelper sharedInstance] showTips:string];
+}
 
 - (MYNoDataType)noDataType {
     return MYNoDataViewType_No_NetWork;

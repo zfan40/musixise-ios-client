@@ -21,8 +21,8 @@
 #define API_KEY @"655bdb5fc1e0d21a53fce2cb8e1ba0ae"
 #define API_SECRET @"1fb9ebd12bec2db8c250e1fae9b37ca6"
 
-#define kFormalAddress @"http://spark.api.xiami.com/api"
-#define kImageUploadAddress @"http://upload.xiami.com"
+#define kFormalAddress @"http://api.musixise.com/api"
+//#define kImageUploadAddress @"http://upload.xiami.com"
 
 @interface MYBaseNetWorkUtil ()
 
@@ -107,13 +107,16 @@
 
 - (AFHTTPRequestOperation *)posthttpWithDictionary:(nonnull NSDictionary *)dict withMethod:(NSString *)method withComplete:(void (^)(NSDictionary *, BOOL, NSError *))block {
     
-    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
-    [paramDict setObject:method forKey:@"method"];
-    [paramDict addEntriesFromDictionary:dict];
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:dict];
+//    [paramDict setObject:method forKey:@"method"];
+//    [paramDict addEntriesFromDictionary:dict];
     // 系统参数 begin
-    paramDict = [self systemParams:paramDict];
+//    paramDict = [self systemParams:paramDict];
     // 系统参数 end
-    AFHTTPRequestOperation *operation = [self.manager POST:kFormalAddress parameters:paramDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    NSString *requestURL = [NSString stringWithFormat:@"%@/%@",kFormalAddress,method];
+    
+    
+    AFHTTPRequestOperation *operation = [self.manager POST:requestURL parameters:paramDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         DebugLog(@"================== success ==================");
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSDictionary *data = [responseObject objectForKey:@"data"];
@@ -138,53 +141,6 @@
         }
     }];
     return operation;
-}
-
-
-- (AFHTTPRequestOperation *)postUploadImage:(NSURL *)imageFileUrl
-                                     userId:(long long)userId
-                               withComplete:(void (^)(NSDictionary *, BOOL, NSError *))block {
-    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
-    [paramDict setObject:@"FileServer.uploadImg" forKey:@"method"];
-    // 系统参数 begin
-    paramDict = [self systemParams:paramDict];
-    [paramDict setObject:@"1.1" forKey:@"v"];
-    //TODO: wmy userId
-    if(userId>0){
-        [paramDict setObject:[NSString stringWithFormat:@"%d", (int)userId] forKey:@"user_id"];
-    }
-    //    [paramDict setObject:imageFileUrl.relativePath forKey:@"filedata"];
-    [paramDict setObject:@"common" forKey:@"utype"];
-    NSString *uploadAddress = [NSString stringWithFormat:@"%@/image/upload",kImageUploadAddress];
-    // 系统参数 end
-    AFHTTPRequestOperation *operation = [self.manager POST:uploadAddress parameters:paramDict constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        [formData appendPartWithFileURL:imageFileUrl name:@"filedata" fileName:@"test" mimeType:@"MIME" error:nil];
-    }  success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        DebugLog(@"================== success ==================");
-        NSDictionary *responseDict = (NSDictionary *)responseObject;
-        NSDictionary *data = [responseObject objectForKey:@"data"];
-        NSInteger state = [[responseDict objectForKey:@"state"] integerValue];
-        NSString *message = [responseDict objectForKey:@"message"];
-        DebugLog(@"message = %@",message);
-        DebugLog(@"state = %ld",(long)state);
-        if (block) {
-            NSError *error = nil;
-            if (state != 0) {
-                error = [NSError errorWithDomain:message
-                                            code:state
-                                        userInfo:@{@"message":message,@"state":@(state)}];
-            }
-            block(data,state == 0,error);
-        }
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        DebugLog(@"================== failure  ==================");
-        DebugLog(@"error = %@;",error);
-        if (block) {
-            block(nil,NO,error);
-        }
-    }];
-    return operation;
-    
 }
 
 
@@ -318,8 +274,8 @@
 - (AFHTTPRequestOperationManager *)manager {
     if (!_manager) {
         _manager = [AFHTTPRequestOperationManager manager];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-                _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/"];
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
 }
     return _manager;
 }

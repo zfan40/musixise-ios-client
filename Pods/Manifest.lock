@@ -80,6 +80,8 @@ PODS:
     - AFNetworking (~> 2.0)
     - MYUtils
     - Reachability
+  - MYUserSystem (0.0.1):
+    - WeiboSDK
   - MYUtils (0.0.1):
     - CocoaLumberjack
   - MYWidget (0.0.1):
@@ -93,20 +95,23 @@ PODS:
     - libwebp
     - SDWebImage/Core
   - WebViewJavascriptBridge (4.1.4)
+  - WeiboSDK (3.1.4)
 
 DEPENDENCIES:
-  - MYAudio (from `./LocalPods/MYAudio`)
+  - MYAudio (from `./LocalPods/MYAudio/`)
   - MYIconFont (from `./LocalPods/MYIconFont/`)
   - MYImageService (from `./LocalPods/MYImageService/`)
   - MYMVVM (from `./LocalPods/MYMVVM/`)
   - MYNetwork (from `./LocalPods/MYNetwork/`)
+  - MYUserSystem (from `./LocalPods/MYUserSystem/`)
   - MYUtils (from `./LocalPods/MYUtils/`)
   - MYWidget (from `./LocalPods/MYWidget/`)
   - WebViewJavascriptBridge (= 4.1.4)
+  - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
 EXTERNAL SOURCES:
   MYAudio:
-    :path: "./LocalPods/MYAudio"
+    :path: "./LocalPods/MYAudio/"
   MYIconFont:
     :path: "./LocalPods/MYIconFont/"
   MYImageService:
@@ -115,10 +120,19 @@ EXTERNAL SOURCES:
     :path: "./LocalPods/MYMVVM/"
   MYNetwork:
     :path: "./LocalPods/MYNetwork/"
+  MYUserSystem:
+    :path: "./LocalPods/MYUserSystem/"
   MYUtils:
     :path: "./LocalPods/MYUtils/"
   MYWidget:
     :path: "./LocalPods/MYWidget/"
+  WeiboSDK:
+    :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
+
+CHECKOUT OPTIONS:
+  WeiboSDK:
+    :commit: 3daf7147ddd0fde3b04a61d8d94327d41d0c239c
+    :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -131,10 +145,12 @@ SPEC CHECKSUMS:
   MYImageService: b43538cce65303d85b19e892a3f0306d8529f0b2
   MYMVVM: 98358165f4b753458eec2b51088a1197d8634e60
   MYNetwork: 4faea6bb1ab6ccc678a7e85f384d33377e852bcb
+  MYUserSystem: 4c202beb68626b62a90f47bbf7e99997d2a34924
   MYUtils: 50ceeb3ca8ef0742e67983a3783c1fb6113fdf77
   MYWidget: 7736db45cddcdb73cfdbbe0bb7100bc8c04af349
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   WebViewJavascriptBridge: f10ac16f2cd3adf2b941bd79477c55a8f6e01044
+  WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
 COCOAPODS: 0.39.0

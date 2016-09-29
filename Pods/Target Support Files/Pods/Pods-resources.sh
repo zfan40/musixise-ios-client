@@ -74,6 +74,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "../LocalPods/MYWidget/Resources/order_protocol_not_icon@3x.png"
   install_resource "../LocalPods/MYWidget/Resources/skins.json"
   install_resource "WebViewJavascriptBridge/WebViewJavascriptBridge/WebViewJavascriptBridge.js.txt"
+  install_resource "WeiboSDK/libWeiboSDK/WeiboSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "../LocalPods/MYWidget/Resources/order_protocol_not_icon@3x.png"
   install_resource "../LocalPods/MYWidget/Resources/skins.json"
   install_resource "WebViewJavascriptBridge/WebViewJavascriptBridge/WebViewJavascriptBridge.js.txt"
+  install_resource "WeiboSDK/libWeiboSDK/WeiboSDK.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

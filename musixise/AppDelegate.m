@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <MYMVVM/MYNavigationController.h>
 #import "MYMainViewController.h"
+#import <MYMVVM/MYRouteManagerModel.h>
+#import <MYUserSystem/MYLoginManager.h>
 
 @interface AppDelegate ()
 
@@ -22,8 +24,20 @@
     MYNavigationController *navi = [[MYNavigationController alloc] initWithRootViewController:main];
     self.window.rootViewController = navi;
 //    [NSThread sleepForTimeInterval:3];
+    // 初始化route
+    // router初始化
+    NSMutableArray *array = [NSMutableArray array];
+    MYRouteManagerModel *routeManagerModel = [[MYRouteManagerModel alloc] init];
+    routeManagerModel.urlManagerName = @"MYMainRouteManager";
+    routeManagerModel.filePath = [[NSBundle mainBundle] pathForResource:@"scheme_url" ofType:@"json"];
+    [array addObject:routeManagerModel];
+    [router setup:navi withManagerModels:array];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [[MYLoginManager sharedInstance] handleWithURL:url];
 }
 
 

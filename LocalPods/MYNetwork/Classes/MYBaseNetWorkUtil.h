@@ -60,9 +60,4 @@
                downloadFailure:(void (^_Nullable)(AFHTTPRequestOperation *_Nullable operation, NSError *_Nullable error))failure
                       progress:(void (^_Nullable)(float progress, float total))progress;
 
-
-- (AFHTTPRequestOperation *_Nonnull)postUploadImage:(NSURL *_Nonnull)imageFileUrl
-                                     userId:(long long)userId
-                               withComplete:(void (^_Nonnull)(NSDictionary *_Nonnull result, BOOL success, NSError *_Nullable error))block;
-
 @end

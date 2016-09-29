@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B2BD69B788EB1F8F4CA2AF28'
+               BlueprintIdentifier = '82CEF2CFFF16892624FAE2B2'
                BlueprintName = 'MYImageService'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libMYImageService.a'>

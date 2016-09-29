@@ -34,70 +34,15 @@
 #pragma mark - --------------------初始化--------------------
 + (void)initialize
 {
-    // 获取当前类下面的UIBarButtonItem
     UIBarButtonItem *item = [UIBarButtonItem appearanceWhenContainedIn:self, nil];
-    //
-    // 设置导航条按钮的文字颜色
-//    NSMutableDictionary *titleAttr = [NSMutableDictionary dictionary];
-//    titleAttr[NSForegroundColorAttributeName] = [UIColor whiteColor];
-//    [item setTitleTextAttributes:titleAttr forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[UINavigationBar appearance] setBarTintColor:[UIColor clearColor]];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    // 实现滑动返回功能
-    // 清空滑动返回手势的代理，就能实现滑动返回
-    //    self.backDelegate = self.interactivePopGestureRecognizer.delegate;
     self.interactivePopGestureRecognizer.delegate = nil;
-    // 设置导航条按钮的文字颜色
-//    NSMutableDictionary *titleAttr = [NSMutableDictionary dictionary];
-//    titleAttr[NSForegroundColorAttributeName] = [UIColor whiteColor];
-//    self.navigationBar.titleTextAttributes = titleAttr;
-//    self.navigationBar.tintColor = [UIColor whiteColor];
     
 }
-#pragma mark - --------------------属性相关------------------
-
-
-- (UIImageView *)rightMoreView {
-    if (!_rightMoreView) {
-        _rightMoreView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_icon_more_normal"]];
-        _rightMoreView.width = 32;
-        _rightMoreView.height = 32;
-        UITapGestureRecognizer *myRightMoreTap = [[UITapGestureRecognizer alloc]initWithTarget:self
-                                                                                  action:@selector(onclickMore)];
-        [_rightMoreView addGestureRecognizer:myRightMoreTap];
-#if DEBUG
-        _rightMoreView.layer.borderColor = [UIColor blueColor].CGColor;
-        _rightMoreView.layer.borderWidth = 1;
-#endif
-    }
-    return _rightMoreView;
-}
-
-- (UIButton *)backButton {
-    if (!_backButton) {
-        _backButton = [MYButtonFactory buttonWithImageName:@"iconFont-quanjufanhui" size:24 color:theMYWidget.c2];
-        _backButton.width = 30;
-        _backButton.height = 30;
-        UITapGestureRecognizer *mybackButtonTap = [[UITapGestureRecognizer alloc]initWithTarget:self
-                                                                                  action:@selector(backToPre)];
-        [_backButton addGestureRecognizer:mybackButtonTap];
-    }
-    return _backButton;
-}
-
-- (MYMoreView *)moreView {
-    if (!_moreView) {
-        _moreView = [MYMoreView moreViewWithTitleArray:self.moreTitleArray top:64];
-        _moreView.delegate = self;
-    }
-    return _moreView;
-}
-
-
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
 
@@ -163,7 +108,6 @@
             viewController.navigationItem.rightBarButtonItem.target = self;
             viewController.navigationItem.rightBarButtonItem.action = @selector(onclickMore);
         }
-//        viewController.navigationController.navigationBar.backItem.hidesBackButton = YES;
         viewController.navigationItem.hidesBackButton = YES;
     } else {
         if ([self.tabBarController isKindOfClass:[MYTabBarViewController class]]) {
@@ -196,7 +140,6 @@
         }
         case MYBaseViewControllerTypeModal:
         {
-            
             CATransition *transition = [CATransition animation];
             transition.duration = 0.2;
             transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -217,11 +160,10 @@
 
 - (void)backToPre {
     UIViewController *viewController = [self popViewControllerAnimated:NO];
-    
+    UIViewController *topViewController = [self topViewController];
     if ([viewController isKindOfClass:[MYBaseViewController class]]) {
         MYBaseViewController *baseViewController = (MYBaseViewController *)viewController;
         [self animationWithPopType:[baseViewController inComeType]];
-        
     }
 }
 
@@ -243,5 +185,45 @@
         [tableViewController clickMoreWithIndex:index];
     }
 }
+
+#pragma mark - --------------------属性相关------------------
+- (UIImageView *)rightMoreView {
+    if (!_rightMoreView) {
+        _rightMoreView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_icon_more_normal"]];
+        _rightMoreView.width = 32;
+        _rightMoreView.height = 32;
+        UITapGestureRecognizer *myRightMoreTap = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                                        action:@selector(onclickMore)];
+        [_rightMoreView addGestureRecognizer:myRightMoreTap];
+#if DEBUG
+        _rightMoreView.layer.borderColor = [UIColor blueColor].CGColor;
+        _rightMoreView.layer.borderWidth = 1;
+#endif
+    }
+    return _rightMoreView;
+}
+
+- (UIButton *)backButton {
+    if (!_backButton) {
+        // TODO: wmy 返回按钮的颜色
+        _backButton = [MYButtonFactory buttonWithImageName:@"iconFont-quanjufanhui" size:24 color:[UIColor blackColor]];
+        _backButton.width = 30;
+        _backButton.height = 30;
+        UITapGestureRecognizer *mybackButtonTap = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                                         action:@selector(backToPre)];
+        [_backButton addGestureRecognizer:mybackButtonTap];
+    }
+    return _backButton;
+}
+
+- (MYMoreView *)moreView {
+    if (!_moreView) {
+        _moreView = [MYMoreView moreViewWithTitleArray:self.moreTitleArray top:64];
+        _moreView.delegate = self;
+    }
+    return _moreView;
+}
+
+
 
 @end

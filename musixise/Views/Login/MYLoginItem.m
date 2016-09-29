@@ -10,7 +10,7 @@
 #import <MYWidget/UILabel+MYStyle.h>
 #import <MYIconFont/MYButtonFactory.h>
 
-#define kButtonWidth 64
+#define kButtonWidth 48
 
 @interface MYLoginItem ()
 
@@ -51,11 +51,12 @@
     MYLoginItem *item = [[MYLoginItem alloc] init];
     item.width = 64;
     item.height = 80;
+    item.userInteractionEnabled = YES;
 #if DEBUG
     item.layer.borderColor = [UIColor blueColor].CGColor;
     item.layer.borderWidth = 1;
 #endif
-    [MYButtonFactory setButtonImage:item.iconButton WithimageName:name size:64 color:color];
+    [MYButtonFactory setButtonImage:item.iconButton WithimageName:name size:36 color:color];
     item.titleLabel.text = title;
     [item.titleLabel sizeToFit];
     [item setNeedsLayout];
@@ -66,7 +67,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.iconButton.left = 0;
+    self.iconButton.centerX = self.width * 0.5;
     self.iconButton.top = 0;
     self.titleLabel.top = self.iconButton.bottom;
     self.titleLabel.centerX = self.width * 0.5;
@@ -78,14 +79,14 @@
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------
 
-
-newInstanceUILabel1(titleLabel, MYWidgetStyle_MYWidget_tt_c2_f4_a80)
+newInstanceUILabel1(titleLabel, MYWidgetStyle_MYWidget_tt_c2_f2_a80)
 
 - (UIButton *)iconButton {
     if (!_iconButton) {
         _iconButton =[UIButton buttonWithType:UIButtonTypeCustom];
         _iconButton.width = kButtonWidth;
         _iconButton.height = kButtonWidth;
+        _iconButton.enabled = NO;
     }
     return _iconButton;
 }

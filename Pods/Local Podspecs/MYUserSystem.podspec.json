@@ -1,0 +1,25 @@
+{
+  "name": "MYUserSystem",
+  "version": "0.0.1",
+  "summary": "A short description of MYUserSystem.",
+  "description": "",
+  "homepage": "http://EXAMPLE/MYUserSystem",
+  "license": "MIT (example)",
+  "authors": {
+    "wmy": "mingyan.wmy@alibaba-inc.com"
+  },
+  "source": {
+    "git": "http://EXAMPLE/MYUserSystem.git",
+    "tag": "0.0.1"
+  },
+  "source_files": [
+    "Classes",
+    "Classes/**/*.{h,m}"
+  ],
+  "exclude_files": "Classes/Exclude",
+  "dependencies": {
+    "WeiboSDK": [
+
+    ]
+  }
+}

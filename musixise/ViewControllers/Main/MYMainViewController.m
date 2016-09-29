@@ -54,6 +54,11 @@
 }
 
 #pragma mark - --------------------功能函数------------------
+
+- (BOOL)isBarAlpha {
+    return NO;
+}
+
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
 
@@ -70,6 +75,7 @@
     if (!_rightButton) {
         _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_rightButton setTitle:@"登录" forState:UIControlStateNormal];
+        _rightButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [_rightButton sizeToFit];
         UITapGestureRecognizer *myRightMoreTap = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                                         action:@selector(onclickLogin)];

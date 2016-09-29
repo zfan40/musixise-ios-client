@@ -9,5 +9,10 @@ pod 'MYMVVM', :path => './LocalPods/MYMVVM/'
 pod 'MYNetwork', :path => './LocalPods/MYNetwork/'
 pod 'MYUtils', :path => './LocalPods/MYUtils/'
 pod 'MYWidget', :path => './LocalPods/MYWidget/'
-pod 'MYAudio', :path => './LocalPods/MYAudio'
+pod 'MYAudio', :path => './LocalPods/MYAudio/'
+pod 'MYUserSystem', :path => './LocalPods/MYUserSystem/'
 pod 'WebViewJavascriptBridge', '4.1.4'
+
+# 登录相关
+pod 'WeiboSDK', :git => 'https://github.com/sinaweibosdk/weibo_ios_sdk.git'
+

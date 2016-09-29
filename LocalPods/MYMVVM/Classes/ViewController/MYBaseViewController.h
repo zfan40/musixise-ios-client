@@ -32,6 +32,7 @@ typedef enum {
 @interface MYBaseViewController : UIViewController
 
 @property (nonatomic,strong) MYBaseViewModel *viewModel;
+@property (nonatomic,assign) BOOL isBarAlpha;
 /**
  *  当viewModel发生变化时调用此方法
  */
@@ -57,6 +58,7 @@ typedef enum {
 - (MYNoDataType)noDataType;
 - (MYNoDataEmptyType)noDataEmptyType;
 
+- (void)showTip:(NSString *)string;
 - (void)showNoData;
 
 @property (nonatomic,assign) NSInteger index;

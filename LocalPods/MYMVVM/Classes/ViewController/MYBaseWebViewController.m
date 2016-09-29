@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.webView];
-    self.webView.top = 64;
     self.webView.bounds = self.view.bounds;
     self.webView.top = 0;
     self.webView.left = 0;

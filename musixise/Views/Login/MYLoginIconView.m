@@ -55,10 +55,7 @@
     [self addSubview:self.taobaoBtn];
     [self addSubview:self.weixinBtn];
     [self addSubview:self.weiboBtn];
-    [self.itemArray addObject:self.qqBtn];
-    [self.itemArray addObject:self.taobaoBtn];
-    [self.itemArray addObject:self.weixinBtn];
-    [self.itemArray addObject:self.weiboBtn];
+    self.userInteractionEnabled = YES;
 }
 
 + (instancetype)loginIconView {
@@ -76,16 +73,20 @@
         MYLoginItem *item = [self.itemArray objectAtIndex:i];
         item.left = i * item.width + space * i;
         item.top = 0;
+#if DEBUG
+        item.layer.borderColor = [UIColor blueColor].CGColor;
+        item.layer.borderWidth = 1;
+#endif
     }
 }
 
 #pragma mark - --------------------功能函数------------------
 #pragma mark - --------------------手势事件------------------
 
-- (void)onClickIcon:(NSObject *)obj {
-    NSLog(@"");
+- (void)onClickIcon:(UITapGestureRecognizer *)obj {
+    UIView *view = obj.view;
     if ([self.delegate respondsToSelector:@selector(loginIconViewDidClickIconWithTag:)]) {
-        [self.delegate loginIconViewDidClickIconWithTag:0];
+        [self.delegate loginIconViewDidClickIconWithTag:view.tag];
     }
 }
 
@@ -107,6 +108,12 @@
         UITapGestureRecognizer *qqTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(onClickIcon:)];
         [_qqBtn addGestureRecognizer:qqTap];
+        [self.itemArray addObject:_qqBtn];
+
+#if DEBUG
+        _qqBtn.layer.borderColor = [UIColor blueColor].CGColor;
+        _qqBtn.layer.borderWidth = 1;
+#endif
     }
     return _qqBtn;
 }
@@ -118,6 +125,11 @@
         UITapGestureRecognizer *taobaoTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(onClickIcon:)];
         [_taobaoBtn addGestureRecognizer:taobaoTap];
+#if DEBUG
+        _taobaoBtn.layer.borderColor = [UIColor blueColor].CGColor;
+        _taobaoBtn.layer.borderWidth = 1;
+#endif
+        [self.itemArray addObject:_taobaoBtn];
     }
     return _taobaoBtn;
 }
@@ -129,6 +141,11 @@
         UITapGestureRecognizer *weixinTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                     action:@selector(onClickIcon:)];
         [_weixinBtn addGestureRecognizer:weixinTap];
+#if DEBUG
+        _weixinBtn.layer.borderColor = [UIColor blueColor].CGColor;
+        _weixinBtn.layer.borderWidth = 1;
+#endif
+        [self.itemArray addObject:_weixinBtn];
     }
     return _weixinBtn;
 }
@@ -140,6 +157,11 @@
         UITapGestureRecognizer *weiboTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                     action:@selector(onClickIcon:)];
         [_weiboBtn addGestureRecognizer:weiboTap];
+#if DEBUG
+        _weiboBtn.layer.borderColor = [UIColor blueColor].CGColor;
+        _weiboBtn.layer.borderWidth = 1;
+#endif
+        [self.itemArray addObject:_weiboBtn];
     }
     return _weiboBtn;
 }

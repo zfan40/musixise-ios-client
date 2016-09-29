@@ -20,7 +20,7 @@
 
 @property (nonatomic,strong) NSArray *titleArray;
 
-@property (nonatomic,assign) BOOL isBarAlpha;
+
 /**
  *  是否可以上拉加载更多
  */
