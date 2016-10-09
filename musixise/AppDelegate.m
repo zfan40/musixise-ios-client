@@ -11,6 +11,7 @@
 #import "MYMainViewController.h"
 #import <MYMVVM/MYRouteManagerModel.h>
 #import <MYUserSystem/MYLoginManager.h>
+#import "MYAppDelegateUtils.h"
 
 @interface AppDelegate ()
 
@@ -20,10 +21,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    MYMainViewController *main = [[MYMainViewController alloc] init];
-    MYNavigationController *navi = [[MYNavigationController alloc] initWithRootViewController:main];
+    // 若第一次升级到此app，则显示欢迎页
+    MYBaseViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
+    MYNavigationController *navi = [[MYNavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
-//    [NSThread sleepForTimeInterval:3];
+    [NSThread sleepForTimeInterval:3];
     // 初始化route
     // router初始化
     NSMutableArray *array = [NSMutableArray array];
@@ -31,15 +33,18 @@
     routeManagerModel.urlManagerName = @"MYMainRouteManager";
     routeManagerModel.filePath = [[NSBundle mainBundle] pathForResource:@"scheme_url" ofType:@"json"];
     [array addObject:routeManagerModel];
+    // 皮肤安装
+    
+    [[MYWidget sharedInstance] setup];
     [router setup:navi withManagerModels:array];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[MYLoginManager sharedInstance] handleWithURL:url];
+    // TODO: wmy 添加route的跳转
+    return [[MYLoginManager sharedInstance] handleWithURL:[url absoluteString]];
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

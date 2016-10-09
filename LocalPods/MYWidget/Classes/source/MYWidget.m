@@ -171,7 +171,8 @@
 }
 
 - (UIColor *)backgroundColor {
-    return ColorWithHex([[self.currentColorDict objectForKey:@"backgroundColor"] stringToHex]);
+    UIColor *color = ColorWithHex([[self.currentColorDict objectForKey:@"backgroundColor"] stringToHex]);
+    return color;
 }
 
 - (CGFloat)seperatorHeight {

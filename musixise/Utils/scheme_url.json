@@ -1,38 +1,38 @@
 {
     "routers":[
                {
-               "schemeUrl":"treeBank://page/(\\w+)",
-               "example":"treeBank://page/MYDemoViewController",
+               "schemeUrl":"musixise://page/(\\w+)",
+               "example":"musixise://page/MYDemoViewController",
                "method":"page:",
                },
                {
-               "schemeUrl":"treeBank://back",
-               "example":"treeBank://back",
+               "schemeUrl":"musixise://back",
+               "example":"musixise://back",
                "method":"back:",
                },
                {
-               "schemeUrl":"treeBank://artist/(\\d+)",
-               "example":"treeBank://artist/12",
+               "schemeUrl":"musixise://artist/(\\d+)",
+               "example":"musixise://artist/12",
                "method":"artist:",
                },
                {
-               "schemeUrl":"treeBank://album/(\\d+)",
-               "example":"treeBank://album/12",
+               "schemeUrl":"musixise://album/(\\d+)",
+               "example":"musixise://album/12",
                "method":"album:",
                },
                {
-               "schemeUrl":"treeBank://search",
-               "example":"treeBank://search",
+               "schemeUrl":"musixise://search",
+               "example":"musixise://search",
                "method":"search:",
                },
                {
-               "schemeUrl":"treeBank://song/([\\d-]+)",
-               "example":"treeBank://song/",
+               "schemeUrl":"musixise://song/([\\d-]+)",
+               "example":"musixise://song/",
                "method":"songs:",
                },
                {
-               "schemeUrl":"treeBank://backToMain",
-               "example":"treeBank://backToMain",
+               "schemeUrl":"musixise://backToMain",
+               "example":"musixise://backToMain",
                "method":"backToMain:",
                }
                ]

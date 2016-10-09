@@ -23,6 +23,7 @@
 
 @property (nonatomic,strong) MYNoDataView *noDataView;
 @property (nonatomic,strong) MYNoDataViewManager *noDataViewManager;
+@property (strong, nonatomic) UILabel *titleLabel;
 
 @end
 
@@ -67,7 +68,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置背景
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = theMYWidget.backgroundColor;
     self.view.height = kScreenHeight;
     // 设置noDataView
     [self.noDataViewManager setViewType:[self noDataType]];
@@ -94,10 +95,15 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.shadowImage = [UIImage new];
         self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+        // TODO: wmy 修改颜色
+        self.titleLabel.textColor = theMYWidget.c2;
+        
     } else {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:[UIColor blackColor]] forBarMetrics:UIBarMetricsDefault];
-        self.navigationController.navigationBar.shadowImage = [UIImage createImageWithColor:[UIColor blackColor]];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:theMYWidget.c2] forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage createImageWithColor:theMYWidget.c2];
         self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+        // TODO: wmy 修改颜色
+        self.titleLabel.textColor = theMYWidget.c3;
     }
 }
 
@@ -134,11 +140,16 @@
 }
 
 - (void)setTitle:(NSString *)title {
-    UILabel *titleLabel = [UILabel labelWithStyle:MYWidgetStyle_MYWidget_tt_c2_f4_a100 withTextAligment:NSTextAlignmentCenter];
-    titleLabel.textColor = [UIColor whiteColor];
-    [titleLabel setText:title];
-    [titleLabel sizeToFit];
-    self.navigationItem.titleView = titleLabel;
+    [self.titleLabel setText:title];
+    [self.titleLabel sizeToFit];
+    self.navigationItem.titleView = self.titleLabel;
+}
+
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [UILabel labelWithStyle:MYWidgetStyle_MYWidget_tt_c2_f4_a100 withTextAligment:NSTextAlignmentCenter];
+    }
+    return _titleLabel;
 }
 
 - (BOOL)playBarHidden {
@@ -208,8 +219,9 @@
     }
 }
 
-#pragma mark - --------------------手势事件------------------
-#pragma mark - --------------------按钮事件------------------
+- (MYNavigationController *)navigationController {
+    return (MYNavigationController *)[super navigationController];
+}
 #pragma mark - --------------------代理方法------------------
 
 - (void)onRefreshView {

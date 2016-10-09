@@ -1,1 +1,0 @@
-../../../../LocalPods/MYWidget/Classes/Base/UIView+MYCurrentViewController.h

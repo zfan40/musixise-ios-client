@@ -52,10 +52,6 @@
     item.width = 64;
     item.height = 80;
     item.userInteractionEnabled = YES;
-#if DEBUG
-    item.layer.borderColor = [UIColor blueColor].CGColor;
-    item.layer.borderWidth = 1;
-#endif
     [MYButtonFactory setButtonImage:item.iconButton WithimageName:name size:36 color:color];
     item.titleLabel.text = title;
     [item.titleLabel sizeToFit];

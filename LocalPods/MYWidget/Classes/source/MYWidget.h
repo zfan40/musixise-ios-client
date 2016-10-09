@@ -55,6 +55,14 @@ _##name = [[UIView alloc] init]; \
 return _##name; \
 }
 
+#define newInstanceStyleUIButton(name,text,style) \
+- (UIButton *)name { \
+if (!_##name) { \
+_##name = [UIButton buttonWithMYStyle:style title:text]; \
+} \
+return _##name; \
+}
+
 #define newInstanceUIButton(name, _name) \
 - (UIButton *)name { \
 if (!_name) { \

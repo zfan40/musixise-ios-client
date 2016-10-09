@@ -11,6 +11,7 @@
 #import <MYUtils/MYDubugLog.h>
 #import "MYWeiBoResponseModel.h"
 #import "MYMusixiseLoginManager.h"
+#import <MYMVVM/MYRouter.h>
 
 @interface MYLoginManager () <WeiboSDKDelegate>
 
@@ -58,9 +59,10 @@
 }
 
 - (BOOL)handleWithURL:(NSString *)url {
-    BOOL res = [WeiboSDK handleOpenURL:url delegate:self];
+    BOOL res = [WeiboSDK handleOpenURL:[NSURL URLWithString:url] delegate:self];
     if (res) {
         DebugLog(@"");
+        [router routeUrl:url];
     }
     return res;
 }

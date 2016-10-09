@@ -44,24 +44,28 @@ static const void *innerStyle = &innerStyle;
     UIColor *disableColor;
     UIColor *borderColor;
     UIColor *backColor;
+    UIColor *normalBackColor;
+    CGFloat cornerRadius;
     BOOL isSetStyle = YES;
     switch (myButtonStyle) {
         case MYButtonStyle_Normal_Big:
-            titleColor = theMYWidget.c2;
-            borderColor = theMYWidget.c2;
-            backColor = theMYWidget.c2_a20;
-            self.width = 150;
-            self.height = 40;
-
-            titleFont = theMYWidget.f3;
-            break;
-        case MYButtonStyle_Normal_Small:
-            titleColor = theMYWidget.c2;
-            borderColor = theMYWidget.c2;
-            backColor = theMYWidget.c2_a20;
+            titleColor = theMYWidget.c3;
+            borderColor = [UIColor clearColor];
+            backColor = theMYWidget.c0;
+            normalBackColor = theMYWidget.c0;
             self.width = 70;
             self.height = 30;
             titleFont = theMYWidget.f2;
+            cornerRadius = 0;
+            break;
+        case MYButtonStyle_Normal_Small:
+            titleColor = theMYWidget.c0;
+            borderColor = theMYWidget.c0;
+            backColor = theMYWidget.c2_a20;
+            self.width = 100;
+            self.height = 35;
+            titleFont = theMYWidget.f2;
+            cornerRadius = self.height * 0.5;
             break;
             
         case MYButtonStyle_Emphasize_Big:
@@ -95,6 +99,9 @@ static const void *innerStyle = &innerStyle;
     self.titleLabel.font = titleFont;
     [self setBackgroundImage:[self imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
     [self setBackgroundImage:[self imageWithColor:backColor] forState:UIControlStateHighlighted];
+    if (normalBackColor) {
+        [self setBackgroundImage:[self imageWithColor:normalBackColor] forState:UIControlStateNormal];
+    }
     [self setBackgroundImage:[self imageWithColor:[UIColor clearColor]] forState:UIControlStateDisabled];
     if (self.enabled) {
         self.borderColor = borderColor;
@@ -102,7 +109,7 @@ static const void *innerStyle = &innerStyle;
         self.borderColor = disableColor;
     }
     self.layer.borderWidth = 1;
-    self.cornerRadius = self.height * 0.5;
+    self.cornerRadius = cornerRadius;
 
 }
 

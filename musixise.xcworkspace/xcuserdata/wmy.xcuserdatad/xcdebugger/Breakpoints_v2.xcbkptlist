@@ -64,7 +64,7 @@
             startingLineNumber = "82"
             endingLineNumber = "82"
             landmarkName = "-didReceiveWeiboResponse:"
-            landmarkType = "7">
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,12 +106,12 @@
                   moduleName = "musixise"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wmy/Developer/Web/musixiseClient/musixise-ios-client/LocalPods/MYNetwork/Classes/MYBaseNetWorkUtil.m"
-                  timestampString = "496812193.33414"
+                  timestampString = "496899980.873911"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"
                   endingLineNumber = "119"
-                  offsetFromSymbolStart = "244">
+                  offsetFromSymbolStart = "182">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -121,12 +121,12 @@
                   moduleName = "musixise"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wmy/Developer/Web/musixiseClient/musixise-ios-client/LocalPods/MYNetwork/Classes/MYBaseNetWorkUtil.m"
-                  timestampString = "496812193.335636"
+                  timestampString = "496899980.875347"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "120"
                   endingLineNumber = "120"
-                  offsetFromSymbolStart = "116">
+                  offsetFromSymbolStart = "144">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -160,6 +160,38 @@
             startingLineNumber = "170"
             endingLineNumber = "170"
             landmarkName = "-POST:parameters:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "musixise/ViewControllers/Login/MYLoginViewController.m"
+            timestampString = "496899814.235162"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-initView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "musixise/ViewControllers/Login/MYLoginViewController.m"
+            timestampString = "496899879.547574"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-iconImageView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

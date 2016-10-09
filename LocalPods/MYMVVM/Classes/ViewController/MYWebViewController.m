@@ -77,7 +77,7 @@
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              NSMutableDictionary *dict = [NSMutableDictionary dictionary];
                              [dict setObject:data forKey:@"url"];
-                             [router routeUrl:@"treeBank://page/MYWebViewController" withParam:dict];
+                             [router routeUrl:@"musixise://page/MYWebViewController" withParam:dict];
                          }];
         
     }

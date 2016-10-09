@@ -33,6 +33,8 @@ typedef enum {
 
 @property (nonatomic,strong) MYBaseViewModel *viewModel;
 @property (nonatomic,assign) BOOL isBarAlpha;
+
+- (MYNavigationController *)navigationController;
 /**
  *  当viewModel发生变化时调用此方法
  */

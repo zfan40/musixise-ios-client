@@ -1,4 +1,0 @@
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/JSONModel" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/CocoaLumberjack" "${PODS_ROOT}/Headers/Public/JSONModel" "${PODS_ROOT}/Headers/Public/MJRefresh" "${PODS_ROOT}/Headers/Public/MYAudio" "${PODS_ROOT}/Headers/Public/MYIconFont" "${PODS_ROOT}/Headers/Public/MYImageService" "${PODS_ROOT}/Headers/Public/MYMVVM" "${PODS_ROOT}/Headers/Public/MYNetwork" "${PODS_ROOT}/Headers/Public/MYUserSystem" "${PODS_ROOT}/Headers/Public/MYUtils" "${PODS_ROOT}/Headers/Public/MYWidget" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge" "${PODS_ROOT}/Headers/Public/WeiboSDK" "${PODS_ROOT}/Headers/Public/libwebp"
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES

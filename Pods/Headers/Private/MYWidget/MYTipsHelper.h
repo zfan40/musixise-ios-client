@@ -1,1 +1,0 @@
-../../../../LocalPods/MYWidget/Classes/TipsHelper/MYTipsHelper.h

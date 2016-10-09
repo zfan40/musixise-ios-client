@@ -1,1 +1,0 @@
-../../../../LocalPods/MYUserSystem/Classes/Model/MYWeiBoResponseModel.h

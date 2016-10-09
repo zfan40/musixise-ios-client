@@ -17,5 +17,6 @@
 @property (nonatomic,weak) id<MYRootViewControllerProtocol> rootViewController;
 
 - (void)backToRoot;
+- (UIButton *)backButton;
 
 @end

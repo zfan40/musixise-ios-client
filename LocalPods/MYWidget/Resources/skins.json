@@ -1,6 +1,6 @@
 {
     "white":{
-        "c0":"0xfa7829ff",
+        "c0":"0xffcc33ff",
         "c1":"0x818fffff",
         "c2":"0x000000ff",
         "c3":"0xffffffff",
@@ -10,6 +10,6 @@
         "itemViewColor":"0x0000000f",
         "seperatorColor":"0x00000019",
         "maskColor":"0xffffffff",
-        "backgroundColor":"0xFFFFFFFF"
+        "backgroundColor":"0xF1F5F6FF"
     }
 }

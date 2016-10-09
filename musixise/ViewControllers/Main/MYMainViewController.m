@@ -64,7 +64,7 @@
 
 - (void)onclickLogin {
     DebugLog(@"点击登录");
-    [router routeUrl:@"treeBank://page/MYLoginViewController"];
+    [router routeUrl:@"musixise://page/MYLoginViewController"];
     
 }
 

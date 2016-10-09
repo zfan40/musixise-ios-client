@@ -63,7 +63,7 @@ withManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels {
 }
 
 - (void)routeUrl:(NSString *)url withParam:(NSDictionary *)dict {
-    if ([url startsWith:@"treeBank://"]) {
+    if ([url startsWith:@"musixise://"]) {
         // 说明为本应用的跳转
         NSRange range = [url rangeOfString:@"//"];
         NSString *relativeUrl = [url substringFromIndex:range.location + range.length];

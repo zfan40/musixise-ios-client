@@ -73,10 +73,6 @@
         MYLoginItem *item = [self.itemArray objectAtIndex:i];
         item.left = i * item.width + space * i;
         item.top = 0;
-#if DEBUG
-        item.layer.borderColor = [UIColor blueColor].CGColor;
-        item.layer.borderWidth = 1;
-#endif
     }
 }
 
@@ -103,32 +99,23 @@
 
 - (MYLoginItem *)qqBtn {
     if (!_qqBtn) {
-        _qqBtn = [MYLoginItem loginItemWithButtonName:@"iconFont-dengluqq" withTitle:@"QQ" color:[UIColor blueColor]];;
+        _qqBtn = [MYLoginItem loginItemWithButtonName:@"iconFont-dengluqq" withTitle:@"QQ" color:ColorWithHex(0x99CCFFFF)];;
         _qqBtn.tag = kQQTag;
         UITapGestureRecognizer *qqTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(onClickIcon:)];
         [_qqBtn addGestureRecognizer:qqTap];
         [self.itemArray addObject:_qqBtn];
-
-#if DEBUG
-        _qqBtn.layer.borderColor = [UIColor blueColor].CGColor;
-        _qqBtn.layer.borderWidth = 1;
-#endif
     }
     return _qqBtn;
 }
 
 - (MYLoginItem *)taobaoBtn {
     if (!_taobaoBtn) {
-        _taobaoBtn = [MYLoginItem loginItemWithButtonName:@"iconFont-denglutaobao" withTitle:@"淘宝" color:[UIColor orangeColor]];
+        _taobaoBtn = [MYLoginItem loginItemWithButtonName:@"iconFont-denglutaobao" withTitle:@"淘宝" color:ColorWithHex(0xFF9900FF)];
         _taobaoBtn.tag = kTaobaoTag;
         UITapGestureRecognizer *taobaoTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(onClickIcon:)];
         [_taobaoBtn addGestureRecognizer:taobaoTap];
-#if DEBUG
-        _taobaoBtn.layer.borderColor = [UIColor blueColor].CGColor;
-        _taobaoBtn.layer.borderWidth = 1;
-#endif
         [self.itemArray addObject:_taobaoBtn];
     }
     return _taobaoBtn;
@@ -136,15 +123,11 @@
 
 - (MYLoginItem *)weixinBtn {
     if (!_weixinBtn) {
-        _weixinBtn = [MYLoginItem loginItemWithButtonName:@"iconFont-dengluweixin" withTitle:@"微信" color:[UIColor greenColor]];
+        _weixinBtn = [MYLoginItem loginItemWithButtonName:@"iconFont-dengluweixin" withTitle:@"微信" color:ColorWithHex(0x99CC99FF)];
         _weixinBtn.tag = kWeixinTag;
         UITapGestureRecognizer *weixinTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                     action:@selector(onClickIcon:)];
         [_weixinBtn addGestureRecognizer:weixinTap];
-#if DEBUG
-        _weixinBtn.layer.borderColor = [UIColor blueColor].CGColor;
-        _weixinBtn.layer.borderWidth = 1;
-#endif
         [self.itemArray addObject:_weixinBtn];
     }
     return _weixinBtn;
@@ -152,15 +135,11 @@
 
 - (MYLoginItem *)weiboBtn {
     if (!_weiboBtn) {
-        _weiboBtn = [MYLoginItem loginItemWithButtonName:@"iconFont-dengluweibo" withTitle:@"微博" color:[UIColor redColor]];
+        _weiboBtn = [MYLoginItem loginItemWithButtonName:@"iconFont-dengluweibo" withTitle:@"微博" color:ColorWithHex(0xFF6666FF)];
         _weiboBtn.tag = kWeiboTag;
         UITapGestureRecognizer *weiboTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                     action:@selector(onClickIcon:)];
         [_weiboBtn addGestureRecognizer:weiboTap];
-#if DEBUG
-        _weiboBtn.layer.borderColor = [UIColor blueColor].CGColor;
-        _weiboBtn.layer.borderWidth = 1;
-#endif
         [self.itemArray addObject:_weiboBtn];
     }
     return _weiboBtn;

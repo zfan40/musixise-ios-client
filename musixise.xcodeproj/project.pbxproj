@@ -16,6 +16,7 @@
 		F79D9A291D9562E9007AA167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A271D9562E9007AA167 /* Main.storyboard */; };
 		F79D9A2E1D9562E9007AA167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A2C1D9562E9007AA167 /* LaunchScreen.storyboard */; };
 		F79D9A541D956D6C007AA167 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A531D956D6C007AA167 /* Images.xcassets */; };
+		F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */; };
 		F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */; };
 		F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713351D9BC36200F8F300 /* MYLoginIconView.m */; };
 		F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713381D9BC6B300F8F300 /* MYLoginItem.m */; };
@@ -46,6 +47,9 @@
 		F79D9A431D9562E9007AA167 /* musixiseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = musixiseUITests.m; sourceTree = "<group>"; };
 		F79D9A451D9562E9007AA167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79D9A531D956D6C007AA167 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F7DC04E31D9CFEAC00D70E51 /* MYAppDelegateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYAppDelegateUtils.h; sourceTree = "<group>"; };
+		F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYAppDelegateUtils.m; sourceTree = "<group>"; };
+		F7DC04E91D9CFF6D00D70E51 /* MYGlobalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYGlobalConfig.h; sourceTree = "<group>"; };
 		F7E713201D9BC2EC00F8F300 /* MYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginViewController.h; sourceTree = "<group>"; };
 		F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoginViewController.m; sourceTree = "<group>"; };
 		F7E713341D9BC36200F8F300 /* MYLoginIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginIconView.h; sourceTree = "<group>"; };
@@ -232,8 +236,11 @@
 			children = (
 				F7F35D9D1D9BD4A4006767C5 /* MYMainRouteManager.h */,
 				F7F35D9E1D9BD4A4006767C5 /* MYMainRouteManager.m */,
+				F7DC04E91D9CFF6D00D70E51 /* MYGlobalConfig.h */,
 				F7F35D991D9BD379006767C5 /* router.json */,
 				F7F35D9A1D9BD379006767C5 /* scheme_url.json */,
+				F7DC04E31D9CFEAC00D70E51 /* MYAppDelegateUtils.h */,
+				F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -367,6 +374,7 @@
 				F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */,
 				F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */,
 				F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */,
+				F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */,
 				F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */,
 				F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */,
 				F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */,
@@ -489,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LDD2REGS3S;
 				INFOPLIST_FILE = musixise/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -504,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LDD2REGS3S;
 				INFOPLIST_FILE = musixise/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

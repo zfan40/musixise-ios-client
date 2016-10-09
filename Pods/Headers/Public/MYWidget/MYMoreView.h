@@ -1,1 +1,0 @@
-../../../../LocalPods/MYWidget/Classes/More/MYMoreView.h

@@ -1,1 +1,0 @@
-../../../../LocalPods/MYWidget/Classes/source/MYWidget.h
