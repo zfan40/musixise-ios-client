@@ -106,12 +106,12 @@
                   moduleName = "musixise"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wmy/Developer/Web/musixiseClient/musixise-ios-client/LocalPods/MYNetwork/Classes/MYBaseNetWorkUtil.m"
-                  timestampString = "496899980.873911"
+                  timestampString = "497792156.238971"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"
                   endingLineNumber = "119"
-                  offsetFromSymbolStart = "182">
+                  offsetFromSymbolStart = "244">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -121,12 +121,12 @@
                   moduleName = "musixise"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wmy/Developer/Web/musixiseClient/musixise-ios-client/LocalPods/MYNetwork/Classes/MYBaseNetWorkUtil.m"
-                  timestampString = "496899980.875347"
+                  timestampString = "497792156.240702"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "120"
                   endingLineNumber = "120"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "116">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -192,6 +192,38 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "-iconImageView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LocalPods/MYWidget/Classes/Share/MYShareView.m"
+            timestampString = "497791992.381421"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-shareContentViewDidClickCancel"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LocalPods/MYWidget/Classes/Share/Sub/MYShareContentView.m"
+            timestampString = "497792066.562709"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-shareSubViewDidClickWithRow:withColumn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

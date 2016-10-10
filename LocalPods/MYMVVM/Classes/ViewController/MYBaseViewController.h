@@ -29,6 +29,8 @@ typedef enum {
     MYBaseViewControllerModeOnlyOne = 1,
 } MYBaseViewControllerMode;
 
+@class MYShareModel;
+
 @interface MYBaseViewController : UIViewController
 
 @property (nonatomic,strong) MYBaseViewModel *viewModel;
@@ -62,6 +64,8 @@ typedef enum {
 
 - (void)showTip:(NSString *)string;
 - (void)showNoData;
+
+- (NSArray <NSArray<MYShareModel *> *>*)shareModels;
 
 @property (nonatomic,assign) NSInteger index;
 

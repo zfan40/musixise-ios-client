@@ -18,12 +18,16 @@
 #import <Reachability/Reachability.h>
 #import <MYWidget/MYTipsHelper.h>
 #import <MYUtils/UIImage+MYImage.h>
+#import <MYWidget/MYShareModelUtils.h>
+#import <MYWidget/MYShareManager.h>
 
 @interface MYBaseViewController () <MYNoDataViewDelegate>
 
 @property (nonatomic,strong) MYNoDataView *noDataView;
 @property (nonatomic,strong) MYNoDataViewManager *noDataViewManager;
 @property (strong, nonatomic) UILabel *titleLabel;
+
+@property(nonatomic, strong) NSArray <NSArray<MYShareModel *> *> *shareModels;
 
 @end
 
@@ -129,14 +133,47 @@
 }
 
 - (NSArray *)moreTitleArray {
-    return @[@"首页",@"登录"];
+    // TODO: wmy 如果没有登录了，则将字段换为 @"个人中心"
+    return @[@"首页",@"登录", @"分享"];
 }
 
 - (void)clickMoreWithIndex:(NSInteger)index {
     MYNavigationController *navigationController = (MYNavigationController *)self.navigationController;
-    if (index == 0) {
-        [navigationController backToRoot];
+    switch (index) {
+        case 0:// 首页
+            [navigationController backToRoot];
+            break;
+        case 1:// 登录
+            // TODO: wmy 判断是否登录
+            [router routeUrl:@"musixise://page/MYLoginViewController"];
+            break;
+        case 2:// 分享
+            [[MYShareManager sharedInstance] showShareViewWithModels:[self shareModels]];
+            break;
+        default:
+            break;
     }
+}
+
+- (NSArray<NSArray<MYShareModel *> *> *)shareModels {
+    if (!_shareModels) {
+        NSArray *oneArray = @[
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weibo],
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weixin],
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weixin_Friends],
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_QQ],
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Qzone],
+                              ];
+        NSArray *twoArray = @[
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weibo],
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weixin],
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weixin_Friends],
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_QQ],
+                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Qzone],
+                              ];
+            _shareModels = @[oneArray,twoArray];
+    }
+    return _shareModels;
 }
 
 - (void)setTitle:(NSString *)title {

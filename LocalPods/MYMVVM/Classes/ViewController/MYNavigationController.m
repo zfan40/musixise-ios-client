@@ -24,7 +24,7 @@
 @property (nonatomic,strong) MYMoreView *moreView;
 @property (nonatomic,strong) NSArray *moreTitleArray;
 @property (nonatomic,strong) UIButton *backButton;
-@property (nonatomic,strong) UIImageView *rightMoreView;
+@property (nonatomic,strong) UIButton *rightMoreView;
 
 @end
 
@@ -187,26 +187,19 @@
 }
 
 #pragma mark - --------------------属性相关------------------
-- (UIImageView *)rightMoreView {
+- (UIButton *)rightMoreView {
     if (!_rightMoreView) {
-        _rightMoreView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_icon_more_normal"]];
+        _rightMoreView = [MYButtonFactory buttonWithImageName:@"iconFont-quanjugengduo" size:32 color:theMYWidget.c3];
         _rightMoreView.width = 32;
         _rightMoreView.height = 32;
-        UITapGestureRecognizer *myRightMoreTap = [[UITapGestureRecognizer alloc]initWithTarget:self
-                                                                                        action:@selector(onclickMore)];
-        [_rightMoreView addGestureRecognizer:myRightMoreTap];
-#if DEBUG
-        _rightMoreView.layer.borderColor = [UIColor blueColor].CGColor;
-        _rightMoreView.layer.borderWidth = 1;
-#endif
+        [_rightMoreView addTarget:self action:@selector(onclickMore) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightMoreView;
 }
 
 - (UIButton *)backButton {
     if (!_backButton) {
-        // TODO: wmy 返回按钮的颜色
-        _backButton = [MYButtonFactory buttonWithImageName:@"iconFont-quanjufanhui" size:24 color:[UIColor blackColor]];
+        _backButton = [MYButtonFactory buttonWithImageName:@"iconFont-quanjufanhui" size:24 color:theMYWidget.c2];
         _backButton.width = 30;
         _backButton.height = 30;
         UITapGestureRecognizer *mybackButtonTap = [[UITapGestureRecognizer alloc]initWithTarget:self
@@ -219,6 +212,7 @@
 - (MYMoreView *)moreView {
     if (!_moreView) {
         _moreView = [MYMoreView moreViewWithTitleArray:self.moreTitleArray top:64];
+        // TODO: wmy 当用户发生变化时，需要重新刷moreTitleArray
         _moreView.delegate = self;
     }
     return _moreView;

@@ -9,7 +9,7 @@
         
         "itemViewColor":"0x0000000f",
         "seperatorColor":"0x00000019",
-        "maskColor":"0xffffffff",
+        "maskColor":"0x00000019",
         "backgroundColor":"0xF1F5F6FF"
     }
 }
