@@ -16,6 +16,4 @@ typedef void(^ClickBlock)(void);
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) ClickBlock block;
 
-
-
 @end

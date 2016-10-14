@@ -22,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.webView];
-    self.webView.bounds = self.view.bounds;
+    self.webView.width = kScreenWidth;
+    self.webView.height = kScreenHeight - 64;
     self.webView.top = 0;
     self.webView.left = 0;
     if (!isEmptyString(self.url)) {

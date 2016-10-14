@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint MYUserSystem.podspec' to ensure this is a
+#  Be sure to run `pod spec lint MYThirdKit.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "MYUserSystem"
+  s.name         = "MYThirdKit"
   s.version      = "0.0.1"
-  s.summary      = "A short description of MYUserSystem."
+  s.summary      = "A short description of MYThirdKit."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    DESC
 
-  s.homepage     = "http://EXAMPLE/MYUserSystem"
+  s.homepage     = "http://EXAMPLE/MYThirdKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -52,10 +52,10 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "wmy" => "mingyan.wmy@alibaba-inc.com" }
-  # Or just: s.author    = "wmy"
-  # s.authors            = { "wmy" => "mingyan.wmy@alibaba-inc.com" }
-  # s.social_media_url   = "http://twitter.com/wmy"
+  s.author             = { "xiaoming20152015" => "wenmingyan1990@gmail.com" }
+  # Or just: s.author    = "xiaoming20152015"
+  # s.authors            = { "xiaoming20152015" => "wenmingyan1990@gmail.com" }
+  # s.social_media_url   = "http://twitter.com/xiaoming20152015"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/MYUserSystem.git", :tag => "#{s.version}" }
+  s.source       = { :git => "http://EXAMPLE/MYThirdKit.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -133,6 +133,5 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  s.dependency "MYThirdKit"
-  s.dependency "MYMVVM"
+  s.dependency "WeiboSDK"
 end

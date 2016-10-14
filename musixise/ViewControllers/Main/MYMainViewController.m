@@ -20,7 +20,7 @@
 #pragma mark - --------------------初始化--------------------
 
 - (void)viewDidLoad {
-    self.url = @"http://m.musixise.com/stagelist";
+    self.url = @"http://m.musixise.com/stage/xiaoming";
     [super viewDidLoad];
     [self initData];
     [self initView];

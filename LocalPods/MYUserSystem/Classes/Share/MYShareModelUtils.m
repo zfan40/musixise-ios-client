@@ -19,6 +19,29 @@
     return shareModel;
 }
 
++ (ClickBlock)blockWithType:(MYShareModelType)type {
+    switch (type) {
+        case MYShareModelUtilsType_QQ:
+            return ^{
+            };
+        case MYShareModelUtilsType_Qzone:
+            return ^{
+            };
+        case MYShareModelUtilsType_Weibo:
+            return ^{
+                
+            };
+        case MYShareModelUtilsType_Weixin:
+            return ^{
+            };
+        case MYShareModelUtilsType_Weixin_Friends:
+            return ^{
+            };
+        default:
+            break;
+    }
+}
+
 + (UIImage *)imageWithType:(MYShareModelType)type {
     NSString *imageName = nil;
     switch (type) {
