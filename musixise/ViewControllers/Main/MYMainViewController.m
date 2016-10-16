@@ -20,7 +20,10 @@
 #pragma mark - --------------------初始化--------------------
 
 - (void)viewDidLoad {
-    self.url = @"http://m.musixise.com/stage/xiaoming";
+//    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"Demo" ofType:@"html"];
+//    NSData *htmlData = [NSData dataWithContentsOfFile:htmlFile];
+//    [self.webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
+    self.url = @"http://m.musixise.com/stagelist";
     [super viewDidLoad];
     [self initData];
     [self initView];

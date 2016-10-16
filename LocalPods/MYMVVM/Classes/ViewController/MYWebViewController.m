@@ -9,7 +9,7 @@
 #import "MYWebViewController.h"
 #import <MYAudio/BAudioController.h>
 #import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
-#import <AudioToolbox/AudioToolbox.h>
+//#import <AudioToolbox/AudioToolbox.h>
 
 @interface MYWebViewController ()
 
@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.audioPlayer = self.audioPlayer;
+    self.bridge = self.bridge;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -36,14 +38,6 @@
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
 #pragma mark - --------------------功能函数------------------
-
-
-- (void)play:(NSArray *)data {
-    DebugLog(@"%d-----", [data[0] integerValue]);
-    MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0] integerValue], [data[1] integerValue],
-                         [data[2] integerValue], 0);
-}
-
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
 #pragma mark - --------------------代理方法------------------
@@ -51,7 +45,7 @@
 
 - (BAudioController *)audioPlayer {
     if (!_audioPlayer) {
-        _audioPlayer = [[BAudioController alloc] init];
+        _audioPlayer = [BAudioController new];
         [_audioPlayer setInputVolume:1.0 withBus:0];
     }
     return _audioPlayer;
@@ -65,11 +59,8 @@
                                                         //默认的handler
                                                         responseCallback(@"Response for message from ObjC");
                                                     }];
-        
         [_bridge registerHandler:@"MusicDeviceMIDIEvent"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
-                             //  [self performSelector:@selector(play:) withObject:data afterDelay:[data[3]integerValue]];
-                             // TODO: wmy 去警告
                              MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0] integerValue],
                                                   [data[1] integerValue], [data[2] integerValue], [data[3] integerValue]);
                          }];

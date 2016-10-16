@@ -164,14 +164,8 @@
                               [MYShareModelUtils modelWithType:MYShareModelUtilsType_QQ],
                               [MYShareModelUtils modelWithType:MYShareModelUtilsType_Qzone],
                               ];
-        NSArray *twoArray = @[
-                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weibo],
-                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weixin],
-                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Weixin_Friends],
-                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_QQ],
-                              [MYShareModelUtils modelWithType:MYShareModelUtilsType_Qzone],
-                              ];
-            _shareModels = @[oneArray,twoArray];
+
+            _shareModels = @[oneArray];
     }
     return _shareModels;
 }

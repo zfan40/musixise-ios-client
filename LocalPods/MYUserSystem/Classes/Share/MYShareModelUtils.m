@@ -7,6 +7,7 @@
 //
 
 #import "MYShareModelUtils.h"
+
 #import "MYShareModel.h"
 
 @implementation MYShareModelUtils
@@ -15,6 +16,7 @@
     MYShareModel *shareModel = [[MYShareModel alloc] init];
     shareModel.name = [self nameWithType:type];
     shareModel.image = [self imageWithType:type];
+    shareModel.block = [self blockWithType:type];
     //TODO: wmy 给block赋值
     return shareModel;
 }
@@ -41,6 +43,7 @@
             break;
     }
 }
+
 
 + (UIImage *)imageWithType:(MYShareModelType)type {
     NSString *imageName = nil;

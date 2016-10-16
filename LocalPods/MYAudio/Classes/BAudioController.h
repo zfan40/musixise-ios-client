@@ -6,24 +6,25 @@
 //  Copyright (c) 2013 Ben Smiley-Andrews. All rights reserved.
 //
 
-#import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/MusicPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface BAudioController : NSObject <AVAudioSessionDelegate> {
+@interface BAudioController : NSObject<AVAudioSessionDelegate> {
     AUGraph _processingGraph;
     AudioUnit _samplerUnit;
     AudioUnit _ioUnit;
     AudioUnit _mixerUnit;
-
-    AVAudioSession *_audioSession;
+    
+    AVAudioSession * _audioSession;
     BOOL _suspended;
     BOOL _acceptMidiMessages;
+    
 }
 
 @property (nonatomic, readwrite) AudioUnit samplerUnit;
 
-- (void)resumeFromInterruption;
-- (void)interrupt;
-- (void)setInputVolume:(Float32)volume withBus:(AudioUnitElement)bus;
+-(void) resumeFromInterruption;
+-(void) interrupt;
+-(void) setInputVolume: (Float32) volume withBus: (AudioUnitElement) bus;
 
 @end

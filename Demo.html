@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- qq强制竖屏 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script>
+    ;
+    (function() {
+        var win = window,
+            docElem = document.documentElement,
+            timeoutId;
+        setRem();
+        docElem.setAttribute('data-dpr', win.devicePixelRatio);
+        win.addEventListener('resize', delaySetRem, false);
+        win.addEventListener('pageshow', function(e) {
+            e.persisted && delaySetRem()
+        }, false);
+
+        function delaySetRem() {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(setRem, 300)
+        }
+
+        function setRem() {
+            win.rem = docElem.getBoundingClientRect().width / 10;
+            docElem.style.fontSize = win.rem + 'px'
+        }
+    })();
+    </script>
+</head>
+
+<body>
+    <button onclick="playSomenotes()">来声</button>
+    <script>
+    // jsbridge
+    var MUSIXISE = undefined;
+
+    function connectWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) {
+            callback(WebViewJavascriptBridge)
+        } else {
+            document.addEventListener('WebViewJavascriptBridgeReady', function() {
+                callback(WebViewJavascriptBridge)
+            }, false)
+        }
+    }
+
+    // 调用处理
+    function callHandler(evt, data, callback) {
+        if (!MUSIXISE) {
+            connectWebViewJavascriptBridge(function(bridge) {
+                MUSIXISE = bridge;
+                bridge.callHandler(evt, data, callback)
+            })
+        } else {
+            MUSIXISE.callHandler(evt, data, callback)
+        }
+    }
+
+    /*basic piano playback*/
+    // var MUSIXISE = {};
+    // MUSIXISE.MusicDeviceMIDIEvent = function(){};
+    function playSomenotes() {
+        setTimeout(function() {
+        }, 500);
+            callHandler('MusicDeviceMIDIEvent', [128, 60, 68, 0])
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 60, 64, 0])
+        }, 1000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 62, 74, 0])
+        }, 1500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 62, 64, 0])
+        }, 2000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 64, 64, 0])
+        }, 2500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 64, 64, 0])
+        }, 3000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 65, 62, 0])
+        }, 3500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 65, 64, 0])
+        }, 4000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 67, 70, 0])
+        }, 4500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 67, 64, 0])
+        }, 5000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 67, 64, 0])
+        }, 5500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [176, 64, 127,0])
+        }, 5600);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 67, 64, 0])
+        }, 6000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 65, 68, 0])
+        }, 6500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 65, 64, 0])
+        }, 7000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 64, 72, 0])
+        }, 7500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 64, 64, 0])
+        }, 8000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 62, 78, 0])
+        }, 8500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 62, 64, 0])
+        }, 9000);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [176, 64, 0, 0])
+        }, 9200);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [144, 60, 68, 0])
+        }, 9500);
+        setTimeout(function() {
+            callHandler('MusicDeviceMIDIEvent', [128, 60, 64, 0])
+        }, 10000);
+    }
+    </script>
+</body>
+
+</html>
