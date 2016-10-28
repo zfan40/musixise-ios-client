@@ -21,7 +21,7 @@
 #define API_KEY @"655bdb5fc1e0d21a53fce2cb8e1ba0ae"
 #define API_SECRET @"1fb9ebd12bec2db8c250e1fae9b37ca6"
 
-#define kFormalAddress @"http://api.musixise.com/api"
+#define kFormalAddress @"http://101.200.212.87:8082/api"
 //#define kImageUploadAddress @"http://upload.xiami.com"
 
 @interface MYBaseNetWorkUtil ()

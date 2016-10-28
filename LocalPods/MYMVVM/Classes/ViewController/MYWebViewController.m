@@ -32,7 +32,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    _bridge = nil;
+//    _bridge = nil;
 }
 
 #pragma mark - --------------------接口API------------------
@@ -68,6 +68,9 @@
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              NSMutableDictionary *dict = [NSMutableDictionary dictionary];
                              [dict setObject:data forKey:@"url"];
+#if DEBUG
+                             NSLog(@"url = %@",data);
+#endif
                              [router routeUrl:@"musixise://page/MYWebViewController" withParam:dict];
                          }];
         

@@ -7,8 +7,10 @@
 //
 
 #import "MYShareModelUtils.h"
-
+#import "MYWeiboManager.h"
 #import "MYShareModel.h"
+#import "MYWeiBoShareImageModel.h"
+#import "MYWeiBoShareMediaModel.h"
 
 @implementation MYShareModelUtils
 
@@ -31,7 +33,7 @@
             };
         case MYShareModelUtilsType_Weibo:
             return ^{
-                
+                [[MYWeiboManager sharedInstance] shareWithShareModel:[self testMediaModel]];
             };
         case MYShareModelUtilsType_Weixin:
             return ^{
@@ -42,6 +44,24 @@
         default:
             break;
     }
+}
+
++ (MYWeiBoShareImageModel *)testImageModel {
+    MYWeiBoShareImageModel *imageModel = [[MYWeiBoShareImageModel alloc] init];
+    imageModel.text = @"test文案";
+//    imageModel.imageData = UIImagePNGRepresentation([UIImage imageNamed:@"1"]);
+    return imageModel;
+}
+
++ (MYWeiBoShareMediaModel *)testMediaModel {
+    MYWeiBoShareMediaModel *testModel = [[MYWeiBoShareMediaModel alloc] init];
+    testModel.text = @"test";
+    testModel.title = @"test文案";
+    testModel.detailTitle = @"test detail";
+    testModel.webPageUrl = @"http://www.musixise.com";
+    testModel.objdctID = @"";
+    testModel.imageData = [UIImage imageNamed:@"AppIcon"];
+    return testModel;
 }
 
 

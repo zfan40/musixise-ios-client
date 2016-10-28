@@ -12,6 +12,7 @@
 #import <MYMVVM/MYRouteManagerModel.h>
 #import <MYUserSystem/MYLoginManager.h>
 #import "MYAppDelegateUtils.h"
+#import <MYUserSystem/MYThirdManager.h>
 
 @interface AppDelegate ()
 
@@ -34,15 +35,20 @@
     routeManagerModel.filePath = [[NSBundle mainBundle] pathForResource:@"scheme_url" ofType:@"json"];
     [array addObject:routeManagerModel];
     // 皮肤安装
-    
     [[MYWidget sharedInstance] setup];
     [router setup:navi withManagerModels:array];
+    // 第三方安装
+    [[MYThirdManager sharedInstance] setup];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[MYThirdManager sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    // TODO: wmy 添加route的跳转
+    // TODO: wmy 添加route的跳转(需要集成到MYThirdManager)
     return [[MYLoginManager sharedInstance] handleWithURL:[url absoluteString]];
 }
 

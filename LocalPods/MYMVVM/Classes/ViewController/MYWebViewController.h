@@ -10,4 +10,6 @@
 
 @interface MYWebViewController : MYBaseWebViewController
 
+@property(nonatomic, strong) NSString *url;
+
 @end

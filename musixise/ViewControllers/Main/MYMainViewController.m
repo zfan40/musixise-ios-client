@@ -24,6 +24,7 @@
 //    NSData *htmlData = [NSData dataWithContentsOfFile:htmlFile];
 //    [self.webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
     self.url = @"http://m.musixise.com/stagelist";
+//    self.url = @"http://m.musixise.com/stage/15";
     [super viewDidLoad];
     [self initData];
     [self initView];

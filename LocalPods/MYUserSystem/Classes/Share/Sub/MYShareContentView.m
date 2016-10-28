@@ -92,7 +92,7 @@
     if (column >= 0 &&
         self.shareModelArray.count > column) {
         NSArray *modelArray = [self.shareModelArray objectAtIndex:column];
-        if (row > 0 &&
+        if (row >= 0 &&
             row < modelArray.count) {
             MYShareModel *shareModel = [modelArray objectAtIndex:row];
             if (shareModel.block) {
