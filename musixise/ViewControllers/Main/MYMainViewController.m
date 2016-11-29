@@ -9,6 +9,8 @@
 #import "MYMainViewController.h"
 #import <MYIconFont/MYButtonFactory.h>
 
+#import <MYNetwork/MYBaseNetWorkUtil.h>
+
 @interface MYMainViewController ()
 
 
@@ -20,15 +22,12 @@
 #pragma mark - --------------------初始化--------------------
 
 - (void)viewDidLoad {
-//    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"Demo" ofType:@"html"];
-//    NSData *htmlData = [NSData dataWithContentsOfFile:htmlFile];
-//    [self.webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
     self.url = @"http://m.musixise.com/stagelist";
-//    self.url = @"http://m.musixise.com/stage/15";
     [super viewDidLoad];
     [self initData];
     [self initView];
 }
+
 
 - (void)initData {
     

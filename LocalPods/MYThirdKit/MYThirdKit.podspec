@@ -90,9 +90,11 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
-
+  s.source_files  = "Classes", "Classes/**/*.{h,m}","lib/**/*.h"
+  # s.exclude_files = 'Classes/frameworks/**/*.{h,m}}'
+  s.vendored_frameworks = 'frameworks/**/*.framework'
+  s.vendored_libraries = 'lib/**/*.a'
+  s.resources = "Resources/**/*.{png,jpg,bundle}","lib/**/*.bundle"
   # s.public_header_files = "Classes/**/*.h"
 
 
@@ -133,5 +135,4 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  s.dependency "WeiboSDK"
 end

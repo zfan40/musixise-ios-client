@@ -101,7 +101,10 @@
         [self showTip:@"微信登录正在开发中...尽请期待"];
         type = MYLoginType_Weixin;
     }
-    [[MYLoginManager sharedInstance] loginWithType:type];
+    [[MYLoginManager sharedInstance] loginWithType:type userName:self.userNameTextField.text password:self.passwordTextField.text loginCallback:^(BOOL success) {
+        //TODO: wmy 成功或失败的回调
+        DebugLog(@"");
+    }];
 }
 
 #pragma mark - --------------------属性相关------------------

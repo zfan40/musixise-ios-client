@@ -21,7 +21,7 @@
 #define API_KEY @"655bdb5fc1e0d21a53fce2cb8e1ba0ae"
 #define API_SECRET @"1fb9ebd12bec2db8c250e1fae9b37ca6"
 
-#define kFormalAddress @"http://101.200.212.87:8082/api"
+#define kFormalAddress @"http://api.musixise.com/api"
 //#define kImageUploadAddress @"http://upload.xiami.com"
 
 @interface MYBaseNetWorkUtil ()
@@ -68,6 +68,30 @@
         return str;
 }
 
+
+- (AFHTTPRequestOperation *_Nullable)gethttpWithDictionary:(nonnull NSDictionary *)dict
+                                                       url:(NSString * _Nonnull)url
+                                              withComplete:(void (^ _Nonnull)(NSDictionary *_Nonnull result, BOOL success, NSError *_Nullable error))block {
+    AFHTTPRequestOperation *operation = [self.manager GET:url parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        DebugLog(@"================== success ==================");
+        NSDictionary *responseDict = (NSDictionary *)responseObject;
+        if (block) {
+            NSError *error = nil;
+            block(responseDict,YES,error);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        DebugLog(@"================== failure  ==================");
+        DebugLog(@"error = %@;",error);
+        if (block) {
+            block(nil,NO,error);
+        }
+    }];
+    return operation;
+
+}
+
+
+
 - (AFHTTPRequestOperation *)gethttpWithDictionary:(nonnull NSDictionary *)dict withMethod:(NSString *)method withComplete:(void (^)(NSDictionary *, BOOL, NSError *))block {
     //TODO: wmy 添加仅wifi
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
@@ -106,40 +130,27 @@
 
 
 - (AFHTTPRequestOperation *)posthttpWithDictionary:(nonnull NSDictionary *)dict withMethod:(NSString *)method withComplete:(void (^)(NSDictionary *, BOOL, NSError *))block {
-    
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:dict];
-//    [paramDict setObject:method forKey:@"method"];
-//    [paramDict addEntriesFromDictionary:dict];
-    // 系统参数 begin
-//    paramDict = [self systemParams:paramDict];
-    // 系统参数 end
     NSString *requestURL = [NSString stringWithFormat:@"%@/%@",kFormalAddress,method];
-    
-    
-    AFHTTPRequestOperation *operation = [self.manager POST:requestURL parameters:paramDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    NSError *error = nil;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
+    request.HTTPBody = [self dictToJson:paramDict];
+    request.HTTPMethod = @"POST";
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    AFHTTPRequestOperation *operation = [self.manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         DebugLog(@"================== success ==================");
         NSDictionary *responseDict = (NSDictionary *)responseObject;
-        NSDictionary *data = [responseObject objectForKey:@"data"];
-        NSInteger state = [[responseDict objectForKey:@"state"] integerValue];
-        NSString *message = [responseDict objectForKey:@"message"];
-//        DLog(@"message = %@",message);
-//        DLog(@"state = %ld",(long)state);
         if (block) {
-            NSError *error = nil;
-            if (state != 0) {
-                error = [NSError errorWithDomain:message
-                                            code:state
-                                        userInfo:@{@"message":message,@"state":@(state)}];
-            }
-            block(data,state == 0,error);
+            block(responseObject,YES,error);
         }
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
         DebugLog(@"================== failure  ==================");
         DebugLog(@"error = %@;",error);
         if (block) {
             block(nil,NO,error);
         }
     }];
+    [operation start];
     return operation;
 }
 
@@ -265,6 +276,10 @@
     }
 }
 
+-(NSData *)dictToJson:(NSDictionary *)dict {
+    return [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+}
+
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
 #pragma ` - --------------------代理方法------------------
@@ -274,9 +289,7 @@
 - (AFHTTPRequestOperationManager *)manager {
     if (!_manager) {
         _manager = [AFHTTPRequestOperationManager manager];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/"];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-}
+    }
     return _manager;
 }
 

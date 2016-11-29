@@ -18,8 +18,8 @@
 #import <Reachability/Reachability.h>
 #import <MYWidget/MYTipsHelper.h>
 #import <MYUtils/UIImage+MYImage.h>
-#import <MYUserSystem/MYShareModelUtils.h>
-#import <MYUserSystem/MYShareManager.h>
+#import <MYShare/MYShareModelUtils.h>
+#import <MYShare/MYShareManager.h>
 
 @interface MYBaseViewController () <MYNoDataViewDelegate>
 

@@ -12,7 +12,8 @@
 #import <MYMVVM/MYRouteManagerModel.h>
 #import <MYUserSystem/MYLoginManager.h>
 #import "MYAppDelegateUtils.h"
-#import <MYUserSystem/MYThirdManager.h>
+#import "MYRootTabBarViewController.h"
+#import <MYThirdKit/MYThirdManager.h>
 
 @interface AppDelegate ()
 
@@ -24,8 +25,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 若第一次升级到此app，则显示欢迎页
     MYBaseViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
-    MYNavigationController *navi = [[MYNavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = navi;
+    MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
+    self.window.rootViewController = tabBarVc;
     [NSThread sleepForTimeInterval:3];
     // 初始化route
     // router初始化
@@ -36,7 +37,8 @@
     [array addObject:routeManagerModel];
     // 皮肤安装
     [[MYWidget sharedInstance] setup];
-    [router setup:navi withManagerModels:array];
+    //TODO: wmy 
+//    [router setup:tabBarVc withManagerModels:array];
     // 第三方安装
     [[MYThirdManager sharedInstance] setup];
     [self.window makeKeyAndVisible];
@@ -49,6 +51,7 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     // TODO: wmy 添加route的跳转(需要集成到MYThirdManager)
+    
     return [[MYLoginManager sharedInstance] handleWithURL:[url absoluteString]];
 }
 

@@ -92,6 +92,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
+  
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -105,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+  
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -130,6 +131,7 @@ Pod::Spec.new do |s|
   #  you can include multiple dependencies to ensure it works.
 
   # s.requires_arc = true
+  
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"

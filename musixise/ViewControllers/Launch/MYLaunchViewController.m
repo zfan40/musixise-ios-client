@@ -73,6 +73,7 @@
 #pragma mark - --------------------按钮事件------------------
 
 - (void)onClickEnter {
+    //TODO: wmy 从堆栈中删除launch页面
     [router routeUrl:@"musixise://page/MYMainViewController"];
 }
 

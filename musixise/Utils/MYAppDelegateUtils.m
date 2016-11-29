@@ -10,7 +10,7 @@
 #import <MYUtils/MYPhoneUtil.h>
 #import "MYGlobalConfig.h"
 #import <MYMVVM/MYBaseViewController.h>
-#import "MYMainViewController.h"
+#import "MYRootTabBarViewController.h"
 #import "MYLaunchViewController.h"
 
 @implementation MYAppDelegateUtils
@@ -21,14 +21,13 @@
     NSString *plistVersion = [share objectForKey:kCurrentVersion];
     MYBaseViewController *vc = nil;
     if ([plistVersion isEqualToString:version]) {
-        MYMainViewController *main = [[MYMainViewController alloc] init];
+        MYRootTabBarViewController *main = [[MYRootTabBarViewController alloc] init];
         vc = main;
     } else {
         MYLaunchViewController *launch = [[MYLaunchViewController alloc] init];
         vc = launch;
-        // TODO: wmy 添加到share
-//        [share setObject:version forKey:kCurrentVersion];
-//        [share synchronize];
+        [share setObject:version forKey:kCurrentVersion];
+        [share synchronize];
     }
     return vc;
 }

@@ -14,7 +14,7 @@
 @implementation MYMusixiseLoginManager
 
 - (void)musixiseLoginWithType:(MYLoginType)loginType withModel:(MYWeiBoResponseModel *)model withCallback:(RequestCallback)callback {
-    NSString *method = @"musixisers/authByAccessToken/";
+    NSString *method = @"user/authByAccessToken/";
     NSString *type;
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     switch (loginType) {

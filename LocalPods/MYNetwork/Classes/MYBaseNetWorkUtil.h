@@ -29,6 +29,12 @@
                    withMethod:(NSString * _Nonnull)method
                  withComplete:(void (^ _Nonnull)(NSDictionary *_Nonnull result, BOOL success, NSError *_Nullable error))block;
 
+
+- (AFHTTPRequestOperation *_Nullable)gethttpWithDictionary:(nonnull NSDictionary *)dict
+                                                url:(NSString * _Nonnull)method
+                                              withComplete:(void (^ _Nonnull)(NSDictionary *_Nonnull result, BOOL success, NSError *_Nullable error))block;
+
+
 /**
  *  post请求
  *

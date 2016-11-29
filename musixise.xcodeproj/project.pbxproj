@@ -8,14 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		EE309D9AE9B1A3DA70BAB6D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E966F2DBDB89BED6AC88EF /* libPods.a */; };
+		F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */; };
 		F7762B591D9B7407001F64EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7762B581D9B7407001F64EE /* AudioToolbox.framework */; };
 		F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */; };
 		F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B601D9B75C8001F64EE /* MYLaunchViewController.m */; };
+		F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78D79DB1DED26A800395466 /* MYMineViewController.m */; };
 		F79D9A201D9562E9007AA167 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F79D9A1F1D9562E9007AA167 /* main.m */; };
 		F79D9A231D9562E9007AA167 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F79D9A221D9562E9007AA167 /* AppDelegate.m */; };
 		F79D9A291D9562E9007AA167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A271D9562E9007AA167 /* Main.storyboard */; };
 		F79D9A2E1D9562E9007AA167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A2C1D9562E9007AA167 /* LaunchScreen.storyboard */; };
 		F79D9A541D956D6C007AA167 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A531D956D6C007AA167 /* Images.xcassets */; };
+		F79DAE981DED5D36005FD65F /* MYListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F79DAE971DED5D36005FD65F /* MYListViewController.m */; };
+		F7B6A1281DC882D9006227C7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */; };
+		F7B6A12F1DC88339006227C7 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A12D1DC8832F006227C7 /* libz.1.1.3.tbd */; };
+		F7B6A1311DC88393006227C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1301DC88393006227C7 /* libsqlite3.tbd */; };
+		F7B6A1331DC883B8006227C7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1321DC883B8006227C7 /* libc++.tbd */; };
 		F7C1AD8C1DB3983000342F85 /* Demo.html in Resources */ = {isa = PBXBuildFile; fileRef = F7C1AD8B1DB3983000342F85 /* Demo.html */; };
 		F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */; };
 		F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */; };
@@ -31,11 +38,15 @@
 		815202F53D0E969C6BFF9DF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99E966F2DBDB89BED6AC88EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DD2B5F3726B54BBE6D8CE5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F7225FC41DEBF76800E2081E /* MYRootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRootTabBarViewController.h; sourceTree = "<group>"; };
+		F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRootTabBarViewController.m; sourceTree = "<group>"; };
 		F7762B581D9B7407001F64EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F7762B5C1D9B75B5001F64EE /* MYMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMainViewController.h; sourceTree = "<group>"; };
 		F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMainViewController.m; sourceTree = "<group>"; };
 		F7762B5F1D9B75C8001F64EE /* MYLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLaunchViewController.h; sourceTree = "<group>"; };
 		F7762B601D9B75C8001F64EE /* MYLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLaunchViewController.m; sourceTree = "<group>"; };
+		F78D79DA1DED26A800395466 /* MYMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineViewController.h; sourceTree = "<group>"; };
+		F78D79DB1DED26A800395466 /* MYMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineViewController.m; sourceTree = "<group>"; };
 		F79D9A1B1D9562E9007AA167 /* musixise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musixise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79D9A1F1D9562E9007AA167 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F79D9A211D9562E9007AA167 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -48,6 +59,14 @@
 		F79D9A431D9562E9007AA167 /* musixiseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = musixiseUITests.m; sourceTree = "<group>"; };
 		F79D9A451D9562E9007AA167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79D9A531D956D6C007AA167 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F79DAE961DED5D36005FD65F /* MYListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYListViewController.h; sourceTree = "<group>"; };
+		F79DAE971DED5D36005FD65F /* MYListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYListViewController.m; sourceTree = "<group>"; };
+		F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F7B6A1291DC882FD006227C7 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		F7B6A12B1DC8831B006227C7 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		F7B6A12D1DC8832F006227C7 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		F7B6A1301DC88393006227C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F7B6A1321DC883B8006227C7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		F7C1AD8B1DB3983000342F85 /* Demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Demo.html; sourceTree = "<group>"; };
 		F7DC04E31D9CFEAC00D70E51 /* MYAppDelegateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYAppDelegateUtils.h; sourceTree = "<group>"; };
 		F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYAppDelegateUtils.m; sourceTree = "<group>"; };
@@ -70,6 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B6A1331DC883B8006227C7 /* libc++.tbd in Frameworks */,
+				F7B6A1311DC88393006227C7 /* libsqlite3.tbd in Frameworks */,
+				F7B6A12F1DC88339006227C7 /* libz.1.1.3.tbd in Frameworks */,
+				F7B6A1281DC882D9006227C7 /* CoreTelephony.framework in Frameworks */,
 				F7F35DA91D9BF8BA006767C5 /* CoreText.framework in Frameworks */,
 				F7762B591D9B7407001F64EE /* AudioToolbox.framework in Frameworks */,
 				EE309D9AE9B1A3DA70BAB6D4 /* libPods.a in Frameworks */,
@@ -91,6 +114,12 @@
 		A569F2681426079955EDE2A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7B6A1321DC883B8006227C7 /* libc++.tbd */,
+				F7B6A1301DC88393006227C7 /* libsqlite3.tbd */,
+				F7B6A12D1DC8832F006227C7 /* libz.1.1.3.tbd */,
+				F7B6A12B1DC8831B006227C7 /* libstdc++.6.0.9.tbd */,
+				F7B6A1291DC882FD006227C7 /* libz.1.2.8.tbd */,
+				F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */,
 				F7F35DA81D9BF8BA006767C5 /* CoreText.framework */,
 				F7762B581D9B7407001F64EE /* AudioToolbox.framework */,
 				99E966F2DBDB89BED6AC88EF /* libPods.a */,
@@ -112,6 +141,12 @@
 			children = (
 				F7762B5C1D9B75B5001F64EE /* MYMainViewController.h */,
 				F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */,
+				F7225FC41DEBF76800E2081E /* MYRootTabBarViewController.h */,
+				F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */,
+				F78D79DA1DED26A800395466 /* MYMineViewController.h */,
+				F78D79DB1DED26A800395466 /* MYMineViewController.m */,
+				F79DAE961DED5D36005FD65F /* MYListViewController.h */,
+				F79DAE971DED5D36005FD65F /* MYListViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -375,6 +410,9 @@
 			files = (
 				F79D9A231D9562E9007AA167 /* AppDelegate.m in Sources */,
 				F79D9A201D9562E9007AA167 /* main.m in Sources */,
+				F79DAE981DED5D36005FD65F /* MYListViewController.m in Sources */,
+				F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */,
+				F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */,
 				F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */,
 				F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */,
 				F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */,

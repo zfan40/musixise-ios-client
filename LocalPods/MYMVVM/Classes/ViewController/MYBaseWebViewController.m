@@ -39,8 +39,8 @@
         } else {
             DebugLog(@"url为空");
         }    }];
-    [self.webView.scrollView.mj_header beginRefreshing];
-
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
+    [self.webView loadRequest:request];
 }
 
 
@@ -73,6 +73,8 @@
 
 #pragma mark UIWebViewDelegate
 
+
+
 - (void)webViewDidStartLoad:(UIWebView *)webView {
 }
 
@@ -80,6 +82,10 @@
     [self.webView.scrollView.mj_header endRefreshing];
 }
 
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    return YES;
+}
 #pragma mark - --------------------属性相关------------------
 
 - (UIScrollView *)scrollView {

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MYTabBar.h"
+
+@class MYNavigationController;
 
 @interface MYTabBarViewController : UITabBarController
+
+- (NSArray<MYTabBarModel> *)setUpAllChildViewController;
+
+- (MYNavigationController *)currentNavigationVC;
 
 @end

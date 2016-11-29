@@ -8,60 +8,80 @@
 
 #import "MYBadgeView.h"
 #import <MYUtils/UIView+MYAdditons.h>
+#import <MYUtils/MYSafeUtil.h>
 
-#define SuppressPerformDeprecatedWarning(Stuff) \
-do { \
-_Pragma("clang diagnostic push") \
-_Pragma("clang diagnostic ignored \"-Wdeprecated-declarations\"") \
-Stuff; \
-_Pragma("clang diagnostic pop") \
-} while (0);
+#define kBadgeViewFont [UIFont systemFontOfSize:11]
+
+@interface MYBadgeView ()
 
 
-#define CZBadgeViewFont [UIFont systemFontOfSize:11]
+@end
 
 @implementation MYBadgeView
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame]) {
-        
-        self.userInteractionEnabled = NO;
-        
-        [self setBackgroundImage:[UIImage imageNamed:@"main_badge"] forState:UIControlStateNormal];
-        
-        // 设置字体大小
-        self.titleLabel.font = CZBadgeViewFont;
-        
-        [self sizeToFit];
-        
+#pragma mark - --------------------退出清空------------------
+#pragma mark - --------------------初始化--------------------
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [self initView];
     }
     return self;
 }
 
-- (void)setBadgeValue:(NSString *)badgeValue
-{
-    _badgeValue = badgeValue;
-    
-    // 判断badgeValue是否有内容
-    if (badgeValue.length == 0 || [badgeValue isEqualToString:@"0"]) { // 没有内容或者空字符串,等于0
-        self.hidden = YES;
-    }else{
-        self.hidden = NO;
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self initView];
     }
-    CGSize size = CGSizeZero;
-    SuppressPerformDeprecatedWarning(size = [badgeValue sizeWithFont:CZBadgeViewFont];)
-    NSLog(@"%f--%f",size.width,self.width);
-    if (size.width > self.width) { // 文字的尺寸大于控件的宽度
-        [self setImage:[UIImage imageNamed:@"new_dot"] forState:UIControlStateNormal];
-        [self setTitle:nil forState:UIControlStateNormal];
-        [self setBackgroundImage:nil forState:UIControlStateNormal];
-    }else{
-        [self setBackgroundImage:[UIImage imageNamed:@"main_badge"] forState:UIControlStateNormal];
-        [self setTitle:badgeValue forState:UIControlStateNormal];
-        [self setImage:nil forState:UIControlStateNormal];
+    return self;
+}
+
+- (void)initView {
+    self.userInteractionEnabled = NO;
+    // 设置字体大小
+    self.titleLabel.font = kBadgeViewFont;
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self sizeToFit];
+}
+
++ (instancetype)badgeView {
+    MYBadgeView *badgeView = [MYBadgeView buttonWithType:UIButtonTypeCustom];
+    badgeView.width = 10;
+    badgeView.height = 10;
+    return badgeView;
+}
+
+#pragma mark - --------------------接口API------------------
+#pragma mark - --------------------父类方法重写--------------
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+}
+
+#pragma mark - --------------------功能函数------------------
+#pragma mark - --------------------手势事件------------------
+#pragma mark - --------------------按钮事件------------------
+#pragma mark - --------------------代理方法------------------
+#pragma mark - --------------------属性相关------------------
+
+- (void)setValue:(NSInteger)value {
+    if (value > 0) {
+        if (value > 999) {
+            self.width = 15;
+            [self setTitle:@"..." forState:UIControlStateNormal];
+        } else if (value > 99) {
+            self.width = 15;
+            [self setTitle:@"99+" forState:UIControlStateNormal];
+        } else {
+            self.width = 10;
+            [self setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
+        }
+        self.hidden = NO;
+    } else {
+        self.hidden = YES;
     }
     
 }
+
 
 @end
