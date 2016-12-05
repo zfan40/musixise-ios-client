@@ -39,4 +39,8 @@
     return CGRectInset(bounds, theMYWidget.m3, 0);
 }
 
+- (CGRect)textRectForBounds:(CGRect)bounds {
+    return CGRectInset(bounds, theMYWidget.m3, 0);
+}
+
 @end

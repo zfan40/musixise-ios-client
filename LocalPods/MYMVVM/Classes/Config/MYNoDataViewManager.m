@@ -32,6 +32,9 @@
 
 - (void)setViewEmptyType:(MYNoDataEmptyType)type {
     _viewEmptyType = type;
+    if (self.viewType == MYNoDataViewType_Hidden) {
+        return;
+    }
     switch (type) {
         case MYNoDataEmptyType_Empty: {
             self.noDataView.hidden = NO;

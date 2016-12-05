@@ -10,7 +10,7 @@
 #import "MYMainViewController.h"
 #import <MYIconFont/MYIconFont.h>
 #import "MYMineViewController.h"
-#import "MYListViewController.h"
+#import "MYFavViewController.h"
 #import <MYUtils/UIImage+MYImage.h>
 
 @interface MYTabBarModelImp : NSObject <MYTabBarModel>
@@ -22,6 +22,7 @@
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, assign) CGFloat fontSize;
 @property(nonatomic, strong) MYBaseViewController *vc;
+@property(nonatomic, assign) BOOL hideNavigationBar;
 
 @end
 
@@ -30,12 +31,33 @@
 
 @implementation MYRootTabBarViewController
 
+#pragma mark - --------------------退出清空------------------
+#pragma mark - --------------------初始化--------------------
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initData];
+    [self initView];
+}
+
+- (void)initData {
+    
+}
+
+- (void)initView {
+    //TODO: wmy 在右上角添加三个点
+//    self.navigationItem.rightBarButtonItem =
+}
+
+#pragma mark - --------------------接口API------------------
+#pragma mark - --------------------父类方法重写--------------
+
 - (NSArray<MYTabBarModel> *)setUpAllChildViewController {
     // 首页
     NSMutableArray<MYTabBarModel> *array = [NSMutableArray<MYTabBarModel> array];
     
     MYTabBarModelImp *homeModel = [[MYTabBarModelImp alloc] init];
-    homeModel.vc = [[MYMainViewController alloc] init];
+    homeModel.vc = [[MYFavViewController alloc] init];
     homeModel.iconName = @"iconFont-dibuyoule";
     homeModel.iconWidth = 24;
     homeModel.fontSize = 12;
@@ -52,10 +74,11 @@
     //TODO: wmy
     mineModel.normalColor = [UIColor blackColor];
     mineModel.selectColor = [UIColor orangeColor];
+    mineModel.hideNavigationBar = YES;
     mineModel.title = @"我的";
-
+    
     MYTabBarModelImp *listModel = [[MYTabBarModelImp alloc] init];
-    listModel.vc = [[MYListViewController alloc] init];
+    listModel.vc = [[MYMainViewController alloc] init];
     listModel.iconName = @"iconFont-dibushiting";
     listModel.iconWidth = 24;
     listModel.fontSize = 12;
@@ -69,5 +92,11 @@
     [array addObject:mineModel];
     return array;
 }
+#pragma mark - --------------------功能函数------------------
+#pragma mark - --------------------手势事件------------------
+#pragma mark - --------------------按钮事件------------------
+#pragma mark - --------------------代理方法------------------
+#pragma mark - --------------------属性相关------------------
+
 
 @end

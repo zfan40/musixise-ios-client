@@ -11,6 +11,11 @@
 #import <MYUserSystem/MYLoginManager.h>
 #import <MYWidget/MYLoginTextField.h>
 
+#define kIconHeight 80
+#define kIconBottomSpace 20
+#define kSignBtnRightSpace 10
+#define kSignBtnTopSpace 20
+
 @interface MYLoginViewController () <MYLoginIconViewDelegate>
 
 @property (strong, nonatomic) MYLoginIconView *iconView;
@@ -18,6 +23,7 @@
 @property (strong, nonatomic) MYLoginTextField *passwordTextField;
 @property (strong, nonatomic) UIButton *loginButton;
 @property (strong, nonatomic) UIImageView *iconImageView;
+@property(nonatomic, strong) UIButton *signInBtn;
 
 @end
 
@@ -41,9 +47,9 @@
 - (void)initView {
     [self.view addSubview:self.iconView];
     self.iconView.width = kScreenWidth - theMYWidget.m3 * 2;
-    self.iconView.height = 100;
+    self.iconView.height = kIconHeight;
     self.iconView.centerX = self.view.width * 0.5;
-    self.iconView.bottom = self.view.bottom;
+    self.iconView.bottom = self.view.bottom - kIconBottomSpace;
     [self.view addSubview:self.passwordTextField];
     [self.view addSubview:self.userNameTextField];
     [self.view addSubview:self.loginButton];
@@ -61,6 +67,18 @@
     self.loginButton.height = self.userNameTextField.height;
     self.loginButton.top = self.passwordTextField.bottom + theMYWidget.m3;
     self.loginButton.left = self.userNameTextField.left;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.signInBtn];
+    
+    [self.signInBtn setTitle:@"注册" forState:UIControlStateNormal];
+    self.signInBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.signInBtn setTitleColor:theMYWidget.c0 forState:UIControlStateNormal];
+    [self.signInBtn sizeToFit];
+    self.signInBtn.right = kScreenWidth - kSignBtnRightSpace;
+    self.signInBtn.top = kSignBtnTopSpace;
+    [self.signInBtn addTarget:self
+                       action:@selector(onClickSign)
+             forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -79,6 +97,11 @@
 #pragma mark - --------------------功能函数------------------
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
+
+- (void)onClickSign {
+    [router routeUrl:@"musixise://page/MYRegistViewController"];
+}
+
 #pragma mark - --------------------代理方法------------------
 
 #pragma mark MYLoginIconViewDelegate
@@ -109,6 +132,8 @@
 
 #pragma mark - --------------------属性相关------------------
 
+newInstanceUIButton1(signInBtn)
+
 - (UIImageView *)iconImageView {
     if (!_iconImageView) {
         UIImage *image = [UIImage imageNamed:@"AppIcon60x60"];
@@ -123,13 +148,14 @@ newInstanceStyleUIButton(loginButton, @"登 录", MYButtonStyle_Normal_Big)
 - (MYLoginTextField *)passwordTextField {
     if (!_passwordTextField) {
         _passwordTextField = [MYLoginTextField loginTextFieldWithHint:@"请输入密码"];
+        _passwordTextField.secureTextEntry = YES;
     }
     return _passwordTextField;
 }
 
 - (MYLoginTextField *)userNameTextField {
     if (!_userNameTextField) {
-        _userNameTextField = [MYLoginTextField loginTextFieldWithHint:@"请输入邮箱"];
+        _userNameTextField = [MYLoginTextField loginTextFieldWithHint:@"请输入用户名"];
     }
     return _userNameTextField;
 }

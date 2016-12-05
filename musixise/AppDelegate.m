@@ -13,6 +13,8 @@
 #import <MYUserSystem/MYLoginManager.h>
 #import "MYAppDelegateUtils.h"
 #import "MYRootTabBarViewController.h"
+#import "MYLoginViewController.h"
+#import "MYLoginNavigationViewController.h"
 #import <MYThirdKit/MYThirdManager.h>
 
 @interface AppDelegate ()
@@ -25,20 +27,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 若第一次升级到此app，则显示欢迎页
     MYBaseViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
+
     MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
-    self.window.rootViewController = tabBarVc;
+    //TODO: wmy 暂时添加登录的入口
+    MYLoginViewController *login = [[MYLoginViewController alloc] init];
+    MYLoginNavigationViewController *loginNavi = [[MYLoginNavigationViewController alloc] initWithRootViewController:login];
+    self.window.rootViewController = loginNavi;
+
     [NSThread sleepForTimeInterval:3];
     // 初始化route
     // router初始化
+    //TODO: wmy 这部分需要将其放到某个routeUtil中
     NSMutableArray *array = [NSMutableArray array];
     MYRouteManagerModel *routeManagerModel = [[MYRouteManagerModel alloc] init];
     routeManagerModel.urlManagerName = @"MYMainRouteManager";
     routeManagerModel.filePath = [[NSBundle mainBundle] pathForResource:@"scheme_url" ofType:@"json"];
     [array addObject:routeManagerModel];
+    //TODO: wmy 待删，之后会将其收口到MYAppDelegateUtils中
+    [router setup:loginNavi withManagerModels:array];
     // 皮肤安装
     [[MYWidget sharedInstance] setup];
-    //TODO: wmy 
-//    [router setup:tabBarVc withManagerModels:array];
     // 第三方安装
     [[MYThirdManager sharedInstance] setup];
     [self.window makeKeyAndVisible];

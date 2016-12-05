@@ -13,8 +13,11 @@
 
 @interface MYTabBarViewController : UITabBarController
 
+@property(nonatomic, assign) BOOL hideTabBar;
+
 - (NSArray<MYTabBarModel> *)setUpAllChildViewController;
 
 - (MYNavigationController *)currentNavigationVC;
+
 
 @end

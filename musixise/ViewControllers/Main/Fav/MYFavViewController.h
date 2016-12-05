@@ -1,5 +1,5 @@
 //
-//  MYListViewController.h
+//  MYFavViewController.h
 //  musixise
 //
 //  Created by wmy on 2016/11/29.
@@ -8,6 +8,8 @@
 
 #import <MYMVVM/MYBaseViewController.h>
 
-@interface MYListViewController : MYBaseViewController
+@interface MYFavViewController : MYBaseViewController
+
+
 
 @end

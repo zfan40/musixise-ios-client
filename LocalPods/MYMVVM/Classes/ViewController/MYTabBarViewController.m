@@ -60,6 +60,7 @@
 }
 
 #pragma mark - --------------------功能函数------------------
+
 // 添加所有的子控制器
 - (NSArray<MYTabBarModel> *)setUpAllChildViewController {
     NSAssert(@"subclass must recode",nil);
@@ -103,6 +104,11 @@
 
 #pragma mark - --------------------属性相关------------------
 
+- (void)setHideTabBar:(BOOL)hideTabBar {
+    _hideTabBar = hideTabBar;
+    self.myTabBar.hidden = hideTabBar;
+    //TODO: wmy 是否需要控制view的高度？
+}
 
 - (MYTabBar *)myTabBar {
     if (!_myTabBar) {
