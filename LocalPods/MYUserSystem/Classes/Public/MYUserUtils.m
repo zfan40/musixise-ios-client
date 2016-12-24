@@ -7,22 +7,16 @@
 //
 
 #import "MYUserUtils.h"
-#import "MYUser.h"
-
-@interface MYUserUtils ()
-
-@property(nonatomic, strong) MYUser *user;
-
-@end
 
 @implementation MYUserUtils
 
 - (void)updateUser:(MYUser *)user {
     //TODO: wmy 登录或者修改用户信息后需要调用更新用户信息的接口
+    self.user = user;
 }
 
 - (NSString *)userName {
-    return self.user.userName;
+    return self.user.username;
 }
 
 - (long long)userId {

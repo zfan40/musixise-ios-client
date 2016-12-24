@@ -10,6 +10,7 @@
 #import "MYLoginIconView.h"
 #import <MYUserSystem/MYLoginManager.h>
 #import <MYWidget/MYLoginTextField.h>
+#import <MYUserSystem/MYLoginManager.h>
 
 #define kIconHeight 80
 #define kIconBottomSpace 20
@@ -67,6 +68,7 @@
     self.loginButton.height = self.userNameTextField.height;
     self.loginButton.top = self.passwordTextField.bottom + theMYWidget.m3;
     self.loginButton.left = self.userNameTextField.left;
+    [self.loginButton addTarget:self action:@selector(onClickLogin) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.signInBtn];
     
@@ -98,6 +100,10 @@
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
 
+- (void)onClickLogin {
+    [self loginIconViewDidClickIconWithTag:kNormalTag];
+}
+
 - (void)onClickSign {
     [router routeUrl:@"musixise://page/MYRegistViewController"];
 }
@@ -123,11 +129,21 @@
         DebugLog(@"微信登录");
         [self showTip:@"微信登录正在开发中...尽请期待"];
         type = MYLoginType_Weixin;
+    } else if (tag == kNormalTag) {
+        type = MYLoginType_Normal;
     }
-    [[MYLoginManager sharedInstance] loginWithType:type userName:self.userNameTextField.text password:self.passwordTextField.text loginCallback:^(BOOL success) {
-        //TODO: wmy 成功或失败的回调
-        DebugLog(@"");
-    }];
+    [[MYLoginManager sharedInstance] loginWithType:type
+                                          userName:self.userNameTextField.text
+                                          password:self.passwordTextField.text
+                                     loginCallback:^(BOOL success,NSError *error) {
+                                         //TODO: wmy 成功或失败的回调
+                                         DebugLog(@"");
+                                         if (success) {
+                                             [self showTip:@"登录成功"];
+                                         } else {
+                                             [self showTip:error.localizedDescription];
+                                         }
+                                     }];
 }
 
 #pragma mark - --------------------属性相关------------------
@@ -149,6 +165,7 @@ newInstanceStyleUIButton(loginButton, @"登 录", MYButtonStyle_Normal_Big)
     if (!_passwordTextField) {
         _passwordTextField = [MYLoginTextField loginTextFieldWithHint:@"请输入密码"];
         _passwordTextField.secureTextEntry = YES;
+        _passwordTextField.text = @"123456";
     }
     return _passwordTextField;
 }
@@ -156,6 +173,7 @@ newInstanceStyleUIButton(loginButton, @"登 录", MYButtonStyle_Normal_Big)
 - (MYLoginTextField *)userNameTextField {
     if (!_userNameTextField) {
         _userNameTextField = [MYLoginTextField loginTextFieldWithHint:@"请输入用户名"];
+        _userNameTextField.text = @"musixise001";
     }
     return _userNameTextField;
 }

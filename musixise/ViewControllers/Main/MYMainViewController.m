@@ -23,6 +23,12 @@
 
 - (void)viewDidLoad {
     self.url = @"http://m.musixise.com/stagelist";
+    
+    //TODO: wmy 以下为本地Demo
+//    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"Demo"
+//                                                          ofType:@"html"];
+//    self.url = htmlPath;
+    
     [super viewDidLoad];
     [self initData];
     [self initView];

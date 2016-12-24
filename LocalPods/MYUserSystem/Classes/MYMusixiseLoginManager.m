@@ -8,6 +8,7 @@
 
 #import "MYMusixiseLoginManager.h"
 #import <MYUtils/MYDubugLog.h>
+#import "MYSystemLoginManager.h"
 #import <MYNetwork/MYBaseNetWorkUtil.h>
 #import "MYWeiBoResponseModel.h"
 
@@ -40,11 +41,30 @@
         }
             break;
     }
+    
+    
     NSString *requestMethod = [NSString stringWithFormat:@"%@%@",method,type];
     [[MYBaseNetWorkUtil sharedInstance] posthttpWithDictionary:dict
                                                     withMethod:requestMethod
                                                   withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
-                                                      DebugLog(@"");
+                                                      //TODO: wmy 返回参数待定
+                                                      NSInteger errcode = [[dict objectForKey:@"errcode"] integerValue];
+                                                      if (!errcode) {
+                                                          NSDictionary *resultDict = [result objectForKey:@"data"];
+                                                          NSString *idToken = [resultDict objectForKey:@"id_token"];
+                                                          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                                          [defaults setObject:idToken forKey:@"idToken"];
+                                                          [defaults synchronize];
+                                                          // 通过idToken拿信息
+                                                          [[MYSystemLoginManager sharedInstance] getUserInfo];
+                                                          //TODO: wmy 通过idToken来拿信息？
+                                                          // 1. 先访问是否已经被绑定
+                                                          // 2. 若没有被绑定就需要询问
+                                                          // 3. 若已经被绑定了，那么就通过idToken来拿信息
+                                                      }
+                                                      if (callback) {
+                                                          callback(success,error);
+                                                      }
     }];
     
 }

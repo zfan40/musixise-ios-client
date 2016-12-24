@@ -24,7 +24,7 @@
             
             break;
         case MYThirdKitType_Weibo:{
-            [[MYThirdWeiboManager sharedInstance] loginWithCallback:^(BOOL success) {
+            [[MYThirdWeiboManager sharedInstance] loginWithCallback:^(BOOL success,NSError *error) {
                 DebugLog(@"success = %d",success);
             }];
         }

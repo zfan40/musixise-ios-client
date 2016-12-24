@@ -12,6 +12,8 @@
 #import "MYMineViewController.h"
 #import "MYFavViewController.h"
 #import <MYUtils/UIImage+MYImage.h>
+#import <MYUserSystem/MYUserUtils.h>
+#import <MYUserSystem/MYUser.h>
 
 @interface MYTabBarModelImp : NSObject <MYTabBarModel>
 
@@ -41,7 +43,10 @@
 }
 
 - (void)initData {
-    
+#if DEBUG
+    MYUser *user = [MYUserUtils sharedInstance].user;
+    [self showtip:[NSString stringWithFormat:@"用户id：%lld,用户名:%@",user.userId,user.username]];
+#endif
 }
 
 - (void)initView {

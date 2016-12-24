@@ -57,9 +57,9 @@
         // 使用该accessToken来请求native的参数
         [[MYMusixiseLoginManager sharedInstance] musixiseLoginWithType:MYLoginType_Weibo
                                                              withModel:weiboModel
-                                                          withCallback:^(NSDictionary *dict, NSError *error) {
+                                                          withCallback:^(BOOL success, NSError *error) {
                                                               if (self.callback) {
-                                                                  self.callback(!error);
+                                                                  self.callback(!error,error);
                                                               }
         }];
     }

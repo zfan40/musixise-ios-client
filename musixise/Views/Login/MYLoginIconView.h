@@ -12,6 +12,7 @@
 #define kTaobaoTag 101
 #define kWeiboTag 102
 #define kWeixinTag 103
+#define kNormalTag 104
 
 
 @protocol MYLoginIconViewDelegate <NSObject>

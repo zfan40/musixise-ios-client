@@ -7,10 +7,12 @@
 //
 
 #import "MYTabBarViewController.h"
+#import <MYWidget/MYTipsHelper.h>
 #import <MYUtils/UIView+MYAdditons.h>
 #import "MYNavigationController.h"
 #import "UIImage+MYImage.h"
 #import "MYBaseViewController.h"
+#import "MYRouter.h"
 
 @interface MYTabBarViewController () <MYTabBarDelegate>
 
@@ -61,6 +63,11 @@
 
 #pragma mark - --------------------功能函数------------------
 
+
+- (void)showtip:(NSString *)tip {
+    [[MYTipsHelper sharedInstance] showTips:tip];
+}
+
 // 添加所有的子控制器
 - (NSArray<MYTabBarModel> *)setUpAllChildViewController {
     NSAssert(@"subclass must recode",nil);
@@ -85,7 +92,6 @@
     [self.items addObject:vc.tabBarItem];
     // initWithRootViewController底层会调用导航控制器的push，把跟控制器压入栈
     MYNavigationController *nav = [[MYNavigationController alloc] initWithRootViewController:vc];
-    //    nav.view.height = self.view.height - self.tabBar.height - 100;
     [self addChildViewController:nav];
 }
 
@@ -100,6 +106,8 @@
 
 - (void)tabBar:(MYTabBar *)tabBar didClickButton:(NSInteger)index {
     self.selectedIndex = index;
+    MYNavigationController *nav = [self.childViewControllers objectAtIndex:index];
+    router.navigationController = nav;
 }
 
 #pragma mark - --------------------属性相关------------------
@@ -113,6 +121,7 @@
 - (MYTabBar *)myTabBar {
     if (!_myTabBar) {
         _myTabBar = [MYTabBar tabBarWithBarModels:[self setUpAllChildViewController]];
+        _myTabBar.delegate = self;
     }
     return _myTabBar;
 }

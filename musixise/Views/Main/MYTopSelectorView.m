@@ -93,6 +93,7 @@
         } else {
             label = [self.labelArray objectAtIndex:i];
         }
+        label.tag = i;
         label.text = model.title;
         label.textColor = model.normalColor;
         [self.scrollView addSubview:label];
@@ -142,10 +143,6 @@
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
         _scrollView.bounces = NO;
-#if DEBUG
-        _scrollView.layer.borderWidth = 1;
-        _scrollView.layer.borderColor = [UIColor redColor].CGColor;
-#endif
     }
     return _scrollView;
 }

@@ -9,6 +9,8 @@
 #import "MYWebViewController.h"
 #import <MYAudio/BAudioController.h>
 #import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
+#import <MYUserSystem/MYUserUtils.h>
+#import <MYUserSystem/MYUser.h>
 //#import <AudioToolbox/AudioToolbox.h>
 
 @interface MYWebViewController ()
@@ -25,6 +27,7 @@
 
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
 //    self.audioPlayer = self.audioPlayer;
     self.bridge = self.bridge;
@@ -33,6 +36,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
 //    _bridge = nil;
+    
 }
 
 #pragma mark - --------------------接口API------------------
@@ -74,8 +78,31 @@
                              [router routeUrl:@"musixise://page/MYWebViewController" withParam:dict];
                          }];
         
+        [_bridge registerHandler:@"UserInfo"
+                         handler:^(id data, WVJBResponseCallback responseCallback) {
+                             MYUser *user = [MYUserUtils sharedInstance].user;
+                             NSDictionary *dict = [user dictWithProperty];
+                             if (responseCallback) {
+                                 responseCallback(@{@"a":@"1"});
+                             }
+                         }];
     }
     return _bridge;
+}
+
+- (NSString *)dictToJsonStr:(NSDictionary *)dict{
+    NSString *jsonString = nil;
+    if ([NSJSONSerialization isValidJSONObject:dict])
+    {
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+        jsonString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        //NSLog(@"json data:%@",jsonString);
+        if (error) {
+            NSLog(@"Error:%@" , error);
+        }
+    }
+    return jsonString;
 }
 
 @end

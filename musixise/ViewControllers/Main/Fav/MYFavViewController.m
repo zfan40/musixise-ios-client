@@ -106,7 +106,9 @@
 
 - (void)topSelectorViewDidClickIndex:(NSInteger)index {
     // 点击头部按钮进行页面更换
-    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * index, 0) animated:YES];
+    CGFloat width = kScreenWidth * index;
+    [self.scrollView setContentOffset:CGPointMake(width, 0) animated:YES];
+
 }
 
 #pragma mark - --------------------属性相关------------------

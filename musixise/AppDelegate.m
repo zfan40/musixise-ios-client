@@ -15,6 +15,7 @@
 #import "MYRootTabBarViewController.h"
 #import "MYLoginViewController.h"
 #import "MYLoginNavigationViewController.h"
+#import <MYUserSystem/MYUserUtils.h>
 #import <MYThirdKit/MYThirdManager.h>
 
 @interface AppDelegate ()
@@ -28,12 +29,13 @@
     // 若第一次升级到此app，则显示欢迎页
     MYBaseViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
 
-    MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
+//    MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
     //TODO: wmy 暂时添加登录的入口
     MYLoginViewController *login = [[MYLoginViewController alloc] init];
     MYLoginNavigationViewController *loginNavi = [[MYLoginNavigationViewController alloc] initWithRootViewController:login];
+    //TODO: wmy test Demo.html
     self.window.rootViewController = loginNavi;
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserChange) name:@"MYUserDidChanged" object:nil];
     [NSThread sleepForTimeInterval:3];
     // 初始化route
     // router初始化
@@ -52,6 +54,19 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+- (void)onUserChange {
+    long long userId = [MYUserUtils sharedInstance].userId;
+    if (userId) {
+        MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
+        self.window.rootViewController = tabBarVc;
+    } else {
+        MYLoginViewController *login = [[MYLoginViewController alloc] init];
+        MYLoginNavigationViewController *loginNavi = [[MYLoginNavigationViewController alloc] initWithRootViewController:login];
+        self.window.rootViewController = loginNavi;
+    }
+}
+
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [[MYThirdManager sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];

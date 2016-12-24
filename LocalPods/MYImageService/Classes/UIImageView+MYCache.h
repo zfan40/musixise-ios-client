@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+//TODO: wmy 做进一步改进
 
 @interface UIImageView (MYCache)
 

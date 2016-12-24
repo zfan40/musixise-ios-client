@@ -19,5 +19,7 @@
 
 - (MYNavigationController *)currentNavigationVC;
 
+- (void)showtip:(NSString *)tip;
+
 
 @end

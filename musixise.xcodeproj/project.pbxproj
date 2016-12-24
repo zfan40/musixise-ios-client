@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EE309D9AE9B1A3DA70BAB6D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E966F2DBDB89BED6AC88EF /* libPods.a */; };
 		F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */; };
+		F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74308A41E0AABFB00F33C79 /* MYMineUserItemView.m */; };
+		F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74308A71E0AB20B00F33C79 /* MYMineUserInfoView.m */; };
 		F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364BF1DF3F63600DBA050 /* MYFavViewController.m */; };
 		F76364C31DF3F72A00DBA050 /* MYFavArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C21DF3F72A00DBA050 /* MYFavArtistViewController.m */; };
 		F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C51DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m */; };
@@ -31,6 +33,7 @@
 		F7B6A1331DC883B8006227C7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1321DC883B8006227C7 /* libc++.tbd */; };
 		F7C1AD8C1DB3983000342F85 /* Demo.html in Resources */ = {isa = PBXBuildFile; fileRef = F7C1AD8B1DB3983000342F85 /* Demo.html */; };
 		F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */; };
+		F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */; };
 		F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */; };
 		F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713351D9BC36200F8F300 /* MYLoginIconView.m */; };
 		F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713381D9BC6B300F8F300 /* MYLoginItem.m */; };
@@ -46,6 +49,10 @@
 		F2DD2B5F3726B54BBE6D8CE5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F7225FC41DEBF76800E2081E /* MYRootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRootTabBarViewController.h; sourceTree = "<group>"; };
 		F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRootTabBarViewController.m; sourceTree = "<group>"; };
+		F74308A31E0AABFB00F33C79 /* MYMineUserItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineUserItemView.h; sourceTree = "<group>"; };
+		F74308A41E0AABFB00F33C79 /* MYMineUserItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserItemView.m; sourceTree = "<group>"; };
+		F74308A61E0AB20B00F33C79 /* MYMineUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineUserInfoView.h; sourceTree = "<group>"; };
+		F74308A71E0AB20B00F33C79 /* MYMineUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserInfoView.m; sourceTree = "<group>"; };
 		F76364BE1DF3F63600DBA050 /* MYFavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFavViewController.h; sourceTree = "<group>"; };
 		F76364BF1DF3F63600DBA050 /* MYFavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYFavViewController.m; sourceTree = "<group>"; };
 		F76364C11DF3F72A00DBA050 /* MYFavArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFavArtistViewController.h; sourceTree = "<group>"; };
@@ -90,6 +97,8 @@
 		F7DC04E31D9CFEAC00D70E51 /* MYAppDelegateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYAppDelegateUtils.h; sourceTree = "<group>"; };
 		F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYAppDelegateUtils.m; sourceTree = "<group>"; };
 		F7DC04E91D9CFF6D00D70E51 /* MYGlobalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYGlobalConfig.h; sourceTree = "<group>"; };
+		F7DC60521E0E51E900BA7304 /* MYMineUserItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineUserItemModel.h; sourceTree = "<group>"; };
+		F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserItemModel.m; sourceTree = "<group>"; };
 		F7E713201D9BC2EC00F8F300 /* MYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginViewController.h; sourceTree = "<group>"; };
 		F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoginViewController.m; sourceTree = "<group>"; };
 		F7E713341D9BC36200F8F300 /* MYLoginIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginIconView.h; sourceTree = "<group>"; };
@@ -144,6 +153,19 @@
 				99E966F2DBDB89BED6AC88EF /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F74308A21E0AA90600F33C79 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F74308A31E0AABFB00F33C79 /* MYMineUserItemView.h */,
+				F74308A41E0AABFB00F33C79 /* MYMineUserItemView.m */,
+				F74308A61E0AB20B00F33C79 /* MYMineUserInfoView.h */,
+				F74308A71E0AB20B00F33C79 /* MYMineUserInfoView.m */,
+				F7DC60521E0E51E900BA7304 /* MYMineUserItemModel.h */,
+				F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */,
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		F76364BD1DF3F63600DBA050 /* Fav */ = {
@@ -316,6 +338,7 @@
 		F7E7132F1D9BC33C00F8F300 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F74308A21E0AA90600F33C79 /* Mine */,
 				F79DAE9D1DED66CC005FD65F /* Main */,
 				F7E713331D9BC35000F8F300 /* Login */,
 			);
@@ -479,6 +502,8 @@
 				F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */,
 				F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */,
 				F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */,
+				F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */,
+				F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */,
 				F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */,
 				F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */,
 				F79DAEA71DED8943005FD65F /* MYTopSelectorLabel.m in Sources */,
@@ -488,6 +513,7 @@
 				F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */,
 				F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */,
 				F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */,
+				F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */,
 				F76364CD1DF407F700DBA050 /* MYRegisterViewController.m in Sources */,
 				F79DAEA01DED66E4005FD65F /* MYTopSelectorView.m in Sources */,
 			);

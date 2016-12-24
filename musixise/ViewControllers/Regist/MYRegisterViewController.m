@@ -9,7 +9,7 @@
 #import "MYRegisterViewController.h"
 #import <MYWidget/MYLoginTextField.h>
 #import <MYUserSystem/MYRegistModel.h>
-#import <MYUserSystem/MYMusixiseRegistManager.h>
+#import <MYUserSystem/MYMusixiseRegisterManager.h>
 
 #define kUserNameTop 150
 
@@ -125,7 +125,7 @@
         model.username = self.userNameTextField.text;
         model.realname = self.artistTextField.text;
         model.password = self.passwordTextField.text;
-        [[MYMusixiseRegistManager sharedInstance] registWithModel:model callback:^(BOOL success,NSError *error) {
+        [[MYMusixiseRegisterManager sharedInstance] registerWithModel:model callback:^(BOOL success,NSError *error) {
             if (success) {
                 //TODO: wmy 注册成功，当前的navigation window的rootViewController进行更换 销毁当前的navigation
             } else {

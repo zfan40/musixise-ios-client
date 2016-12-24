@@ -11,7 +11,7 @@
 
 @class MYWeiBoResponseModel;
 
-typedef void(^RequestCallback)(NSDictionary *dict,NSError *error);
+typedef void(^RequestCallback)(BOOL success,NSError *error);
 
 @interface MYMusixiseLoginManager : MYBasicSingleton NS_DEPRECATED_IOS(2_0, 6_0);
 

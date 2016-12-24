@@ -42,7 +42,8 @@
 </head>
 
 <body>
-    <button onclick="playSomenotes()">来声</button>
+<!--    <button onclick="playSomenotes()">来声</button>-->
+<button onclick="getUserInfo()">来1111声</button>
     <script>
     // jsbridge
     var MUSIXISE = undefined;
@@ -68,7 +69,12 @@
             MUSIXISE.callHandler(evt, data, callback)
         }
     }
-
+    function getUserInfo() {
+        alert("getUserInfo");
+        callHandler('getUserInfo', {}, function(res) {
+            console.log(res)
+        });
+    }
     /*basic piano playback*/
     // var MUSIXISE = {};
     // MUSIXISE.MusicDeviceMIDIEvent = function(){};

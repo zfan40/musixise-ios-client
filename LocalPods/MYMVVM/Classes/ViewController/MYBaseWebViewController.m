@@ -28,7 +28,12 @@
     self.webView.height = kScreenHeight - 64;
     self.webView.top = 0;
     self.webView.left = 0;
-   
+    NSString *oldAgent = [self.webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+    NSString *newAgent = [oldAgent stringByAppendingString:@" Musixise"];
+    
+    NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent", nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     self.webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         // 进入刷新状态后调用此block
         DebugLog(@"===================下拉刷新 %@===================",[self class]);

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MYIconFont.h"
 #import <UIKit/UIKit.h>
 @interface MYButtonFactory : NSObject
 + (UIButton *)buttonWithImageName:(NSString *)imageName;

@@ -6,8 +6,8 @@
 //  Copyright © 2016年 wmy. All rights reserved.
 //  首页三个tab中的我的页面
 
-#import <MYMVVM/MYBaseViewController.h>
+#import <MYMVVM/MYTableViewController.h>
 
-@interface MYMineViewController : MYBaseViewController
+@interface MYMineViewController : MYTableViewController
 
 @end

@@ -15,7 +15,7 @@ typedef enum {
     MYThirdKitType_Weichat = 3,
 } MYThirdKitType;
 
-typedef void(^LoginCallback)(BOOL success);
+typedef void(^LoginCallback)(BOOL success,NSError *error);
 
 #define kWeiboAddressRedictURI @"http://www.musixise.com/"
 #define kWeiboAppKey @"1564995937"

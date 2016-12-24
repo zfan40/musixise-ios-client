@@ -34,6 +34,10 @@
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
 
+- (MYNoDataEmptyType)noDataEmptyType {
+    return MYNoDataEmptyType_Hidden;
+}
+
 - (MYNoDataType)noDataType {
     return MYNoDataViewType_Hidden;
 }

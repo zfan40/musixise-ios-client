@@ -9,6 +9,7 @@
 #import "MYBaseNetWorkUtil.h"
 #import <Reachability/Reachability.h>
 #import <AFNetworking/AFURLSessionManager.h>
+#import <MYUtils/MYSafeUtil.h>
 #import "AFHTTPRequestOperationManager.h"
 #import "MYBaseNetWorkTool.h"
 #import "MYPhoneUtil.h"
@@ -137,6 +138,11 @@
     request.HTTPBody = [self dictToJson:paramDict];
     request.HTTPMethod = @"POST";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *idToken = [defaults objectForKey:@"idToken"];
+    if (!isEmptyString(idToken)) {
+        [request setValue:[NSString stringWithFormat:@"Bearer %@",idToken] forHTTPHeaderField:@"Authorization"];
+    }
     AFHTTPRequestOperation *operation = [self.manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         DebugLog(@"================== success ==================");
         NSDictionary *responseDict = (NSDictionary *)responseObject;

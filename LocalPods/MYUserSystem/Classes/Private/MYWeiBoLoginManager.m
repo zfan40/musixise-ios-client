@@ -13,9 +13,9 @@
 
 - (void)weiboLoginWithCallback:(LoginCallback)callback {
     //TODO: wmy
-    [[MYThirdWeiboLoginManager sharedInstance] loginWithCallback:^(BOOL success) {
+    [[MYThirdWeiboLoginManager sharedInstance] loginWithCallback:^(BOOL success,NSError *error) {
         if (callback) {
-            callback(success);
+            callback(success,error);
         }
     }];
 }

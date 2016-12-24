@@ -35,9 +35,9 @@
         loginCallback:(LoginCallback)callback {
     switch (type) {
         case MYLoginType_Normal:{
-            [[MYSystemLoginManager sharedInstance] systemLoginWithName:name withPassword:password loginCallback:^(BOOL success) {
+            [[MYSystemLoginManager sharedInstance] systemLoginWithName:name withPassword:password loginCallback:^(BOOL success,NSError *error) {
                 if (callback) {
-                    callback(success);
+                    callback(success,error);
                     
                 }
             }];
@@ -52,9 +52,9 @@
         }
             break;
         case MYLoginType_Weibo:{
-            [[MYWeiBoLoginManager sharedInstance] weiboLoginWithCallback:^(BOOL success) {
+            [[MYWeiBoLoginManager sharedInstance] weiboLoginWithCallback:^(BOOL success,NSError *error) {
                 if (callback) {
-                    callback(success);
+                    callback(success,error);
                 }
             }];
         }

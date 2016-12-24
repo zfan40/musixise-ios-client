@@ -7,9 +7,12 @@
 //
 
 #import "MYMineViewController.h"
+#import <MYUserSystem/MYUserUtils.h>
+
+#define kImageViewWidth 170
+#define kImageViewTop 150
 
 @interface MYMineViewController ()
-
 
 
 @end
@@ -26,15 +29,21 @@
 }
 
 - (void)initData {
-    
+    MYUser *user = [MYUserUtils sharedInstance].user;
+//    [self.iconImageView my_setImageWithURL:user.largeAvatar];
 }
 
 - (void)initView {
-    self.view.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:self.iconImageView];
 }
 
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
+
+- (BOOL)isBarAlpha {
+    return YES;
+}
+
 #pragma mark - --------------------功能函数------------------
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
