@@ -1,20 +1,14 @@
 //
-//  MYUser.h
+//  MYUserModel.h
 //  Pods
 //
-//  Created by wmy on 2016/11/1.
+//  Created by wmy on 2016/12/24.
 //
 //
 
-#import <MYMVVM/MYBaseViewModel.h>
+#import <MYMVVM/MYBaseModel.h>
 
-typedef enum {
-    MYUserGenderTypeUnKnown = 0,
-    MYUserGenderTypeFemale = 1,
-    MYUserGenderTypeMale = 2,
-} MYUserGenderType;
-
-@interface MYUser : MYBaseViewModel
+@interface MYUserModel : MYBaseModel
 
 @property (strong, nonatomic) NSString *username;
 @property (assign, nonatomic) long long userId;
@@ -29,9 +23,5 @@ typedef enum {
 @property(nonatomic, strong) NSString *nation;
 @property(nonatomic, strong) NSString *realname;
 @property(nonatomic, strong) NSString *tel;
-
-@property(nonatomic, assign) MYUserGenderType genderType;
-
-- (NSDictionary *)dictWithProperty;
 
 @end

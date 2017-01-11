@@ -69,5 +69,9 @@ typedef enum {
 
 @property (nonatomic,assign) NSInteger index;
 
+@property(nonatomic, assign) BOOL isTopVc;
+
+- (void)setTabBarHidden:(BOOL)hidden;
+
 
 @end

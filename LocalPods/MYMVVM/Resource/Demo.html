@@ -42,7 +42,7 @@
 </head>
 
 <body>
-<!--    <button onclick="playSomenotes()">来22222声</button>-->
+<!--    <button onclick="playSomenotes()">来声</button>-->
 <button onclick="getUserInfo()">来1111声</button>
     <script>
     // jsbridge
@@ -62,6 +62,9 @@
     function callHandler(evt, data, callback) {
         if (!MUSIXISE) {
             connectWebViewJavascriptBridge(function(bridge) {
+               bridge.init(function(message,responseCallback){
+                           responseCallback(data);
+                           })
                 MUSIXISE = bridge;
                 bridge.callHandler(evt, data, callback)
             })
@@ -70,19 +73,19 @@
         }
     }
     function getUserInfo() {
-        callHandler('UserInfo', {"b":"2"}, function responseCallback(responseData) {
-                    alert("getUserInfo1234");
-                    //console.log(responseData)
-                    })
+        alert("getUserInfo");
+        callHandler('getUserInfo', {}, function(res) {
+            console.log("getUserInfo run")
+            console.log(res)
+        });
     }
-
     /*basic piano playback*/
     // var MUSIXISE = {};
     // MUSIXISE.MusicDeviceMIDIEvent = function(){};
     function playSomenotes() {
         setTimeout(function() {
         }, 500);
-            callHandler('MusicDeviceMIDIEvent', [128, 60, 68, 0])
+        callHandler('MusicDeviceMIDIEvent', [128, 60, 68, 0],function(){alert(1)});
         setTimeout(function() {
             callHandler('MusicDeviceMIDIEvent', [128, 60, 64, 0])
         }, 1000);

@@ -19,6 +19,7 @@
 #import <MYWidget/MYTipsHelper.h>
 #import <MYUtils/UIImage+MYImage.h>
 #import <MYShare/MYShareModelUtils.h>
+#import "MYTabBarViewController.h"
 #import <MYShare/MYShareManager.h>
 
 @interface MYBaseViewController () <MYNoDataViewDelegate>
@@ -73,24 +74,30 @@
     [super viewDidLoad];
     // 设置背景
     self.view.backgroundColor = theMYWidget.backgroundColor;
-    self.view.height = kScreenHeight;
     // 设置noDataView
+    [self.view addSubview:self.noDataView];
     [self.noDataViewManager setViewType:[self noDataType]];
     [self.noDataViewManager setViewEmptyType:[self noDataEmptyType]];
-    [self.view addSubview:self.noDataView];
-    self.noDataView.width = kScreenWidth;
-    self.noDataView.height = self.view.height;
-    self.noDataView.hidden = YES;
+    [self.noDataViewManager refreshNoDataEmpty];
+    [self.noDataViewManager refreshNoData];
+
     // check 网络状态
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onChangeNetwork)
                                                  name:kReachabilityChangedNotification
                                                object:nil];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    
+    self.noDataView.width = kScreenWidth;
+    self.noDataView.height = self.view.height;
+    self.noDataView.hidden = YES;
+    if (!self.isBarAlpha) {
+        self.view.height -= 64;
+    }
+    if (self.isTopVc) {
+        self.view.height -= 50;
+    } else {
+        [self setTabBarHidden:YES];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -108,11 +115,8 @@
         self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
         // TODO: wmy 修改颜色
         self.titleLabel.textColor = theMYWidget.c3;
+        self.view.height -= 64;
     }
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -120,6 +124,10 @@
     [self.view insertSubview:self.noDataView atIndex:0];
 }
 #pragma mark - --------------------功能函数------------------
+
+- (void)setTabBarHidden:(BOOL)hidden {
+    TheTabBarViewController.hideTabBar = hidden;
+}
 
 - (void)showTip:(NSString *)string {
     [[MYTipsHelper sharedInstance] showTips:string];
@@ -234,7 +242,6 @@
 }
 
 - (void)showNoData {
-    self.noDataView.hidden = NO;
     [self.view bringSubviewToFront:self.noDataView];
 }
 
@@ -243,6 +250,7 @@
 - (void)onChangeNetwork {
     if ([MYBaseNetWorkUtil sharedInstance].status == NotReachable) {
         [self.noDataViewManager refreshNoData];
+        [self.noDataViewManager refreshNoDataEmpty];
         [self showNoData];
     } else {
         //TODO: wmy 先这样，之后添加仅WiFi逻辑

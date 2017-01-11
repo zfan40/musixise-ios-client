@@ -66,8 +66,12 @@
 }
 
 - (void)initView {
+#if DEBUG
+    self.view.layer.borderWidth = 5;
+    self.view.layer.borderColor = [UIColor redColor].CGColor;
+#endif
     [self.view addSubview:self.scrollView];
-    CGFloat height = self.view.height - kTabBarItemHeight - kNavigationBarHeight;
+    CGFloat height = self.view.height;
     self.scrollView.size = CGSizeMake(kScreenWidth, height);
     self.scrollView.left = 0;
     self.scrollView.top = 0;
@@ -75,7 +79,7 @@
     for (int i = 0; i < self.topSelectorArray.count; i++) {
         MYTopSelectorModelImp *imp = [self.topSelectorArray objectAtIndex:i];
         UIView *view = imp.vc.view;
-        view.height = self.scrollView.height;
+//        view.height = self.scrollView.height;
         [self.scrollView addSubview:view];
         view.left = kScreenWidth * i;
     }

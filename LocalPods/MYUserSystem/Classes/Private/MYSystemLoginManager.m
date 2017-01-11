@@ -53,7 +53,8 @@
     [[MYBaseNetWorkUtil sharedInstance] posthttpWithDictionary:dict withMethod:method withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
         if (success) {
             NSError *error;
-            MYUser *user = [[MYUser alloc] initWithDictionary:[result objectForKey:@"data"] error:&error];
+            MYUserModel *userModel = [[MYUserModel alloc] initWithDictionary:[result objectForKey:@"data"]  error:&error];
+            MYUser *user = [[MYUser alloc] initWithData:userModel];
             [[MYUserUtils sharedInstance] updateUser:user];
             [[NSNotificationCenter defaultCenter] postNotificationName:MYUserDidChanged object:nil];
         }

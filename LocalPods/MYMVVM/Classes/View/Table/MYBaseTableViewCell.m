@@ -38,8 +38,7 @@
     self.itemView.center = self.contentView.center;
     self.itemView.left = 0;
     self.itemView.top = 0;
-    self.itemView.backgroundColor = theMYWidget.itemViewColor;
-    self.backgroundColor = theMYWidget.maskColor;
+    self.backgroundColor = [UIColor clearColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self setBackgroundView:nil];
     

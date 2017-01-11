@@ -24,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.webView];
-    self.webView.width = kScreenWidth;
-    self.webView.height = kScreenHeight - 64;
+    self.webView.width = self.view.width;
+    self.webView.height = self.view.height;
     self.webView.top = 0;
     self.webView.left = 0;
     NSString *oldAgent = [self.webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];

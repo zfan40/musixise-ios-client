@@ -39,6 +39,8 @@ typedef enum {
 @property (nonatomic,assign) BOOL needLoad;
 @property (nonatomic,strong) NSString *method;
 @property (nonatomic,strong) NSMutableDictionary *params;
+@property(nonatomic, assign) NSInteger totalPages;
+@property(nonatomic, assign) NSInteger totalElements;
 
 @property (nonatomic,copy) RequestCallback requestCallback;
 

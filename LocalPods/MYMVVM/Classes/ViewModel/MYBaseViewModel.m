@@ -12,12 +12,14 @@
 #import <objc/objc.h>
 #import <objc/runtime.h>
 #import <AFNetworking/AFHTTPRequestOperation.h>
+#import <MYWidget/MYTipsHelper.h>
 
 typedef struct objc_property *objc_property_t;
 
 @interface MYBaseViewModel ()
 
 @property (nonatomic,strong) AFHTTPRequestOperation *operation;
+@property(nonatomic, assign) NSInteger sizeParam;
 
 @end
 
@@ -66,7 +68,7 @@ NSString* const kDataKey = @"xiaplay_data";
 
 //- (NSString *)description {
 //    unsigned int count;
-//    
+//
 //    // 获取类的所有属性
 //    // 如果没有属性，则count为0，properties为nil
 //    objc_property_t *properties = class_copyPropertyList([self class], &count);
@@ -81,7 +83,7 @@ NSString* const kDataKey = @"xiaplay_data";
 //    // 注意，这里properties是一个数组指针，是C的语法，
 //    // 我们需要使用free函数来释放内存，否则会造成内存泄露
 //    free(properties);
-//    
+//
 //    return string;
 //}
 //
@@ -104,7 +106,7 @@ NSString* const kDataKey = @"xiaplay_data";
 - (void)beginRequest {
     self.state = STATE_REQUEST;
     [self dataBeginChanged];
-        [self request];
+    [self request];
 }
 
 - (void)test {
@@ -125,33 +127,44 @@ NSString* const kDataKey = @"xiaplay_data";
         self.page = 1;
     }
     [self.params setObject:@(self.page) forKey:@"page"];
-    [self.params setObject:@(20) forKey:@"limit"];
-    self.operation = [[MYBaseNetWorkUtil sharedInstance] gethttpWithDictionary:self.params
-                                                   withMethod:self.method
-                                                 withComplete:^(NSDictionary * _Nonnull dict, BOOL success, NSError * _Nonnull error) {
-                                                     if (!error) {
-                                                         if (success) {
-                                                             self.more = [[dict objectForKey:@"more"] boolValue];
-                                                             if (self.more) {
-                                                                 self.page++;
-                                                             }
-//                                                             DebugLog(@"result = %@",dict);
-                                                             [self onRequestSuccess:dict];
-                                                             self.state = STATE_SUCCESS;
-                                                             if (self.requestCallback) {
-                                                                 self.requestCallback();
-                                                             }
-                                                         }
-                                                     } else {
-                                                         DebugLog(@"error = %@",error.domain);
-                                                         [self emitDateChanged];
-                                                         [self onRequestFailure:error];
-                                                         self.state = STATE_FAILURE;
-                                                         if (self.requestCallback) {
-                                                             self.requestCallback();
-                                                         }
-                                                     }
-    }];
+    [self.params setObject:@(self.sizeParam) forKey:@"size"];
+    self.operation = [[MYBaseNetWorkUtil sharedInstance] posthttpWithDictionary:self.params
+                                                                     withMethod:self.method
+                                                                   withComplete:^(NSDictionary * _Nonnull dict, BOOL success, NSError * _Nonnull error) {
+                                                                       if (!error) {
+                                                                           if (success) {
+                                                                               NSDictionary *dataDict = [dict objectForKey:@"data"];
+                                                                               self.more = ![[dataDict objectForKey:@"last"] boolValue];
+                                                                               if (self.more) {
+                                                                                   self.page++;
+                                                                               }
+                                                                               self.totalPages = [dataDict objectForKey:@"totalPages"];
+                                                                               self.totalElements = [dataDict objectForKey:@"totalElements"];
+                                                                               long long errCode = [[dict objectForKey:@"errcode"] longLongValue];
+                                                                               NSString *errmsg = [dict objectForKey:@"errmsg"];
+                                                                               if (errCode) {
+#if DEBUG
+                                                                                   [[MYTipsHelper sharedInstance] showTips:errmsg];
+#endif
+                                                                                   self.state = STATE_FAILURE;
+                                                                               } else {
+                                                                                   [self onRequestSuccess:dataDict];
+                                                                                   self.state = STATE_SUCCESS;
+                                                                                   if (self.requestCallback) {
+                                                                                       self.requestCallback();
+                                                                                   }
+                                                                               }
+                                                                           }
+                                                                       } else {
+                                                                           DebugLog(@"error = %@",error.domain);
+                                                                           [self emitDateChanged];
+                                                                           [self onRequestFailure:error];
+                                                                           self.state = STATE_FAILURE;
+                                                                           if (self.requestCallback) {
+                                                                               self.requestCallback();
+                                                                           }
+                                                                       }
+                                                                   }];
 }
 
 - (void)onRequestSuccess:(NSDictionary *)dict {

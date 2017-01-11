@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MYTabBar.h"
 
+#define TheTabBarViewController [MYTabBarViewController sharedInstance]
+
 @class MYNavigationController;
 
 @interface MYTabBarViewController : UITabBarController
 
 @property(nonatomic, assign) BOOL hideTabBar;
+
++ (instancetype)sharedInstance;
 
 - (NSArray<MYTabBarModel> *)setUpAllChildViewController;
 

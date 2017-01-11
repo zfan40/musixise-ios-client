@@ -11,12 +11,15 @@
 #import "MYBaseTableView.h"
 #import "MYBaseViewModel.h"
 #import "MYNavigationController.h"
+#import "MYBaseViewController.h"
 
-@interface MYBaseDelegate : NSObject
+@interface MYBaseDelegate : NSObject <UIViewControllerPreviewingDelegate>
 
 @property(nonatomic,weak) MYBaseViewModel* model;
 
 @property (nonatomic,weak) MYNavigationController *navigationController;
+
+@property(nonatomic, weak) MYBaseViewController *vc;
 
 - (MYBaseViewModel *)model;
 

@@ -19,7 +19,7 @@
 #define kTableViewCount 4
 
 #define kLeftSpace theMYWidget.m5
-#define kTopSpace theMYWidget.m5
+#define kTopSpace (theMYWidget.m5 + 64)
 #define kInnerSpace 2
 #define kLabelSpace theMYWidget.m2
 #define kTableviewHeight 30
@@ -58,6 +58,10 @@
     [self addSubview:self.iconImageView];
     self.iconImageView.width = kImageViewWidth;
     self.iconImageView.height = kImageViewWidth;
+#if DEBUG
+    self.iconImageView.layer.borderWidth = 1;
+    self.iconImageView.layer.borderColor = [UIColor redColor].CGColor;
+#endif
     [self addSubview:self.masterBtn];
     self.masterBtn.width = kBtnWidth;
     self.masterBtn.height = kBtnWidth;
@@ -67,35 +71,47 @@
     self.genderBtn.width = kBtnWidth;
     self.genderBtn.height = kBtnWidth;
     [self addSubview:self.tableView];
-    
+    self.nameLabel.numberOfLines = 2;
+#if DEBUG
+    self.masterBtn.layer.borderWidth = 1;
+    self.masterBtn.layer.borderColor = [UIColor redColor].CGColor;
+    self.genderBtn.layer.borderWidth = 1;
+    self.genderBtn.layer.borderColor = [UIColor redColor].CGColor;
+    self.layer.borderWidth = 1;
+    self.layer.borderColor = [UIColor redColor].CGColor;
+#endif
 }
 
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
 
++ (CGFloat)heightForViewModel:(MYBaseViewModel *)baseViewModel {
+    return 200;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.iconImageView.left = kLeftSpace;
     self.iconImageView.top = kTopSpace;
+    self.tableView.top = 64;
     CGFloat maxWidth;
-    CGFloat leftSpace;
     if (self.masterBtn.hidden) {
         maxWidth = kImageViewWidth + kLeftSpace * 2 - kInnerSpace * 2;
         self.nameLabel.centerY = self.iconImageView.bottom + kLabelSpace + self.nameLabel.height * 0.5;
-        self.nameLabel.centerX = maxWidth * 0.5;
     } else {
         maxWidth = kImageViewWidth + kLeftSpace * 2 - self.masterBtn.width - kInnerSpace * 2;
-        leftSpace = (kImageViewWidth + kLeftSpace * 2 - self.masterBtn.width - self.nameLabel.width - kInnerSpace) / 2;
-        self.masterBtn.left = kInnerSpace;
+        self.masterBtn.left = self.iconImageView.left;
+        self.masterBtn.top = self.iconImageView.top;
         self.nameLabel.top = self.iconImageView.bottom + kLabelSpace;
     }
+    self.nameLabel.centerX = self.iconImageView.centerX;
     if (self.nameLabel.width > maxWidth) {
         self.nameLabel.width = maxWidth;
     }
     self.genderBtn.right = self.iconImageView.right;
     self.genderBtn.bottom = self.iconImageView.bottom;
     
-    self.tableView.width = self.width - self.iconImageView.right - theMYWidget.m3 - kLeftSpace;
+    self.tableView.width = self.width - self.iconImageView.width - theMYWidget.m5 - kLeftSpace * 2 + theMYWidget.m3;
     self.tableView.height = kTableviewHeight * kTableViewCount;
     self.tableView.left = self.iconImageView.right + kLeftSpace;
 }
@@ -106,17 +122,25 @@
         [self.tableArray removeAllObjects];
         MYUser *user = (MYUser *)self.viewModel;
         [self.iconImageView my_setImageWithURL:user.largeAvatar];
-        self.masterBtn.hidden = !user.isMaster;
+        //TODO: wmy Test UI
+//        self.masterBtn.hidden = !user.isMaster;
         self.nameLabel.text = user.username;
         [self.nameLabel sizeToFit];
-        self.genderBtn.hidden = (user.genderType == MYUserGenderTypeUnKnown);
+        //TODO: wmy Test UI
+//        self.genderBtn.hidden = (user.genderType == MYUserGenderTypeUnKnown);
         //TODO: wmy UI
         [MYButtonFactory setButtonImage:self.genderBtn
                           WithimageName:[self genderBtnNameWithType:user.genderType]
                                    size:kBtnWidth
                                   color:theMYWidget.c2];
         for (int i = 0; i < kTableViewCount; i++) {
-            MYMineUserItemModel *model = [self.tableArray objectAtIndex:i];
+            MYMineUserItemModel *model;
+            if (self.tableArray.count <= i) {
+                model = [[MYMineUserItemModel alloc] init];
+                [self.tableArray addObject:model];
+            } else {
+                model = [self.tableArray objectAtIndex:i];
+            }
             model.title = [self titleForIndex:i];
             model.detailText = [self detailForIndex:i model:user];
         }
@@ -176,13 +200,17 @@
              cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MYBaseItemView *itemView;
     MYMineUserItemModel *model = [self.tableArray objectAtIndex:indexPath.row];
-    MYBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@""];
+    MYBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MYMineUserInfoView"];
     if (!cell) {
-        itemView = [[MYMineUserInfoView alloc] initWithItemStyle:MYBaseItemViewStyleDefault
+        itemView = [[MYMineUserInfoView alloc] initWithItemStyle:MYBaseItemViewStyleNOTitleBackground
                                                        viewModel:model];
-        cell = [[MYBaseTableViewCell alloc] initWithItemView:itemView reuseIdentifier:@""];
+        cell = [[MYBaseTableViewCell alloc] initWithItemView:itemView
+                                             reuseIdentifier:@"MYMineUserInfoView"];
+    } else {
+        itemView = cell.itemView;
+        itemView.viewModel = model;
     }
-    return nil;
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -201,24 +229,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-#if DEBUG
-    NSLog(@"");
-#endif
+
 }
 #pragma mark - --------------------属性相关------------------
 
 newInstanceUIImageView1(iconImageView)
 newInstanceUIButton1(masterBtn)
-newInstanceUILabel1(nameLabel, MYWidgetStyle_MYWidget_tt_c2_f3_a80)
+newInstanceUILabel1(nameLabel, MYWidgetStyle_MYWidget_tt_c2_f2_a80)
 newInstanceUIButton1(genderBtn)
 
 - (NSMutableArray <MYMineUserItemModel *>*)tableArray {
     if (!_tableArray) {
-        _tableArray = [NSMutableArray arrayWithCapacity:kTableViewCount];
-        for (int i = 0; i < kTableViewCount; i++) {
-            MYMineUserItemModel *itemModel = [[MYMineUserItemModel alloc] init];
-            [_tableArray addObject:itemModel];
-        }
+        _tableArray = [NSMutableArray <MYMineUserItemModel *> array];
     }
     return _tableArray;
 }

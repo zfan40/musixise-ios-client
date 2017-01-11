@@ -78,12 +78,12 @@
                              [router routeUrl:@"musixise://page/MYWebViewController" withParam:dict];
                          }];
         
-        [_bridge registerHandler:@"UserInfo"
+        [_bridge registerHandler:@"getUserInfo"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              MYUser *user = [MYUserUtils sharedInstance].user;
-                             NSDictionary *dict = [user dictWithProperty];
+                             NSDictionary *userDict = [user dictWithProperty];
                              if (responseCallback) {
-                                 responseCallback(@{@"a":@"1"});
+                                 responseCallback(userDict);
                              }
                          }];
     }

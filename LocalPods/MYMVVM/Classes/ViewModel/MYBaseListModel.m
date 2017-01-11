@@ -16,6 +16,10 @@
  */
 @property (nonatomic,strong) NSMutableArray<MYBaseViewModel *> *viewModels;
 
+
+
+
+
 @end
 
 @implementation MYBaseListModel
@@ -27,6 +31,7 @@
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
 #pragma mark - --------------------功能函数------------------
+
 
 - (NSArray *)allData {
     return self.viewModels;
@@ -73,6 +78,13 @@
     [self onClean];
     [self dataBeginChanged];
     [super reload];
+}
+
+
+- (void)onRequestSuccess:(NSDictionary *)dict {
+    [self requestSuccess:dict];
+    [self dataEndChanged];
+    
 }
 
 #pragma mark - --------------------手势事件------------------

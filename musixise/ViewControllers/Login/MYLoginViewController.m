@@ -72,7 +72,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.signInBtn];
     
-    [self.signInBtn setTitle:@"注册" forState:UIControlStateNormal];
+    [self.signInBtn setTitle:@"注 册" forState:UIControlStateNormal];
     self.signInBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.signInBtn setTitleColor:theMYWidget.c0 forState:UIControlStateNormal];
     [self.signInBtn sizeToFit];
@@ -105,7 +105,7 @@
 }
 
 - (void)onClickSign {
-    [router routeUrl:@"musixise://page/MYRegistViewController"];
+    [router routeUrl:@"musixise://page/MYRegisterViewController"];
 }
 
 #pragma mark - --------------------代理方法------------------

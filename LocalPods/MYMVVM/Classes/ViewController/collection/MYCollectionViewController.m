@@ -108,8 +108,7 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.shadowImage = [UIImage new];
         self.collectionView.top = 0;
-        self.view.height = kScreenHeight;
-        self.collectionView.height = kScreenHeight;
+        self.collectionView.height = self.view.height;
     } else {
         [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:theMYWidget.c0]
                                                       forBarMetrics:UIBarMetricsDefault];

@@ -36,6 +36,9 @@
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
     self.tableView.frame = self.view.bounds;
+    if (self.isTopVc) {
+        self.tableView.height -= 50;
+    }
     if (![self playBarHidden]) {
         self.tableView.height = self.tableView.height -  [router.navigationController.rootViewController playBar].height - 64;
     }
@@ -97,23 +100,6 @@
     [self.tableView reloadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (self.isBarAlpha) {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.navigationController.navigationBar.shadowImage = [UIImage new];
-        self.view.height = kScreenHeight;
-        self.tableView.height = kScreenHeight;
-    } else {
-        self.tableView.height = kScreenHeight - 64;
-        if (!self.playBarHidden) {
-            self.tableView.height -= 50;
-        }
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:theMYWidget.c0]
-                                                      forBarMetrics:UIBarMetricsDefault];
-        self.navigationController.navigationBar.shadowImage = [UIImage createImageWithColor:theMYWidget.c0];
-    }
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];

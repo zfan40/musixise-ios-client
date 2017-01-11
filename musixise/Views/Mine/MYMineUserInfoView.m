@@ -11,7 +11,7 @@
 #import "MYMineUserItemModel.h"
 #import <MYWidget/UILabel+MYStyle.h>
 
-#define kDetailLeft 50
+#define kDetailLeft 58
 
 @interface MYMineUserInfoView ()
 
@@ -49,7 +49,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.titleLabel.left = 0;
+    self.titleLabel.left = theMYWidget.m2;
     self.titleLabel.centerY = self.height * 0.5;
     
     self.detailLabel.left = kDetailLeft;
@@ -63,16 +63,22 @@
         [self setTitle:user.title];
         [self setDetailTitle:user.detailText];
     }
+    [self setNeedsLayout];
 }
 
 #pragma mark - --------------------功能函数------------------
 
 - (void)setTitle:(NSString *)title {
     self.titleLabel.text = title;
+    [self.titleLabel sizeToFit];
 }
 
 - (void)setDetailTitle:(NSString *)detailTitle {
+    if (isEmptyString(detailTitle)) {
+        detailTitle = @"保密";
+    }
     self.detailLabel.text = detailTitle;
+    [self.detailLabel sizeToFit];
 }
 
 #pragma mark - --------------------手势事件------------------
@@ -80,7 +86,7 @@
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------
 
-newInstanceUILabel1(titleLabel, MYWidgetStyle_MYWidget_tt_c0_f3_a100)
-newInstanceUILabel1(detailLabel, MYWidgetStyle_MYWidget_tt_c0_f3_a100)
+newInstanceUILabel1(titleLabel, MYWidgetStyle_MYWidget_tt_c2_f2_a80)
+newInstanceUILabel1(detailLabel, MYWidgetStyle_MYWidget_tt_c2_f2_a80)
 
 @end

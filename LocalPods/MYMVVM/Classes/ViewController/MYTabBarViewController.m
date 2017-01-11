@@ -48,6 +48,15 @@
     [self.myTabBar setSelectIndex:0];
 }
 
++ (instancetype)sharedInstance {
+    static MYTabBarViewController *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance=[[self alloc] init];
+    });
+    return sharedInstance;
+}
+
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
 
@@ -88,6 +97,7 @@
     // 设置子控件对应tabBarItem的模型属性
     vc.tabBarItem.title = model.title;
     vc.title = model.title;
+    vc.isTopVc = YES;
     // 保存tabBarItem模型到数组
     [self.items addObject:vc.tabBarItem];
     // initWithRootViewController底层会调用导航控制器的push，把跟控制器压入栈
@@ -115,7 +125,6 @@
 - (void)setHideTabBar:(BOOL)hideTabBar {
     _hideTabBar = hideTabBar;
     self.myTabBar.hidden = hideTabBar;
-    //TODO: wmy 是否需要控制view的高度？
 }
 
 - (MYTabBar *)myTabBar {

@@ -53,7 +53,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.delegates) {
+    if (self.delegates.count) {
         MYBaseTableViewDelegate *delegate = [self.delegates objectAtIndex:0];
         if ([delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
             [delegate scrollViewDidScroll:scrollView];
@@ -152,6 +152,37 @@
         }
     }
 }
+
+// 左划
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegates) {
+        MYBaseTableViewDelegate *delegate = [self.delegates objectAtIndex:indexPath.section];
+        if ([delegate respondsToSelector:@selector(tableView:editActionsForRowAtIndexPath:)]) {
+            return [delegate tableView:tableView editActionsForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0]];
+        }
+    }
+    return @[];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegates) {
+        MYBaseTableViewDelegate *delegate = [self.delegates objectAtIndex:indexPath.section];
+        if ([delegate respondsToSelector:@selector(tableView:commitEditingStyle:forRowAtIndexPath:)]) {
+            [delegate tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0]];
+        }
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegates) {
+        MYBaseTableViewDelegate *delegate = [self.delegates objectAtIndex:indexPath.section];
+        if ([delegate respondsToSelector:@selector(tableView:canEditRowAtIndexPath:)]) {
+            return [delegate tableView:tableView canEditRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0]];
+        }
+    }
+    return NO;
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.delegates) {

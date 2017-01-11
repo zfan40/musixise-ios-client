@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		EE309D9AE9B1A3DA70BAB6D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E966F2DBDB89BED6AC88EF /* libPods.a */; };
 		F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */; };
+		F72401801E0FD836006D816B /* MYWorkDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F724017F1E0FD836006D816B /* MYWorkDelegate.m */; };
+		F72401871E0FDD18006D816B /* MYWorkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F72401861E0FDD18006D816B /* MYWorkListModel.m */; };
+		F724018B1E0FE277006D816B /* MYWorkItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F724018A1E0FE277006D816B /* MYWorkItemView.m */; };
+		F724018E1E0FE2E1006D816B /* MYWorkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F724018D1E0FE2E1006D816B /* MYWorkViewModel.m */; };
+		F72401921E0FEDC2006D816B /* MYWorkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F72401911E0FEDC2006D816B /* MYWorkModel.m */; };
 		F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74308A41E0AABFB00F33C79 /* MYMineUserItemView.m */; };
 		F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74308A71E0AB20B00F33C79 /* MYMineUserInfoView.m */; };
 		F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364BF1DF3F63600DBA050 /* MYFavViewController.m */; };
@@ -16,6 +21,7 @@
 		F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C51DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m */; };
 		F76364C91DF4049800DBA050 /* MYLoginNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C81DF4049800DBA050 /* MYLoginNavigationViewController.m */; };
 		F76364CD1DF407F700DBA050 /* MYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364CC1DF407F700DBA050 /* MYRegisterViewController.m */; };
+		F76E24CD1E13BE7A00A2E79B /* MYMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E24CC1E13BE7A00A2E79B /* MYMusicViewController.m */; };
 		F7762B591D9B7407001F64EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7762B581D9B7407001F64EE /* AudioToolbox.framework */; };
 		F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */; };
 		F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B601D9B75C8001F64EE /* MYLaunchViewController.m */; };
@@ -34,6 +40,7 @@
 		F7C1AD8C1DB3983000342F85 /* Demo.html in Resources */ = {isa = PBXBuildFile; fileRef = F7C1AD8B1DB3983000342F85 /* Demo.html */; };
 		F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */; };
 		F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */; };
+		F7DC60591E0E58B600BA7304 /* MYMineMainDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC60581E0E58B600BA7304 /* MYMineMainDelegate.m */; };
 		F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */; };
 		F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713351D9BC36200F8F300 /* MYLoginIconView.m */; };
 		F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713381D9BC6B300F8F300 /* MYLoginItem.m */; };
@@ -49,6 +56,16 @@
 		F2DD2B5F3726B54BBE6D8CE5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F7225FC41DEBF76800E2081E /* MYRootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRootTabBarViewController.h; sourceTree = "<group>"; };
 		F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRootTabBarViewController.m; sourceTree = "<group>"; };
+		F724017E1E0FD836006D816B /* MYWorkDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWorkDelegate.h; sourceTree = "<group>"; };
+		F724017F1E0FD836006D816B /* MYWorkDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWorkDelegate.m; sourceTree = "<group>"; };
+		F72401851E0FDD18006D816B /* MYWorkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWorkListModel.h; sourceTree = "<group>"; };
+		F72401861E0FDD18006D816B /* MYWorkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWorkListModel.m; sourceTree = "<group>"; };
+		F72401891E0FE277006D816B /* MYWorkItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWorkItemView.h; sourceTree = "<group>"; };
+		F724018A1E0FE277006D816B /* MYWorkItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWorkItemView.m; sourceTree = "<group>"; };
+		F724018C1E0FE2E1006D816B /* MYWorkViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWorkViewModel.h; sourceTree = "<group>"; };
+		F724018D1E0FE2E1006D816B /* MYWorkViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWorkViewModel.m; sourceTree = "<group>"; };
+		F72401901E0FEDC2006D816B /* MYWorkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWorkModel.h; sourceTree = "<group>"; };
+		F72401911E0FEDC2006D816B /* MYWorkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWorkModel.m; sourceTree = "<group>"; };
 		F74308A31E0AABFB00F33C79 /* MYMineUserItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineUserItemView.h; sourceTree = "<group>"; };
 		F74308A41E0AABFB00F33C79 /* MYMineUserItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserItemView.m; sourceTree = "<group>"; };
 		F74308A61E0AB20B00F33C79 /* MYMineUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineUserInfoView.h; sourceTree = "<group>"; };
@@ -63,6 +80,8 @@
 		F76364C81DF4049800DBA050 /* MYLoginNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoginNavigationViewController.m; sourceTree = "<group>"; };
 		F76364CB1DF407F700DBA050 /* MYRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRegisterViewController.h; sourceTree = "<group>"; };
 		F76364CC1DF407F700DBA050 /* MYRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRegisterViewController.m; sourceTree = "<group>"; };
+		F76E24CB1E13BE7A00A2E79B /* MYMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMusicViewController.h; sourceTree = "<group>"; };
+		F76E24CC1E13BE7A00A2E79B /* MYMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMusicViewController.m; sourceTree = "<group>"; };
 		F7762B581D9B7407001F64EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F7762B5C1D9B75B5001F64EE /* MYMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMainViewController.h; sourceTree = "<group>"; };
 		F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMainViewController.m; sourceTree = "<group>"; };
@@ -99,6 +118,8 @@
 		F7DC04E91D9CFF6D00D70E51 /* MYGlobalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYGlobalConfig.h; sourceTree = "<group>"; };
 		F7DC60521E0E51E900BA7304 /* MYMineUserItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineUserItemModel.h; sourceTree = "<group>"; };
 		F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserItemModel.m; sourceTree = "<group>"; };
+		F7DC60571E0E58B600BA7304 /* MYMineMainDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineMainDelegate.h; sourceTree = "<group>"; };
+		F7DC60581E0E58B600BA7304 /* MYMineMainDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineMainDelegate.m; sourceTree = "<group>"; };
 		F7E713201D9BC2EC00F8F300 /* MYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginViewController.h; sourceTree = "<group>"; };
 		F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoginViewController.m; sourceTree = "<group>"; };
 		F7E713341D9BC36200F8F300 /* MYLoginIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginIconView.h; sourceTree = "<group>"; };
@@ -155,6 +176,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F72401811E0FDB65006D816B /* ListModels */ = {
+			isa = PBXGroup;
+			children = (
+				F72401821E0FDB65006D816B /* Mine */,
+			);
+			path = ListModels;
+			sourceTree = "<group>";
+		};
+		F72401821E0FDB65006D816B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F72401851E0FDD18006D816B /* MYWorkListModel.h */,
+				F72401861E0FDD18006D816B /* MYWorkListModel.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		F72401831E0FDB65006D816B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F72401841E0FDB65006D816B /* Mine */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F72401841E0FDB65006D816B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F724018C1E0FE2E1006D816B /* MYWorkViewModel.h */,
+				F724018D1E0FE2E1006D816B /* MYWorkViewModel.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		F72401881E0FE248006D816B /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				F72401891E0FE277006D816B /* MYWorkItemView.h */,
+				F724018A1E0FE277006D816B /* MYWorkItemView.m */,
+			);
+			path = Work;
+			sourceTree = "<group>";
+		};
+		F724018F1E0FEDAA006D816B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F72401901E0FEDC2006D816B /* MYWorkModel.h */,
+				F72401911E0FEDC2006D816B /* MYWorkModel.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		F74308A21E0AA90600F33C79 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +261,15 @@
 				F76364CC1DF407F700DBA050 /* MYRegisterViewController.m */,
 			);
 			path = Regist;
+			sourceTree = "<group>";
+		};
+		F76E24CA1E13BE6400A2E79B /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				F76E24CB1E13BE7A00A2E79B /* MYMusicViewController.h */,
+				F76E24CC1E13BE7A00A2E79B /* MYMusicViewController.m */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		F7762B5A1D9B75B5001F64EE /* Launch */ = {
@@ -237,6 +319,7 @@
 		F79D9A1D1D9562E9007AA167 /* musixise */ = {
 			isa = PBXGroup;
 			children = (
+				F7DC60551E0E589500BA7304 /* Delegates */,
 				F7F35D981D9BD379006767C5 /* Utils */,
 				F7E713231D9BC33C00F8F300 /* Models */,
 				F7E7132E1D9BC33C00F8F300 /* VIewModels */,
@@ -282,6 +365,7 @@
 		F79D9A551D956EA9007AA167 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F76E24CA1E13BE6400A2E79B /* Music */,
 				F76364CA1DF4067600DBA050 /* Regist */,
 				F7E7131F1D9BC2DC00F8F300 /* Login */,
 				F7762B5A1D9B75B5001F64EE /* Launch */,
@@ -310,6 +394,25 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F7DC60551E0E589500BA7304 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				F7DC60561E0E589F00BA7304 /* Mine */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		F7DC60561E0E589F00BA7304 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F7DC60571E0E58B600BA7304 /* MYMineMainDelegate.h */,
+				F7DC60581E0E58B600BA7304 /* MYMineMainDelegate.m */,
+				F724017E1E0FD836006D816B /* MYWorkDelegate.h */,
+				F724017F1E0FD836006D816B /* MYWorkDelegate.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		F7E7131F1D9BC2DC00F8F300 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +427,7 @@
 		F7E713231D9BC33C00F8F300 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F724018F1E0FEDAA006D816B /* Mine */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -331,6 +435,8 @@
 		F7E7132E1D9BC33C00F8F300 /* VIewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F72401811E0FDB65006D816B /* ListModels */,
+				F72401831E0FDB65006D816B /* ViewModels */,
 			);
 			path = VIewModels;
 			sourceTree = "<group>";
@@ -338,6 +444,7 @@
 		F7E7132F1D9BC33C00F8F300 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F72401881E0FE248006D816B /* Work */,
 				F74308A21E0AA90600F33C79 /* Mine */,
 				F79DAE9D1DED66CC005FD65F /* Main */,
 				F7E713331D9BC35000F8F300 /* Login */,
@@ -497,9 +604,14 @@
 			files = (
 				F79D9A231D9562E9007AA167 /* AppDelegate.m in Sources */,
 				F76364C31DF3F72A00DBA050 /* MYFavArtistViewController.m in Sources */,
+				F72401871E0FDD18006D816B /* MYWorkListModel.m in Sources */,
 				F79D9A201D9562E9007AA167 /* main.m in Sources */,
 				F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */,
 				F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */,
+				F72401921E0FEDC2006D816B /* MYWorkModel.m in Sources */,
+				F724018B1E0FE277006D816B /* MYWorkItemView.m in Sources */,
+				F76E24CD1E13BE7A00A2E79B /* MYMusicViewController.m in Sources */,
+				F724018E1E0FE2E1006D816B /* MYWorkViewModel.m in Sources */,
 				F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */,
 				F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */,
 				F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */,
@@ -509,8 +621,10 @@
 				F79DAEA71DED8943005FD65F /* MYTopSelectorLabel.m in Sources */,
 				F76364C91DF4049800DBA050 /* MYLoginNavigationViewController.m in Sources */,
 				F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */,
+				F72401801E0FD836006D816B /* MYWorkDelegate.m in Sources */,
 				F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */,
 				F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */,
+				F7DC60591E0E58B600BA7304 /* MYMineMainDelegate.m in Sources */,
 				F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */,
 				F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */,
 				F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */,
