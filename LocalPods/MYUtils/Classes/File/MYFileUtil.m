@@ -7,7 +7,7 @@
 //
 
 #import "MYFileUtil.h"
-#import "NSArray+ALMSafe.h"
+#import "NSArray+MYSafe.h"
 #import "MYDubugLog.h"
 #define kSongDictionary @"song"
 #define kLyricDictionary @"lyric"
@@ -34,13 +34,13 @@
 
 - (NSString *)documentPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docDir = [paths objectAtIndexForALM:0];
+    NSString *docDir = [paths objectAtIndexForMY:0];
     return docDir;
 }
 
 - (NSString *)cachePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cachesDir = [paths objectAtIndexForALM:0];
+    NSString *cachesDir = [paths objectAtIndexForMY:0];
     return cachesDir;
 }
 

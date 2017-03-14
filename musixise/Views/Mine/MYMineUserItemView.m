@@ -12,7 +12,9 @@
 #import <MYMVVM/MYBaseTableView.h>
 #import <MYMVVM/MYBaseTableViewCell.h>
 #import "MYMineUserInfoView.h"
+#import <MYAudio/MYPlayerEngine.h>
 #import "MYMineUserItemModel.h"
+#import "MYImageUtils.h"
 
 #define kImageViewWidth 60
 #define kBtnWidth theMYWidget.m5
@@ -62,6 +64,10 @@
     self.iconImageView.layer.borderWidth = 1;
     self.iconImageView.layer.borderColor = [UIColor redColor].CGColor;
 #endif
+    self.iconImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *iconImageViewTap = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                             action:@selector(onClickTapIcon)];
+    [self.iconImageView addGestureRecognizer:iconImageViewTap];
     [self addSubview:self.masterBtn];
     self.masterBtn.width = kBtnWidth;
     self.masterBtn.height = kBtnWidth;
@@ -192,6 +198,28 @@
 
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
+
+- (void)onClickTapIcon {
+    //TOOD: wmy test 用于测试播放音乐
+//    // 将文件转为data
+//    NSString *fileDataPath =[[NSBundle mainBundle] pathForResource:@"musixise_demo1"
+//                                                            ofType:@"txt"];
+//    NSData *resultData = [NSData dataWithContentsOfFile:fileDataPath];
+//    [[MYPlayerEngine sharedInstance] inputPlayerData:resultData];
+//    [[MYPlayerEngine sharedInstance] start];
+    
+    UIImage *image = [UIImage imageNamed:@"AppIcon60x60"];
+    [[MYImageUtils sharedInstance] uploadImage:image withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
+        if (success) {
+            
+        }
+    }];
+    
+    
+}
+
+
+
 #pragma mark - --------------------代理方法------------------
 
 #pragma mark UITableViewDelegate,UITableViewDataSource

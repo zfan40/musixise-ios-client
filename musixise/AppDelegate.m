@@ -29,12 +29,12 @@
     // 若第一次升级到此app，则显示欢迎页
     MYBaseViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
 
-//    MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
+    MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
     //TODO: wmy 暂时添加登录的入口
     MYLoginViewController *login = [[MYLoginViewController alloc] init];
     MYLoginNavigationViewController *loginNavi = [[MYLoginNavigationViewController alloc] initWithRootViewController:login];
-    //TODO: wmy test Demo.html
-    self.window.rootViewController = loginNavi;
+    //TODO: wmy 写死为tab
+    self.window.rootViewController = tabBarVc;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserChange) name:@"MYUserDidChanged" object:nil];
     [NSThread sleepForTimeInterval:3];
     // 初始化route

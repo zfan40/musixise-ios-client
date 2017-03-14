@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "MYBaseListModel.h"
 #import "NSMutableArray+ALMSafe.h"
-#import "NSArray+ALMSafe.h"
+#import "NSArray+MYSafe.h"
 
 @interface MYBaseListModel ()
 /**
@@ -43,7 +43,7 @@
 
 - (MYBaseViewModel *)data:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
-    return [self.viewModels objectAtIndexForALM:row];
+    return [self.viewModels objectAtIndexForMY:row];
 }
 
 - (void)removeItem:(NSIndexPath *)indexPath {

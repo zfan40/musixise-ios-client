@@ -8,7 +8,7 @@
 
 #import "UITextView+MYStyle.h"
 #import <objc/runtime.h>
-#import <MYUtils/NSArray+ALMSafe.h>
+#import <MYUtils/NSArray+MYSafe.h>
 #import <MYUtils/NSDictionary+ALMSafe.h>
 
 static char charTextViewStyle;
@@ -45,13 +45,13 @@ static const void *innerStyle = &innerStyle;
     NSString *text = kUITextStyleEnumStr(textViewStyle);
     NSArray *array = [text componentsSeparatedByString:@"_"];
     NSAssert(array, @"error");
-    NSArray *styles = [array subarrayWithRangeForALM:NSMakeRange(2, 3)];
+    NSArray *styles = [array subarrayWithRangeForMY:NSMakeRange(2, 3)];
 
     CGFloat alpha = [[[styles lastObject]substringFromIndex:1]integerValue]/100.0;
-    int rgb = kRGBFromKey([styles objectAtIndexForALM:0]);
+    int rgb = kRGBFromKey([styles objectAtIndexForMY:0]);
     UIColor *color = kColorWithRGBA(rgb, alpha);
     UIFont *font;
-    font = [theMYWidget performSelector:NSSelectorFromString([styles objectAtIndexForALM:1])];
+    font = [theMYWidget performSelector:NSSelectorFromString([styles objectAtIndexForMY:1])];
     
     self.textColor = color;
     self.font = font;

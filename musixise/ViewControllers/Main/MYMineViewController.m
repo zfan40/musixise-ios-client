@@ -44,6 +44,10 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
 - (void)initData {
     //TODO: wmy Test
     self.user = [MYUserUtils sharedInstance].user;
+    // 仅仅是为了编译能过
+    if (!self.user) {
+        self.user = [[MYUser alloc] init];
+    }
     self.viewModel = self.workListModel;
     
 }

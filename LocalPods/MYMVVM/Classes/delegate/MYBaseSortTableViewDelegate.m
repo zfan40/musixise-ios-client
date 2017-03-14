@@ -10,7 +10,7 @@
 #import "MYBaseSortViewModel.h"
 #import "MYBaseSortListModel.h"
 #import <MYUtils/UIView+MYAdditons.h>
-#import <MYUtils/NSArray+ALMSafe.h>
+#import <MYUtils/NSArray+MYSafe.h>
   
 #import <MYWidget/UILabel+MYStyle.h>
 
@@ -27,8 +27,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     MYBaseSortListModel *listModel = (MYBaseSortListModel *)self.model;
-    NSDictionary *dict = [listModel.sortArray objectAtIndexForALM:section];
-    NSArray *values = [[dict allValues] objectAtIndexForALM:0];
+    NSDictionary *dict = [listModel.sortArray objectAtIndexForMY:section];
+    NSArray *values = [[dict allValues] objectAtIndexForMY:0];
     return values.count;
 }
 

@@ -16,7 +16,7 @@
  *  @param anObject 传人对象
  *  @param aKey     key
  */
-- (void)setObjectForALM:(id)object
+- (void)setObjectForMY:(id)object
                forKey:(id)key;
 
 @end

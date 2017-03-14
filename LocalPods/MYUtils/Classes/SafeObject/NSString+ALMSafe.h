@@ -13,12 +13,12 @@
 + (NSString *)boolStr:(BOOL) boolValue;
 + (NSString *)integerStr:(NSInteger) integer;
 + (NSString *)uIntegerStr:(NSUInteger) integer;
-- (unichar)characterAtIndexForALM:(NSUInteger)index;
-- (void)getCharactersForALM:(unichar *)buffer range:(NSRange)aRange;
-- (NSString *)substringFromIndexForALM:(NSUInteger)from;
-- (NSString *)substringToIndexForALM:(NSUInteger)to;
-- (NSString *)substringWithRangeForALM:(NSRange)range;
-- (NSString *)stringByAppendingStringForALM:(NSString *)aString;
-- (NSString *)stringByReplacingOccurrencesOfStringForALM:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange NS_AVAILABLE(10_5, 2_0);
-- (NSString *)stringByReplacingCharactersInRangeForALM:(NSRange)range withString:(NSString *)replacement NS_AVAILABLE(10_5, 2_0);
+- (unichar)characterAtIndexForMY:(NSUInteger)index;
+- (void)getCharactersForMY:(unichar *)buffer range:(NSRange)aRange;
+- (NSString *)substringFromIndexForMY:(NSUInteger)from;
+- (NSString *)substringToIndexForMY:(NSUInteger)to;
+- (NSString *)substringWithRangeForMY:(NSRange)range;
+- (NSString *)stringByAppendingStringForMY:(NSString *)aString;
+- (NSString *)stringByReplacingOccurrencesOfStringForMY:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange NS_AVAILABLE(10_5, 2_0);
+- (NSString *)stringByReplacingCharactersInRangeForMY:(NSRange)range withString:(NSString *)replacement NS_AVAILABLE(10_5, 2_0);
 @end

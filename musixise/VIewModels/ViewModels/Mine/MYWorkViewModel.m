@@ -11,12 +11,9 @@
 
 @implementation MYWorkViewModel
 
-//- (NSString *)time {
-//    NSDate *date = self.createdDate;
-//    //TODO: wmy
-//    NSDateFormatter *formatter = [NSDateFormatter dateFormatterForType:@"MM月dd日 HH:mm"];
-//    NSString *resultTime = [formatter stringFromDate:date];
-//    return resultTime;
-//}
+- (NSString *)createdDate {
+    //TODO: wmyx
+    return @"";
+}
 
 @end

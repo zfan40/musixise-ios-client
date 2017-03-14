@@ -10,7 +10,7 @@
 
 @implementation NSMutableDictionary(ALMSafe)
 
-- (void)setObjectForALM:(id) object
+- (void)setObjectForMY:(id) object
                forKey:(id) key
 {
     if ([key conformsToProtocol:@protocol(NSCopying)]) {

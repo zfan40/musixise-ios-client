@@ -136,7 +136,7 @@ typedef enum {
         @"MYWidgetStyle_tt_c2_f4_a50",           \
         @"MYWidgetStyle_tt_c2_f4_a80",           \
         @"MYWidgetStyle_tt_c2_f5_a80"            \
-    ] objectAtIndexForALM:x])
+    ] objectAtIndexForMY:x])
 
 @interface MYWidget : MYBasicSingleton
 

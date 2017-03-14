@@ -70,29 +70,29 @@
             NSString *name = [self nameStr:originName];
             BOOL isStrong = NO;
             if ([[[self strongType] allKeys] containsObject:type]) {
-                [result appendStringForALM:@"@property (nonatomic,strong) "];
+                [result appendStringForMY:@"@property (nonatomic,strong) "];
                 proType = [[self strongType] objectForKey:type];
                 isStrong = YES;
             } else {
-                [result appendStringForALM:@"@property (nonatomic,assign) "];
+                [result appendStringForMY:@"@property (nonatomic,assign) "];
                 proType = [[self assignType] objectForKey:type];
             }
-            [result appendStringForALM:proType];
+            [result appendStringForMY:proType];
             if ([[subArray objectAtIndex:2] isEqualToString:@"NO"]) {
-                [result appendStringForALM:@"<Optional>"];
+                [result appendStringForMY:@"<Optional>"];
             }
-            [result appendStringForALM:@" "];
+            [result appendStringForMY:@" "];
             if (isStrong) {
-                [result appendStringForALM:@"*"];
+                [result appendStringForMY:@"*"];
             }
-            [result appendStringForALM:name];
-            [result appendStringForALM:@";\r,"];
-            [proArray addObjectForALM:result];
+            [result appendStringForMY:name];
+            [result appendStringForMY:@";\r,"];
+            [proArray addObjectForMY:result];
             NSString *keymapperStr = [NSString stringWithFormat:@" @\"%@\":@\"%@\"", originName,name];
-            [keyMapper addObjectForALM:keymapperStr];
+            [keyMapper addObjectForMY:keymapperStr];
         }
-        [dict setObjectForALM:proArray forKey:@"property"];
-        [dict setObjectForALM:keyMapper forKey:@"keyMapper"];
+        [dict setObjectForMY:proArray forKey:@"property"];
+        [dict setObjectForMY:keyMapper forKey:@"keyMapper"];
         
     }
     return dict;

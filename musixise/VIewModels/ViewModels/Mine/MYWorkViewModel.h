@@ -19,6 +19,6 @@
 @property(nonatomic, strong) NSString *detail;
 @property(nonatomic, strong) NSString *cover;
 
-//- (NSString *)time;
+- (NSString *)createdDate;
 
 @end

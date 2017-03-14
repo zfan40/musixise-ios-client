@@ -13,7 +13,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "MYBaseNetWorkTool.h"
 #import "MYPhoneUtil.h"
-#import <MYUtils/NSArray+ALMSafe.h>
+#import <MYUtils/NSArray+MYSafe.h>
 #import <MYUtils/MYDubugLog.h>
 
 
@@ -62,9 +62,9 @@
         if (i != 0) {
             [str appendString:@"&"];
         }
-        [str appendString:[allKeys objectAtIndexForALM:i]];
+        [str appendString:[allKeys objectAtIndexForMY:i]];
         [str appendString:@"="];
-        [str appendString:[dict objectForKey:[allKeys objectAtIndexForALM:i]]];
+        [str appendString:[dict objectForKey:[allKeys objectAtIndexForMY:i]]];
     }
         return str;
 }
@@ -266,6 +266,7 @@
     return operation;
 }
 
+
 #pragma mark - 通知
 
 - (void)onChangeNetwork {
@@ -285,6 +286,8 @@
 -(NSData *)dictToJson:(NSDictionary *)dict {
     return [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
 }
+
+
 
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------

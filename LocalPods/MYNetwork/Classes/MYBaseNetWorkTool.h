@@ -15,4 +15,5 @@
 - (NSString*)apiSignature:(NSString*)context
                    appKey:(NSString *)appKey;
 - (NSMutableDictionary *)getOauth2FormatParam:(NSDictionary *)paramDic;
+
 @end

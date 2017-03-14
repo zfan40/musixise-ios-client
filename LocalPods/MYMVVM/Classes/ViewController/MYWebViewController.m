@@ -11,6 +11,7 @@
 #import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
 #import <MYUserSystem/MYUserUtils.h>
 #import <MYUserSystem/MYUser.h>
+#import <MYAudio/MYPlayerEngine.h>
 //#import <AudioToolbox/AudioToolbox.h>
 
 @interface MYWebViewController ()
@@ -85,6 +86,13 @@
                              if (responseCallback) {
                                  responseCallback(userDict);
                              }
+                         }];
+        [_bridge registerHandler:@"playMusic"
+                         handler:^(id data, WVJBResponseCallback responseCallback) {
+                             [[MYPlayerEngine sharedInstance] inputPlayerData:data];
+//                             if (responseCallback) {
+//                                 responseCallback(userDict);
+//                             }
                          }];
     }
     return _bridge;

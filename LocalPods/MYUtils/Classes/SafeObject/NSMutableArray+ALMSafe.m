@@ -10,7 +10,7 @@
 
 @implementation NSMutableArray (ALMSafe)
 
-- (void)addObjectForALM:(id)anObject
+- (void)addObjectForMY:(id)anObject
 {
     if (nil != anObject) {
         [self addObject:anObject];
@@ -20,7 +20,7 @@
     }
 }
 
-- (void)insertObjectForALM:(id)anObject atIndex:(NSUInteger)index
+- (void)insertObjectForMY:(id)anObject atIndex:(NSUInteger)index
 {
     if (nil != anObject && index <= self.count) {
         [self insertObject:anObject atIndex:index];
@@ -30,7 +30,7 @@
     }
 }
 
-- (void)removeObjectAtIndexForALM:(NSUInteger)index
+- (void)removeObjectAtIndexForMY:(NSUInteger)index
 {
     if (index < self.count) {
         [self removeObjectAtIndex:index];
@@ -40,7 +40,7 @@
     }
 }
 
-- (void)replaceObjectAtIndexForALM:(NSUInteger)index withObject:(id)anObject
+- (void)replaceObjectAtIndexForMY:(NSUInteger)index withObject:(id)anObject
 {
     if (nil != anObject && index < self.count) {
         [self replaceObjectAtIndex:index withObject:anObject];
@@ -50,7 +50,7 @@
     }
 }
 
-- (void)exchangeObjectAtIndexForALM:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+- (void)exchangeObjectAtIndexForMY:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
 {
     if (idx1 < self.count && idx2 < self.count) {
         [self exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
@@ -60,7 +60,7 @@
     }
 }
 
-- (void)removeObjectForALM:(id)anObject inRange:(NSRange)range
+- (void)removeObjectForMY:(id)anObject inRange:(NSRange)range
 {
     if (range.location + range.length <= self.count) {
         [self removeObject:anObject inRange:range];
@@ -70,7 +70,7 @@
     }
 }
 
-- (void)removeObjectIdenticalToForALM:(id)anObject inRange:(NSRange)range
+- (void)removeObjectIdenticalToForMY:(id)anObject inRange:(NSRange)range
 {
     if (range.location + range.length <= self.count) {
         [self removeObjectIdenticalTo:anObject inRange:range];
@@ -80,7 +80,7 @@
     }
 }
 
-- (void)removeObjectsInRangeForALM:(NSRange)range
+- (void)removeObjectsInRangeForMY:(NSRange)range
 {
     if (range.location + range.length <= self.count) {
         [self removeObjectsInRange:range];
@@ -90,7 +90,7 @@
     }
 }
 
-- (void)replaceObjectsInRangeForALM:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
+- (void)replaceObjectsInRangeForMY:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
 {
     if (range.location + range.length <= self.count) {
         [self replaceObjectsInRange:range withObjectsFromArray:otherArray];
@@ -100,7 +100,7 @@
     }
 }
 
-- (void)replaceObjectsInRangeForALM:(NSRange)range withObjectsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
+- (void)replaceObjectsInRangeForMY:(NSRange)range withObjectsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
     if (range.location + range.length <= self.count && otherRange.location + otherRange.length <= otherArray.count) {
         [self replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
@@ -110,7 +110,7 @@
     }
 }
 
-- (void)insertObjectsForALM:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
+- (void)insertObjectsForMY:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
 {
     if (nil != objects && indexes.count == objects.count && indexes.firstIndex <= self.count && indexes.lastIndex <= self.count) {
         [self insertObjects:objects atIndexes:indexes];
@@ -120,7 +120,7 @@
     }
 }
 
-- (void)removeObjectsAtIndexesForALM:(NSIndexSet *)indexes
+- (void)removeObjectsAtIndexesForMY:(NSIndexSet *)indexes
 {
     if (indexes.firstIndex < self.count && indexes.lastIndex < self.count) {
         [self removeObjectsAtIndexes:indexes];
@@ -130,7 +130,7 @@
     }
 }
 
-- (void)replaceObjectsAtIndexesForALM:(NSIndexSet *)indexes withObjects:(NSArray *)objects
+- (void)replaceObjectsAtIndexesForMY:(NSIndexSet *)indexes withObjects:(NSArray *)objects
 {
     if (nil != objects && indexes.count == objects.count && indexes.firstIndex < self.count && indexes.lastIndex < self.count) {
         [self replaceObjectsAtIndexes:indexes withObjects:objects];

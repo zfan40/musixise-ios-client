@@ -9,7 +9,7 @@
 #import "MYMainRouteManager.h"
 #import <MYMVVM/MYRouter.h>
 #import <MYMVVM/MYBaseViewController.h>
-#import <MYUtils/NSArray+ALMSafe.h>
+#import <MYUtils/NSArray+MYSafe.h>
 #import <objc/runtime.h>
 
 @implementation MYMainRouteManager
@@ -36,7 +36,7 @@
 + (void)page:(NSString *)classString withDictionary:(NSDictionary *)dict {
     Class class = NSClassFromString(classString);
     for (int i = 0; i < router.navigationController.viewControllers.count; i++) {
-        UIViewController *viewController = [router.navigationController.viewControllers objectAtIndexForALM:i];
+        UIViewController *viewController = [router.navigationController.viewControllers objectAtIndexForMY:i];
         NSString *vcName = [NSString stringWithUTF8String:object_getClassName(viewController)];
         if ([vcName isEqualToString:classString]) {
             if ([viewController isKindOfClass:[MYBaseViewController class]]) {

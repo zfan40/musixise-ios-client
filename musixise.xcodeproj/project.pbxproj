@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EE309D9AE9B1A3DA70BAB6D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E966F2DBDB89BED6AC88EF /* libPods.a */; };
+		F71A949F1E77BE38007A7183 /* musixise_Demo0.txt in Resources */ = {isa = PBXBuildFile; fileRef = F71A949D1E77BE38007A7183 /* musixise_Demo0.txt */; };
+		F71A94A01E77BE38007A7183 /* musixise_demo1.txt in Resources */ = {isa = PBXBuildFile; fileRef = F71A949E1E77BE38007A7183 /* musixise_demo1.txt */; };
+		F71A94AA1E77CFB0007A7183 /* MYImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A94A91E77CFB0007A7183 /* MYImageUtils.m */; };
 		F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */; };
 		F72401801E0FD836006D816B /* MYWorkDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F724017F1E0FD836006D816B /* MYWorkDelegate.m */; };
 		F72401871E0FDD18006D816B /* MYWorkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F72401861E0FDD18006D816B /* MYWorkListModel.m */; };
@@ -54,6 +57,10 @@
 		815202F53D0E969C6BFF9DF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99E966F2DBDB89BED6AC88EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DD2B5F3726B54BBE6D8CE5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F71A949D1E77BE38007A7183 /* musixise_Demo0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = musixise_Demo0.txt; sourceTree = "<group>"; };
+		F71A949E1E77BE38007A7183 /* musixise_demo1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = musixise_demo1.txt; sourceTree = "<group>"; };
+		F71A94A81E77CFB0007A7183 /* MYImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYImageUtils.h; sourceTree = "<group>"; };
+		F71A94A91E77CFB0007A7183 /* MYImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImageUtils.m; sourceTree = "<group>"; };
 		F7225FC41DEBF76800E2081E /* MYRootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRootTabBarViewController.h; sourceTree = "<group>"; };
 		F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRootTabBarViewController.m; sourceTree = "<group>"; };
 		F724017E1E0FD836006D816B /* MYWorkDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWorkDelegate.h; sourceTree = "<group>"; };
@@ -176,9 +183,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F717EE071E25FEB200E92863 /* Faviroute */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Faviroute;
+			sourceTree = "<group>";
+		};
+		F717EE081E25FEB800E92863 /* Faviroute */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Faviroute;
+			sourceTree = "<group>";
+		};
 		F72401811E0FDB65006D816B /* ListModels */ = {
 			isa = PBXGroup;
 			children = (
+				F717EE071E25FEB200E92863 /* Faviroute */,
 				F72401821E0FDB65006D816B /* Mine */,
 			);
 			path = ListModels;
@@ -196,6 +218,7 @@
 		F72401831E0FDB65006D816B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F717EE081E25FEB800E92863 /* Faviroute */,
 				F72401841E0FDB65006D816B /* Mine */,
 			);
 			path = ViewModels;
@@ -298,6 +321,8 @@
 		F79D9A121D9562E9007AA167 = {
 			isa = PBXGroup;
 			children = (
+				F71A949D1E77BE38007A7183 /* musixise_Demo0.txt */,
+				F71A949E1E77BE38007A7183 /* musixise_demo1.txt */,
 				F7C1AD8B1DB3983000342F85 /* Demo.html */,
 				F79D9A1D1D9562E9007AA167 /* musixise */,
 				F79D9A371D9562E9007AA167 /* musixiseTests */,
@@ -473,6 +498,8 @@
 				F7F35D9A1D9BD379006767C5 /* scheme_url.json */,
 				F7DC04E31D9CFEAC00D70E51 /* MYAppDelegateUtils.h */,
 				F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */,
+				F71A94A81E77CFB0007A7183 /* MYImageUtils.h */,
+				F71A94A91E77CFB0007A7183 /* MYImageUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -539,9 +566,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71A949F1E77BE38007A7183 /* musixise_Demo0.txt in Resources */,
 				F7F35D9B1D9BD379006767C5 /* router.json in Resources */,
 				F79D9A541D956D6C007AA167 /* Images.xcassets in Resources */,
 				F79D9A2E1D9562E9007AA167 /* LaunchScreen.storyboard in Resources */,
+				F71A94A01E77BE38007A7183 /* musixise_demo1.txt in Resources */,
 				F79D9A291D9562E9007AA167 /* Main.storyboard in Resources */,
 				F7F35D9C1D9BD379006767C5 /* scheme_url.json in Resources */,
 				F7C1AD8C1DB3983000342F85 /* Demo.html in Resources */,
@@ -617,6 +646,7 @@
 				F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */,
 				F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */,
 				F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */,
+				F71A94AA1E77CFB0007A7183 /* MYImageUtils.m in Sources */,
 				F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */,
 				F79DAEA71DED8943005FD65F /* MYTopSelectorLabel.m in Sources */,
 				F76364C91DF4049800DBA050 /* MYLoginNavigationViewController.m in Sources */,

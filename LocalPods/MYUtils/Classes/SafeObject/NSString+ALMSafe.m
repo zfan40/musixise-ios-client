@@ -34,7 +34,7 @@
 #endif
 }
 
-- (unichar)characterAtIndexForALM:(NSUInteger)index
+- (unichar)characterAtIndexForMY:(NSUInteger)index
 {
     if (index < self.length) {
         return [self characterAtIndex:index];
@@ -44,7 +44,7 @@
         return (unichar)-1;
     }
 }
-- (void)getCharactersForALM:(unichar *)buffer range:(NSRange)aRange
+- (void)getCharactersForMY:(unichar *)buffer range:(NSRange)aRange
 {
     if (aRange.location+aRange.length <= self.length) {
         [self getCharacters:buffer range:aRange];
@@ -53,7 +53,7 @@
     {
     }
 }
-- (NSString *)substringFromIndexForALM:(NSUInteger)from
+- (NSString *)substringFromIndexForMY:(NSUInteger)from
 {
     if (from <= self.length) {
         return [self substringFromIndex:from];
@@ -63,7 +63,7 @@
         return nil;
     }
 }
-- (NSString *)substringToIndexForALM:(NSUInteger)to
+- (NSString *)substringToIndexForMY:(NSUInteger)to
 {
     if (to <= self.length) {
         return [self substringToIndex:to];
@@ -73,7 +73,7 @@
         return nil;
     }
 }
-- (NSString *)substringWithRangeForALM:(NSRange)range
+- (NSString *)substringWithRangeForMY:(NSRange)range
 {
     if (range.location+range.length <= self.length) {
         return [self substringWithRange:range];
@@ -84,7 +84,7 @@
     }
 }
 
-- (NSString *)stringByAppendingStringForALM:(NSString *)aString
+- (NSString *)stringByAppendingStringForMY:(NSString *)aString
 {
     if (nil != aString) {
         return [self stringByAppendingString:aString];
@@ -95,7 +95,7 @@
     }
 }
 
-- (NSString *)stringByAppendingPathExtensionForALM:(NSString *)str
+- (NSString *)stringByAppendingPathExtensionForMY:(NSString *)str
 {
     if (nil != str) {
         return [self stringByAppendingPathExtension:str];
@@ -106,7 +106,7 @@
     }
 }
 
-- (NSString *)stringByPaddingToLengthForIndexForALM:(NSUInteger)newLength withString:(NSString *)XdString startingAtIndex:(NSUInteger)XdIndex
+- (NSString *)stringByPaddingToLengthForIndexForMY:(NSUInteger)newLength withString:(NSString *)XdString startingAtIndex:(NSUInteger)XdIndex
 {
     if (XdIndex == 0 && nil != XdString && ![XdString isEqualToString:@""]) {
         return [self stringByPaddingToLength:newLength withString:XdString startingAtIndex:XdIndex];
@@ -116,7 +116,7 @@
         return nil;
     }
 }
-- (NSString *)stringByReplacingOccurrencesOfStringForALM:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange
+- (NSString *)stringByReplacingOccurrencesOfStringForMY:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange
 {
     if (searchRange.location + searchRange.length <= self.length) {
         return [self stringByReplacingOccurrencesOfString:target withString:replacement options:options range:searchRange];
@@ -127,7 +127,7 @@
     }
 }
 
-- (NSString *)stringByReplacingCharactersInRangeForALM:(NSRange)range withString:(NSString *)replacement
+- (NSString *)stringByReplacingCharactersInRangeForMY:(NSRange)range withString:(NSString *)replacement
 {
     if (range.location + range.length <= self.length) {
         return [self stringByReplacingCharactersInRange:range withString:replacement];

@@ -8,7 +8,7 @@
 
 #import "MYRouter.h"
 #import <objc/runtime.h>
-#import <MYUtils/NSArray+ALMSafe.h>
+#import <MYUtils/NSArray+MYSafe.h>
 #import <MYUtils/MYJSONUtil.h>
 #import <MYUtils/MYSafeUtil.h>
 #import <MYUtils/NSMutableArray+ALMSafe.h>
@@ -68,7 +68,7 @@ withManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels {
         NSRange range = [url rangeOfString:@"//"];
         NSString *relativeUrl = [url substringFromIndex:range.location + range.length];
         for (int i = 0; i < self.routeDict.allKeys.count; i++ ) {
-            NSString *method = [self.routeDict.allKeys objectAtIndexForALM:i];
+            NSString *method = [self.routeDict.allKeys objectAtIndexForMY:i];
             MYRouterModel *route = ((MYRouteManagerModel *)[self.routeDict objectForKey:method]).routeModel;
             if ([self validate:url withReg:route.schemeUrl]) {
                 NSString *method = route.method;

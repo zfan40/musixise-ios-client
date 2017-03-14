@@ -8,7 +8,7 @@
 
 #import "MYSortBarView.h"
 #import <MYUtils/UIView+MYAdditons.h>
-#import <MYUtils/NSArray+ALMSafe.h>
+#import <MYUtils/NSArray+MYSafe.h>
   
 #import <MYWidget/UILabel+MYStyle.h>
 
@@ -79,9 +79,9 @@
 - (void)onClick:(UIPanGestureRecognizer *)pan {
     CGPoint point = [pan locationInView:self];
     self.index = [self indexWithPointY:point.y];
-    UILabel *lastLabel = [self.labelArray objectAtIndexForALM:self.lastIndex];
+    UILabel *lastLabel = [self.labelArray objectAtIndexForMY:self.lastIndex];
     lastLabel.textColor = self.defaultColor;
-    UILabel *label = [self.labelArray objectAtIndexForALM:self.index];
+    UILabel *label = [self.labelArray objectAtIndexForMY:self.index];
     label.textColor = self.selectColor;
     self.lastIndex = self.index;
     if ([self.delegate respondsToSelector:@selector(sortBarView:withIndex:)]) {
@@ -92,9 +92,9 @@
 - (void)onDrag:(UIPanGestureRecognizer *)pan {
     CGPoint point =[pan locationInView:self];
     self.index = [self indexWithPointY:point.y];
-    UILabel *lastLabel = [self.labelArray objectAtIndexForALM:self.lastIndex];
+    UILabel *lastLabel = [self.labelArray objectAtIndexForMY:self.lastIndex];
     lastLabel.textColor = self.defaultColor;
-    UILabel *label = [self.labelArray objectAtIndexForALM:self.index];
+    UILabel *label = [self.labelArray objectAtIndexForMY:self.index];
     label.textColor = self.selectColor;
     self.lastIndex = self.index;
     if ([self.delegate respondsToSelector:@selector(sortBarView:withIndex:)]) {
@@ -108,9 +108,9 @@
 
 - (void)setIndex:(NSInteger)index {
     _index = index;
-    UILabel *lastLabel = [self.labelArray objectAtIndexForALM:self.lastIndex];
+    UILabel *lastLabel = [self.labelArray objectAtIndexForMY:self.lastIndex];
     lastLabel.textColor = self.defaultColor;
-    UILabel *label = [self.labelArray objectAtIndexForALM:self.index];
+    UILabel *label = [self.labelArray objectAtIndexForMY:self.index];
     label.textColor = self.selectColor;
     self.lastIndex = self.index;
 }

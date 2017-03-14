@@ -7,7 +7,7 @@
 //
 
 #import "MYSegmentViewController.h"
-#import <MYUtils/NSArray+ALMSafe.h>
+#import <MYUtils/NSArray+MYSafe.h>
 #import "MYSegmentLabel.h"
 #import <MYWidget/MYWidget.h>
 
@@ -81,7 +81,7 @@
     self.smallScrollView.contentSize = CGSizeMake(self.titleArray.count * labelWidth, self.smallScrollView.height);
     self.smallScrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     for ( int i = 0; i < self.titleArray.count; i++) {
-        NSString *title = [self.titleArray objectAtIndexForALM:i];
+        NSString *title = [self.titleArray objectAtIndexForMY:i];
         MYSegmentLabel *label = [[MYSegmentLabel alloc] init];
         label.text = title;
         label.left = i * labelWidth;
@@ -141,7 +141,7 @@
     [self.smallScrollView setContentOffset:offset animated:YES];
     MYBaseViewController *viewController = self.childViewControllers[index];
     for (int i = 0; i < self.labelArray.count; i++) {
-        MYSegmentLabel *label = [self.labelArray objectAtIndexForALM:i];
+        MYSegmentLabel *label = [self.labelArray objectAtIndexForMY:i];
         if (i == index) {
             label.isChoose = YES;
         } else {
@@ -184,7 +184,7 @@
 - (void)setArray:(NSArray *)array {
     _array = array;
     for (int i = 0; i < array.count; i++) {
-        MYSegmentModel *model = [array objectAtIndexForALM:i];
+        MYSegmentModel *model = [array objectAtIndexForMY:i];
         [self.titleArray addObject:model.title];
         MYTableViewController *viewController = [[NSClassFromString(model.viewController) alloc] init];
         [viewController setValuesForKeysWithDictionary:model.params];
@@ -203,8 +203,8 @@
     }
     [self addTitle];
     [self addViewController];
-    if ([[self.smallScrollView.subviews objectAtIndexForALM:0] isKindOfClass:[MYSegmentLabel class]]) {
-        MYSegmentLabel *label = [self.smallScrollView.subviews objectAtIndexForALM:0];
+    if ([[self.smallScrollView.subviews objectAtIndexForMY:0] isKindOfClass:[MYSegmentLabel class]]) {
+        MYSegmentLabel *label = [self.smallScrollView.subviews objectAtIndexForMY:0];
         label.isChoose = YES;
         self.lastLabel = label;
     }

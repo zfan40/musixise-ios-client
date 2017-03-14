@@ -10,6 +10,7 @@
 #import <MYWidget/MYLoginTextField.h>
 #import <MYUserSystem/MYRegistModel.h>
 #import <MYUserSystem/MYMusixiseRegisterManager.h>
+#import <MYUserSystem/MYLoginManager.h>
 
 #define kUserNameTop 150
 
@@ -128,6 +129,18 @@
         [[MYMusixiseRegisterManager sharedInstance] registerWithModel:model callback:^(BOOL success,NSError *error) {
             if (success) {
                 //TODO: wmy 注册成功，当前的navigation window的rootViewController进行更换 销毁当前的navigation
+                [[MYLoginManager sharedInstance] loginWithType:MYLoginType_Normal
+                                                      userName:self.userNameTextField.text
+                                                      password:self.passwordTextField.text
+                                                 loginCallback:^(BOOL success,NSError *error) {
+                                                     //TODO: wmy 成功或失败的回调
+                                                     DebugLog(@"");
+                                                     if (success) {
+                                                         [self showTip:@"登录成功"];
+                                                     } else {
+                                                         [self showTip:error.localizedDescription];
+                                                     }
+                                                 }];
             } else {
                 //TODO: wmy 弹toast注册失败，然后看看注册失败的原因
                 [self showTip:error.domain];

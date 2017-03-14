@@ -32,4 +32,8 @@
 
 - (void)caculateCache:(nullable void(^)(NSUInteger fileCount, NSString *_Nonnull fileSize))completeBlock;
 
+- (void)uploadImage:(UIImage *)image
+          completes:(nullable SDWebImageCompletionWithFinishedBlock)completes;
+
+
 @end

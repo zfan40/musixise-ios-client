@@ -1,16 +1,16 @@
 //
-//  NSArray+ALMSafe.m
-//  ALMLiveHouse
+//  NSArray+MYSafe.m
+//  MYLiveHouse
 //
 //  Created by myc on 15/9/28.
 //  Copyright © 2015年 Alibaba. All rights reserved.
 //
 
-#import "NSArray+ALMSafe.h"
+#import "NSArray+MYSafe.h"
 
-@implementation  NSArray (ALMSafe)
+@implementation  NSArray (MYSafe)
 
-+ (id)arrayWithObjectForALM:(id)anObject
++ (id)arrayWithObjectForMY:(id)anObject
 {
     if (nil != anObject) {
         return [self arrayWithObject:anObject];
@@ -22,7 +22,7 @@
     
 }
 
-- (id)objectAtIndexForALM:(NSUInteger)index
+- (id)objectAtIndexForMY:(NSUInteger)index
 {
     
     if (index < self.count)
@@ -35,7 +35,7 @@
     }
 }
 
-- (NSArray *)arrayByAddingObjectForALM:(id)anObject
+- (NSArray *)arrayByAddingObjectForMY:(id)anObject
 {
     if (nil != anObject)
     {
@@ -47,7 +47,7 @@
     }
 }
 
-- (NSArray *)subarrayWithRangeForALM:(NSRange)range
+- (NSArray *)subarrayWithRangeForMY:(NSRange)range
 {
     if (range.location+range.length <= self.count)
     {
@@ -60,7 +60,7 @@
     
 }
 
-- (void)getObjectsForALM:(id __unsafe_unretained [])objects range:(NSRange)range
+- (void)getObjectsForMY:(id __unsafe_unretained [])objects range:(NSRange)range
 {
     if (range.location+range.length <= self.count)
     {
@@ -73,7 +73,7 @@
     
 }
 
-- (NSArray *)objectsAtIndexesForALM:(NSIndexSet *)indexes
+- (NSArray *)objectsAtIndexesForMY:(NSIndexSet *)indexes
 {
     if (indexes.firstIndex < self.count && indexes.lastIndex < self.count)
     {
@@ -85,7 +85,7 @@
     }
 }
 
-+ (NSArray *)arrayWithArrayForALM:(NSArray *) array
++ (NSArray *)arrayWithArrayForMY:(NSArray *) array
 {
     @try {
         if (nil != array

@@ -10,11 +10,11 @@
 
 @interface NSMutableString (ALMSafe)
 
-- (void)replaceCharactersInRangeForALM:(NSRange)range withString:(NSString *)aString;
-- (void)insertStringForALM:(NSString *)aString atIndex:(NSUInteger)loc;
-- (void)deleteCharactersInRangeForALM:(NSRange)range;
-- (void)appendStringForALM:(NSString *)aString;
-- (void)setStringForALM:(NSString *)aString;
-- (NSUInteger)replaceOccurrencesOfStringForALM:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange;
+- (void)replaceCharactersInRangeForMY:(NSRange)range withString:(NSString *)aString;
+- (void)insertStringForMY:(NSString *)aString atIndex:(NSUInteger)loc;
+- (void)deleteCharactersInRangeForMY:(NSRange)range;
+- (void)appendStringForMY:(NSString *)aString;
+- (void)setStringForMY:(NSString *)aString;
+- (NSUInteger)replaceOccurrencesOfStringForMY:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange;
 
 @end

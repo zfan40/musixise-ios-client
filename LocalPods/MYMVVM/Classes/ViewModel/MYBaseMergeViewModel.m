@@ -9,7 +9,7 @@
 
 #import "MYBaseMergeViewModel.h"
 #import "MYBaseListModel.h"
-#import <MYUtils/NSArray+ALMSafe.h>
+#import <MYUtils/NSArray+MYSafe.h>
 
 @interface MYBaseMergeViewModel ()
 
@@ -146,7 +146,7 @@
 }
 
 - (NSInteger)modelCountWithSection:(NSInteger)section {
-    MYBaseViewModel *itemModel = [self.models objectAtIndexForALM:section];
+    MYBaseViewModel *itemModel = [self.models objectAtIndexForMY:section];
     if ([itemModel isKindOfClass:[MYBaseListModel class]]) {
         return [(MYBaseListModel *)itemModel allDataCount];
     } else if (itemModel) {

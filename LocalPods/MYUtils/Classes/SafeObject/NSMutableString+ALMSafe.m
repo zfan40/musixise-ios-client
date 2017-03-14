@@ -10,7 +10,7 @@
 
 @implementation NSMutableString (ALMSafe)
 
-- (void)replaceCharactersInRangeForALM:(NSRange)range withString:(NSString *)aString
+- (void)replaceCharactersInRangeForMY:(NSRange)range withString:(NSString *)aString
 {
     if (nil != aString && range.location+range.length <= self.length) {
         [self replaceCharactersInRange:range withString:aString];
@@ -20,7 +20,7 @@
     }
 }
 
-- (void)insertStringForALM:(NSString *)aString atIndex:(NSUInteger)loc
+- (void)insertStringForMY:(NSString *)aString atIndex:(NSUInteger)loc
 {
     if (nil != aString && loc <= self.length) {
         [self insertString:aString atIndex:loc];
@@ -30,7 +30,7 @@
     }
 }
 
-- (void)deleteCharactersInRangeForALM:(NSRange)range
+- (void)deleteCharactersInRangeForMY:(NSRange)range
 {
     if (range.location + range.length <= self.length) {
         [self deleteCharactersInRange:range];
@@ -40,7 +40,7 @@
     }
 }
 
-- (void)appendStringForALM:(NSString *)aString
+- (void)appendStringForMY:(NSString *)aString
 {
     if (nil != aString) {
         [self appendString:aString];
@@ -50,7 +50,7 @@
     }
 }
 
-- (void)setStringForALM:(NSString *)aString
+- (void)setStringForMY:(NSString *)aString
 {
     if (nil != aString) {
         [self setString:aString];
@@ -60,7 +60,7 @@
     }
 }
 
-- (NSUInteger)replaceOccurrencesOfStringForALM:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange
+- (NSUInteger)replaceOccurrencesOfStringForMY:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange
 {
     if (nil != target && nil != replacement && searchRange.location + searchRange.length <= self.length) {
         return [self replaceOccurrencesOfString:target withString:replacement options:options range:searchRange];
