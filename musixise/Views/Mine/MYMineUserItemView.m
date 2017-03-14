@@ -14,7 +14,8 @@
 #import "MYMineUserInfoView.h"
 #import <MYAudio/MYPlayerEngine.h>
 #import "MYMineUserItemModel.h"
-#import "MYImageUtils.h"
+#import "MYUploadUtils.h"
+#import "MYImageBrowser.h"
 
 #define kImageViewWidth 60
 #define kBtnWidth theMYWidget.m5
@@ -202,19 +203,24 @@
 - (void)onClickTapIcon {
     //TOOD: wmy test 用于测试播放音乐
 //    // 将文件转为data
-//    NSString *fileDataPath =[[NSBundle mainBundle] pathForResource:@"musixise_demo1"
+//    NSString *fileDataPath =[[NSBundle mainBundle] pathForResource:@"musixise_demo3"
 //                                                            ofType:@"txt"];
 //    NSData *resultData = [NSData dataWithContentsOfFile:fileDataPath];
 //    [[MYPlayerEngine sharedInstance] inputPlayerData:resultData];
 //    [[MYPlayerEngine sharedInstance] start];
     
-    UIImage *image = [UIImage imageNamed:@"AppIcon60x60"];
-    [[MYImageUtils sharedInstance] uploadImage:image withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
-        if (success) {
-            
-        }
+//    UIImage *image = [UIImage imageNamed:@"AppIcon60x60"];
+//    [[MYUploadUtils sharedInstance] uploadImage:image withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
+//        if (success) {
+//            
+//        }
+//    }];
+
+    [[MYImageBrowser sharedInstance] imageBrowserWithBlock:^(NSString *imageUrl, BOOL success) {
+        
+        
     }];
-    
+
     
 }
 

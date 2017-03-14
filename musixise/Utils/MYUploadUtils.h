@@ -1,5 +1,5 @@
 //
-//  MYImageUtils.h
+//  MYUploadUtils.h
 //  musixise
 //
 //  Created by wmy on 2017/3/14.
@@ -9,7 +9,7 @@
 #import <MYUtils/MYBasicSingleton.h>
 #import <UIKit/UIKit.h>
 
-@interface MYImageUtils : MYBasicSingleton
+@interface MYUploadUtils : MYBasicSingleton
 
 /**
  上传图片

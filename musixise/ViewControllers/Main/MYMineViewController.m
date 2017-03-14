@@ -84,7 +84,7 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
 
 - (MYWorkListModel *)workListModel {
     if (!_workListModel) {
-        _workListModel = [[MYWorkListModel alloc] initWithMethod:@"work/getList"];
+        _workListModel = [[MYWorkListModel alloc] initWithMethod:@"follow/getList"];
     }
     return _workListModel;
 }

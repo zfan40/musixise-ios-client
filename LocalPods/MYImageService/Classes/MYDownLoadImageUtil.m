@@ -27,8 +27,11 @@
 - (void)downloadImage:(nonnull NSString *)urlString
               options:(SDWebImageOptions)options
              progress:(SDWebImageDownloaderProgressBlock)progress
-            completes:(SDWebImageCompletionWithFinishedBlock)completes {
-    [self.manager downloadImageWithURL:[NSURL URLWithString:urlString] options:options progress:progress completed:completes];
+            completes:(SDWebImageCompletedWithFinishedBlock)completes {
+    [self.manager downloadWithURL:[NSURL URLWithString:urlString]
+                          options:options
+                         progress:progress
+                        completed:completes];
 }
 
 - (void)clearAllImages:(void(^)())block {

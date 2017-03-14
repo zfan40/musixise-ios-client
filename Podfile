@@ -1,6 +1,9 @@
 
-source 'https://github.com/CocoaPods/Specs.git'
+ali_source 'alibaba-specs'
+ali_source 'alibaba-specs-mirror'
+
 platform :ios, '7.0'
+def pods
 
 pod 'MYUtils', :path => './LocalPods/MYUtils/'
 pod 'MYIconFont', :path => './LocalPods/MYIconFont/'
@@ -14,4 +17,7 @@ pod 'MYUserSystem', :path => './LocalPods/MYUserSystem/'
 pod 'WebViewJavascriptBridge', '4.1.4'
 pod 'MYThirdKit', :path => './LocalPods/MYThirdKit/'
 pod 'MYShare', :path => './LocalPods/MYShare/'
-
+end
+target ‘musixise’ do
+  pods
+end

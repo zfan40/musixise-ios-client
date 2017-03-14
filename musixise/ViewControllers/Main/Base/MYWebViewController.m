@@ -12,6 +12,7 @@
 #import <MYUserSystem/MYUserUtils.h>
 #import <MYUserSystem/MYUser.h>
 #import <MYAudio/MYPlayerEngine.h>
+#import "MYImageBrowser.h"
 //#import <AudioToolbox/AudioToolbox.h>
 
 @interface MYWebViewController ()
@@ -93,6 +94,14 @@
 //                             if (responseCallback) {
 //                                 responseCallback(userDict);
 //                             }
+                         }];
+        [_bridge registerHandler:@"getImage"
+                         handler:^(id data, WVJBResponseCallback responseCallback) {
+                             [[MYImageBrowser sharedInstance] imageBrowserWithBlock:^(NSString *imageUrl, BOOL success) {
+                                 if (responseCallback) {
+                                     responseCallback(nil);
+                                 }
+                             }];
                          }];
     }
     return _bridge;

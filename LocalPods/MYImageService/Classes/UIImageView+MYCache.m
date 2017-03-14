@@ -21,7 +21,7 @@
 //    urlString = [NSString stringWithFormat:@"%@@%.0fw_%.0fh.webp",urlString,self.width,self.height];
     //TODO: wmy
     // 自己来写代码吧，如果webp没有拿到图片，那么就用原url地址
-    [self sd_setImageWithURL:[NSURL URLWithString:urlString]];
+    [self setImageWithURL:[NSURL URLWithString:urlString]];
     
 }
 
@@ -56,11 +56,16 @@
 //}
 
 - (void)my_setImageWithURL:(NSString *)urlString placeholderImage:(UIImage *)defaultImage {
-    [self sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:defaultImage];
+    [self setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:defaultImage];
 }
 
-- (void)my_setImageWithURL:(NSString *)urlString completed:(SDWebImageCompletionBlock)completedBlock {
-    [self sd_setImageWithURL:[NSURL URLWithString:urlString] completed:completedBlock];
+- (void)my_setImageWithURL:(NSString *)urlString
+                 completed:(void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished))completedBlock {
+    [self setImageWithURL:[NSURL URLWithString:urlString] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        if (completedBlock) {
+            completedBlock(image,error,cacheType,YES);
+        }
+    }];
 }
 
 @end

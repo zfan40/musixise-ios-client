@@ -22,7 +22,7 @@
 - (void)downloadImage:(nonnull NSString *)urlString
               options:(SDWebImageOptions)options
              progress:(nullable SDWebImageDownloaderProgressBlock)progress
-            completes:(nullable SDWebImageCompletionWithFinishedBlock)completes ;
+            completes:(nullable SDWebImageCompletedWithFinishedBlock)completes ;
 /**
  *  清除图片缓存
  *
@@ -33,7 +33,7 @@
 - (void)caculateCache:(nullable void(^)(NSUInteger fileCount, NSString *_Nonnull fileSize))completeBlock;
 
 - (void)uploadImage:(UIImage *)image
-          completes:(nullable SDWebImageCompletionWithFinishedBlock)completes;
+          completes:(nullable SDWebImageCompletedWithFinishedBlock)completes;
 
 
 @end

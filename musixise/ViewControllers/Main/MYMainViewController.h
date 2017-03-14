@@ -6,7 +6,7 @@
 //  Copyright © 2016年 wmy. All rights reserved.
 //
 
-#import <MYMVVM/MYWebViewController.h>
+#import "MYWebViewController.h"
 
 @interface MYMainViewController : MYWebViewController
 

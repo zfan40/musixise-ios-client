@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE309D9AE9B1A3DA70BAB6D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E966F2DBDB89BED6AC88EF /* libPods.a */; };
+		76108595ECDD22FFBFBB293F /* libPods-musixise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 144BC0E1134696D040885503 /* libPods-musixise.a */; };
+		F703C9ED1E7817580068D727 /* MYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F703C9EC1E7817580068D727 /* MYWebViewController.m */; };
 		F71A949F1E77BE38007A7183 /* musixise_Demo0.txt in Resources */ = {isa = PBXBuildFile; fileRef = F71A949D1E77BE38007A7183 /* musixise_Demo0.txt */; };
 		F71A94A01E77BE38007A7183 /* musixise_demo1.txt in Resources */ = {isa = PBXBuildFile; fileRef = F71A949E1E77BE38007A7183 /* musixise_demo1.txt */; };
-		F71A94AA1E77CFB0007A7183 /* MYImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A94A91E77CFB0007A7183 /* MYImageUtils.m */; };
+		F71A94AA1E77CFB0007A7183 /* MYUploadUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A94A91E77CFB0007A7183 /* MYUploadUtils.m */; };
+		F71A94AC1E77DCD8007A7183 /* musixise_demo2.txt in Resources */ = {isa = PBXBuildFile; fileRef = F71A94AB1E77DCD8007A7183 /* musixise_demo2.txt */; };
+		F71A94AE1E77E37C007A7183 /* musixise_demo3.txt in Resources */ = {isa = PBXBuildFile; fileRef = F71A94AD1E77E37C007A7183 /* musixise_demo3.txt */; };
 		F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */; };
 		F72401801E0FD836006D816B /* MYWorkDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F724017F1E0FD836006D816B /* MYWorkDelegate.m */; };
 		F72401871E0FDD18006D816B /* MYWorkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F72401861E0FDD18006D816B /* MYWorkListModel.m */; };
@@ -28,6 +31,7 @@
 		F7762B591D9B7407001F64EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7762B581D9B7407001F64EE /* AudioToolbox.framework */; };
 		F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */; };
 		F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B601D9B75C8001F64EE /* MYLaunchViewController.m */; };
+		F784E5E51E77ECB90000F0E1 /* MYImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F784E5E41E77ECB90000F0E1 /* MYImageBrowser.m */; };
 		F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78D79DB1DED26A800395466 /* MYMineViewController.m */; };
 		F79D9A201D9562E9007AA167 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F79D9A1F1D9562E9007AA167 /* main.m */; };
 		F79D9A231D9562E9007AA167 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F79D9A221D9562E9007AA167 /* AppDelegate.m */; };
@@ -54,13 +58,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		815202F53D0E969C6BFF9DF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		99E966F2DBDB89BED6AC88EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2DD2B5F3726B54BBE6D8CE5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		144BC0E1134696D040885503 /* libPods-musixise.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-musixise.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2691E05A3D18C3086D6DA096 /* Pods-musixise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musixise.release.xcconfig"; path = "Pods/Target Support Files/Pods-musixise/Pods-musixise.release.xcconfig"; sourceTree = "<group>"; };
+		93311A2A71FA96EADC35E40C /* Pods-musixise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musixise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-musixise/Pods-musixise.debug.xcconfig"; sourceTree = "<group>"; };
+		F703C9EB1E7817580068D727 /* MYWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWebViewController.h; sourceTree = "<group>"; };
+		F703C9EC1E7817580068D727 /* MYWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWebViewController.m; sourceTree = "<group>"; };
 		F71A949D1E77BE38007A7183 /* musixise_Demo0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = musixise_Demo0.txt; sourceTree = "<group>"; };
 		F71A949E1E77BE38007A7183 /* musixise_demo1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = musixise_demo1.txt; sourceTree = "<group>"; };
-		F71A94A81E77CFB0007A7183 /* MYImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYImageUtils.h; sourceTree = "<group>"; };
-		F71A94A91E77CFB0007A7183 /* MYImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImageUtils.m; sourceTree = "<group>"; };
+		F71A94A81E77CFB0007A7183 /* MYUploadUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUploadUtils.h; sourceTree = "<group>"; };
+		F71A94A91E77CFB0007A7183 /* MYUploadUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUploadUtils.m; sourceTree = "<group>"; };
+		F71A94AB1E77DCD8007A7183 /* musixise_demo2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = musixise_demo2.txt; sourceTree = "<group>"; };
+		F71A94AD1E77E37C007A7183 /* musixise_demo3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = musixise_demo3.txt; sourceTree = "<group>"; };
 		F7225FC41DEBF76800E2081E /* MYRootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRootTabBarViewController.h; sourceTree = "<group>"; };
 		F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRootTabBarViewController.m; sourceTree = "<group>"; };
 		F724017E1E0FD836006D816B /* MYWorkDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWorkDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +102,8 @@
 		F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMainViewController.m; sourceTree = "<group>"; };
 		F7762B5F1D9B75C8001F64EE /* MYLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLaunchViewController.h; sourceTree = "<group>"; };
 		F7762B601D9B75C8001F64EE /* MYLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLaunchViewController.m; sourceTree = "<group>"; };
+		F784E5E31E77ECB90000F0E1 /* MYImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYImageBrowser.h; sourceTree = "<group>"; };
+		F784E5E41E77ECB90000F0E1 /* MYImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImageBrowser.m; sourceTree = "<group>"; };
 		F78D79DA1DED26A800395466 /* MYMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineViewController.h; sourceTree = "<group>"; };
 		F78D79DB1DED26A800395466 /* MYMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineViewController.m; sourceTree = "<group>"; };
 		F79D9A1B1D9562E9007AA167 /* musixise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musixise.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,18 +161,18 @@
 				F7B6A1281DC882D9006227C7 /* CoreTelephony.framework in Frameworks */,
 				F7F35DA91D9BF8BA006767C5 /* CoreText.framework in Frameworks */,
 				F7762B591D9B7407001F64EE /* AudioToolbox.framework in Frameworks */,
-				EE309D9AE9B1A3DA70BAB6D4 /* libPods.a in Frameworks */,
+				76108595ECDD22FFBFBB293F /* libPods-musixise.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9728CB35B09C82D42DE0BC3A /* Pods */ = {
+		980EE27016A552139749DDC0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				815202F53D0E969C6BFF9DF1 /* Pods.debug.xcconfig */,
-				F2DD2B5F3726B54BBE6D8CE5 /* Pods.release.xcconfig */,
+				93311A2A71FA96EADC35E40C /* Pods-musixise.debug.xcconfig */,
+				2691E05A3D18C3086D6DA096 /* Pods-musixise.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -178,7 +188,7 @@
 				F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */,
 				F7F35DA81D9BF8BA006767C5 /* CoreText.framework */,
 				F7762B581D9B7407001F64EE /* AudioToolbox.framework */,
-				99E966F2DBDB89BED6AC88EF /* libPods.a */,
+				144BC0E1134696D040885503 /* libPods-musixise.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -307,6 +317,7 @@
 		F7762B5B1D9B75B5001F64EE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F784E5E61E780FB60000F0E1 /* Base */,
 				F76364BD1DF3F63600DBA050 /* Fav */,
 				F7762B5C1D9B75B5001F64EE /* MYMainViewController.h */,
 				F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */,
@@ -318,18 +329,29 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		F784E5E61E780FB60000F0E1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F703C9EB1E7817580068D727 /* MYWebViewController.h */,
+				F703C9EC1E7817580068D727 /* MYWebViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		F79D9A121D9562E9007AA167 = {
 			isa = PBXGroup;
 			children = (
 				F71A949D1E77BE38007A7183 /* musixise_Demo0.txt */,
 				F71A949E1E77BE38007A7183 /* musixise_demo1.txt */,
+				F71A94AB1E77DCD8007A7183 /* musixise_demo2.txt */,
+				F71A94AD1E77E37C007A7183 /* musixise_demo3.txt */,
 				F7C1AD8B1DB3983000342F85 /* Demo.html */,
 				F79D9A1D1D9562E9007AA167 /* musixise */,
 				F79D9A371D9562E9007AA167 /* musixiseTests */,
 				F79D9A421D9562E9007AA167 /* musixiseUITests */,
 				F79D9A1C1D9562E9007AA167 /* Products */,
-				9728CB35B09C82D42DE0BC3A /* Pods */,
 				A569F2681426079955EDE2A9 /* Frameworks */,
+				980EE27016A552139749DDC0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -498,8 +520,10 @@
 				F7F35D9A1D9BD379006767C5 /* scheme_url.json */,
 				F7DC04E31D9CFEAC00D70E51 /* MYAppDelegateUtils.h */,
 				F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */,
-				F71A94A81E77CFB0007A7183 /* MYImageUtils.h */,
-				F71A94A91E77CFB0007A7183 /* MYImageUtils.m */,
+				F71A94A81E77CFB0007A7183 /* MYUploadUtils.h */,
+				F71A94A91E77CFB0007A7183 /* MYUploadUtils.m */,
+				F784E5E31E77ECB90000F0E1 /* MYImageBrowser.h */,
+				F784E5E41E77ECB90000F0E1 /* MYImageBrowser.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -511,12 +535,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F79D9A481D9562E9007AA167 /* Build configuration list for PBXNativeTarget "musixise" */;
 			buildPhases = (
-				7DCCCB24172BA6C8FC7C9D8E /* Check Pods Manifest.lock */,
+				D24FB060D4ED22B067B7A7E4 /* Check Pods Manifest.lock */,
 				F79D9A171D9562E9007AA167 /* Sources */,
 				F79D9A181D9562E9007AA167 /* Frameworks */,
 				F79D9A191D9562E9007AA167 /* Resources */,
-				8E1B3C6F58ADD91B4E1DF556 /* Embed Pods Frameworks */,
-				FB4B5A095864B437DB194584 /* Copy Pods Resources */,
+				DF69C29EE6F4367422161836 /* Embed Pods Frameworks */,
+				FB62CF000176301083EEBA1C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -566,6 +590,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71A94AE1E77E37C007A7183 /* musixise_demo3.txt in Resources */,
 				F71A949F1E77BE38007A7183 /* musixise_Demo0.txt in Resources */,
 				F7F35D9B1D9BD379006767C5 /* router.json in Resources */,
 				F79D9A541D956D6C007AA167 /* Images.xcassets in Resources */,
@@ -573,6 +598,7 @@
 				F71A94A01E77BE38007A7183 /* musixise_demo1.txt in Resources */,
 				F79D9A291D9562E9007AA167 /* Main.storyboard in Resources */,
 				F7F35D9C1D9BD379006767C5 /* scheme_url.json in Resources */,
+				F71A94AC1E77DCD8007A7183 /* musixise_demo2.txt in Resources */,
 				F7C1AD8C1DB3983000342F85 /* Demo.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,7 +606,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7DCCCB24172BA6C8FC7C9D8E /* Check Pods Manifest.lock */ = {
+		D24FB060D4ED22B067B7A7E4 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -595,7 +621,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8E1B3C6F58ADD91B4E1DF556 /* Embed Pods Frameworks */ = {
+		DF69C29EE6F4367422161836 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -607,9 +633,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-musixise/Pods-musixise-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-		FB4B5A095864B437DB194584 /* Copy Pods Resources */ = {
+		FB62CF000176301083EEBA1C /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -621,7 +648,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-musixise/Pods-musixise-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -646,7 +673,7 @@
 				F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */,
 				F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */,
 				F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */,
-				F71A94AA1E77CFB0007A7183 /* MYImageUtils.m in Sources */,
+				F71A94AA1E77CFB0007A7183 /* MYUploadUtils.m in Sources */,
 				F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */,
 				F79DAEA71DED8943005FD65F /* MYTopSelectorLabel.m in Sources */,
 				F76364C91DF4049800DBA050 /* MYLoginNavigationViewController.m in Sources */,
@@ -655,8 +682,10 @@
 				F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */,
 				F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */,
 				F7DC60591E0E58B600BA7304 /* MYMineMainDelegate.m in Sources */,
+				F784E5E51E77ECB90000F0E1 /* MYImageBrowser.m in Sources */,
 				F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */,
 				F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */,
+				F703C9ED1E7817580068D727 /* MYWebViewController.m in Sources */,
 				F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */,
 				F76364CD1DF407F700DBA050 /* MYRegisterViewController.m in Sources */,
 				F79DAEA01DED66E4005FD65F /* MYTopSelectorView.m in Sources */,
@@ -775,7 +804,7 @@
 		};
 		F79D9A491D9562E9007AA167 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 815202F53D0E969C6BFF9DF1 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 93311A2A71FA96EADC35E40C /* Pods-musixise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -791,7 +820,7 @@
 		};
 		F79D9A4A1D9562E9007AA167 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2DD2B5F3726B54BBE6D8CE5 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 2691E05A3D18C3086D6DA096 /* Pods-musixise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

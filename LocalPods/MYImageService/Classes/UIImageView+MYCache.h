@@ -14,5 +14,5 @@
 
 - (void)my_setImageWithURL:(NSString *)urlString;
 - (void)my_setImageWithURL:(NSString *)urlString placeholderImage:(UIImage *)defaultImage;
-- (void)my_setImageWithURL:(NSString *)urlString completed:(SDWebImageCompletionBlock)completedBlock;
+- (void)my_setImageWithURL:(NSString *)urlString completed:(void (^)(UIImage *image, NSData *data, NSError *error, BOOL success))completedBlock;
 @end

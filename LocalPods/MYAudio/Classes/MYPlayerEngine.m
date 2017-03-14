@@ -40,6 +40,10 @@
     // 1. 判断string是否符合格式
     NSError *error;
     NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+    if (error) {
+        //TODO: wmy 格式错误
+        return;
+    }
     self.dataArray = [array copy];
     self.index = 0;
     // 2. 解析string
@@ -68,20 +72,24 @@
 - (void)onPlaying {
     //TODO: wmy
     NSArray *array = [self.dataArray objectAtIndex:self.index];
-    double nowTime = [array[3] doubleValue] * 0.001;
-    MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit,
-                         (uint32_t)[array[0] integerValue],
-                         (uint32_t)[array[1] integerValue],
-                         (uint32_t)[array[2] integerValue],
-                         0);
+    double nowTime = self.lastTime;
+    if (array.count == 4) {        
+        nowTime = [array[3] doubleValue] * 0.001;
+        MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit,
+                             (uint32_t)[array[0] integerValue],
+                             (uint32_t)[array[1] integerValue],
+                             (uint32_t)[array[2] integerValue],
+                             0);
+    }
     self.index++;
-    if (self.index > self.dataArray.count - 1) {
+    if (!self.dataArray || self.index > self.dataArray.count - 1) {
         [self stop];
     } else {
         [self performSelector:@selector(onPlaying) withObject:self afterDelay:(nowTime - self.lastTime)];
         self.lastTime = nowTime;
     }
 }
+
 
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------

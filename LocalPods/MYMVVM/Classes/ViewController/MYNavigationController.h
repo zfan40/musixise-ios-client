@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MYRootViewControllerProtocol.h"
+
 @class MYRootViewController;
-
-
 
 @interface MYNavigationController : UINavigationController
 
