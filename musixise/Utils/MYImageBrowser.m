@@ -74,12 +74,11 @@
     [self uploadImage:resultImage];
 }
 
-//TODO: wmy 上传图片
 - (void)uploadImage:(UIImage *)image {
-    [[MYUploadUtils sharedInstance] uploadImage:image withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
-        //TODO: wmy
+    [[MYUploadUtils sharedInstance] uploadImage:image withComplete:^(NSString *imageUrl) {
         if (self.block) {
-            self.block(nil, YES);
+            NSString *result = [NSString stringWithFormat:@"http://oaeyej2ty.bkt.clouddn.com/%@",imageUrl];
+            self.block(result, YES);
         }
     }];
 }

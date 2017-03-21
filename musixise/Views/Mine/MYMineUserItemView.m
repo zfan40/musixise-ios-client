@@ -202,12 +202,12 @@
 
 - (void)onClickTapIcon {
     //TOOD: wmy test 用于测试播放音乐
-//    // 将文件转为data
-//    NSString *fileDataPath =[[NSBundle mainBundle] pathForResource:@"musixise_demo3"
-//                                                            ofType:@"txt"];
-//    NSData *resultData = [NSData dataWithContentsOfFile:fileDataPath];
-//    [[MYPlayerEngine sharedInstance] inputPlayerData:resultData];
-//    [[MYPlayerEngine sharedInstance] start];
+    // 将文件转为data
+    NSString *fileDataPath =[[NSBundle mainBundle] pathForResource:@"musixise_demo1"
+                                                            ofType:@"txt"];
+    NSData *resultData = [NSData dataWithContentsOfFile:fileDataPath];
+    [[MYPlayerEngine sharedInstance] inputPlayerData:resultData];
+    [[MYPlayerEngine sharedInstance] start];
     
 //    UIImage *image = [UIImage imageNamed:@"AppIcon60x60"];
 //    [[MYUploadUtils sharedInstance] uploadImage:image withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
@@ -216,10 +216,9 @@
 //        }
 //    }];
 
-    [[MYImageBrowser sharedInstance] imageBrowserWithBlock:^(NSString *imageUrl, BOOL success) {
-        
-        
-    }];
+//    [[MYImageBrowser sharedInstance] imageBrowserWithBlock:^(NSString *imageUrl, BOOL success) {
+//        NSLog(@"imageUrl = %@",imageUrl);
+//    }];
 
     
 }

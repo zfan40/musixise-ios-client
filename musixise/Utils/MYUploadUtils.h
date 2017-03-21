@@ -17,7 +17,7 @@
  @param image 图片数据
  @param block 完成的block
  */
-- (void)uploadImage:(UIImage * _Nonnull)image
-       withComplete:(void (^_Nonnull)(NSDictionary *_Nonnull result, BOOL success, NSError *_Nullable error))block;
+- (void)uploadImage:(UIImage *)image
+       withComplete:(void (^)(NSString *imageUrl))block;
 
 @end

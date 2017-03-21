@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) BAudioController *audioPlayer;
 @property(nonatomic, assign) BOOL isPlaying;// 控制是否播放的开关
+@property(nonatomic, assign) dispatch_queue_t queue;
 
 @end
 
@@ -46,6 +47,7 @@
     }
     self.dataArray = [array copy];
     self.index = 0;
+    self.queue = dispatch_queue_create("my player engine", 0);
     // 2. 解析string
     // 3. 播放
     
@@ -53,6 +55,8 @@
 
 - (void)start {
     self.isPlaying = YES;
+    self.index = 0;
+    
     [self onPlaying];
 }
 
@@ -71,22 +75,29 @@
 
 - (void)onPlaying {
     //TODO: wmy
-    NSArray *array = [self.dataArray objectAtIndex:self.index];
-    double nowTime = self.lastTime;
-    if (array.count == 4) {        
-        nowTime = [array[3] doubleValue] * 0.001;
-        MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit,
-                             (uint32_t)[array[0] integerValue],
-                             (uint32_t)[array[1] integerValue],
-                             (uint32_t)[array[2] integerValue],
-                             0);
-    }
-    self.index++;
-    if (!self.dataArray || self.index > self.dataArray.count - 1) {
-        [self stop];
+    if (self.index > self.dataArray.count - 1 ||
+        self.index < 0) {
+        return;
     } else {
-        [self performSelector:@selector(onPlaying) withObject:self afterDelay:(nowTime - self.lastTime)];
-        self.lastTime = nowTime;
+        NSArray *array = [self.dataArray objectAtIndex:self.index];
+        double nowTime;
+        if (array.count == 4) {
+            nowTime = [array[3] doubleValue] * 0.001;
+            uint64_t interval = nowTime * NSEC_PER_SEC;
+            dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.queue);
+            dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, 0), interval, 0);
+            dispatch_source_set_event_handler(timer, ^() {
+                MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit,
+                                     (uint32_t)[array[0] integerValue],
+                                     (uint32_t)[array[1] integerValue],
+                                     (uint32_t)[array[2] integerValue],
+                                     0);
+            });
+            dispatch_resume(timer);
+            self.index++;
+            [self onPlaying];
+        }
+        
     }
 }
 

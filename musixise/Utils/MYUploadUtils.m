@@ -22,8 +22,8 @@
  @param image 图片数据
  @param block 完成的block
  */
-- (void)uploadImage:(UIImage * _Nonnull)image
-       withComplete:(void (^_Nonnull)(NSDictionary *_Nonnull result, BOOL success, NSError *_Nullable error))block {
+- (void)uploadImage:(UIImage *)image
+       withComplete:(void (^)(NSString *imageUrl))block {
     
     //1. 存放图片的服务器地址，这里我用的宏定义
     NSString * url = [NSString stringWithFormat:@"%@%@",Hx_Main_heard_API,IMAGE_UPLOAD_URL_API];
@@ -31,28 +31,31 @@
     NSString *fileName = [self tmpFile];
     
     //3. 图片二进制文件
-    NSData *imageData = UIImageJPEGRepresentation(image, 1.f);
-    NSLog(@"upload image size: %ld k", (long)(imageData.length / 1024));
-    
+    NSData *imageData = UIImageJPEGRepresentation(image, .5f);
     //4. 发起网络请求
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    AFHTTPRequestSerializer *request = [AFHTTPRequestSerializer serializer];
+    manager.requestSerializer = request;
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         // 上传图片，以文件流的格式，这里注意：name是指服务器端的文件夹名字
-        [formData appendPartWithFileData:imageData name:@"fileData" fileName:fileName mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:imageData name:@"files" fileName:fileName mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //上传成功时的回调
-        NSLog(@"123456%@",responseObject);
+        NSDictionary *obj = (NSDictionary *)responseObject;
+        if (block) {
+            block([obj objectForKey:@"data"]);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //失败时的回调
         NSLog(@"123456%@",error);
+        
     }];
 }
 
 - (NSString *)tmpFile {
     NSString *fileName = [NSString stringWithFormat:@"%lf+%d.jpg", [[NSDate date] timeIntervalSince1970], rand()];
-    return [[[MYFileUtil sharedInstance] tmpPath] stringByAppendingPathComponent:fileName];
+    return fileName;
 }
 
 @end

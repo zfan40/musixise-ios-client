@@ -80,7 +80,7 @@
                              [router routeUrl:@"musixise://page/MYWebViewController" withParam:dict];
                          }];
         
-        [_bridge registerHandler:@"getUserInfo"
+        [_bridge registerHandler:@"GetUserInfo"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              MYUser *user = [MYUserUtils sharedInstance].user;
                              NSDictionary *userDict = [user dictWithProperty];
@@ -88,18 +88,18 @@
                                  responseCallback(userDict);
                              }
                          }];
-        [_bridge registerHandler:@"playMusic"
+        [_bridge registerHandler:@"PlayMusic"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              [[MYPlayerEngine sharedInstance] inputPlayerData:data];
 //                             if (responseCallback) {
 //                                 responseCallback(userDict);
 //                             }
                          }];
-        [_bridge registerHandler:@"getImage"
+        [_bridge registerHandler:@"UploadImage"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              [[MYImageBrowser sharedInstance] imageBrowserWithBlock:^(NSString *imageUrl, BOOL success) {
                                  if (responseCallback) {
-                                     responseCallback(nil);
+                                     responseCallback(imageUrl);
                                  }
                              }];
                          }];
