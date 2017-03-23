@@ -75,32 +75,24 @@
 
 - (void)onPlaying {
     //TODO: wmy
-    if (self.index > self.dataArray.count - 1 ||
-        self.index < 0) {
-        return;
-    } else {
-        NSArray *array = [self.dataArray objectAtIndex:self.index];
-        double nowTime;
+    for (int i = self.index; i < self.dataArray.count; i++) {
+        NSArray *array = [self.dataArray objectAtIndex:i];
         if (array.count == 4) {
-            nowTime = [array[3] doubleValue] * 0.001;
-            uint64_t interval = nowTime * NSEC_PER_SEC;
-            dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.queue);
-            dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, 0), interval, 0);
-            dispatch_source_set_event_handler(timer, ^() {
-                MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit,
-                                     (uint32_t)[array[0] integerValue],
-                                     (uint32_t)[array[1] integerValue],
-                                     (uint32_t)[array[2] integerValue],
-                                     0);
-            });
-            dispatch_resume(timer);
-            self.index++;
-            [self onPlaying];
+            double nowTime = [array[3] doubleValue] * 0.001;
+            NSLog(@"index = %d",i);
+            [self performSelector:@selector(playInArray:) withObject:array afterDelay:nowTime];
         }
-        
     }
 }
 
+
+- (void)playInArray:(NSArray *)array {
+    MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit,
+                         (uint32_t)[array[0] integerValue],
+                         (uint32_t)[array[1] integerValue],
+                         (uint32_t)[array[2] integerValue],
+                         0);
+}
 
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------
