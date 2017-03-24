@@ -173,7 +173,7 @@ newInstanceStyleUIButton(loginButton, @"登 录", MYButtonStyle_Normal_Big)
 - (MYLoginTextField *)userNameTextField {
     if (!_userNameTextField) {
         _userNameTextField = [MYLoginTextField loginTextFieldWithHint:@"请输入用户名"];
-        _userNameTextField.text = @"musixise001";
+        _userNameTextField.text = @"musixise007";
     }
     return _userNameTextField;
 }

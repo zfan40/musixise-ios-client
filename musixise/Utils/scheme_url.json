@@ -1,39 +1,40 @@
 {
     "routers":[
                {
-               "schemeUrl":"musixise://page/(\\w+)",
+               "host":"page",
+               "path":"/(\\w+)",
                "example":"musixise://page/MYDemoViewController",
                "method":"page:",
                },
                {
-               "schemeUrl":"musixise://back",
+               "host":"back",
+               "path":"",
                "example":"musixise://back",
                "method":"back:",
                },
                {
-               "schemeUrl":"musixise://artist/(\\d+)",
-               "example":"musixise://artist/12",
-               "method":"artist:",
-               },
-               {
-               "schemeUrl":"musixise://album/(\\d+)",
-               "example":"musixise://album/12",
-               "method":"album:",
-               },
-               {
-               "schemeUrl":"musixise://search",
-               "example":"musixise://search",
-               "method":"search:",
-               },
-               {
-               "schemeUrl":"musixise://song/([\\d-]+)",
+               "host":"back",
+               "path":"/([\\d-]+)",
                "example":"musixise://song/",
                "method":"songs:",
                },
                {
-               "schemeUrl":"musixise://backToMain",
+               "host":"backToMain",
+               "path":"/",
                "example":"musixise://backToMain",
                "method":"backToMain:",
+               },
+               {
+               "host":"play",
+               "path":"/([\\d-]+)",
+               "example":"musixise://play/",
+               "method":"play:",
+               },
+               {
+               "host":"play",
+               "path":"",
+               "example":"musixise://play",
+               "method":"play:",
                }
                ]
 }

@@ -24,6 +24,14 @@
     return [[[MYFileUtil sharedInstance] documentPath] stringByAppendingPathComponent:kSongDictionary];
 }
 
+- (NSString *)cacheSongPath {
+    return [[[MYFileUtil sharedInstance] cachePath] stringByAppendingPathComponent:kSongDictionary];
+}
+
+- (NSString *)tmpSongPath {
+    return [[[MYFileUtil sharedInstance] tmpPath] stringByAppendingPathComponent:kSongDictionary];
+}
+
 - (NSString *)lyricPath {
     return [[[MYFileUtil sharedInstance] documentPath] stringByAppendingPathComponent:kLyricDictionary];
 }
@@ -50,39 +58,51 @@
 }
 
 - (BOOL)isPictureFileExist:(NSString *)file {
-    return [[MYFileUtil sharedInstance] documentWithDictionary:[[MYFileUtil sharedInstance] picturePath] isExist:file];
+    return [[MYFileUtil sharedInstance] dictionary:[[MYFileUtil sharedInstance] picturePath] isExistFile:file];
 }
 
 - (BOOL)isSongFileExist:(NSString *)file {
-    return [[MYFileUtil sharedInstance] documentWithDictionary:[[MYFileUtil sharedInstance] songPath] isExist:file];
+    return [[MYFileUtil sharedInstance] dictionary:[[MYFileUtil sharedInstance] songPath] isExistFile:file];
+}
+- (BOOL)isCacheSongFileExist:(NSString *)file {
+    return [[MYFileUtil sharedInstance] dictionary:[[MYFileUtil sharedInstance] cacheSongPath] isExistFile:file];
 }
 
 - (BOOL)isDatabaseExist:(NSString *)file {
-    return [[MYFileUtil sharedInstance] documentWithDictionary:[[MYFileUtil sharedInstance] databasePath] isExist:file];
+    return [[MYFileUtil sharedInstance] dictionary:[[MYFileUtil sharedInstance] databasePath] isExistFile:file];
 }
 
 - (BOOL)isLyricFileExist:(NSString *) file {
-    return [[MYFileUtil sharedInstance] documentWithDictionary:[[MYFileUtil sharedInstance] lyricPath] isExist:file];
+    return [[MYFileUtil sharedInstance] dictionary:[[MYFileUtil sharedInstance] lyricPath] isExistFile:file];
 }
 - (NSString *)createlyricFile:(NSString *)file {
-    return [[MYFileUtil sharedInstance] createDocumentDictionary:[[MYFileUtil sharedInstance] lyricPath] withFile:file];
+    return [[MYFileUtil sharedInstance] createDictionary:[[MYFileUtil sharedInstance] lyricPath] withFile:file];
 }
 
-- (NSString *)createPictureFile:(NSString *)file {
-    return [[MYFileUtil sharedInstance] createDocumentDictionary:[[MYFileUtil sharedInstance] picturePath] withFile:file];
+- (NSString *)makeSurePictureFileExist:(NSString *)file {
+    return [[MYFileUtil sharedInstance] createDictionary:[[MYFileUtil sharedInstance] picturePath] withFile:file];
 }
 
-- (NSString *)createSongsFile:(NSString *)file {
-    return [[MYFileUtil sharedInstance] createDocumentDictionary:[[MYFileUtil sharedInstance] songPath] withFile:file];
+- (NSString *)makeSureSongsFileExist:(NSString *)file {
+    return [[MYFileUtil sharedInstance] createDictionary:[[MYFileUtil sharedInstance] songPath] withFile:file];
+}
+
+- (NSString *)makeSureCacheSongsFileExist:(NSString *)file {
+    return [[MYFileUtil sharedInstance] createDictionary:[[MYFileUtil sharedInstance] cacheSongPath] withFile:file];
 }
 
 - (NSString *)createDBFile:(NSString *)fileName {
-    return [[MYFileUtil sharedInstance] createDocumentDictionary:[[MYFileUtil sharedInstance] databasePath] withFile:fileName];
+    return [[MYFileUtil sharedInstance] createDictionary:[[MYFileUtil sharedInstance] databasePath] withFile:fileName];
 }
 
 - (NSString *)documentSongsFilePath:(NSString *)file {
     return [[[MYFileUtil sharedInstance] songPath] stringByAppendingPathComponent:file];
 }
+
+- (NSString *)cacheSongsFilePath:(NSString *)file {
+    return [[[MYFileUtil sharedInstance] cacheSongPath] stringByAppendingPathComponent:file];
+}
+
 - (NSString *)documentPicturesFilePath:(NSString *)file {
     return [[[MYFileUtil sharedInstance] picturePath] stringByAppendingPathComponent:file];
 }
@@ -98,7 +118,7 @@
  *
  *  @return 是否存在
  */
-- (BOOL)documentWithDictionary:(NSString *)path isExist:(NSString *)file {
+- (BOOL)dictionary:(NSString *)path isExistFile:(NSString *)file {
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         // 如果目录不存在，则不存在
         return NO;
@@ -112,12 +132,12 @@
     }
     
 }
-- (NSString *)createDocumentDictionary:(NSString *)path withFile:(NSString *)file {
+- (NSString *)createDictionary:(NSString *)path withFile:(NSString *)file {
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         [[MYFileUtil sharedInstance] createDictionary:path];
     }
     NSString *filePath = [path stringByAppendingPathComponent:file];
-    if ([[MYFileUtil sharedInstance] documentWithDictionary:path isExist:file]) {
+    if ([[MYFileUtil sharedInstance] dictionary:path isExistFile:file]) {
         DebugLog(@"%@ 文件已存在，不需要再创建了",file);
         return filePath;
     }
@@ -129,4 +149,12 @@
 - (BOOL)createDictionary:(NSString *)path {
     return [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
 }
+
+- (BOOL)renameFile:(NSString *)filePathFileName toFileName:(NSString *)newFilePathName {
+    //通过移动该文件对文件重命名
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isSuccess = [fileManager moveItemAtPath:filePathFileName toPath:newFilePathName error:nil];
+    return isSuccess;
+}
+
 @end

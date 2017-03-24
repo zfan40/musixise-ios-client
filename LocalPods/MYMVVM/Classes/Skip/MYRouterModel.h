@@ -10,7 +10,8 @@
 
 @interface MYRouterModel : NSObject <NSCopying>
 
-@property (nonatomic,strong) NSString *schemeUrl;
+@property (nonatomic, strong) NSString *host;
+@property (nonatomic, strong) NSString *path;
 @property (nonatomic,strong) NSString *method;
 @property (nonatomic,strong) NSString *example;
 

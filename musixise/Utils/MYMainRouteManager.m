@@ -7,10 +7,15 @@
 //
 
 #import "MYMainRouteManager.h"
+#import <MYUtils/NSDictionary+ALMSafe.h>
+#import <MYUtils/NSString+MYWarper.h>
 #import <MYMVVM/MYRouter.h>
 #import <MYMVVM/MYBaseViewController.h>
 #import <MYUtils/NSArray+MYSafe.h>
 #import <objc/runtime.h>
+#import "MYWorkViewModel.h"
+#import "MYPlayListManager.h"
+
 
 @implementation MYMainRouteManager
 
@@ -31,6 +36,22 @@
     [resultDict setValue:nil forKey:@"params"];
     [self page:classString withDictionary:resultDict];
     
+}
+
+
+/**
+ 播放一首歌
+
+ @param dict 一首歌
+ */
++ (void)play:(NSDictionary *)dict {
+    DebugLog(@"dict");
+    NSString *ids = [dict objectForKey:@"ids"];
+    NSInteger index = [[dict objectForKey:@"index"] integerValue];
+    NSArray *workIds = [ids split:@"-"];
+    [thePlayListManager setPlayIds:workIds];
+    thePlayListManager.playIndex = index;
+    [thePlayListManager startPlaying];
 }
 
 + (void)page:(NSString *)classString withDictionary:(NSDictionary *)dict {

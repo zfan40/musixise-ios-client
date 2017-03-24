@@ -18,7 +18,11 @@
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, strong) NSString *detail;
 @property(nonatomic, strong) NSString *cover;
+@property(nonatomic, assign) NSInteger objId;
 
-- (NSString *)createdDate;
+/**
+ 该方法需要放到ListModel中
+ */
+- (void)play;
 
 @end

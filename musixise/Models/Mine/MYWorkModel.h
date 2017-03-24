@@ -19,4 +19,5 @@
 @property(nonatomic, strong) NSString *detail;
 @property(nonatomic, strong) NSString *cover;
 @property(nonatomic, assign) NSInteger objId;
+
 @end

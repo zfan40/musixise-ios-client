@@ -142,6 +142,7 @@
     NSString *idToken = [defaults objectForKey:@"idToken"];
     if (!isEmptyString(idToken)) {
         [request setValue:[NSString stringWithFormat:@"Bearer %@",idToken] forHTTPHeaderField:@"Authorization"];
+        NSLog(@"method = %@",method);
     }
     AFHTTPRequestOperation *operation = [self.manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         DebugLog(@"================== success ==================");
@@ -227,24 +228,9 @@
                      savedPath:(NSString*)savedPath
                downloadSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                downloadFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
-                      progress:(void (^)(float progress,float total))progress
-
-{
-    
-    //沙盒路径    //NSString *savedPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/xxx.zip"];
+                      progress:(void (^)(float progress,float total))progress {
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
     NSMutableURLRequest *request =[serializer requestWithMethod:@"GET" URLString:requestURL parameters:paramDic error:nil];
-    
-    //以下是手动创建request方法 AFQueryStringFromParametersWithEncoding有时候会保存
-    //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
-    //   NSMutableURLRequest *request =[[[AFHTTPRequestOperationManager manager]requestSerializer]requestWithMethod:@"POST" URLString:requestURL parameters:paramaterDic error:nil];
-    //
-    //    NSString *charset = (__bridge NSString *)CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
-    //
-    //    [request setValue:[NSString stringWithFormat:@"application/x-www-form-urlencoded; charset=%@", charset] forHTTPHeaderField:@"Content-Type"];
-    //    [request setHTTPMethod:@"POST"];
-    //
-    //    [request setHTTPBody:[AFQueryStringFromParametersWithEncoding(paramaterDic, NSASCIIStringEncoding) dataUsingEncoding:NSUTF8StringEncoding]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setOutputStream:[NSOutputStream outputStreamToFileAtPath:savedPath append:NO]];
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
@@ -254,11 +240,11 @@
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(operation,responseObject);
-//        DLog(@"下载成功");
+        DebugLog(@"下载成功");
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         success(operation,error);
-//        DLog(@"下载失败");
+        DebugLog(@"下载失败 error = %@",error);
         
     }];
     

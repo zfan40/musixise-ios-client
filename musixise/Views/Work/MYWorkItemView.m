@@ -83,6 +83,7 @@
     self.detailLabel.left = self.titleLabel.left;
     self.timeLabel.right = self.width - theMYWidget.m2;
     self.timeLabel.bottom = self.height - theMYWidget.m2;
+    self.detailLabel.width = self.width - self.titleLabel.right - self.timeLabel.width;
     
 }
 
@@ -90,7 +91,7 @@
     if ([self.viewModel isKindOfClass:[MYWorkViewModel class]]) {
         MYWorkViewModel *viewModel = (MYWorkViewModel *)self.viewModel;
         [self setTitle:viewModel.title];
-        [self setDetail:viewModel.detail];
+        [self setDetail:viewModel.content];
         //TODO: wmy UI
 //        NSString *imageUrl = @"http://4493bz.1985t.com/uploads/allimg/150127/4-15012G52133.jpg";
         NSString *imageUrl = viewModel.cover;
@@ -102,28 +103,16 @@
 #pragma mark - --------------------功能函数------------------
 
 - (void)setTime:(NSString *)time {
-    if (isEmptyString(time)) {
-        //TODO: wmy
-        time = @"12月25日 99";
-    }
     self.timeLabel.text = time;
     [self.timeLabel sizeToFit];
 }
 
 - (void)setTitle:(NSString *)title {
-    if (isEmptyString(title)) {
-        //TODO: wmy
-        title = @"标题";
-    }
     self.titleLabel.text = title;
     [self.titleLabel sizeToFit];
 }
 
 - (void)setDetail:(NSString *)detail {
-    if (isEmptyString(detail)) {
-        //TODO: wmy
-        detail = @"副标题";
-    }
     self.detailLabel.text = detail;
     [self.detailLabel sizeToFit];
 }

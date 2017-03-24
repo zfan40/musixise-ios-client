@@ -8,7 +8,13 @@
 
 #import <MYUtils/MYBasicSingleton.h>
 
+#define thePlayEngine [MYPlayerEngine sharedInstance]
+
+typedef void(^FinishBlock)();
+
 @interface MYPlayerEngine : MYBasicSingleton
+// 一首歌放完后的block
+@property(nonatomic, copy) FinishBlock finishBlock;
 
 - (void)inputPlayerData:(NSData *)data;
 

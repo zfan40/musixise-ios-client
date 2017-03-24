@@ -22,6 +22,7 @@
 		F72401921E0FEDC2006D816B /* MYWorkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F72401911E0FEDC2006D816B /* MYWorkModel.m */; };
 		F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74308A41E0AABFB00F33C79 /* MYMineUserItemView.m */; };
 		F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74308A71E0AB20B00F33C79 /* MYMineUserInfoView.m */; };
+		F74460411E83ECA10047D17B /* MYPlayListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F74460401E83ECA10047D17B /* MYPlayListManager.m */; };
 		F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364BF1DF3F63600DBA050 /* MYFavViewController.m */; };
 		F76364C31DF3F72A00DBA050 /* MYFavArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C21DF3F72A00DBA050 /* MYFavArtistViewController.m */; };
 		F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C51DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m */; };
@@ -84,6 +85,8 @@
 		F74308A41E0AABFB00F33C79 /* MYMineUserItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserItemView.m; sourceTree = "<group>"; };
 		F74308A61E0AB20B00F33C79 /* MYMineUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineUserInfoView.h; sourceTree = "<group>"; };
 		F74308A71E0AB20B00F33C79 /* MYMineUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserInfoView.m; sourceTree = "<group>"; };
+		F744603F1E83ECA10047D17B /* MYPlayListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayListManager.h; sourceTree = "<group>"; };
+		F74460401E83ECA10047D17B /* MYPlayListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayListManager.m; sourceTree = "<group>"; };
 		F76364BE1DF3F63600DBA050 /* MYFavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFavViewController.h; sourceTree = "<group>"; };
 		F76364BF1DF3F63600DBA050 /* MYFavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYFavViewController.m; sourceTree = "<group>"; };
 		F76364C11DF3F72A00DBA050 /* MYFavArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFavArtistViewController.h; sourceTree = "<group>"; };
@@ -270,6 +273,15 @@
 				F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		F744603E1E83EC930047D17B /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				F744603F1E83ECA10047D17B /* MYPlayListManager.h */,
+				F74460401E83ECA10047D17B /* MYPlayListManager.m */,
+			);
+			path = Play;
 			sourceTree = "<group>";
 		};
 		F76364BD1DF3F63600DBA050 /* Fav */ = {
@@ -510,6 +522,7 @@
 		F7F35D981D9BD379006767C5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F744603E1E83EC930047D17B /* Play */,
 				F7F35D9D1D9BD4A4006767C5 /* MYMainRouteManager.h */,
 				F7F35D9E1D9BD4A4006767C5 /* MYMainRouteManager.m */,
 				F7DC04E91D9CFF6D00D70E51 /* MYGlobalConfig.h */,
@@ -655,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F79D9A231D9562E9007AA167 /* AppDelegate.m in Sources */,
+				F74460411E83ECA10047D17B /* MYPlayListManager.m in Sources */,
 				F76364C31DF3F72A00DBA050 /* MYFavArtistViewController.m in Sources */,
 				F72401871E0FDD18006D816B /* MYWorkListModel.m in Sources */,
 				F79D9A201D9562E9007AA167 /* main.m in Sources */,

@@ -34,7 +34,7 @@
     MYLoginViewController *login = [[MYLoginViewController alloc] init];
     MYLoginNavigationViewController *loginNavi = [[MYLoginNavigationViewController alloc] initWithRootViewController:login];
     //TODO: wmy 写死为tab
-    self.window.rootViewController = tabBarVc;
+    self.window.rootViewController = loginNavi;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserChange) name:@"MYUserDidChanged" object:nil];
     [NSThread sleepForTimeInterval:3];
     // 初始化route

@@ -17,6 +17,8 @@ pod 'MYUserSystem', :path => './LocalPods/MYUserSystem/'
 pod 'WebViewJavascriptBridge', '4.1.4'
 pod 'MYThirdKit', :path => './LocalPods/MYThirdKit/'
 pod 'MYShare', :path => './LocalPods/MYShare/'
+
+pod 'libextobjc', '~> 0.5.2'
 end
 target ‘musixise’ do
   pods

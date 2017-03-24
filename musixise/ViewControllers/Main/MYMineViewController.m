@@ -64,6 +64,10 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
     return NO;
 }
 
+- (BOOL)upRefreshable {
+    return NO;
+}
+
 - (MYNoDataType)noDataType {
     return MYNoDataViewType_Hidden;
 }
@@ -84,7 +88,7 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
 
 - (MYWorkListModel *)workListModel {
     if (!_workListModel) {
-        _workListModel = [[MYWorkListModel alloc] initWithMethod:@"follow/getList"];
+        _workListModel = [[MYWorkListModel alloc] initWithMethod:@"work/getList"];
     }
     return _workListModel;
 }

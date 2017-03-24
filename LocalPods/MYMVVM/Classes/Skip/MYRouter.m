@@ -62,35 +62,42 @@ withManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels {
     }
 }
 
-- (void)routeUrl:(NSString *)url withParam:(NSDictionary *)dict {
-    if ([url startsWith:@"musixise://"]) {
-        // 说明为本应用的跳转
-        NSRange range = [url rangeOfString:@"//"];
-        NSString *relativeUrl = [url substringFromIndex:range.location + range.length];
-        for (int i = 0; i < self.routeDict.allKeys.count; i++ ) {
+- (void)routeUrl:(NSString *)urlStr withParam:(NSDictionary *)dict {
+    NSURL *url = [NSURL URLWithString:urlStr];
+    if ([url.scheme isEqualToString:@"musixise"]) {
+        for (int i = 0; i < self.routeDict.allKeys.count; i++) {
             NSString *method = [self.routeDict.allKeys objectAtIndexForMY:i];
             MYRouterModel *route = ((MYRouteManagerModel *)[self.routeDict objectForKey:method]).routeModel;
-            if ([self validate:url withReg:route.schemeUrl]) {
-                NSString *method = route.method;
-                NSMutableDictionary *resultDict = [NSMutableDictionary dictionaryWithDictionary:dict];
-                NSArray *relaArray = [relativeUrl split:@"/"];
-                NSMutableArray *paramsArray = [NSMutableArray arrayWithArray:relaArray];
-                if (relaArray.count > 1) {
-                    [resultDict setObject:relativeUrl forKey:@"scheme_url"];
-                    [paramsArray removeObjectAtIndex:0];
-                    [resultDict setObject:paramsArray forKey:@"params"];
+            if ([url.host isEqualToString:route.host]) {
+                if (isEmptyString(url.path) ||
+                    [self validate:url.path withReg:route.path]) {
+                    NSMutableDictionary *resultDict = [NSMutableDictionary dictionaryWithDictionary:dict];
+                    NSDictionary *queryDict = [self queryURL:url.query];
+                    [resultDict addEntriesFromDictionary:queryDict];
+                    NSString *manager = ((MYRouteManagerModel *)[self.routeDict objectForKey:method]).urlManagerName;
+                    [NSClassFromString(manager) performSelector:NSSelectorFromString(method)
+                                                     withObject:resultDict afterDelay:0];
                 }
-                NSString *manager = ((MYRouteManagerModel *)[self.routeDict objectForKey:method]).urlManagerName;
-                [NSClassFromString(manager) performSelector:NSSelectorFromString(method)
-                           withObject:resultDict afterDelay:0];
-                break;
             }
         }
-    } else {
-        WarnLog(@"非法的url ： %@",url);
     }
 }
 
+
+- (NSDictionary *)queryURL:(NSString *)query {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if (isEmptyString(query)) {
+        return dict;
+    }
+    NSArray *array = [query split:@"?"];
+    for (NSString *splitQuery in array) {
+        NSArray *innerArray = [splitQuery split:@"="];
+        if (innerArray.count == 2) {
+            [dict setObject:[innerArray objectAtIndex:1] forKey:[innerArray objectAtIndex:0]];
+        }
+    }
+    return dict;
+}
 
 - (void)configManagers {
     for (MYRouteManagerModel *managerModel in self.managerArray) {

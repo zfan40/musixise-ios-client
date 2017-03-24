@@ -9,6 +9,7 @@
 #import "MYBaseViewModel.h"
 #import "MYBaseNetWorkUtil.h"
 #import "MYBaseModel.h"
+#import <MYUtils/NSDictionary+ALMSafe.h>
 #import <objc/objc.h>
 #import <objc/runtime.h>
 #import <AFNetworking/AFHTTPRequestOperation.h>
@@ -133,15 +134,15 @@ NSString* const kDataKey = @"xiaplay_data";
                                                                    withComplete:^(NSDictionary * _Nonnull dict, BOOL success, NSError * _Nonnull error) {
                                                                        if (!error) {
                                                                            if (success) {
-                                                                               NSDictionary *dataDict = [dict objectForKey:@"data"];
-                                                                               self.more = ![[dataDict objectForKey:@"last"] boolValue];
+                                                                               NSDictionary *dataDict = [dict safeObjectForKey:@"data"];
+                                                                               self.more = ![[dataDict safeObjectForKey:@"last"] boolValue];
                                                                                if (self.more) {
                                                                                    self.page++;
                                                                                }
-                                                                               self.totalPages = [dataDict objectForKey:@"totalPages"];
-                                                                               self.totalElements = [dataDict objectForKey:@"totalElements"];
-                                                                               long long errCode = [[dict objectForKey:@"errcode"] longLongValue];
-                                                                               NSString *errmsg = [dict objectForKey:@"errmsg"];
+                                                                               self.totalPages = [dataDict safeObjectForKey:@"totalPages"];
+                                                                               self.totalElements = [dataDict safeObjectForKey:@"totalElements"];
+                                                                               long long errCode = [[dict safeObjectForKey:@"errcode"] longLongValue];
+                                                                               NSString *errmsg = [dict safeObjectForKey:@"errmsg"];
                                                                                if (errCode) {
 #if DEBUG
                                                                                    [[MYTipsHelper sharedInstance] showTips:errmsg];

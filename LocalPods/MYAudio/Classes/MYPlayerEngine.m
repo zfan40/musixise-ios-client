@@ -13,11 +13,11 @@
 
 //@property (nonatomic, strong) NSTimer *timer;
 @property(nonatomic, assign) NSInteger index;
-@property(nonatomic, assign) CGFloat lastTime;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) BAudioController *audioPlayer;
 @property(nonatomic, assign) BOOL isPlaying;// 控制是否播放的开关
-@property(nonatomic, assign) dispatch_queue_t queue;
+@property(nonatomic, assign) CGFloat currentTime;
+@property(nonatomic, assign) CGFloat totalTime;
 
 @end
 
@@ -47,16 +47,14 @@
     }
     self.dataArray = [array copy];
     self.index = 0;
-    self.queue = dispatch_queue_create("my player engine", 0);
     // 2. 解析string
     // 3. 播放
-    
 }
 
 - (void)start {
+//    [self stop];
     self.isPlaying = YES;
     self.index = 0;
-    
     [self onPlaying];
 }
 
@@ -68,13 +66,17 @@
     self.isPlaying = NO;
     self.index = 0;
     self.dataArray = nil;
-    self.lastTime = 0;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self
+                                             selector:@selector(onPlaying)
+                                               object:nil];
 }
 
 #pragma mark - --------------------按钮事件------------------
 
 - (void)onPlaying {
     //TODO: wmy
+    NSArray *lastArray = [self.dataArray objectAtIndex:self.dataArray.count - 1];
+    self.totalTime = [[lastArray objectAtIndex:3] floatValue];
     for (int i = self.index; i < self.dataArray.count; i++) {
         NSArray *array = [self.dataArray objectAtIndex:i];
         if (array.count == 4) {
@@ -87,6 +89,12 @@
 
 
 - (void)playInArray:(NSArray *)array {
+    self.index++;
+    self.currentTime = [array[3] floatValue];
+    if (self.currentTime == self.totalTime &&
+        self.finishBlock) {
+        self.finishBlock();
+    }
     MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit,
                          (uint32_t)[array[0] integerValue],
                          (uint32_t)[array[1] integerValue],

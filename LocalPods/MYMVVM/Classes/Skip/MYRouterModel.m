@@ -9,13 +9,15 @@
 #import "MYRouterModel.h"
 
 @implementation MYRouterModel
-@synthesize schemeUrl;
+@synthesize path;
+@synthesize host;
 @synthesize method;
 @synthesize example;
 
 - (id)copyWithZone:(NSZone *)zone {
     MYRouterModel *copy = [[MYRouterModel alloc] init];
-    copy.schemeUrl = schemeUrl;
+    copy.path = path;
+    copy.host = host;
     copy.method = method;
     copy.example = example;
     return copy;

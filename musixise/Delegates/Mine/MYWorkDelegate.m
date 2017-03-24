@@ -20,6 +20,17 @@
     return viewModel;
 }
 
+- (NSString *)workIdsWithViewModels {
+    NSMutableString *str = [NSMutableString string];
+    MYWorkListModel *listModel = [self listModel];
+    for (MYWorkViewModel *viewModel in listModel.allData) {
+        [str appendString:[NSString stringWithFormat:@"%ld-",(long)viewModel.objId]];
+    }
+    if (str.length > 1) {
+        return [str substringToIndex:(str.length - 1)];
+    }
+    return str;
+}
 
 - (MYWorkListModel *)listModel {
     if ([self.model isKindOfClass:[MYWorkListModel class]]) {
@@ -62,7 +73,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    //TODO: wmy 点击播放
+    NSString *routeUrl = [NSString stringWithFormat:@"musixise://play?ids=%@?index=%ld",[self workIdsWithViewModels],(long)indexPath.row];
+    [router routeUrl:routeUrl];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -37,7 +37,7 @@
  *  @return string
  */
 - (NSString *)documentSongsFilePath:(NSString *)file;
-
+- (NSString *)cacheSongsFilePath:(NSString *)file;
 - (NSString *)documentPicturesFilePath:(NSString *)file;
 /**
  *  创建歌曲文件
@@ -46,9 +46,9 @@
  *
  *  @return 歌曲文件路径
  */
-- (NSString *)createSongsFile:(NSString *)file;
-
-- (NSString *)createPictureFile:(NSString *)file;
+- (NSString *)makeSureSongsFileExist:(NSString *)file;
+- (NSString *)makeSureCacheSongsFileExist:(NSString *)file;
+- (NSString *)makeSurePictureFileExist:(NSString *)file;
 
 - (NSString *)createlyricFile:(NSString *)file;
 
@@ -56,10 +56,15 @@
 
 - (BOOL)isSongFileExist:(NSString *)file;
 
+- (BOOL)isCacheSongFileExist:(NSString *)file;
+
 - (BOOL)isPictureFileExist:(NSString *)file;
 
 - (BOOL)isDatabaseExist:(NSString *)file;
 
 - (NSString *)createDBFile:(NSString *)fileName;
+
+
+- (BOOL)renameFile:(NSString *)filePathFileName toFileName:(NSString *)newFilePathName;
 
 @end
