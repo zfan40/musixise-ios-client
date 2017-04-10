@@ -39,8 +39,6 @@
 		F79D9A291D9562E9007AA167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A271D9562E9007AA167 /* Main.storyboard */; };
 		F79D9A2E1D9562E9007AA167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A2C1D9562E9007AA167 /* LaunchScreen.storyboard */; };
 		F79D9A541D956D6C007AA167 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A531D956D6C007AA167 /* Images.xcassets */; };
-		F79DAEA01DED66E4005FD65F /* MYTopSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F79DAE9F1DED66E4005FD65F /* MYTopSelectorView.m */; };
-		F79DAEA71DED8943005FD65F /* MYTopSelectorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F79DAEA61DED8943005FD65F /* MYTopSelectorLabel.m */; };
 		F7B6A1281DC882D9006227C7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */; };
 		F7B6A12F1DC88339006227C7 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A12D1DC8832F006227C7 /* libz.1.1.3.tbd */; };
 		F7B6A1311DC88393006227C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1301DC88393006227C7 /* libsqlite3.tbd */; };
@@ -48,6 +46,13 @@
 		F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */; };
 		F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */; };
 		F7DC60591E0E58B600BA7304 /* MYMineMainDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC60581E0E58B600BA7304 /* MYMineMainDelegate.m */; };
+		F7E4F5C51E973D2400EA4D90 /* MYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F5C41E973D2400EA4D90 /* MYSettingViewController.m */; };
+		F7E4F5C91E973D9C00EA4D90 /* MYSettingListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F5C81E973D9C00EA4D90 /* MYSettingListModel.m */; };
+		F7E4F5CD1E973DDD00EA4D90 /* MYSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F5CC1E973DDD00EA4D90 /* MYSettingViewModel.m */; };
+		F7E4F5D11E97400400EA4D90 /* MYSettingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F5D01E97400400EA4D90 /* MYSettingDelegate.m */; };
+		F7E4F5D91E97412800EA4D90 /* MYTopSelectorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F5D61E97412800EA4D90 /* MYTopSelectorLabel.m */; };
+		F7E4F5DA1E97412800EA4D90 /* MYTopSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F5D81E97412800EA4D90 /* MYTopSelectorView.m */; };
+		F7E4F5DE1E97414500EA4D90 /* MYSettingItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F5DD1E97414500EA4D90 /* MYSettingItemView.m */; };
 		F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */; };
 		F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713351D9BC36200F8F300 /* MYLoginIconView.m */; };
 		F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713381D9BC6B300F8F300 /* MYLoginItem.m */; };
@@ -120,11 +125,6 @@
 		F79D9A431D9562E9007AA167 /* musixiseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = musixiseUITests.m; sourceTree = "<group>"; };
 		F79D9A451D9562E9007AA167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79D9A531D956D6C007AA167 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F79DAE9E1DED66E4005FD65F /* MYTopSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTopSelectorView.h; sourceTree = "<group>"; };
-		F79DAE9F1DED66E4005FD65F /* MYTopSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTopSelectorView.m; sourceTree = "<group>"; };
-		F79DAEA21DED6742005FD65F /* MYTopSelectorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTopSelectorModel.h; sourceTree = "<group>"; };
-		F79DAEA51DED8943005FD65F /* MYTopSelectorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTopSelectorLabel.h; sourceTree = "<group>"; };
-		F79DAEA61DED8943005FD65F /* MYTopSelectorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTopSelectorLabel.m; sourceTree = "<group>"; };
 		F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F7B6A1291DC882FD006227C7 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		F7B6A12B1DC8831B006227C7 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -138,6 +138,21 @@
 		F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserItemModel.m; sourceTree = "<group>"; };
 		F7DC60571E0E58B600BA7304 /* MYMineMainDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineMainDelegate.h; sourceTree = "<group>"; };
 		F7DC60581E0E58B600BA7304 /* MYMineMainDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineMainDelegate.m; sourceTree = "<group>"; };
+		F7E4F5C31E973D2400EA4D90 /* MYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSettingViewController.h; sourceTree = "<group>"; };
+		F7E4F5C41E973D2400EA4D90 /* MYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSettingViewController.m; sourceTree = "<group>"; };
+		F7E4F5C71E973D9C00EA4D90 /* MYSettingListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSettingListModel.h; sourceTree = "<group>"; };
+		F7E4F5C81E973D9C00EA4D90 /* MYSettingListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSettingListModel.m; sourceTree = "<group>"; };
+		F7E4F5CB1E973DDD00EA4D90 /* MYSettingViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSettingViewModel.h; sourceTree = "<group>"; };
+		F7E4F5CC1E973DDD00EA4D90 /* MYSettingViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSettingViewModel.m; sourceTree = "<group>"; };
+		F7E4F5CF1E97400400EA4D90 /* MYSettingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSettingDelegate.h; sourceTree = "<group>"; };
+		F7E4F5D01E97400400EA4D90 /* MYSettingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSettingDelegate.m; sourceTree = "<group>"; };
+		F7E4F5D41E97412800EA4D90 /* MYTopSelectorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTopSelectorModel.h; sourceTree = "<group>"; };
+		F7E4F5D51E97412800EA4D90 /* MYTopSelectorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTopSelectorLabel.h; sourceTree = "<group>"; };
+		F7E4F5D61E97412800EA4D90 /* MYTopSelectorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTopSelectorLabel.m; sourceTree = "<group>"; };
+		F7E4F5D71E97412800EA4D90 /* MYTopSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTopSelectorView.h; sourceTree = "<group>"; };
+		F7E4F5D81E97412800EA4D90 /* MYTopSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTopSelectorView.m; sourceTree = "<group>"; };
+		F7E4F5DC1E97414500EA4D90 /* MYSettingItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSettingItemView.h; sourceTree = "<group>"; };
+		F7E4F5DD1E97414500EA4D90 /* MYSettingItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSettingItemView.m; sourceTree = "<group>"; };
 		F7E713201D9BC2EC00F8F300 /* MYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginViewController.h; sourceTree = "<group>"; };
 		F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoginViewController.m; sourceTree = "<group>"; };
 		F7E713341D9BC36200F8F300 /* MYLoginIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginIconView.h; sourceTree = "<group>"; };
@@ -211,6 +226,7 @@
 		F72401811E0FDB65006D816B /* ListModels */ = {
 			isa = PBXGroup;
 			children = (
+				F7E4F5C61E973D8000EA4D90 /* Main */,
 				F717EE071E25FEB200E92863 /* Faviroute */,
 				F72401821E0FDB65006D816B /* Mine */,
 			);
@@ -229,6 +245,7 @@
 		F72401831E0FDB65006D816B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F7E4F5CA1E973DCD00EA4D90 /* Main */,
 				F717EE081E25FEB800E92863 /* Faviroute */,
 				F72401841E0FDB65006D816B /* Mine */,
 			);
@@ -335,6 +352,8 @@
 				F7225FC51DEBF76800E2081E /* MYRootTabBarViewController.m */,
 				F78D79DA1DED26A800395466 /* MYMineViewController.h */,
 				F78D79DB1DED26A800395466 /* MYMineViewController.m */,
+				F7E4F5C31E973D2400EA4D90 /* MYSettingViewController.h */,
+				F7E4F5C41E973D2400EA4D90 /* MYSettingViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -433,26 +452,16 @@
 		F79DAE9D1DED66CC005FD65F /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F79DAEA11DED6719005FD65F /* Model */,
-				F79DAE9E1DED66E4005FD65F /* MYTopSelectorView.h */,
-				F79DAE9F1DED66E4005FD65F /* MYTopSelectorView.m */,
-				F79DAEA51DED8943005FD65F /* MYTopSelectorLabel.h */,
-				F79DAEA61DED8943005FD65F /* MYTopSelectorLabel.m */,
+				F7E4F5DB1E97413500EA4D90 /* Setting */,
+				F7E4F5D21E97412800EA4D90 /* Selector */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		F79DAEA11DED6719005FD65F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F79DAEA21DED6742005FD65F /* MYTopSelectorModel.h */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		F7DC60551E0E589500BA7304 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				F7E4F5CE1E973FE800EA4D90 /* Main */,
 				F7DC60561E0E589F00BA7304 /* Mine */,
 			);
 			path = Delegates;
@@ -467,6 +476,62 @@
 				F724017F1E0FD836006D816B /* MYWorkDelegate.m */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		F7E4F5C61E973D8000EA4D90 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F7E4F5C71E973D9C00EA4D90 /* MYSettingListModel.h */,
+				F7E4F5C81E973D9C00EA4D90 /* MYSettingListModel.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F7E4F5CA1E973DCD00EA4D90 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F7E4F5CB1E973DDD00EA4D90 /* MYSettingViewModel.h */,
+				F7E4F5CC1E973DDD00EA4D90 /* MYSettingViewModel.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F7E4F5CE1E973FE800EA4D90 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F7E4F5CF1E97400400EA4D90 /* MYSettingDelegate.h */,
+				F7E4F5D01E97400400EA4D90 /* MYSettingDelegate.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F7E4F5D21E97412800EA4D90 /* Selector */ = {
+			isa = PBXGroup;
+			children = (
+				F7E4F5D31E97412800EA4D90 /* Model */,
+				F7E4F5D51E97412800EA4D90 /* MYTopSelectorLabel.h */,
+				F7E4F5D61E97412800EA4D90 /* MYTopSelectorLabel.m */,
+				F7E4F5D71E97412800EA4D90 /* MYTopSelectorView.h */,
+				F7E4F5D81E97412800EA4D90 /* MYTopSelectorView.m */,
+			);
+			path = Selector;
+			sourceTree = "<group>";
+		};
+		F7E4F5D31E97412800EA4D90 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7E4F5D41E97412800EA4D90 /* MYTopSelectorModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F7E4F5DB1E97413500EA4D90 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				F7E4F5DC1E97414500EA4D90 /* MYSettingItemView.h */,
+				F7E4F5DD1E97414500EA4D90 /* MYSettingItemView.m */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		F7E7131F1D9BC2DC00F8F300 /* Login */ = {
@@ -668,16 +733,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F79D9A231D9562E9007AA167 /* AppDelegate.m in Sources */,
+				F7E4F5D91E97412800EA4D90 /* MYTopSelectorLabel.m in Sources */,
 				F74460411E83ECA10047D17B /* MYPlayListManager.m in Sources */,
+				F7E4F5DA1E97412800EA4D90 /* MYTopSelectorView.m in Sources */,
 				F76364C31DF3F72A00DBA050 /* MYFavArtistViewController.m in Sources */,
 				F72401871E0FDD18006D816B /* MYWorkListModel.m in Sources */,
 				F79D9A201D9562E9007AA167 /* main.m in Sources */,
 				F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */,
 				F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */,
 				F72401921E0FEDC2006D816B /* MYWorkModel.m in Sources */,
+				F7E4F5C91E973D9C00EA4D90 /* MYSettingListModel.m in Sources */,
 				F724018B1E0FE277006D816B /* MYWorkItemView.m in Sources */,
 				F76E24CD1E13BE7A00A2E79B /* MYMusicViewController.m in Sources */,
 				F724018E1E0FE2E1006D816B /* MYWorkViewModel.m in Sources */,
+				F7E4F5CD1E973DDD00EA4D90 /* MYSettingViewModel.m in Sources */,
 				F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */,
 				F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */,
 				F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */,
@@ -685,20 +754,21 @@
 				F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */,
 				F71A94AA1E77CFB0007A7183 /* MYUploadUtils.m in Sources */,
 				F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */,
-				F79DAEA71DED8943005FD65F /* MYTopSelectorLabel.m in Sources */,
 				F76364C91DF4049800DBA050 /* MYLoginNavigationViewController.m in Sources */,
 				F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */,
 				F72401801E0FD836006D816B /* MYWorkDelegate.m in Sources */,
 				F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */,
 				F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */,
 				F7DC60591E0E58B600BA7304 /* MYMineMainDelegate.m in Sources */,
+				F7E4F5DE1E97414500EA4D90 /* MYSettingItemView.m in Sources */,
 				F784E5E51E77ECB90000F0E1 /* MYImageBrowser.m in Sources */,
 				F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */,
 				F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */,
+				F7E4F5C51E973D2400EA4D90 /* MYSettingViewController.m in Sources */,
 				F703C9ED1E7817580068D727 /* MYWebViewController.m in Sources */,
 				F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */,
+				F7E4F5D11E97400400EA4D90 /* MYSettingDelegate.m in Sources */,
 				F76364CD1DF407F700DBA050 /* MYRegisterViewController.m in Sources */,
-				F79DAEA01DED66E4005FD65F /* MYTopSelectorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

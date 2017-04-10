@@ -1,15 +1,15 @@
 //
-//  BAudioController.h
-//  CoreAudio Starter Kit
+//  BPlayerAudioManager.h
+//  Pods
 //
-//  Created by Ben Smiley-Andrews on 28/01/2013.
-//  Copyright (c) 2013 Ben Smiley-Andrews. All rights reserved.
+//  Created by wmy on 2017/4/7.
+//
 //
 
 #import <AudioToolbox/MusicPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface BAudioController : NSObject<AVAudioSessionDelegate> {
+@interface BPlayerAudioManager : NSObject<AVAudioSessionDelegate> {
     AUGraph _processingGraph;
     AudioUnit _samplerUnit;
     AudioUnit _ioUnit;
@@ -23,8 +23,13 @@
 
 @property (nonatomic, readwrite) AudioUnit samplerUnit;
 
--(void) resumeFromInterruption;
--(void) interrupt;
--(void) setInputVolume: (Float32) volume withBus: (AudioUnitElement) bus;
+- (instancetype)initWithVoice:(NSString *)voiceName;
+
+
+-(void)resumeFromInterruption;
+-(void)interrupt;
+-(void)setInputVolume:(Float32)volume withBus:(AudioUnitElement)bus;
+
+- (NSString *)voiceName;
 
 @end

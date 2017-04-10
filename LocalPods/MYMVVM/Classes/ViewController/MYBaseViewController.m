@@ -125,6 +125,10 @@
 }
 #pragma mark - --------------------功能函数------------------
 
+- (void)onClickTitle {
+    
+}
+
 - (void)setTabBarHidden:(BOOL)hidden {
     TheTabBarViewController.hideTabBar = hidden;
 }
@@ -186,7 +190,11 @@
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [UILabel labelWithStyle:MYWidgetStyle_MYWidget_tt_c2_f4_a100 withTextAligment:NSTextAlignmentCenter];
+        _titleLabel = [UILabel labelWithStyle:MYWidgetStyle_MYWidget_tt_c2_f4_a100
+                             withTextAligment:NSTextAlignmentCenter];
+        UITapGestureRecognizer *titleTap = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                                  action:@selector(onClickTitle)];
+        [_titleLabel addGestureRecognizer:titleTap];
     }
     return _titleLabel;
 }

@@ -73,9 +73,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //TODO: wmy 点击播放
+    // 点击播放
     NSString *routeUrl = [NSString stringWithFormat:@"musixise://play?ids=%@?index=%ld",[self workIdsWithViewModels],(long)indexPath.row];
     [router routeUrl:routeUrl];
+//    NSString *routeUrl = [NSString stringWithFormat:@"musixise://play/%d",28];
+
+    
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

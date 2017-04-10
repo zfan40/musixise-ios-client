@@ -26,6 +26,8 @@
 @property(nonatomic, strong) MYWorkListModel *workListModel;
 @property(nonatomic, strong) MYUser *user;
 
+@property (nonatomic, strong) UIButton *settingBtn;
+
 @end
 
 @implementation MYMineViewController
@@ -55,6 +57,7 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
 - (void)initView {
     self.tableviewDelegate = self.mergeDelegate;
     // 注册3D Touch
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.settingBtn];
 }
 
 #pragma mark - --------------------接口API------------------
@@ -81,10 +84,34 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
 }
 
 #pragma mark - --------------------功能函数------------------
+
+- (void)onClickSetting {
+    //TODO: wmy 转到setting
+    [router routeUrl:@"musixise://page/MYSettingViewController"];
+    
+}
+
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------
+
+- (UIButton *)settingBtn {
+    if (!_settingBtn) {
+        _settingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _settingBtn.width = 32;
+        _settingBtn.height = 32;
+#if DEBUG
+        _settingBtn.layer.borderWidth = 1;
+        _settingBtn.layer.borderColor = [UIColor redColor].CGColor;
+#endif
+        [MYButtonFactory setButtonImage:_settingBtn WithimageName:@"iconFont-shezhi1" size:32 color:theMYWidget.c0];
+        [_settingBtn addTarget:self
+                        action:@selector(onClickSetting)
+              forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _settingBtn;
+}
 
 - (MYWorkListModel *)workListModel {
     if (!_workListModel) {

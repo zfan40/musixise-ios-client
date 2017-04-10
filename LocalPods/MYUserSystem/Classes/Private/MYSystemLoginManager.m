@@ -37,7 +37,7 @@
                                                               NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                                                               [defaults setObject:idToken forKey:@"idToken"];
                                                               [defaults synchronize];
-                                                              [self getUserInfo];
+                                                              [self getUserInfoByIdToken:idToken];
                                                               callback(YES,nil);
                                                           } else {
                                                               callback(NO,error);
@@ -47,7 +47,7 @@
     }
 }
 
-- (void)getUserInfo {
+- (void)getUserInfoByIdToken:(NSString *)idToken {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     NSString *method = @"user/getInfo";
     [[MYBaseNetWorkUtil sharedInstance] posthttpWithDictionary:dict withMethod:method withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
@@ -55,6 +55,7 @@
             NSError *error;
             MYUserModel *userModel = [[MYUserModel alloc] initWithDictionary:[result objectForKey:@"data"]  error:&error];
             MYUser *user = [[MYUser alloc] initWithData:userModel];
+            user.idToken = idToken;
             [[MYUserUtils sharedInstance] updateUser:user];
             [[NSNotificationCenter defaultCenter] postNotificationName:MYUserDidChanged object:nil];
         }

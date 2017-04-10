@@ -201,25 +201,7 @@
 #pragma mark - --------------------按钮事件------------------
 
 - (void)onClickTapIcon {
-    //TOOD: wmy test 用于测试播放音乐
-    // 将文件转为data
-    NSString *fileDataPath =[[NSBundle mainBundle] pathForResource:@"musixise_demo1"
-                                                            ofType:@"txt"];
-    NSData *resultData = [NSData dataWithContentsOfFile:fileDataPath];
-    [[MYPlayerEngine sharedInstance] inputPlayerData:resultData];
-    [[MYPlayerEngine sharedInstance] start];
     
-//    UIImage *image = [UIImage imageNamed:@"AppIcon60x60"];
-//    [[MYUploadUtils sharedInstance] uploadImage:image withComplete:^(NSDictionary * _Nonnull result, BOOL success, NSError * _Nullable error) {
-//        if (success) {
-//            
-//        }
-//    }];
-
-//    [[MYImageBrowser sharedInstance] imageBrowserWithBlock:^(NSString *imageUrl, BOOL success) {
-//        NSLog(@"imageUrl = %@",imageUrl);
-//    }];
-
     
 }
 
@@ -283,6 +265,7 @@ newInstanceUIButton1(genderBtn)
         _tableView = [[MYBaseTableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.bounces = NO;
 #if DEBUG
         _tableView.layer.borderWidth = 1;
         _tableView.layer.borderColor = [UIColor redColor].CGColor;

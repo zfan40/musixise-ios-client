@@ -117,7 +117,7 @@
     return MYNoDataEmptyType_Empty;
 }
 
-- (void)backToTop {
+- (void)onClickTitle {
     [self.tableView scrollsToTop];
 }
 
@@ -135,17 +135,6 @@
     imageView.width = 40;
     imageView.height = 40;
     [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:imageView]];
-}
-
-- (void)setTitle:(NSString *)title {
-    UILabel *titleLabel = [UILabel labelWithStyle:MYWidgetStyle_MYWidget_tt_c2_f4_a100 withTextAligment:NSTextAlignmentCenter];
-    [titleLabel setText:title];
-    [titleLabel sizeToFit];
-    self.navigationItem.titleView = titleLabel;
-    
-    UITapGestureRecognizer *myTitleTap = [[UITapGestureRecognizer alloc]initWithTarget:self
-                                                                              action:@selector(backToTop)];
-    [titleLabel addGestureRecognizer:myTitleTap];
 }
 
 #pragma mark - --------------------手势事件------------------

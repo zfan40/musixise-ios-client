@@ -1,0 +1,15 @@
+{
+	"sounds":[
+		{
+			"fileName": "AJH_Piano",
+			"soundName":"钢琴",
+		},
+		{
+			"fileName": "OPL-3_FM_128M",
+			"soundName":"这是啥没听出来",
+		}
+
+
+	]
+
+}

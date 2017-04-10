@@ -189,7 +189,7 @@
 #pragma mark - --------------------属性相关------------------
 - (UIButton *)rightMoreView {
     if (!_rightMoreView) {
-        _rightMoreView = [MYButtonFactory buttonWithImageName:@"iconFont-quanjugengduo" size:32 color:theMYWidget.c3];
+        _rightMoreView = [MYButtonFactory buttonWithImageName:@"iconFont-quanjugengduo" size:32 color:theMYWidget.c1];
         _rightMoreView.width = 32;
         _rightMoreView.height = 32;
         [_rightMoreView addTarget:self action:@selector(onclickMore) forControlEvents:UIControlEventTouchUpInside];
@@ -199,9 +199,13 @@
 
 - (UIButton *)backButton {
     if (!_backButton) {
-        _backButton = [MYButtonFactory buttonWithImageName:@"iconFont-quanjufanhui" size:24 color:theMYWidget.c2];
-        _backButton.width = 30;
-        _backButton.height = 30;
+        _backButton = [MYButtonFactory buttonWithImageName:@"iconFont-quanjufanhui" size:24 color:theMYWidget.c3];
+        _backButton.width = 32;
+        _backButton.height = 32;
+#if DEBUG
+        _backButton.layer.borderWidth = 1;
+        _backButton.layer.borderColor = [UIColor redColor].CGColor;
+#endif
         UITapGestureRecognizer *mybackButtonTap = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                                          action:@selector(backToPre)];
         [_backButton addGestureRecognizer:mybackButtonTap];

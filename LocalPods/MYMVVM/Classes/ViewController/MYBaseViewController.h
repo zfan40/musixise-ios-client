@@ -73,5 +73,6 @@ typedef enum {
 
 - (void)setTabBarHidden:(BOOL)hidden;
 
+- (void)onClickTitle;
 
 @end

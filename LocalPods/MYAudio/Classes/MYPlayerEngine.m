@@ -7,17 +7,20 @@
 //
 
 #import "MYPlayerEngine.h"
-#import <MYAudio/BAudioController.h>
 #import <MYUtils/NSArray+MYSafe.h>
+#import "BPlayerAudioManager.h"
+#import "MYSoundManager.h"
+
 @interface MYPlayerEngine ()
 
 //@property (nonatomic, strong) NSTimer *timer;
 @property(nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, strong) BAudioController *audioPlayer;
+@property (nonatomic, strong) BPlayerAudioManager *audioPlayer;
 @property(nonatomic, assign) BOOL isPlaying;// 控制是否播放的开关
 @property(nonatomic, assign) CGFloat currentTime;
 @property(nonatomic, assign) CGFloat totalTime;
+
 
 @end
 
@@ -105,12 +108,8 @@
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------
 
-- (BAudioController *)audioPlayer {
-    if (!_audioPlayer) {
-        _audioPlayer = [BAudioController new];
-        [_audioPlayer setInputVolume:1.0 withBus:0];
-    }
-    return _audioPlayer;
+- (BPlayerAudioManager *)audioPlayer {
+    return [MYSoundManager sharedInstance].currentManager;
 }
 
 @end

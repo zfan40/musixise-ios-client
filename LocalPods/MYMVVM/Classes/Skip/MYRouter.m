@@ -74,6 +74,9 @@ withManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels {
                     NSMutableDictionary *resultDict = [NSMutableDictionary dictionaryWithDictionary:dict];
                     NSDictionary *queryDict = [self queryURL:url.query];
                     [resultDict addEntriesFromDictionary:queryDict];
+                    if (!isEmptyString(url.path)) {
+                        [resultDict setObject:[url.path substringFromIndex:1] forKey:@"routePath"];
+                    }
                     NSString *manager = ((MYRouteManagerModel *)[self.routeDict objectForKey:method]).urlManagerName;
                     [NSClassFromString(manager) performSelector:NSSelectorFromString(method)
                                                      withObject:resultDict afterDelay:0];

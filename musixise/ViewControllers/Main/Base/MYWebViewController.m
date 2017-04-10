@@ -7,17 +7,19 @@
 //
 
 #import "MYWebViewController.h"
-#import <MYAudio/BAudioController.h>
+#import <MYAudio/BPlayerAudioManager.h>
+#import <libextobjc/EXTScope.h>
 #import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
 #import <MYUserSystem/MYUserUtils.h>
 #import <MYUserSystem/MYUser.h>
+#import <MYWidget/MYTipsHelper.h>
 #import <MYAudio/MYPlayerEngine.h>
 #import "MYImageBrowser.h"
 //#import <AudioToolbox/AudioToolbox.h>
 
 @interface MYWebViewController ()
 
-@property (nonatomic, strong) BAudioController *audioPlayer;
+@property (nonatomic, strong) BPlayerAudioManager *audioPlayer;
 @property (strong, nonatomic) WebViewJavascriptBridge *bridge;
 
 @end
@@ -49,9 +51,9 @@
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------
 
-- (BAudioController *)audioPlayer {
+- (BPlayerAudioManager *)audioPlayer {
     if (!_audioPlayer) {
-        _audioPlayer = [BAudioController new];
+        _audioPlayer = [[BPlayerAudioManager alloc] init];
         [_audioPlayer setInputVolume:1.0 withBus:0];
     }
     return _audioPlayer;
@@ -65,6 +67,7 @@
                                                         //默认的handler
                                                         responseCallback(@"Response for message from ObjC");
                                                     }];
+        @weakify(self);
         [_bridge registerHandler:@"MusicDeviceMIDIEvent"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0] integerValue],
@@ -102,6 +105,17 @@
                                      responseCallback(imageUrl);
                                  }
                              }];
+                         }];
+        [_bridge registerHandler:@"SetTitle"
+                         handler:^(id data, WVJBResponseCallback responseCallback) {
+                             @strongify(self);
+                             NSString *title = data;
+                             self.title = title;
+                         }];
+        [_bridge registerHandler:@"ShowToast"
+                         handler:^(id data, WVJBResponseCallback responseCallback) {
+                             NSString *title = data;
+                             [[MYTipsHelper sharedInstance] showTips:title];
                          }];
     }
     return _bridge;

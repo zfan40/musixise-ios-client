@@ -32,9 +32,21 @@
                },
                {
                "host":"play",
+               "path":"/([\\d-]+)",
+               "example":"musixise://play/",
+               "method":"play:",
+               },
+               {
+               "host":"play",
                "path":"",
                "example":"musixise://play",
                "method":"play:",
+               },
+               {
+               "host":"login",
+               "path":"",
+               "example":"musixise://login",
+               "method":"login:",
                }
                ]
 }

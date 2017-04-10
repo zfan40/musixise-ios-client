@@ -28,16 +28,17 @@
 #pragma mark - 页面跳转
 
 + (void)page:(NSDictionary *)dict {
-    NSString *schemeUrl = [dict objectForKey:@"scheme_url"];
-    NSRange range = [schemeUrl rangeOfString:@"/"];
-    NSString *classString = [schemeUrl substringFromIndex:range.location + range.length];
+    NSString *classString = [dict objectForKey:@"routePath"];
     NSMutableDictionary *resultDict = [NSMutableDictionary dictionaryWithDictionary:dict];
-    [resultDict setValue:nil forKey:@"scheme_url"];
-    [resultDict setValue:nil forKey:@"params"];
+    [resultDict setValue:nil forKey:@"routePath"];
     [self page:classString withDictionary:resultDict];
-    
 }
 
+#pragma mark - 登录
+
++ (void)login:(NSDictionary *)dict {
+    [router routeUrl:@"musixise://page/MYLoginViewController"];
+}
 
 /**
  播放一首歌

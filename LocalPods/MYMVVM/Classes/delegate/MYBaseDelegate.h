@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MYBaseViewModel.h"
 #import "MYBaseTableView.h"
+#import "MYBaseTableViewCell.h"
 #import "MYBaseViewModel.h"
 #import "MYNavigationController.h"
 #import "MYBaseViewController.h"

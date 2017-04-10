@@ -1,119 +1,137 @@
 //
-//  BAudioController.m
-//  CoreAudio Starter Kit
+//  BPlayerAudioManager.m
+//  Pods
 //
-//  Created by Ben Smiley-Andrews on 28/01/2013.
-//  Copyright (c) 2013 Ben Smiley-Andrews. All rights reserved.
+//  Created by wmy on 2017/4/7.
+//
 //
 
-#import "BAudioController.h"
+#import "BPlayerAudioManager.h"
 
-@implementation BAudioController
+@implementation BPlayerAudioManager
 
 #define bSampleRate 44100.0
 
 @synthesize samplerUnit = _samplerUnit;
 
--(id) init {
-    if((self = [super init])) {
-        
+
+#pragma mark - --------------------退出清空------------------
+#pragma mark - --------------------初始化--------------------
+
+- (instancetype)initWithVoice:(NSString *)voiceName {
+    if (self = [super init]) {
         [self setupAudioSession];
-        
-        // Set up variables for the audio graph
-        OSStatus result = noErr;
-        AUNode ioNode, mixerNode, samplerNode;
-        
-        // Specify the common portion of an audio unit's identify, used for all audio units
-        // in the graph.
-        AudioComponentDescription cd = {};
-        cd.componentManufacturer     = kAudioUnitManufacturer_Apple;
-        
-        // Instantiate an audio processing graph
-        result = NewAUGraph (&_processingGraph);
-        NSCAssert (result == noErr, @"Unable to create an AUGraph object. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        // SAMPLER UNIT
-        //Specify the Sampler unit, to be used as the first node of the graph
-        cd.componentType = kAudioUnitType_MusicDevice;
-        cd.componentSubType = kAudioUnitSubType_Sampler;
-        
-        // Create a new sampler note
-        result = AUGraphAddNode (_processingGraph, &cd, &samplerNode);
-        
-        // Check for any errors
-        NSCAssert (result == noErr, @"Unable to add the Sampler unit to the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        // IO UNIT
-        // Specify the Output unit, to be used as the second and final node of the graph
-        cd.componentType = kAudioUnitType_Output;
-        cd.componentSubType = kAudioUnitSubType_RemoteIO;
-        
-        // Add the Output unit node to the graph
-        result = AUGraphAddNode (_processingGraph, &cd, &ioNode);
-        NSCAssert (result == noErr, @"Unable to add the Output unit to the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        // MIXER UNIT
-        // Add the mixer unit to the graph
-        cd.componentType = kAudioUnitType_Mixer;
-        cd.componentSubType = kAudioUnitSubType_MultiChannelMixer;
-        
-        result = AUGraphAddNode (_processingGraph, &cd, &mixerNode);
-        NSCAssert (result == noErr, @"Unable to add the Output unit to the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        
-        // Open the graph
-        result = AUGraphOpen (_processingGraph);
-        NSCAssert (result == noErr, @"Unable to open the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        // Now that the graph is open get references to all the nodes and store
-        // them as audio units
-        
-        // Get a reference to the sampler node and store it in the samplerUnit variable
-        result = AUGraphNodeInfo (_processingGraph, samplerNode, 0, &_samplerUnit);
-        NSCAssert (result == noErr, @"Unable to obtain a reference to the Sampler unit. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        // Load a soundfont into the mixer unit
-        [self loadSoundFont:@"AJH_Piano" withPatch:0 withBank:kAUSampler_DefaultMelodicBankMSB withSampler:_samplerUnit];
-        
-        // Obtain a reference to the I/O unit from its node
-        result = AUGraphNodeInfo (_processingGraph, ioNode, 0, &_ioUnit);
-        NSCAssert (result == noErr, @"Unable to obtain a reference to the I/O unit. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        result = AUGraphNodeInfo (_processingGraph, mixerNode, 0, &_mixerUnit);
-        NSCAssert (result == noErr, @"Unable to obtain a reference to the Mixer unit. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        // Set number of busses on mixer
-        UInt32 busses = 1;
-        result = AudioUnitSetProperty (_mixerUnit,
-                                       kAudioUnitProperty_ElementCount,
-                                       kAudioUnitScope_Input,
-                                       0,
-                                       &busses,sizeof (busses));
-        NSCAssert (result == noErr, @"Unable to set input busses on mixer. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        // Connect the output of the mixer node to the input of he io node
-        result = AUGraphConnectNodeInput (_processingGraph, samplerNode, 0, mixerNode, 0);
-        NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        result = AUGraphConnectNodeInput (_processingGraph, mixerNode, 0, ioNode, 0);
-        NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        // Print a graphic version of the graph
-        CAShow(_processingGraph);
-        
-        // Start the graph
-        result = AUGraphInitialize (_processingGraph);
-        
-        NSAssert (result == noErr, @"Unable to initialze AUGraph object. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
-        // Start the graph
-        result = AUGraphStart (_processingGraph);
-        NSAssert (result == noErr, @"Unable to start audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
-        
+        [self initVoiceWithVoiceName:voiceName];
     }
     return self;
 }
 
--(void) setInputVolume: (Float32) volume withBus: (AudioUnitElement) bus {
+-(id) init {
+    if((self = [super init])) {
+        [self setupAudioSession];
+        [self initVoiceWithVoiceName:@"AJH_Piano"];
+    }
+    return self;
+}
+
+- (void)initVoiceWithVoiceName:(NSString *)voiceName {
+    
+    // Set up variables for the audio graph
+    OSStatus result = noErr;
+    AUNode ioNode, mixerNode, samplerNode;
+    
+    // Specify the common portion of an audio unit's identify, used for all audio units
+    // in the graph.
+    AudioComponentDescription cd = {};
+    cd.componentManufacturer     = kAudioUnitManufacturer_Apple;
+    
+    // Instantiate an audio processing graph
+    result = NewAUGraph (&_processingGraph);
+    NSCAssert (result == noErr, @"Unable to create an AUGraph object. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    // SAMPLER UNIT
+    //Specify the Sampler unit, to be used as the first node of the graph
+    cd.componentType = kAudioUnitType_MusicDevice;
+    cd.componentSubType = kAudioUnitSubType_Sampler;
+    
+    // Create a new sampler note
+    result = AUGraphAddNode (_processingGraph, &cd, &samplerNode);
+    
+    // Check for any errors
+    NSCAssert (result == noErr, @"Unable to add the Sampler unit to the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    // IO UNIT
+    // Specify the Output unit, to be used as the second and final node of the graph
+    cd.componentType = kAudioUnitType_Output;
+    cd.componentSubType = kAudioUnitSubType_RemoteIO;
+    
+    // Add the Output unit node to the graph
+    result = AUGraphAddNode (_processingGraph, &cd, &ioNode);
+    NSCAssert (result == noErr, @"Unable to add the Output unit to the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    // MIXER UNIT
+    // Add the mixer unit to the graph
+    cd.componentType = kAudioUnitType_Mixer;
+    cd.componentSubType = kAudioUnitSubType_MultiChannelMixer;
+    
+    result = AUGraphAddNode (_processingGraph, &cd, &mixerNode);
+    NSCAssert (result == noErr, @"Unable to add the Output unit to the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    
+    // Open the graph
+    result = AUGraphOpen (_processingGraph);
+    NSCAssert (result == noErr, @"Unable to open the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    // Now that the graph is open get references to all the nodes and store
+    // them as audio units
+    
+    // Get a reference to the sampler node and store it in the samplerUnit variable
+    result = AUGraphNodeInfo (_processingGraph, samplerNode, 0, &_samplerUnit);
+    NSCAssert (result == noErr, @"Unable to obtain a reference to the Sampler unit. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    // Load a soundfont into the mixer unit
+    [self loadSoundFont:voiceName withPatch:0 withBank:kAUSampler_DefaultMelodicBankMSB withSampler:_samplerUnit];
+    
+    // Obtain a reference to the I/O unit from its node
+    result = AUGraphNodeInfo (_processingGraph, ioNode, 0, &_ioUnit);
+    NSCAssert (result == noErr, @"Unable to obtain a reference to the I/O unit. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    result = AUGraphNodeInfo (_processingGraph, mixerNode, 0, &_mixerUnit);
+    NSCAssert (result == noErr, @"Unable to obtain a reference to the Mixer unit. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    // Set number of busses on mixer
+    UInt32 busses = 1;
+    result = AudioUnitSetProperty (_mixerUnit,
+                                   kAudioUnitProperty_ElementCount,
+                                   kAudioUnitScope_Input,
+                                   0,
+                                   &busses,sizeof (busses));
+    NSCAssert (result == noErr, @"Unable to set input busses on mixer. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    // Connect the output of the mixer node to the input of he io node
+    result = AUGraphConnectNodeInput (_processingGraph, samplerNode, 0, mixerNode, 0);
+    NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    result = AUGraphConnectNodeInput (_processingGraph, mixerNode, 0, ioNode, 0);
+    NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    // Print a graphic version of the graph
+    CAShow(_processingGraph);
+    
+    // Start the graph
+    result = AUGraphInitialize (_processingGraph);
+    
+    NSAssert (result == noErr, @"Unable to initialze AUGraph object. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+    // Start the graph
+    result = AUGraphStart (_processingGraph);
+    NSAssert (result == noErr, @"Unable to start audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+    
+}
+#pragma mark - --------------------接口API------------------
+#pragma mark - --------------------父类方法重写--------------
+#pragma mark - --------------------功能函数------------------
+
+-(void)setInputVolume:(Float32)volume withBus:(AudioUnitElement)bus {
     OSStatus result = AudioUnitSetParameter(_mixerUnit,
                                             kMultiChannelMixerParam_Volume,
                                             kAudioUnitScope_Input,
@@ -122,7 +140,8 @@
     NSAssert (result == noErr, @"Unable to set mixer input volume. Error code: %d '%.4s'", (int) result, (const char *)&result);
 }
 
--(void) loadSoundFont: (NSString*) path withPatch: (int) patch withBank: (UInt8) bank withSampler: (AudioUnit) sampler {
+
+-(void)loadSoundFont:(NSString*)path withPatch:(int)patch withBank:(UInt8)bank withSampler:(AudioUnit)sampler {
     
     NSLog(@"Sound font: %@", path);
     
@@ -158,6 +177,7 @@
     
     return result;
 }
+
 
 //  AVAudioSession setup
 //  This is all the external housekeeping needed in any ios coreaudio app
@@ -339,10 +359,6 @@
     NSTimeInterval duration = [_audioSession preferredIOBufferDuration];
     NSLog(@"Current Buffer duration: %f", duration);
 }
-
-
-
-
 
 
 @end

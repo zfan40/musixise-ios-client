@@ -27,6 +27,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 若第一次升级到此app，则显示欢迎页
+    //TODO: wmy 将此收口入web的初始化工具类中
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    NSString *oldAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+    NSLog(@"old agent :%@", oldAgent);
+    
+    //add my info to the new agent
+    NSString *newAgent = [NSString stringWithFormat:@"Musixise %@",oldAgent];
+//    NSString *newAgent = oldAgent;
+    NSLog(@"new agent :%@", newAgent);
+    
+    //regist the new agent
+    NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent", nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
+    
+    
+    
+    
     MYBaseViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
 
     MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
@@ -69,13 +86,20 @@
 
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[MYThirdManager sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    NSString *urlStr = url.absoluteString;
+    if ([urlStr hasPrefix:@"musixise"]) {
+        [router routeUrl:urlStr];
+        return YES;
+    } else {
+        return [[MYThirdManager sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    }
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     // TODO: wmy 添加route的跳转(需要集成到MYThirdManager)
     
     return [[MYLoginManager sharedInstance] handleWithURL:[url absoluteString]];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

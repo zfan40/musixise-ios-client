@@ -23,9 +23,13 @@
     NSString *plistVersion = [share objectForKey:kCurrentVersion];
     MYBaseViewController *vc = nil;
     if ([plistVersion isEqualToString:version]) {
+        // 为老版本
+        // 1. 判断是否登录
+        
         MYNavigationController *main = [[MYNavigationController alloc] initWithRootViewController:[[MYMainViewController alloc] init]];
         vc = main;
     } else {
+        // 为新版本
         MYLaunchViewController *launch = [[MYLaunchViewController alloc] init];
         vc = launch;
         [share setObject:version forKey:kCurrentVersion];
@@ -36,6 +40,10 @@
 //    [router setup:loginNavi withManagerModels:array];
     
     return vc;
+}
+
+- (void)changeToLoginViewController {
+    
 }
 
 @end
