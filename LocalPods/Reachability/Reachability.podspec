@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint MYImageService.podspec' to ensure this is a
+#  Be sure to run `pod spec lint Reachability.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,20 +15,19 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "MYImageService"
+  s.name         = "Reachability"
   s.version      = "0.0.1"
-  s.summary      = "A short description of MYImageService."
+  s.summary      = "A short description of Reachability."
 
+  # This description is used to generate tags and improve search results.
+  #   * Think: What does it do? Why did you write it? What is the focus?
+  #   * Try to keep it short, snappy and to the point.
+  #   * Write the description between the DESC delimiters below.
+  #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                   A longer description of MYImageService in Markdown format.
-
-                   * Think: Why did you write this? What is the focus? What does it do?
-                   * CocoaPods will be using this to generate tags, and improve search results.
-                   * Try to keep it short, snappy and to the point.
-                   * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  s.homepage     = "http://EXAMPLE/MYImageService"
+  s.homepage     = "http://EXAMPLE/Reachability"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -39,7 +38,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
+  s.license      = "MIT (example)"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -53,9 +52,9 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "wmy" => "mingyan.wmy@alibaba-inc.com" }
+  s.author             = { "wmy" => "wenmingyan1990@gmail.com" }
   # Or just: s.author    = "wmy"
-  # s.authors            = { "wmy" => "mingyan.wmy@alibaba-inc.com" }
+  # s.authors            = { "wmy" => "wenmingyan1990@gmail.com" }
   # s.social_media_url   = "http://twitter.com/wmy"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -71,6 +70,7 @@ Pod::Spec.new do |s|
   # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
+  # s.tvos.deployment_target = "9.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@gitlab.alibaba-inc.com:xiaplay-core/MYImageService.git", :tag => "0.0.1" }
+  s.source       = { :git => "http://EXAMPLE/Reachability.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -132,6 +132,6 @@ Pod::Spec.new do |s|
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency 'SDWebImage'
+  # s.dependency "JSONKit", "~> 1.4"
 
 end

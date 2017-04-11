@@ -118,7 +118,7 @@ Pod::Spec.new do |s|
 
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
-
+  s.vendored_frameworks = 'Frameworks/*.framework' 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
 
@@ -132,6 +132,5 @@ Pod::Spec.new do |s|
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency 'CocoaLumberjack'
   
 end
