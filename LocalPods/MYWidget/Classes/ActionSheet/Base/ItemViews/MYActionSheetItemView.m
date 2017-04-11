@@ -146,7 +146,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.numberOfLines = 1;
-        _titleLabel.textColor = theMYWidget.c0;
+        _titleLabel.textColor = theMYWidget.c2;
         _titleLabel.font = theMYWidget.f3;
     }
     return _titleLabel;

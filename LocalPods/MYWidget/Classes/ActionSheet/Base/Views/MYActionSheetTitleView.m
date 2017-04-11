@@ -100,7 +100,7 @@
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.numberOfLines = 0;
         _titleLabel.font =  theMYWidget.f4;
-        _titleLabel.textColor = theMYWidget.c0;
+        _titleLabel.textColor = theMYWidget.c2;
     }
     return _titleLabel;
 }
@@ -109,7 +109,7 @@
     if (!_subTitleLabel) {
         _subTitleLabel = [[UILabel alloc] init];
         _subTitleLabel.font = theMYWidget.f3;
-        _subTitleLabel.textColor = theMYWidget.c0;
+        _subTitleLabel.textColor = theMYWidget.c2;
         _subTitleLabel.numberOfLines = 0;
     }
     return _subTitleLabel;

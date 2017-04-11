@@ -13,16 +13,16 @@
                "method":"back:",
                },
                {
-               "host":"back",
-               "path":"/([\\d-]+)",
-               "example":"musixise://song/",
-               "method":"songs:",
-               },
-               {
                "host":"backToMain",
                "path":"/",
                "example":"musixise://backToMain",
                "method":"backToMain:",
+               },
+               {
+               "host":"play",
+               "path":"/[\\d-]",
+               "example":"musixise://play/23-24-25",
+               "method":"play:",
                },
                {
                "host":"play",
@@ -47,6 +47,24 @@
                "path":"",
                "example":"musixise://login",
                "method":"login:",
+               },
+               {
+               "host":"musixiser",
+               "path":"",
+               "example":"musixise://musixiser?id=1",
+               "method":"musixiser:",
+               },
+               {
+               "host":"stage",
+               "path":"",
+               "example":"musixise://stage?id=1",
+               "method":"stage:",
+               },
+               {
+               "host":"openWebPage",
+               "path":"",
+               "example":"musixise://openWebPage?url=www.baidu.com",
+               "method":"openWebPage:",
                }
                ]
 }

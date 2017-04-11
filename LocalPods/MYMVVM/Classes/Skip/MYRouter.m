@@ -83,9 +83,16 @@ withManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels {
                 }
             }
         }
+    } else if ([url.scheme isEqualToString:@"http"] ||
+               [url.scheme isEqualToString:@"https"]) {
+        [router routeWithUrl:url.absoluteString];
     }
 }
 
+
+- (void)routeWithUrl:(NSString *)url {
+    [router routeUrl:@"musixise://page/MYWebViewController" withParam:@{@"url":url}];
+}
 
 - (NSDictionary *)queryURL:(NSString *)query {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];

@@ -55,7 +55,7 @@
 }
 
 - (void)start {
-//    [self stop];
+    [self cancelPerform];
     self.isPlaying = YES;
     self.index = 0;
     [self onPlaying];
@@ -69,9 +69,11 @@
     self.isPlaying = NO;
     self.index = 0;
     self.dataArray = nil;
-    [NSObject cancelPreviousPerformRequestsWithTarget:self
-                                             selector:@selector(onPlaying)
-                                               object:nil];
+    [self cancelPerform];
+}
+
+- (void)cancelPerform {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
 
 #pragma mark - --------------------按钮事件------------------
@@ -84,7 +86,6 @@
         NSArray *array = [self.dataArray objectAtIndex:i];
         if (array.count == 4) {
             double nowTime = [array[3] doubleValue] * 0.001;
-            NSLog(@"index = %d",i);
             [self performSelector:@selector(playInArray:) withObject:array afterDelay:nowTime];
         }
     }

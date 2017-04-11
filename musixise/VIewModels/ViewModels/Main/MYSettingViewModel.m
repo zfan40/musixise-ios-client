@@ -13,7 +13,6 @@
 
 - (void)test {
     self.title = @"测试数据";
-    self.schemeUrl = @"musixise://";
 }
 
 @end

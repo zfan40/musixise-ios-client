@@ -35,6 +35,7 @@
     [super viewDidLoad];
 //    self.audioPlayer = self.audioPlayer;
     self.bridge = self.bridge;
+    //TODO: wmy 对url做一次处理，如设置title
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

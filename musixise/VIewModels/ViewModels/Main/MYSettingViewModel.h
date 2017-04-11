@@ -11,7 +11,9 @@
 @interface MYSettingViewModel : MYBaseViewModel
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *schemeUrl;
+
 @property(nonatomic, assign) BOOL isSelect;
+
+@property (nonatomic, assign) SEL action;
 
 @end

@@ -50,8 +50,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MYSettingViewModel *viewModel = [self detailModelWithIndexPath:indexPath];
-    if (!isEmptyString(viewModel.schemeUrl)) {
-        [router routeUrl:viewModel.schemeUrl];
+    MYSettingListModel *listModel = [self listModel];
+    if (viewModel.action) {
+        [listModel performSelector:viewModel.action withObject:nil afterDelay:0];
     }
 }
 

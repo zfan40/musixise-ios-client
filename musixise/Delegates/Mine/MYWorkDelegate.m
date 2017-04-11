@@ -76,8 +76,6 @@
     // 点击播放
     NSString *routeUrl = [NSString stringWithFormat:@"musixise://play?ids=%@?index=%ld",[self workIdsWithViewModels],(long)indexPath.row];
     [router routeUrl:routeUrl];
-//    NSString *routeUrl = [NSString stringWithFormat:@"musixise://play/%d",28];
-
     
 }
 

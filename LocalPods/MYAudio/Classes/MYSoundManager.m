@@ -44,6 +44,7 @@
             MYSoundModel *model = [[MYSoundModel alloc] init];
             model.fileName = [dict objectForKey:@"fileName"];
             model.soundName = [dict objectForKey:@"soundName"];
+            model.playManager = [[BPlayerAudioManager alloc] initWithVoice:model.fileName];
             [self.soundNames addObjectForMY:model.soundName];
             [self.soundModelDict setObjectForMY:model forKey:model.soundName];
         }

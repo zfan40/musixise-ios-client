@@ -40,19 +40,44 @@
     [router routeUrl:@"musixise://page/MYLoginViewController"];
 }
 
+#pragma mark - 详情
+
++ (void)musixiser:(NSDictionary *)dict {
+    NSInteger objId = [[dict objectForKey:@"id"] integerValue];
+    NSString *url = [NSString stringWithFormat:@"http://m.musixise.com/musixiser-detail/%ld",(long)objId];
+    [router routeUrl:url];
+}
+
++ (void)stage:(NSDictionary *)dict {
+    NSInteger objId = [[dict objectForKey:@"id"] integerValue];
+    NSString *url = [NSString stringWithFormat:@"http://m.musixisie.com/stage/%ld",(long)objId];
+    [router routeUrl:url];
+}
+
++ (void)openWebPage:(NSDictionary *)dict {
+    NSString *url = [dict objectForKey:@"url"];
+    [router routeUrl:url];
+}
+
 /**
  播放一首歌
 
  @param dict 一首歌
  */
 + (void)play:(NSDictionary *)dict {
-    DebugLog(@"dict");
-    NSString *ids = [dict objectForKey:@"ids"];
-    NSInteger index = [[dict objectForKey:@"index"] integerValue];
-    NSArray *workIds = [ids split:@"-"];
-    [thePlayListManager setPlayIds:workIds];
-    thePlayListManager.playIndex = index;
-    [thePlayListManager startPlaying];
+    if ([[dict objectForKey:@"id"] integerValue]) {
+        NSInteger objId = [[dict objectForKey:@"id"] integerValue];
+        [thePlayListManager setPlayIds:@[@(objId)]];
+        thePlayListManager.playIndex = 0;
+        [thePlayListManager startPlaying];
+    } else {
+        NSString *ids = [dict objectForKey:@"ids"];
+        NSInteger index = [[dict objectForKey:@"index"] integerValue];
+        NSArray *workIds = [ids split:@"-"];
+        [thePlayListManager setPlayIds:workIds];
+        thePlayListManager.playIndex = index;
+        [thePlayListManager startPlaying];
+    }
 }
 
 + (void)page:(NSString *)classString withDictionary:(NSDictionary *)dict {

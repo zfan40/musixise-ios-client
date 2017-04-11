@@ -7,16 +7,40 @@
 //
 
 #import "MYSettingListModel.h"
+#import <MYAudio/MYSoundManager.h>
+#import <MYWidget/MYActionSheet.h>
 #import "MYSettingViewModel.h"
 #import <MYAudio/MYSoundManager.h>
+
+@interface MYSettingListModel () <MYActionSheetDelegate>
+
+@end
 
 @implementation MYSettingListModel
 
 - (MYSettingViewModel *)soundChangeModel {
     MYSettingViewModel *viewModel = [[MYSettingViewModel alloc] init];
     viewModel.title = @"音色设置";
-    viewModel.schemeUrl = @"musixise://page/MYSoundSettingViewController";
+    viewModel.action = @selector(soundScheme);
     return viewModel;
+}
+
+
+
+- (void)soundScheme {
+    NSArray *array = [[MYSoundManager sharedInstance] soundNameArray];
+    MYActionSheet *actionSheet = [MYActionSheet actionSheetWithTitle:@"音色设置"
+                                                             message:@"请选择播放时的音色"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"取消"
+                                                    buttonTitleArray:array];
+    [actionSheet show];
+}
+
+
+- (void)actionSheet:(MYActionSheet *)actionSheet DidClickWithIndex:(NSInteger)index {
+    [[MYSoundManager sharedInstance] setCurrentIndex:index];
+    [actionSheet dismiss];
 }
 
 - (void)test {
