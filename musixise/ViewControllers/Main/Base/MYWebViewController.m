@@ -74,7 +74,7 @@
                              MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0] integerValue],
                                                   [data[1] integerValue], [data[2] integerValue], [data[3] integerValue]);
                          }];
-        [_bridge registerHandler:@"EnterStage"
+        [_bridge registerHandler:@"PushWebPage"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              NSMutableDictionary *dict = [NSMutableDictionary dictionary];
                              [dict setObject:data forKey:@"url"];
