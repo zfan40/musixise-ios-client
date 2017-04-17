@@ -72,6 +72,9 @@
         function callHandler(evt, data, callback) {
             if (!MUSIXISE) {
                 connectWebViewJavascriptBridge(function(bridge) {
+                    bridge.init(function(message,responseCallback){
+                        responseCallback(data);
+                    })
                    MUSIXISE = bridge;
                    bridge.callHandler(evt, data, callback)
                 })
