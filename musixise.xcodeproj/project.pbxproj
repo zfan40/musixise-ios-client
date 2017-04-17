@@ -610,12 +610,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F79D9A481D9562E9007AA167 /* Build configuration list for PBXNativeTarget "musixise" */;
 			buildPhases = (
-				D24FB060D4ED22B067B7A7E4 /* Check Pods Manifest.lock */,
+				D24FB060D4ED22B067B7A7E4 /* 📦 Check Pods Manifest.lock */,
 				F79D9A171D9562E9007AA167 /* Sources */,
 				F79D9A181D9562E9007AA167 /* Frameworks */,
 				F79D9A191D9562E9007AA167 /* Resources */,
-				DF69C29EE6F4367422161836 /* Embed Pods Frameworks */,
-				FB62CF000176301083EEBA1C /* Copy Pods Resources */,
+				DF69C29EE6F4367422161836 /* 📦 Embed Pods Frameworks */,
+				FB62CF000176301083EEBA1C /* 📦 Copy Pods Resources */,
+				CA4B003F9BA6416521B4F76C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -637,7 +638,7 @@
 				TargetAttributes = {
 					F79D9A1A1D9562E9007AA167 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = LDD2REGS3S;
+						DevelopmentTeam = 3S943M5G26;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -680,22 +681,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D24FB060D4ED22B067B7A7E4 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DF69C29EE6F4367422161836 /* Embed Pods Frameworks */ = {
+		CA4B003F9BA6416521B4F76C /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -710,14 +696,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-musixise/Pods-musixise-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB62CF000176301083EEBA1C /* Copy Pods Resources */ = {
+		D24FB060D4ED22B067B7A7E4 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DF69C29EE6F4367422161836 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-musixise/Pods-musixise-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB62CF000176301083EEBA1C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -888,8 +904,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = LDD2REGS3S;
+				DEVELOPMENT_TEAM = 3S943M5G26;
 				INFOPLIST_FILE = musixise/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -904,8 +922,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = LDD2REGS3S;
+				DEVELOPMENT_TEAM = 3S943M5G26;
 				INFOPLIST_FILE = musixise/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
