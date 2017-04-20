@@ -32,6 +32,9 @@
 		F7762B591D9B7407001F64EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7762B581D9B7407001F64EE /* AudioToolbox.framework */; };
 		F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */; };
 		F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B601D9B75C8001F64EE /* MYLaunchViewController.m */; };
+		F77E2B421EA4927500D2648E /* MYScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77E2B411EA4927500D2648E /* MYScanViewController.m */; };
+		F77E2B461EA4995B00D2648E /* MYScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = F77E2B451EA4995B00D2648E /* MYScanView.m */; };
+		F77E2B4A1EA49B3900D2648E /* MYCornerScanLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F77E2B491EA49B3900D2648E /* MYCornerScanLayer.m */; };
 		F784E5E51E77ECB90000F0E1 /* MYImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F784E5E41E77ECB90000F0E1 /* MYImageBrowser.m */; };
 		F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78D79DB1DED26A800395466 /* MYMineViewController.m */; };
 		F79D9A201D9562E9007AA167 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F79D9A1F1D9562E9007AA167 /* main.m */; };
@@ -39,6 +42,7 @@
 		F79D9A291D9562E9007AA167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A271D9562E9007AA167 /* Main.storyboard */; };
 		F79D9A2E1D9562E9007AA167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A2C1D9562E9007AA167 /* LaunchScreen.storyboard */; };
 		F79D9A541D956D6C007AA167 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A531D956D6C007AA167 /* Images.xcassets */; };
+		F7B5F6611EA5AC7200ABF026 /* MYCenterScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5F6601EA5AC7200ABF026 /* MYCenterScanView.m */; };
 		F7B6A1281DC882D9006227C7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */; };
 		F7B6A12F1DC88339006227C7 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A12D1DC8832F006227C7 /* libz.1.1.3.tbd */; };
 		F7B6A1311DC88393006227C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1301DC88393006227C7 /* libsqlite3.tbd */; };
@@ -109,6 +113,12 @@
 		F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMainViewController.m; sourceTree = "<group>"; };
 		F7762B5F1D9B75C8001F64EE /* MYLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLaunchViewController.h; sourceTree = "<group>"; };
 		F7762B601D9B75C8001F64EE /* MYLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLaunchViewController.m; sourceTree = "<group>"; };
+		F77E2B401EA4927500D2648E /* MYScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYScanViewController.h; sourceTree = "<group>"; };
+		F77E2B411EA4927500D2648E /* MYScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYScanViewController.m; sourceTree = "<group>"; };
+		F77E2B441EA4995B00D2648E /* MYScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYScanView.h; sourceTree = "<group>"; };
+		F77E2B451EA4995B00D2648E /* MYScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYScanView.m; sourceTree = "<group>"; };
+		F77E2B481EA49B3900D2648E /* MYCornerScanLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCornerScanLayer.h; sourceTree = "<group>"; };
+		F77E2B491EA49B3900D2648E /* MYCornerScanLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCornerScanLayer.m; sourceTree = "<group>"; };
 		F784E5E31E77ECB90000F0E1 /* MYImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYImageBrowser.h; sourceTree = "<group>"; };
 		F784E5E41E77ECB90000F0E1 /* MYImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImageBrowser.m; sourceTree = "<group>"; };
 		F78D79DA1DED26A800395466 /* MYMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineViewController.h; sourceTree = "<group>"; };
@@ -125,6 +135,8 @@
 		F79D9A431D9562E9007AA167 /* musixiseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = musixiseUITests.m; sourceTree = "<group>"; };
 		F79D9A451D9562E9007AA167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79D9A531D956D6C007AA167 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F7B5F65F1EA5AC7200ABF026 /* MYCenterScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCenterScanView.h; sourceTree = "<group>"; };
+		F7B5F6601EA5AC7200ABF026 /* MYCenterScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCenterScanView.m; sourceTree = "<group>"; };
 		F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F7B6A1291DC882FD006227C7 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		F7B6A12B1DC8831B006227C7 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -344,6 +356,7 @@
 		F7762B5B1D9B75B5001F64EE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F77E2B3F1EA4925F00D2648E /* Scan */,
 				F784E5E61E780FB60000F0E1 /* Base */,
 				F76364BD1DF3F63600DBA050 /* Fav */,
 				F7762B5C1D9B75B5001F64EE /* MYMainViewController.h */,
@@ -356,6 +369,36 @@
 				F7E4F5C41E973D2400EA4D90 /* MYSettingViewController.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		F77E2B3F1EA4925F00D2648E /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				F77E2B401EA4927500D2648E /* MYScanViewController.h */,
+				F77E2B411EA4927500D2648E /* MYScanViewController.m */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		F77E2B431EA4994B00D2648E /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				F77E2B471EA49B2E00D2648E /* Base */,
+				F77E2B441EA4995B00D2648E /* MYScanView.h */,
+				F77E2B451EA4995B00D2648E /* MYScanView.m */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		F77E2B471EA49B2E00D2648E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F77E2B481EA49B3900D2648E /* MYCornerScanLayer.h */,
+				F77E2B491EA49B3900D2648E /* MYCornerScanLayer.m */,
+				F7B5F65F1EA5AC7200ABF026 /* MYCenterScanView.h */,
+				F7B5F6601EA5AC7200ABF026 /* MYCenterScanView.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		F784E5E61E780FB60000F0E1 /* Base */ = {
@@ -452,6 +495,7 @@
 		F79DAE9D1DED66CC005FD65F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F77E2B431EA4994B00D2648E /* Scan */,
 				F7E4F5DB1E97413500EA4D90 /* Setting */,
 				F7E4F5D21E97412800EA4D90 /* Selector */,
 			);
@@ -638,7 +682,7 @@
 				TargetAttributes = {
 					F79D9A1A1D9562E9007AA167 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 3S943M5G26;
+						DevelopmentTeam = LDD2REGS3S;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -751,10 +795,12 @@
 				F79D9A231D9562E9007AA167 /* AppDelegate.m in Sources */,
 				F7E4F5D91E97412800EA4D90 /* MYTopSelectorLabel.m in Sources */,
 				F74460411E83ECA10047D17B /* MYPlayListManager.m in Sources */,
+				F77E2B461EA4995B00D2648E /* MYScanView.m in Sources */,
 				F7E4F5DA1E97412800EA4D90 /* MYTopSelectorView.m in Sources */,
 				F76364C31DF3F72A00DBA050 /* MYFavArtistViewController.m in Sources */,
 				F72401871E0FDD18006D816B /* MYWorkListModel.m in Sources */,
 				F79D9A201D9562E9007AA167 /* main.m in Sources */,
+				F77E2B421EA4927500D2648E /* MYScanViewController.m in Sources */,
 				F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */,
 				F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */,
 				F72401921E0FEDC2006D816B /* MYWorkModel.m in Sources */,
@@ -764,6 +810,7 @@
 				F724018E1E0FE2E1006D816B /* MYWorkViewModel.m in Sources */,
 				F7E4F5CD1E973DDD00EA4D90 /* MYSettingViewModel.m in Sources */,
 				F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */,
+				F7B5F6611EA5AC7200ABF026 /* MYCenterScanView.m in Sources */,
 				F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */,
 				F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */,
 				F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */,
@@ -778,6 +825,7 @@
 				F7DC60591E0E58B600BA7304 /* MYMineMainDelegate.m in Sources */,
 				F7E4F5DE1E97414500EA4D90 /* MYSettingItemView.m in Sources */,
 				F784E5E51E77ECB90000F0E1 /* MYImageBrowser.m in Sources */,
+				F77E2B4A1EA49B3900D2648E /* MYCornerScanLayer.m in Sources */,
 				F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */,
 				F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */,
 				F7E4F5C51E973D2400EA4D90 /* MYSettingViewController.m in Sources */,
@@ -907,7 +955,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3S943M5G26;
+				DEVELOPMENT_TEAM = LDD2REGS3S;
 				INFOPLIST_FILE = musixise/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -925,7 +973,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3S943M5G26;
+				DEVELOPMENT_TEAM = LDD2REGS3S;
 				INFOPLIST_FILE = musixise/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

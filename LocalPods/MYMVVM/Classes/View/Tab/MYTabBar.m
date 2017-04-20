@@ -10,7 +10,7 @@
 #import "MYTabBarButton.h"
 #import <MYUtils/UIView+MYAdditons.h>
 
-#define kTabBarHeight 50
+
 
 @interface MYTabBar ()
 
@@ -41,10 +41,6 @@
         [button addGestureRecognizer:buttonTap];
         [tabBar.tabBarButtonArray addObject:button];
         [tabBar addSubview:button];
-#if DEBUG
-        button.layer.borderWidth = 1;
-        button.layer.borderColor = [UIColor redColor].CGColor;
-#endif
     }
     [tabBar setNeedsLayout];
     return tabBar;

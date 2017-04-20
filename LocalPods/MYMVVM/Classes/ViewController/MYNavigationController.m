@@ -109,10 +109,6 @@
             viewController.navigationItem.rightBarButtonItem.action = @selector(onclickMore);
         }
         viewController.navigationItem.hidesBackButton = YES;
-    } else {
-        if ([self.tabBarController isKindOfClass:[MYTabBarViewController class]]) {
-            self.tabBarController.tabBar.hidden = NO;
-        }
     }
     
     if ([self.topViewController isKindOfClass:[MYBaseViewController class]]) {

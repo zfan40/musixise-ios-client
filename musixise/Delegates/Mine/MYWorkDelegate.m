@@ -47,7 +47,9 @@
     if (!cell) {
         itemView = [[MYWorkItemView alloc] initWithItemStyle:MYBaseItemViewStyleNOTitleBackground viewModel:viewModel];
         cell = [[MYBaseTableViewCell alloc] initWithItemView:itemView reuseIdentifier:@"MYWorkItemView"];
-        [self.vc registerForPreviewingWithDelegate:self sourceView:cell];
+        if (self.vc && [self.vc respondsToSelector:@selector(registerForPreviewingWithDelegate:sourceView:)]) {
+            [self.vc registerForPreviewingWithDelegate:self sourceView:cell];
+        }
     } else {
         itemView = cell.itemView;
         itemView.viewModel = viewModel;

@@ -46,12 +46,12 @@
     
     MYBaseViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
 
-    MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
+    MYRootTabBarViewController *tabBarVc = [MYRootTabBarViewController sharedInstance];
     //TODO: wmy 暂时添加登录的入口
     MYLoginViewController *login = [[MYLoginViewController alloc] init];
     MYLoginNavigationViewController *loginNavi = [[MYLoginNavigationViewController alloc] initWithRootViewController:login];
     //TODO: wmy 写死为tab
-    self.window.rootViewController = loginNavi;
+    self.window.rootViewController = tabBarVc;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserChange) name:@"MYUserDidChanged" object:nil];
     [NSThread sleepForTimeInterval:3];
     // 初始化route

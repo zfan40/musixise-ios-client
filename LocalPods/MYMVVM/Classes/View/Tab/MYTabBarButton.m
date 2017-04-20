@@ -131,12 +131,7 @@
 - (UIButton *)iconBtn {
     if (!_iconBtn) {
         _iconBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _iconBtn.userInteractionEnabled = NO;
-#if DEBUG
-        _iconBtn.layer.borderWidth = 1;
-        _iconBtn.layer.borderColor = [UIColor redColor].CGColor;
-#endif
-    }
+        _iconBtn.userInteractionEnabled = NO;    }
     return _iconBtn;
 }
 
@@ -144,10 +139,6 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = [UIFont systemFontOfSize:11];
-#if DEBUG
-        _titleLabel.layer.borderWidth = 1;
-        _titleLabel.layer.borderColor = [UIColor redColor].CGColor;
-#endif
         //TODO: wmy UI
     }
     return _titleLabel;
@@ -157,10 +148,6 @@
     if (!_badgeView) {
         _badgeView = [MYBadgeView badgeView];
         [_badgeView addTarget:self action:@selector(onClickBadgeView) forControlEvents:UIControlEventTouchUpInside];
-#if DEBUG
-        _badgeView.layer.borderWidth = 1;
-        _badgeView.layer.borderColor = [UIColor redColor].CGColor;
-#endif
     }
     return _badgeView;
 }

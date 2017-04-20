@@ -101,10 +101,6 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
         _settingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _settingBtn.width = 32;
         _settingBtn.height = 32;
-#if DEBUG
-        _settingBtn.layer.borderWidth = 1;
-        _settingBtn.layer.borderColor = [UIColor redColor].CGColor;
-#endif
         [MYButtonFactory setButtonImage:_settingBtn WithimageName:@"iconFont-shezhi1" size:32 color:theMYWidget.c0];
         [_settingBtn addTarget:self
                         action:@selector(onClickSetting)

@@ -93,11 +93,7 @@
     if (!self.isBarAlpha) {
         self.view.height -= 64;
     }
-    if (self.isTopVc) {
-        self.view.height -= 50;
-    } else {
-        [self setTabBarHidden:YES];
-    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -116,6 +112,12 @@
         // TODO: wmy 修改颜色
         self.titleLabel.textColor = theMYWidget.c3;
         self.view.height -= 64;
+    }
+    if (self.isTopVc) {
+        self.view.height -= 50;
+        [self setTabBarHidden:NO];
+    } else {
+        [self setTabBarHidden:YES];
     }
 }
 

@@ -34,6 +34,8 @@
 @property(nonatomic, strong) NSMutableArray<MYTopSelectorModel> *topSelectorArray;
 @property(nonatomic, strong) UIScrollView *scrollView;
 
+@property (nonatomic, strong) UIButton *scanBtn;
+
 @end
 
 @implementation MYFavViewController
@@ -63,13 +65,11 @@
     
     [self.topSelectorArray addObject:artistModel];
     [self.topSelectorArray addObject:actModel];
+    
+    
 }
 
 - (void)initView {
-#if DEBUG
-    self.view.layer.borderWidth = 5;
-    self.view.layer.borderColor = [UIColor redColor].CGColor;
-#endif
     [self.view addSubview:self.scrollView];
     CGFloat height = self.view.height;
     self.scrollView.size = CGSizeMake(kScreenWidth, height);
@@ -85,6 +85,9 @@
     }
     self.navigationItem.titleView = self.topSelectorView;
     [self.topSelectorView setSelectIndex:0];
+    
+    // 右上角添加扫描按钮
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.scanBtn];
 }
 
 #pragma mark - --------------------接口API------------------
@@ -94,9 +97,19 @@
     //TODO: wmy 
     return MYNoDataViewType_Hidden;
 }
+
+- (BOOL)isTopVc {
+    return YES;
+}
+
 #pragma mark - --------------------功能函数------------------
+
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
+
+- (void)onCLickScan {
+    [router routeUrl:@"musixise://page/MYScanViewController"];
+}
 #pragma mark - --------------------代理方法------------------
 
 #pragma mark UIScrollViewDelegate
@@ -116,6 +129,22 @@
 }
 
 #pragma mark - --------------------属性相关------------------
+
+- (UIButton *)scanBtn {
+    if (!_scanBtn) {
+        _scanBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _scanBtn.width = 32;
+        _scanBtn.height = 32;
+        [MYButtonFactory setButtonImage:_scanBtn
+                          WithimageName:@"iconFont-saomiaogequ"
+                                   size:24
+                                  color:theMYWidget.c0];
+        [_scanBtn addTarget:self
+                     action:@selector(onCLickScan)
+           forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _scanBtn;
+}
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {

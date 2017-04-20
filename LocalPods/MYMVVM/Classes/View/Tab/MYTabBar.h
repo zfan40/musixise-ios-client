@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MYTabBarModel.h"
 
+#define kTabBarHeight 50
+
 @class MYTabBar;
 
 @class MYBaseViewController;
