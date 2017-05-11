@@ -26,7 +26,7 @@
     // 以下为本地网页
 //    self.url = @"http://local.musixise.com:8001/musixiser-detail/index.html";
     //self.url = @"http://m.musixise.com/musixiser-detail/40";
-    //TODO: wmy 以下为本地Demo
+    //TODO: wmy 以下为本地Demo demo.html
     NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"Demo"
                                                           ofType:@"html"];
     self.url = htmlPath;
