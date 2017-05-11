@@ -13,6 +13,7 @@
 #import <MYMVVM/MYBaseMergeViewModel.h>
 #import "MYMineMainDelegate.h"
 #import "MYWorkDelegate.h"
+#import "MYPlayButton.h"
 #import "MYWorkListModel.h"
 #define kImageViewWidth 170
 #define kImageViewTop 150
@@ -27,6 +28,7 @@
 @property(nonatomic, strong) MYUser *user;
 
 @property (nonatomic, strong) UIButton *settingBtn;
+@property (nonatomic, strong) MYPlayButton *playBtn;
 
 @end
 
@@ -57,7 +59,8 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
 - (void)initView {
     self.tableviewDelegate = self.mergeDelegate;
     // 注册3D Touch
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.settingBtn];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.settingBtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.playBtn];
 }
 
 #pragma mark - --------------------接口API------------------
@@ -95,6 +98,20 @@ newInstanceDelegate(MYMineMainDelegate, headerDelegate, self.tableView, self.use
 #pragma mark - --------------------按钮事件------------------
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------
+
+- (MYPlayButton *)playBtn {
+    if (!_playBtn) {
+        _playBtn = [MYPlayButton playButton];
+        _playBtn.clickBlock = ^{
+            [router routeUrl:@"musixise://player"];
+        };
+#if DEBUG
+        _playBtn.layer.borderWidth = 1;
+        _playBtn.layer.borderColor = [UIColor redColor].CGColor;
+#endif
+    }
+    return _playBtn;
+}
 
 - (UIButton *)settingBtn {
     if (!_settingBtn) {

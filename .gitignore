@@ -2,8 +2,7 @@
 /Pods
 /Podfile.lock
 .DS_Store
-/LocalPods/MYWidget/.DS_Store
-/.DS_Store
+*.xcbkptlist
 /musixise.xcworkspace/xcuserdata/wmy.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
 /musixise.xcodeproj/xcuserdata/wenmingyan.xcuserdatad/xcschemes/musixise.xcscheme
 /musixise.xcodeproj/xcuserdata/wenmingyan.xcuserdatad/xcschemes/xcschememanagement.plist

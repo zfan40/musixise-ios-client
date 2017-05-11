@@ -9,7 +9,7 @@
 #import "MYTabBar.h"
 #import "MYTabBarButton.h"
 #import <MYUtils/UIView+MYAdditons.h>
-
+#import <MYWidget/MYWidget.h>
 
 
 @interface MYTabBar ()
@@ -20,11 +20,24 @@
 
 @property(nonatomic, strong) NSMutableArray<MYTabBarModel> *tabBarModelArray;
 
+@property (nonatomic, strong) UIView *lineView;
+
 @end
 
 @implementation MYTabBar
 
 #pragma mark - --------------------初始化--------------------
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [self initView];
+    }
+    return self;
+}
+
+- (void)initView {
+    [self addSubview:self.lineView];
+}
 
 + (instancetype)tabBarWithBarModels:(NSArray<MYTabBarModel> *)barModels {
     MYTabBar *tabBar = [[MYTabBar alloc] init];
@@ -89,6 +102,16 @@
     [self setSelectIndex:button.tag];
 }
 #pragma mark - --------------------属性相关------------------
+
+- (UIView *)lineView {
+    if (!_lineView) {
+        _lineView = [[UIView alloc] init];
+        _lineView.height = 1;
+        _lineView.width = kScreenWidth;
+        _lineView.backgroundColor = theMYWidget.seperatorColor;
+    }
+    return _lineView;
+}
 
 - (NSMutableArray<MYTabBarButton *> *)tabBarButtonArray {
     if (!_tabBarButtonArray) {

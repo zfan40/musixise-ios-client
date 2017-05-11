@@ -31,10 +31,10 @@
                "method":"play:",
                },
                {
-               "host":"play",
-               "path":"/([\\d-]+)",
-               "example":"musixise://play/",
-               "method":"play:",
+               "host":"player",
+               "path":"",
+               "example":"musixise://player",
+               "method":"player:",
                },
                {
                "host":"play",

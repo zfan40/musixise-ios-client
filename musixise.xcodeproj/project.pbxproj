@@ -29,6 +29,9 @@
 		F76364C91DF4049800DBA050 /* MYLoginNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C81DF4049800DBA050 /* MYLoginNavigationViewController.m */; };
 		F76364CD1DF407F700DBA050 /* MYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364CC1DF407F700DBA050 /* MYRegisterViewController.m */; };
 		F76E24CD1E13BE7A00A2E79B /* MYMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E24CC1E13BE7A00A2E79B /* MYMusicViewController.m */; };
+		F771467C1EAF78D6004AEDDB /* MYPlayerToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F771467B1EAF78D6004AEDDB /* MYPlayerToolBar.m */; };
+		F771467F1EAF7C31004AEDDB /* MYCommentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F771467E1EAF7C31004AEDDB /* MYCommentButton.m */; };
+		F77146821EAF7EA7004AEDDB /* MYFavButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F77146811EAF7EA7004AEDDB /* MYFavButton.m */; };
 		F7762B591D9B7407001F64EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7762B581D9B7407001F64EE /* AudioToolbox.framework */; };
 		F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */; };
 		F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7762B601D9B75C8001F64EE /* MYLaunchViewController.m */; };
@@ -37,16 +40,20 @@
 		F77E2B4A1EA49B3900D2648E /* MYCornerScanLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F77E2B491EA49B3900D2648E /* MYCornerScanLayer.m */; };
 		F784E5E51E77ECB90000F0E1 /* MYImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F784E5E41E77ECB90000F0E1 /* MYImageBrowser.m */; };
 		F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78D79DB1DED26A800395466 /* MYMineViewController.m */; };
+		F78F70491EAD9B1400CD37E2 /* MYPlayerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F78F70481EAD9B1400CD37E2 /* MYPlayerBar.m */; };
 		F79D9A201D9562E9007AA167 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F79D9A1F1D9562E9007AA167 /* main.m */; };
 		F79D9A231D9562E9007AA167 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F79D9A221D9562E9007AA167 /* AppDelegate.m */; };
 		F79D9A291D9562E9007AA167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A271D9562E9007AA167 /* Main.storyboard */; };
 		F79D9A2E1D9562E9007AA167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A2C1D9562E9007AA167 /* LaunchScreen.storyboard */; };
 		F79D9A541D956D6C007AA167 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79D9A531D956D6C007AA167 /* Images.xcassets */; };
+		F7A82D881EA9A8F900066345 /* MYPlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A82D871EA9A8F900066345 /* MYPlayButton.m */; };
 		F7B5F6611EA5AC7200ABF026 /* MYCenterScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5F6601EA5AC7200ABF026 /* MYCenterScanView.m */; };
 		F7B6A1281DC882D9006227C7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */; };
 		F7B6A12F1DC88339006227C7 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A12D1DC8832F006227C7 /* libz.1.1.3.tbd */; };
 		F7B6A1311DC88393006227C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1301DC88393006227C7 /* libsqlite3.tbd */; };
 		F7B6A1331DC883B8006227C7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6A1321DC883B8006227C7 /* libc++.tbd */; };
+		F7D550431EAA044900F77D88 /* MYPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D550421EAA044900F77D88 /* MYPlayerViewController.m */; };
+		F7D550491EAA0F3500F77D88 /* MYPlayerTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D550481EAA0F3500F77D88 /* MYPlayerTitleView.m */; };
 		F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */; };
 		F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC60531E0E51E900BA7304 /* MYMineUserItemModel.m */; };
 		F7DC60591E0E58B600BA7304 /* MYMineMainDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DC60581E0E58B600BA7304 /* MYMineMainDelegate.m */; };
@@ -108,6 +115,13 @@
 		F76364CC1DF407F700DBA050 /* MYRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRegisterViewController.m; sourceTree = "<group>"; };
 		F76E24CB1E13BE7A00A2E79B /* MYMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMusicViewController.h; sourceTree = "<group>"; };
 		F76E24CC1E13BE7A00A2E79B /* MYMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMusicViewController.m; sourceTree = "<group>"; };
+		F77146791EAF57C7004AEDDB /* MYPlayBarProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYPlayBarProtocol.h; sourceTree = "<group>"; };
+		F771467A1EAF78D6004AEDDB /* MYPlayerToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayerToolBar.h; sourceTree = "<group>"; };
+		F771467B1EAF78D6004AEDDB /* MYPlayerToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayerToolBar.m; sourceTree = "<group>"; };
+		F771467D1EAF7C31004AEDDB /* MYCommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCommentButton.h; sourceTree = "<group>"; };
+		F771467E1EAF7C31004AEDDB /* MYCommentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCommentButton.m; sourceTree = "<group>"; };
+		F77146801EAF7EA7004AEDDB /* MYFavButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFavButton.h; sourceTree = "<group>"; };
+		F77146811EAF7EA7004AEDDB /* MYFavButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYFavButton.m; sourceTree = "<group>"; };
 		F7762B581D9B7407001F64EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F7762B5C1D9B75B5001F64EE /* MYMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMainViewController.h; sourceTree = "<group>"; };
 		F7762B5D1D9B75B5001F64EE /* MYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMainViewController.m; sourceTree = "<group>"; };
@@ -123,6 +137,8 @@
 		F784E5E41E77ECB90000F0E1 /* MYImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImageBrowser.m; sourceTree = "<group>"; };
 		F78D79DA1DED26A800395466 /* MYMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMineViewController.h; sourceTree = "<group>"; };
 		F78D79DB1DED26A800395466 /* MYMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineViewController.m; sourceTree = "<group>"; };
+		F78F70471EAD9B1400CD37E2 /* MYPlayerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayerBar.h; sourceTree = "<group>"; };
+		F78F70481EAD9B1400CD37E2 /* MYPlayerBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayerBar.m; sourceTree = "<group>"; };
 		F79D9A1B1D9562E9007AA167 /* musixise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musixise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79D9A1F1D9562E9007AA167 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F79D9A211D9562E9007AA167 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +151,8 @@
 		F79D9A431D9562E9007AA167 /* musixiseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = musixiseUITests.m; sourceTree = "<group>"; };
 		F79D9A451D9562E9007AA167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79D9A531D956D6C007AA167 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F7A82D861EA9A8F900066345 /* MYPlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayButton.h; sourceTree = "<group>"; };
+		F7A82D871EA9A8F900066345 /* MYPlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayButton.m; sourceTree = "<group>"; };
 		F7B5F65F1EA5AC7200ABF026 /* MYCenterScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCenterScanView.h; sourceTree = "<group>"; };
 		F7B5F6601EA5AC7200ABF026 /* MYCenterScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCenterScanView.m; sourceTree = "<group>"; };
 		F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -143,6 +161,10 @@
 		F7B6A12D1DC8832F006227C7 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
 		F7B6A1301DC88393006227C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F7B6A1321DC883B8006227C7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		F7D550411EAA044900F77D88 /* MYPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayerViewController.h; sourceTree = "<group>"; };
+		F7D550421EAA044900F77D88 /* MYPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayerViewController.m; sourceTree = "<group>"; };
+		F7D550471EAA0F3500F77D88 /* MYPlayerTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayerTitleView.h; sourceTree = "<group>"; };
+		F7D550481EAA0F3500F77D88 /* MYPlayerTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayerTitleView.m; sourceTree = "<group>"; };
 		F7DC04E31D9CFEAC00D70E51 /* MYAppDelegateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYAppDelegateUtils.h; sourceTree = "<group>"; };
 		F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYAppDelegateUtils.m; sourceTree = "<group>"; };
 		F7DC04E91D9CFF6D00D70E51 /* MYGlobalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYGlobalConfig.h; sourceTree = "<group>"; };
@@ -356,6 +378,7 @@
 		F7762B5B1D9B75B5001F64EE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F7D550401EAA042F00F77D88 /* Play */,
 				F77E2B3F1EA4925F00D2648E /* Scan */,
 				F784E5E61E780FB60000F0E1 /* Base */,
 				F76364BD1DF3F63600DBA050 /* Fav */,
@@ -502,6 +525,35 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		F7A82D851EA9A8E900066345 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				F7D550471EAA0F3500F77D88 /* MYPlayerTitleView.h */,
+				F7D550481EAA0F3500F77D88 /* MYPlayerTitleView.m */,
+				F7A82D861EA9A8F900066345 /* MYPlayButton.h */,
+				F7A82D871EA9A8F900066345 /* MYPlayButton.m */,
+				F78F70471EAD9B1400CD37E2 /* MYPlayerBar.h */,
+				F78F70481EAD9B1400CD37E2 /* MYPlayerBar.m */,
+				F77146791EAF57C7004AEDDB /* MYPlayBarProtocol.h */,
+				F771467A1EAF78D6004AEDDB /* MYPlayerToolBar.h */,
+				F771467B1EAF78D6004AEDDB /* MYPlayerToolBar.m */,
+				F771467D1EAF7C31004AEDDB /* MYCommentButton.h */,
+				F771467E1EAF7C31004AEDDB /* MYCommentButton.m */,
+				F77146801EAF7EA7004AEDDB /* MYFavButton.h */,
+				F77146811EAF7EA7004AEDDB /* MYFavButton.m */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		F7D550401EAA042F00F77D88 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				F7D550411EAA044900F77D88 /* MYPlayerViewController.h */,
+				F7D550421EAA044900F77D88 /* MYPlayerViewController.m */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
 		F7DC60551E0E589500BA7304 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +661,7 @@
 		F7E7132F1D9BC33C00F8F300 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F7A82D851EA9A8E900066345 /* Play */,
 				F72401881E0FE248006D816B /* Work */,
 				F74308A21E0AA90600F33C79 /* Mine */,
 				F79DAE9D1DED66CC005FD65F /* Main */,
@@ -799,15 +852,19 @@
 				F7E4F5DA1E97412800EA4D90 /* MYTopSelectorView.m in Sources */,
 				F76364C31DF3F72A00DBA050 /* MYFavArtistViewController.m in Sources */,
 				F72401871E0FDD18006D816B /* MYWorkListModel.m in Sources */,
+				F77146821EAF7EA7004AEDDB /* MYFavButton.m in Sources */,
 				F79D9A201D9562E9007AA167 /* main.m in Sources */,
 				F77E2B421EA4927500D2648E /* MYScanViewController.m in Sources */,
 				F78D79DC1DED26A800395466 /* MYMineViewController.m in Sources */,
 				F7225FC61DEBF76800E2081E /* MYRootTabBarViewController.m in Sources */,
 				F72401921E0FEDC2006D816B /* MYWorkModel.m in Sources */,
 				F7E4F5C91E973D9C00EA4D90 /* MYSettingListModel.m in Sources */,
+				F7A82D881EA9A8F900066345 /* MYPlayButton.m in Sources */,
+				F7D550491EAA0F3500F77D88 /* MYPlayerTitleView.m in Sources */,
 				F724018B1E0FE277006D816B /* MYWorkItemView.m in Sources */,
 				F76E24CD1E13BE7A00A2E79B /* MYMusicViewController.m in Sources */,
 				F724018E1E0FE2E1006D816B /* MYWorkViewModel.m in Sources */,
+				F7D550431EAA044900F77D88 /* MYPlayerViewController.m in Sources */,
 				F7E4F5CD1E973DDD00EA4D90 /* MYSettingViewModel.m in Sources */,
 				F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */,
 				F7B5F6611EA5AC7200ABF026 /* MYCenterScanView.m in Sources */,
@@ -819,6 +876,7 @@
 				F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */,
 				F76364C91DF4049800DBA050 /* MYLoginNavigationViewController.m in Sources */,
 				F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */,
+				F771467F1EAF7C31004AEDDB /* MYCommentButton.m in Sources */,
 				F72401801E0FD836006D816B /* MYWorkDelegate.m in Sources */,
 				F7762B611D9B75C8001F64EE /* MYLaunchViewController.m in Sources */,
 				F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */,
@@ -828,11 +886,13 @@
 				F77E2B4A1EA49B3900D2648E /* MYCornerScanLayer.m in Sources */,
 				F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */,
 				F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */,
+				F771467C1EAF78D6004AEDDB /* MYPlayerToolBar.m in Sources */,
 				F7E4F5C51E973D2400EA4D90 /* MYSettingViewController.m in Sources */,
 				F703C9ED1E7817580068D727 /* MYWebViewController.m in Sources */,
 				F7DC60541E0E51E900BA7304 /* MYMineUserItemModel.m in Sources */,
 				F7E4F5D11E97400400EA4D90 /* MYSettingDelegate.m in Sources */,
 				F76364CD1DF407F700DBA050 /* MYRegisterViewController.m in Sources */,
+				F78F70491EAD9B1400CD37E2 /* MYPlayerBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,7 +1013,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LDD2REGS3S;
 				INFOPLIST_FILE = musixise/Info.plist;
@@ -971,7 +1031,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LDD2REGS3S;
 				INFOPLIST_FILE = musixise/Info.plist;

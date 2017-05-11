@@ -175,8 +175,6 @@
         _scanView = [[MYScanView alloc] init];
         _scanView.width = kScanWidth;
         _scanView.height = kScanWidth;
-        _maskView.layer.mask = self.scanView.layer;
-        _maskView.layer.masksToBounds = YES;
     }
     return _scanView;
 }

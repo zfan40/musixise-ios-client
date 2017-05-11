@@ -15,6 +15,7 @@
 #import <objc/runtime.h>
 #import "MYWorkViewModel.h"
 #import "MYPlayListManager.h"
+#import "MYPlayerViewController.h"
 
 
 @implementation MYMainRouteManager
@@ -57,6 +58,12 @@
 + (void)openWebPage:(NSDictionary *)dict {
     NSString *url = [dict objectForKey:@"url"];
     [router routeUrl:url];
+}
+
+#pragma mark 打开播放器
+
++ (void)player:(NSDictionary *)dict {
+    [router.navigationController pushViewController:[MYPlayerViewController sharedInstance] animated:YES];
 }
 
 /**
