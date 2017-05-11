@@ -20,7 +20,7 @@
 @interface MYWebViewController ()
 
 @property (nonatomic, strong) BPlayerAudioManager *audioPlayer;
-@property (strong, nonatomic) WebViewJavascriptBridge *bridge;
+@property WebViewJavascriptBridge *bridge;
 
 @end
 
@@ -62,13 +62,7 @@
 
 - (WebViewJavascriptBridge *)bridge {
     if (!_bridge) {
-        _bridge = [WebViewJavascriptBridge bridgeForWebView:[self webView]
-                                            webViewDelegate:nil
-                                                    handler:^(id data, WVJBResponseCallback responseCallback) {
-                                                        //默认的handler
-                                                        responseCallback(@"Response for message from ObjC");
-                                                    }];
-        @weakify(self);
+        _bridge = [WebViewJavascriptBridge bridgeForWebView:[self webView]];
         [_bridge registerHandler:@"MusicDeviceMIDIEvent"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
                              MusicDeviceMIDIEvent(self.audioPlayer.samplerUnit, [data[0] integerValue],
@@ -109,7 +103,6 @@
                          }];
         [_bridge registerHandler:@"SetTitle"
                          handler:^(id data, WVJBResponseCallback responseCallback) {
-                             @strongify(self);
                              NSString *title = data;
                              self.title = title;
                          }];

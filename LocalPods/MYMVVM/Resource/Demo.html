@@ -53,39 +53,36 @@
         <button onclick="getUserInfo()">获取用户信息</button>
         <button onclick="setTitle('title updated')">设置title</button>
         <button onclick="showToast('this is a toast')">toast</button>
-
         <script>
         // jsbridge
+        
         var MUSIXISE = undefined;
-        
-        function connectWebViewJavascriptBridge(callback) {
-            if (window.WebViewJavascriptBridge) {
-                callback(WebViewJavascriptBridge)
-            } else {
-                document.addEventListener('WebViewJavascriptBridgeReady', function() {
-                    callback(WebViewJavascriptBridge)
-                }, false)
+        var JSBridge = {
+            setupWebViewJavascriptBridge: function(callback) {
+                if (window.WebViewJavascriptBridge) { alert('hh');return callback(WebViewJavascriptBridge); }
+                if (window.WVJBCallbacks) { alert('rr');return window.WVJBCallbacks.push(callback); }
+                window.WVJBCallbacks = [callback];
+                var WVJBIframe = document.createElement('iframe');
+                WVJBIframe.style.display = 'none';
+                WVJBIframe.src = 'https://__bridge_loaded__';
+                document.documentElement.appendChild(WVJBIframe);
+                setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+            },
+            callHandler:function(evt,data,callback) {
+                if (!MUSIXISE) {
+                    this.setupWebViewJavascriptBridge(function(bridge) {
+                                                        MUSIXISE = bridge;
+                                                        bridge.callHandler(evt, data, callback)
+                                                        })
+                } else {
+                    alert('sdfsdf');
+                    MUSIXISE.callHandler(evt, data, callback)
+                }
             }
         }
-        
-        // 调用处理
-        function callHandler(evt, data, callback) {
-            if (!MUSIXISE) {
-                connectWebViewJavascriptBridge(function(bridge) {
-                    bridge.init(function(message,responseCallback){
-                        responseCallback(data);
-                    })
-                   MUSIXISE = bridge;
-                   bridge.callHandler(evt, data, callback)
-                })
-            } else {
-                MUSIXISE.callHandler(evt, data, callback)
-            }
-        }
-
         function getUserInfo() {
             alert("calling GetUserInfo");
-            callHandler('GetUserInfo', {}, function(res) {
+            JSBridge.callHandler('GetUserInfo', {}, function(res) {
                         alert(1);
                 alert(JSON.stringify(res));
             });
@@ -96,18 +93,18 @@
         }
         
         function uploadImage() {
-            callHandler('UploadImage',{},function(res){
+            JSBridge.callHandler('UploadImage',{},function(res){
                 alert(JSON.stringify(res));
             })
         }
 
         function setTitle(title) {
-            callHandler('SetTitle',title,function(res){
+            JSBridge.callHandler('SetTitle',title,function(res){
 
             })            
         }
         function showToast(msg) {
-            callHandler('ShowToast',msg,function(res){
+            JSBridge.callHandler('ShowToast',msg,function(res){
 
             })                 
         }
