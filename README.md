@@ -1,6 +1,4 @@
 # musixise-ios-client
-ios client project for musixise
-# Musixise
 
 > 本文主要对`musixise`做一次粗略的工程解释
 
