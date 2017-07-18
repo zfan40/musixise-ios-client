@@ -1,6 +1,7 @@
 # musixise-ios-client
 
 > 本文主要对`musixise`做一次粗略的工程解释
+> 使用 `0.39.0` 版本的CocoaPods
 
 ### 一 .  app架构
 #### 1. 本App采用MVVM架构 
