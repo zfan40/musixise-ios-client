@@ -44,22 +44,24 @@ app的页面由根页面`MYRootTabBarViewController`及各个子页面组成
 2. 支持`scheme`跳转，形式为 `musixise://...`
  	跳转管理者为 `MYRouter`，需要在app启动时进行注册，（具体代码参看 `MYAppDelegateUtils`）
 
-###二 pod
+### 二 pod
 ####  网络层 MYNetwork
  对AFNetworking做了一次封装
  - `MYAPIMethodConst`：用于存放请求网络的`method`
  - `MYBaseNetWorkUtil`：请求网络封装
  
- （*里面的类名名字没取好*）
+ （*里面的类名名字没取好* ）
 
 ####  播放引擎 MYAudio
- 	支持mini进行播放
+- `MYPlayerEngine`: 播放引擎，支持mini播放
+- `MYSoundManager`: 音色管理
 
 ####  图片库 MYImageService
  	对SDWebImage做了一次封装
 
 ####  组件库 MYWidget
-- 支持换肤
+- 支持换肤，换肤颜色配比在`skins.json`中
+- 各种工程的组件，如`ActionSheet`、`Alert`等等
 
 #### 分享库 MYShare
 
@@ -67,10 +69,15 @@ app的页面由根页面`MYRootTabBarViewController`及各个子页面组成
 - `MYThirdManager`: 外部只能调用此管理类，入口
 
 #### 用户系统 MYUserSystem
-
+- `MYLoginManager`：登录统一入口
+- `MYUserUtils`：用户信息管理类
 #### 基础工具 MYUtils
-- 日志使用CocoalumbersJask
-
+- `MYDebugLog`: 日志使用`CocoaLumberjack`，做了一层封装
+- 支持`Array`及`Dict`的增删改查的安全方法
+- UI相关的工具
+- 手机相关工具
+- 文件相关工具
+- 单例
 
 设计目的：
 `MYBaseItemView`及`Delegate`的设计都是为了能够更好的复用
