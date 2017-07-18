@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		76108595ECDD22FFBFBB293F /* libPods-musixise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 144BC0E1134696D040885503 /* libPods-musixise.a */; };
+		B3849E5AFBAAF6FA5C303E31 /* libPods-musixise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 928CC0DD770CD6530E542B78 /* libPods-musixise.a */; };
 		F703C9ED1E7817580068D727 /* MYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F703C9EC1E7817580068D727 /* MYWebViewController.m */; };
 		F71A949F1E77BE38007A7183 /* musixise_Demo0.txt in Resources */ = {isa = PBXBuildFile; fileRef = F71A949D1E77BE38007A7183 /* musixise_Demo0.txt */; };
 		F71A94A01E77BE38007A7183 /* musixise_demo1.txt in Resources */ = {isa = PBXBuildFile; fileRef = F71A949E1E77BE38007A7183 /* musixise_demo1.txt */; };
@@ -74,9 +74,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		144BC0E1134696D040885503 /* libPods-musixise.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-musixise.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2691E05A3D18C3086D6DA096 /* Pods-musixise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musixise.release.xcconfig"; path = "Pods/Target Support Files/Pods-musixise/Pods-musixise.release.xcconfig"; sourceTree = "<group>"; };
-		93311A2A71FA96EADC35E40C /* Pods-musixise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musixise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-musixise/Pods-musixise.debug.xcconfig"; sourceTree = "<group>"; };
+		03999DC94C8B6B8DC2893267 /* Pods-musixise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musixise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-musixise/Pods-musixise.debug.xcconfig"; sourceTree = "<group>"; };
+		462A0387794289CE1EB60E35 /* Pods-musixise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musixise.release.xcconfig"; path = "Pods/Target Support Files/Pods-musixise/Pods-musixise.release.xcconfig"; sourceTree = "<group>"; };
+		928CC0DD770CD6530E542B78 /* libPods-musixise.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-musixise.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F703C9EB1E7817580068D727 /* MYWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWebViewController.h; sourceTree = "<group>"; };
 		F703C9EC1E7817580068D727 /* MYWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWebViewController.m; sourceTree = "<group>"; };
 		F71A949D1E77BE38007A7183 /* musixise_Demo0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = musixise_Demo0.txt; sourceTree = "<group>"; };
@@ -211,18 +211,18 @@
 				F7B6A1281DC882D9006227C7 /* CoreTelephony.framework in Frameworks */,
 				F7F35DA91D9BF8BA006767C5 /* CoreText.framework in Frameworks */,
 				F7762B591D9B7407001F64EE /* AudioToolbox.framework in Frameworks */,
-				76108595ECDD22FFBFBB293F /* libPods-musixise.a in Frameworks */,
+				B3849E5AFBAAF6FA5C303E31 /* libPods-musixise.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		980EE27016A552139749DDC0 /* Pods */ = {
+		9F25016A92FF1CB6B1521348 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				93311A2A71FA96EADC35E40C /* Pods-musixise.debug.xcconfig */,
-				2691E05A3D18C3086D6DA096 /* Pods-musixise.release.xcconfig */,
+				03999DC94C8B6B8DC2893267 /* Pods-musixise.debug.xcconfig */,
+				462A0387794289CE1EB60E35 /* Pods-musixise.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 				F7B6A1271DC882D9006227C7 /* CoreTelephony.framework */,
 				F7F35DA81D9BF8BA006767C5 /* CoreText.framework */,
 				F7762B581D9B7407001F64EE /* AudioToolbox.framework */,
-				144BC0E1134696D040885503 /* libPods-musixise.a */,
+				928CC0DD770CD6530E542B78 /* libPods-musixise.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -445,7 +445,7 @@
 				F79D9A421D9562E9007AA167 /* musixiseUITests */,
 				F79D9A1C1D9562E9007AA167 /* Products */,
 				A569F2681426079955EDE2A9 /* Frameworks */,
-				980EE27016A552139749DDC0 /* Pods */,
+				9F25016A92FF1CB6B1521348 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -707,13 +707,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F79D9A481D9562E9007AA167 /* Build configuration list for PBXNativeTarget "musixise" */;
 			buildPhases = (
-				D24FB060D4ED22B067B7A7E4 /* 📦 Check Pods Manifest.lock */,
+				348C3A3C229E8583D052EB1D /* [CP] Check Pods Manifest.lock */,
 				F79D9A171D9562E9007AA167 /* Sources */,
 				F79D9A181D9562E9007AA167 /* Frameworks */,
 				F79D9A191D9562E9007AA167 /* Resources */,
-				DF69C29EE6F4367422161836 /* 📦 Embed Pods Frameworks */,
-				FB62CF000176301083EEBA1C /* 📦 Copy Pods Resources */,
-				CA4B003F9BA6416521B4F76C /* Embed Pods Frameworks */,
+				0438C5C108228651F2A53BF3 /* [CP] Embed Pods Frameworks */,
+				15D75AE124A0D9058F2C2B97 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -778,14 +777,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CA4B003F9BA6416521B4F76C /* Embed Pods Frameworks */ = {
+		0438C5C108228651F2A53BF3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -793,49 +792,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-musixise/Pods-musixise-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D24FB060D4ED22B067B7A7E4 /* 📦 Check Pods Manifest.lock */ = {
+		15D75AE124A0D9058F2C2B97 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DF69C29EE6F4367422161836 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-musixise/Pods-musixise-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FB62CF000176301083EEBA1C /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-musixise/Pods-musixise-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		348C3A3C229E8583D052EB1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1008,7 +992,7 @@
 		};
 		F79D9A491D9562E9007AA167 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93311A2A71FA96EADC35E40C /* Pods-musixise.debug.xcconfig */;
+			baseConfigurationReference = 03999DC94C8B6B8DC2893267 /* Pods-musixise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1026,7 +1010,7 @@
 		};
 		F79D9A4A1D9562E9007AA167 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2691E05A3D18C3086D6DA096 /* Pods-musixise.release.xcconfig */;
+			baseConfigurationReference = 462A0387794289CE1EB60E35 /* Pods-musixise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
