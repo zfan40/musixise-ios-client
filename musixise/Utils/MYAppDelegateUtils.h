@@ -8,10 +8,10 @@
 
 #import <MYUtils/MYBasicSingleton.h>
 
-@class MYBaseViewController;
+@class UIViewController;
 
 @interface MYAppDelegateUtils : MYBasicSingleton
 
-- (MYBaseViewController *)showViewController;
+- (UIViewController *)showViewController;
 
 @end

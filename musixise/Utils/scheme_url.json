@@ -65,6 +65,11 @@
                "path":"",
                "example":"musixise://openWebPage?url=www.baidu.com",
                "method":"openWebPage:",
+               },               {
+               "host":"checkLogin",
+               "path":"",
+               "example":"musixise://checkLogin",
+               "method":"checkLogin:",
                }
                ]
 }

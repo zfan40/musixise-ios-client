@@ -16,8 +16,7 @@
 
 @property (nonatomic,weak) MYNavigationController *navigationController;
 
-- (void)setup:(MYNavigationController *)mainnavigation
-withManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels;
+- (void)setupManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels;
 
 - (void)routeUrl:(NSString *)url;
 - (void)routeUrl:(NSString *)url withParam:(NSDictionary *)dict;

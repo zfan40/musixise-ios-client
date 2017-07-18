@@ -15,6 +15,7 @@
 #import <objc/runtime.h>
 #import "MYWorkViewModel.h"
 #import "MYPlayListManager.h"
+#import <MYUserSystem/MYUserUtils.h>
 #import "MYPlayerViewController.h"
 
 
@@ -39,6 +40,12 @@
 
 + (void)login:(NSDictionary *)dict {
     [router routeUrl:@"musixise://page/MYLoginViewController"];
+}
+
++ (void)checkLogin:(NSDictionary *)dict {
+    if (![MYUserUtils sharedInstance].userId) {
+        [self login:dict];
+    }
 }
 
 #pragma mark - 详情

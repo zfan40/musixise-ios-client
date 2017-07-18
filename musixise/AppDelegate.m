@@ -14,7 +14,6 @@
 #import "MYAppDelegateUtils.h"
 #import "MYRootTabBarViewController.h"
 #import "MYLoginViewController.h"
-#import "MYLoginNavigationViewController.h"
 #import <MYUserSystem/MYUserUtils.h>
 #import <MYThirdKit/MYThirdManager.h>
 
@@ -30,40 +29,17 @@
     //TODO: wmy 将此收口入web的初始化工具类中
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     NSString *oldAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-    NSLog(@"old agent :%@", oldAgent);
-    
     //add my info to the new agent
     NSString *newAgent = [NSString stringWithFormat:@"Musixise %@",oldAgent];
-//    NSString *newAgent = oldAgent;
-    NSLog(@"new agent :%@", newAgent);
-    
     //regist the new agent
     NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
-    
-    
-    
-    
-    MYBaseViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
-
-    MYRootTabBarViewController *tabBarVc = [MYRootTabBarViewController sharedInstance];
-    //TODO: wmy 暂时添加登录的入口
-    MYLoginViewController *login = [[MYLoginViewController alloc] init];
-    MYLoginNavigationViewController *loginNavi = [[MYLoginNavigationViewController alloc] initWithRootViewController:login];
-    //TODO: wmy 写死为tab
-    self.window.rootViewController = loginNavi;
+    UIViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
+    self.window.rootViewController = vc;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserChange) name:@"MYUserDidChanged" object:nil];
     [NSThread sleepForTimeInterval:3];
     // 初始化route
     // router初始化
-    //TODO: wmy 这部分需要将其放到某个routeUtil中
-    NSMutableArray *array = [NSMutableArray array];
-    MYRouteManagerModel *routeManagerModel = [[MYRouteManagerModel alloc] init];
-    routeManagerModel.urlManagerName = @"MYMainRouteManager";
-    routeManagerModel.filePath = [[NSBundle mainBundle] pathForResource:@"scheme_url" ofType:@"json"];
-    [array addObject:routeManagerModel];
-    //TODO: wmy 待删，之后会将其收口到MYAppDelegateUtils中
-    [router setup:loginNavi withManagerModels:array];
     // 皮肤安装
     [[MYWidget sharedInstance] setup];
     // 第三方安装
@@ -79,8 +55,7 @@
         self.window.rootViewController = tabBarVc;
     } else {
         MYLoginViewController *login = [[MYLoginViewController alloc] init];
-        MYLoginNavigationViewController *loginNavi = [[MYLoginNavigationViewController alloc] initWithRootViewController:login];
-        self.window.rootViewController = loginNavi;
+        self.window.rootViewController = login;
     }
 }
 
@@ -97,7 +72,6 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     // TODO: wmy 添加route的跳转(需要集成到MYThirdManager)
-    
     return [[MYLoginManager sharedInstance] handleWithURL:[url absoluteString]];
     
 }

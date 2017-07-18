@@ -57,6 +57,8 @@
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
 
+//TODO: 该方法去重复代码
+
 - (NSArray<MYTabBarModel> *)setUpAllChildViewController {
     // 首页
     NSMutableArray<MYTabBarModel> *array = [NSMutableArray<MYTabBarModel> array];

@@ -38,12 +38,10 @@
     return self;
 }
 
-- (void)setup:(MYNavigationController *)mainnavigation
-withManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels {
+- (void)setupManagerModels:(NSArray<MYRouteManagerModel *>  *)managerModels {
     // 添加源数据
     self.managerArray = [NSMutableArray arrayWithArray:managerModels];
     [self configManagers];
-    self.navigationController = mainnavigation;
     InfoLog(@"router 初始化完毕");
 }
 

@@ -53,6 +53,7 @@
         <button onclick="getUserInfo()">获取用户信息</button>
         <button onclick="setTitle('title updated')">设置title</button>
         <button onclick="showToast('this is a toast')">toast</button>
+        <button onclick="locationNewPage('https://www.baidu.com')">location</button>
         <script>
         // jsbridge
         
@@ -107,6 +108,10 @@
             JSBridge.callHandler('ShowToast',msg,function(res){
 
             })                 
+        }
+        function locationNewPage(msg) {
+            alert(msg)
+            window.location.href = msg
         }
         function showUserAgent() {
             alert(JSON.stringify(navigator.userAgent));

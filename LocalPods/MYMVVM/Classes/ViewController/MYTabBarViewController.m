@@ -46,6 +46,9 @@
     [self.tabBar removeFromSuperview];
     self.selectedIndex = 0;
     [self.myTabBar setSelectIndex:0];
+    if (self.childViewControllers.count) {
+        router.navigationController = [self.childViewControllers objectAtIndex:0];
+    }
 }
 
 + (instancetype)sharedInstance {
