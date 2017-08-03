@@ -73,7 +73,7 @@
                                size:24
                               color:theMYWidget.c0
                               state:UIControlStateSelected];
-    [self.nextBtn addTarget:self action:@selector(onClickPlay:) forControlEvents:UIControlEventTouchUpInside];
+    [self.playBtn addTarget:self action:@selector(onClickPlay:) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:self.moreBtn];
     self.moreBtn.width = 32;

@@ -14,7 +14,7 @@
 @interface MYPlayerEngine ()
 
 //@property (nonatomic, strong) NSTimer *timer;
-@property(nonatomic, assign) NSInteger index;
+@property(nonatomic, assign) int index;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) BPlayerAudioManager *audioPlayer;
 @property(nonatomic, assign) BOOL isPlaying;// 控制是否播放的开关
@@ -58,11 +58,17 @@
     [self cancelPerform];
     self.isPlaying = YES;
     self.index = 0;
+    self.currentTime = 0;
     [self onPlaying];
 }
 
 - (void)pause {
     self.isPlaying = NO;
+}
+
+- (void)resume {
+    self.isPlaying = YES;
+    [self onPlaying];
 }
 
 - (void)stop {
@@ -79,13 +85,12 @@
 #pragma mark - --------------------按钮事件------------------
 
 - (void)onPlaying {
-    //TODO: wmy
     NSArray *lastArray = [self.dataArray objectAtIndex:self.dataArray.count - 1];
     self.totalTime = [[lastArray objectAtIndex:3] floatValue];
     for (int i = self.index; i < self.dataArray.count; i++) {
         NSArray *array = [self.dataArray objectAtIndex:i];
         if (array.count == 4) {
-            double nowTime = [array[3] doubleValue] * 0.001;
+            double nowTime = [array[3] doubleValue] * 0.001 - self.currentTime * 0.001;
             [self performSelector:@selector(playInArray:) withObject:array afterDelay:nowTime];
         }
     }
@@ -93,6 +98,10 @@
 
 
 - (void)playInArray:(NSArray *)array {
+    if (!self.isPlaying) {
+        [self cancelPerform];
+        return;
+    }
     self.index++;
     self.currentTime = [array[3] floatValue];
     if (self.currentTime == self.totalTime &&

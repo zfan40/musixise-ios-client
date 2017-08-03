@@ -33,7 +33,6 @@
 }
 
 - (void)setupModels {
-    //TODO: wmy 从文件中读取
     [self.soundNames removeAllObjects];
     [self.soundModelDict removeAllObjects];
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sounds" ofType:@"json"];

@@ -7,6 +7,7 @@
 //  播放列表管理
 
 #import <MYUtils/MYBasicSingleton.h>
+#import "MYPlayBarProtocol.h"
 
 #define thePlayListManager [MYPlayListManager sharedInstance]
 
@@ -21,10 +22,15 @@
 - (void)startPlaying;
 //4. 播放结束选项
 - (void)pause;
+- (void)resume;
 - (void)stop;
+- (void)next;
+- (void)pre;
 
 - (void)setListModel:(MYWorkListModel *)listModel;
 
 - (void)setPlayIds:(NSArray<NSString *> *)array;
+
+- (void)changeModelWithType:(MYPlayerModeType)type;
 
 @end

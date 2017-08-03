@@ -34,8 +34,11 @@
 
 - (void)onPlay {
     if (self.playIndex < self.listModel.allDataCount && self.playIndex >= 0) {
-        self.viewModel = (MYWorkViewModel *)[self.listModel data:[NSIndexPath indexPathForRow:self.playIndex inSection:0]];
-        [self.viewModel play];
+        MYWorkViewModel *viewModel = (MYWorkViewModel *)[self.listModel data:[NSIndexPath indexPathForRow:self.playIndex inSection:0]];
+        if (self.viewModel != viewModel) {
+            self.viewModel = viewModel;
+            [self.viewModel play];
+        }
     }
 }
 
@@ -43,9 +46,23 @@
     [thePlayEngine pause];
 }
 
+- (void)resume {
+    [thePlayEngine resume];
+}
+
 - (void)stop {
     [thePlayEngine stop];
     self.playIndex = 0;
+}
+
+- (void)next {
+    self.playIndex++;
+    [self startPlaying];
+}
+
+- (void)pre {
+    self.playIndex--;
+    [self startPlaying];
 }
 
 - (void)setPlayIds:(NSArray<NSString *> *)workIds {
@@ -74,6 +91,9 @@
     }
     _playIndex = playIndex;
     
+}
+- (void)changeModelWithType:(MYPlayerModeType)type {
+    //TODO: wmy
 }
 
 @end

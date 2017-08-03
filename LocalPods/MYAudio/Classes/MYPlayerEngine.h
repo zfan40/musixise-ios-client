@@ -22,6 +22,8 @@ typedef void(^FinishBlock)();
 
 - (void)pause;
 
+- (void)resume;
+
 - (void)stop;
 
 
