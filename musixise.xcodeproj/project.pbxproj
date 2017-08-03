@@ -23,6 +23,9 @@
 		F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74308A41E0AABFB00F33C79 /* MYMineUserItemView.m */; };
 		F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74308A71E0AB20B00F33C79 /* MYMineUserInfoView.m */; };
 		F74460411E83ECA10047D17B /* MYPlayListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F74460401E83ECA10047D17B /* MYPlayListManager.m */; };
+		F74C68741F32CEA50052A74B /* MYMainRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C68711F32CEA50052A74B /* MYMainRouteManager.m */; };
+		F74C68751F32CEA50052A74B /* MYRouterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C68731F32CEA50052A74B /* MYRouterUtils.m */; };
+		F74C68791F32CEDA0052A74B /* MYWebUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C68781F32CEDA0052A74B /* MYWebUtils.m */; };
 		F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364BF1DF3F63600DBA050 /* MYFavViewController.m */; };
 		F76364C31DF3F72A00DBA050 /* MYFavArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C21DF3F72A00DBA050 /* MYFavArtistViewController.m */; };
 		F76364C61DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76364C51DF3F7A200DBA050 /* MYFavWorksOfArtViewController.m */; };
@@ -67,9 +70,7 @@
 		F7E713221D9BC2EC00F8F300 /* MYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713211D9BC2EC00F8F300 /* MYLoginViewController.m */; };
 		F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713351D9BC36200F8F300 /* MYLoginIconView.m */; };
 		F7E713391D9BC6B300F8F300 /* MYLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E713381D9BC6B300F8F300 /* MYLoginItem.m */; };
-		F7F35D9B1D9BD379006767C5 /* router.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F35D991D9BD379006767C5 /* router.json */; };
 		F7F35D9C1D9BD379006767C5 /* scheme_url.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F35D9A1D9BD379006767C5 /* scheme_url.json */; };
-		F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F35D9E1D9BD4A4006767C5 /* MYMainRouteManager.m */; };
 		F7F35DA91D9BF8BA006767C5 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F35DA81D9BF8BA006767C5 /* CoreText.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,12 @@
 		F74308A71E0AB20B00F33C79 /* MYMineUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMineUserInfoView.m; sourceTree = "<group>"; };
 		F744603F1E83ECA10047D17B /* MYPlayListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayListManager.h; sourceTree = "<group>"; };
 		F74460401E83ECA10047D17B /* MYPlayListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayListManager.m; sourceTree = "<group>"; };
+		F74C68701F32CEA50052A74B /* MYMainRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMainRouteManager.h; sourceTree = "<group>"; };
+		F74C68711F32CEA50052A74B /* MYMainRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMainRouteManager.m; sourceTree = "<group>"; };
+		F74C68721F32CEA50052A74B /* MYRouterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRouterUtils.h; sourceTree = "<group>"; };
+		F74C68731F32CEA50052A74B /* MYRouterUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRouterUtils.m; sourceTree = "<group>"; };
+		F74C68771F32CEDA0052A74B /* MYWebUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWebUtils.h; sourceTree = "<group>"; };
+		F74C68781F32CEDA0052A74B /* MYWebUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWebUtils.m; sourceTree = "<group>"; };
 		F76364BE1DF3F63600DBA050 /* MYFavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFavViewController.h; sourceTree = "<group>"; };
 		F76364BF1DF3F63600DBA050 /* MYFavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYFavViewController.m; sourceTree = "<group>"; };
 		F76364C11DF3F72A00DBA050 /* MYFavArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFavArtistViewController.h; sourceTree = "<group>"; };
@@ -193,10 +200,7 @@
 		F7E713351D9BC36200F8F300 /* MYLoginIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoginIconView.m; sourceTree = "<group>"; };
 		F7E713371D9BC6B300F8F300 /* MYLoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoginItem.h; sourceTree = "<group>"; };
 		F7E713381D9BC6B300F8F300 /* MYLoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoginItem.m; sourceTree = "<group>"; };
-		F7F35D991D9BD379006767C5 /* router.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = router.json; sourceTree = "<group>"; };
-		F7F35D9A1D9BD379006767C5 /* scheme_url.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scheme_url.json; sourceTree = "<group>"; };
-		F7F35D9D1D9BD4A4006767C5 /* MYMainRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMainRouteManager.h; sourceTree = "<group>"; };
-		F7F35D9E1D9BD4A4006767C5 /* MYMainRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYMainRouteManager.m; sourceTree = "<group>"; };
+		F7F35D9A1D9BD379006767C5 /* scheme_url.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = scheme_url.json; path = ../scheme_url.json; sourceTree = "<group>"; };
 		F7F35DA81D9BF8BA006767C5 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -333,6 +337,27 @@
 				F74460401E83ECA10047D17B /* MYPlayListManager.m */,
 			);
 			path = Play;
+			sourceTree = "<group>";
+		};
+		F74C686F1F32CEA50052A74B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F7F35D9A1D9BD379006767C5 /* scheme_url.json */,
+				F74C68701F32CEA50052A74B /* MYMainRouteManager.h */,
+				F74C68711F32CEA50052A74B /* MYMainRouteManager.m */,
+				F74C68721F32CEA50052A74B /* MYRouterUtils.h */,
+				F74C68731F32CEA50052A74B /* MYRouterUtils.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F74C68761F32CEAF0052A74B /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				F74C68771F32CEDA0052A74B /* MYWebUtils.h */,
+				F74C68781F32CEDA0052A74B /* MYWebUtils.m */,
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 		F76364BD1DF3F63600DBA050 /* Fav */ = {
@@ -684,12 +709,10 @@
 		F7F35D981D9BD379006767C5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F74C68761F32CEAF0052A74B /* Web */,
+				F74C686F1F32CEA50052A74B /* Router */,
 				F744603E1E83EC930047D17B /* Play */,
-				F7F35D9D1D9BD4A4006767C5 /* MYMainRouteManager.h */,
-				F7F35D9E1D9BD4A4006767C5 /* MYMainRouteManager.m */,
 				F7DC04E91D9CFF6D00D70E51 /* MYGlobalConfig.h */,
-				F7F35D991D9BD379006767C5 /* router.json */,
-				F7F35D9A1D9BD379006767C5 /* scheme_url.json */,
 				F7DC04E31D9CFEAC00D70E51 /* MYAppDelegateUtils.h */,
 				F7DC04E41D9CFEAC00D70E51 /* MYAppDelegateUtils.m */,
 				F71A94A81E77CFB0007A7183 /* MYUploadUtils.h */,
@@ -764,7 +787,6 @@
 			files = (
 				F71A94AE1E77E37C007A7183 /* musixise_demo3.txt in Resources */,
 				F71A949F1E77BE38007A7183 /* musixise_Demo0.txt in Resources */,
-				F7F35D9B1D9BD379006767C5 /* router.json in Resources */,
 				F79D9A541D956D6C007AA167 /* Images.xcassets in Resources */,
 				F79D9A2E1D9562E9007AA167 /* LaunchScreen.storyboard in Resources */,
 				F71A94A01E77BE38007A7183 /* musixise_demo1.txt in Resources */,
@@ -852,12 +874,14 @@
 				F7E4F5CD1E973DDD00EA4D90 /* MYSettingViewModel.m in Sources */,
 				F76364C01DF3F63600DBA050 /* MYFavViewController.m in Sources */,
 				F7B5F6611EA5AC7200ABF026 /* MYCenterScanView.m in Sources */,
+				F74C68741F32CEA50052A74B /* MYMainRouteManager.m in Sources */,
+				F74C68791F32CEDA0052A74B /* MYWebUtils.m in Sources */,
 				F7762B5E1D9B75B5001F64EE /* MYMainViewController.m in Sources */,
 				F74308A51E0AABFB00F33C79 /* MYMineUserItemView.m in Sources */,
 				F74308A81E0AB20B00F33C79 /* MYMineUserInfoView.m in Sources */,
+				F74C68751F32CEA50052A74B /* MYRouterUtils.m in Sources */,
 				F7E713361D9BC36200F8F300 /* MYLoginIconView.m in Sources */,
 				F71A94AA1E77CFB0007A7183 /* MYUploadUtils.m in Sources */,
-				F7F35D9F1D9BD4A4006767C5 /* MYMainRouteManager.m in Sources */,
 				F76364C91DF4049800DBA050 /* MYLoginNavigationViewController.m in Sources */,
 				F7DC04E51D9CFEAC00D70E51 /* MYAppDelegateUtils.m in Sources */,
 				F771467F1EAF7C31004AEDDB /* MYCommentButton.m in Sources */,

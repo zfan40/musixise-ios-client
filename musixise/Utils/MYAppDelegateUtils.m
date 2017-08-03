@@ -16,6 +16,7 @@
 #import "MYLaunchViewController.h"
 #import "MYMainViewController.h"
 #import "MYLoginViewController.h"
+#import "MYRouterUtils.h"
 
 @implementation MYAppDelegateUtils
 
@@ -40,12 +41,7 @@
         [share setObject:version forKey:kCurrentVersion];
         [share synchronize];
     }
-    //TODO: wmy 这部分需要将其放到某个routeUtil中
-    NSMutableArray *array = [NSMutableArray array];
-    MYRouteManagerModel *routeManagerModel = [[MYRouteManagerModel alloc] init];
-    routeManagerModel.urlManagerName = @"MYMainRouteManager";
-    routeManagerModel.filePath = [[NSBundle mainBundle] pathForResource:@"scheme_url" ofType:@"json"];
-    [array addObject:routeManagerModel];
+    NSArray *array = [[MYRouterUtils sharedInstance] routeArrayWithClassName:@"MYMainRouteManager" jsonFile:@"scheme_url"];
     [router setupManagerModels:array];
     return main;
 }

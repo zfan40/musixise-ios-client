@@ -16,6 +16,7 @@
 #import "MYLoginViewController.h"
 #import <MYUserSystem/MYUserUtils.h>
 #import <MYThirdKit/MYThirdManager.h>
+#import "MYWebUtils.h"
 
 @interface AppDelegate ()
 
@@ -26,20 +27,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 若第一次升级到此app，则显示欢迎页
-    //TODO: wmy 将此收口入web的初始化工具类中
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
-    NSString *oldAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-    //add my info to the new agent
-    NSString *newAgent = [NSString stringWithFormat:@"Musixise %@",oldAgent];
-    //regist the new agent
-    NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent", nil];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
+    [[MYWebUtils sharedInstance] configUserAgent];
+    
     UIViewController *vc = [[MYAppDelegateUtils sharedInstance] showViewController];
     self.window.rootViewController = vc;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserChange) name:@"MYUserDidChanged" object:nil];
-    [NSThread sleepForTimeInterval:3];
-    // 初始化route
-    // router初始化
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUserChange)
+                                                 name:MYUserDidChanged
+                                               object:nil];
+    [NSThread sleepForTimeInterval:1];
     // 皮肤安装
     [[MYWidget sharedInstance] setup];
     // 第三方安装
@@ -48,16 +44,6 @@
     return YES;
 }
 
-- (void)onUserChange {
-    long long userId = [MYUserUtils sharedInstance].userId;
-    if (userId) {
-        MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
-        self.window.rootViewController = tabBarVc;
-    } else {
-        MYLoginViewController *login = [[MYLoginViewController alloc] init];
-        self.window.rootViewController = login;
-    }
-}
 
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -100,6 +86,20 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark Notification
+
+- (void)onUserChange {
+    long long userId = [MYUserUtils sharedInstance].userId;
+    if (userId) {
+        MYRootTabBarViewController *tabBarVc = [[MYRootTabBarViewController alloc] init];
+        self.window.rootViewController = tabBarVc;
+    } else {
+        MYLoginViewController *login = [[MYLoginViewController alloc] init];
+        self.window.rootViewController = login;
+    }
 }
 
 
