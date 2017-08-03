@@ -54,6 +54,10 @@
 #pragma mark - --------------------代理方法------------------
 #pragma mark - --------------------属性相关------------------
 
+- (BOOL)playBarHidden {
+    return YES;
+}
+
 - (MYSettingDelegate *)settingDelegate {
     if (!_settingDelegate) {
         _settingDelegate = [[MYSettingDelegate alloc] initWithTableView:self.tableView model:self.settingListModel];

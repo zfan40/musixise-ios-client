@@ -19,7 +19,6 @@
 #import <MYWidget/MYTipsHelper.h>
 #import <MYUtils/UIImage+MYImage.h>
 #import <MYShare/MYShareModelUtils.h>
-#import "MYTabBarViewController.h"
 #import <MYShare/MYShareManager.h>
 
 @interface MYBaseViewController () <MYNoDataViewDelegate>
@@ -98,18 +97,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     if (self.isBarAlpha) {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.navigationController.navigationBar.shadowImage = [UIImage new];
-        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-        // TODO: wmy 修改颜色
+        [[self navigationController].navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [self navigationController].navigationBar.shadowImage = [UIImage new];
+        [self navigationController].navigationBar.barStyle = UIBarStyleDefault;
         self.titleLabel.textColor = theMYWidget.c2;
         
     } else {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:theMYWidget.c2] forBarMetrics:UIBarMetricsDefault];
-        self.navigationController.navigationBar.shadowImage = [UIImage createImageWithColor:theMYWidget.c2];
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-        // TODO: wmy 修改颜色
+        [[self navigationController].navigationBar setBackgroundImage:[UIImage createImageWithColor:theMYWidget.c2] forBarMetrics:UIBarMetricsDefault];
+        [self navigationController].navigationBar.shadowImage = [UIImage createImageWithColor:theMYWidget.c2];
+        [self navigationController].navigationBar.barStyle = UIBarStyleBlack;
         self.titleLabel.textColor = theMYWidget.c3;
         self.view.height -= 64;
     }
@@ -126,15 +124,17 @@
     [self.view insertSubview:self.noDataView atIndex:0];
 }
 #pragma mark - --------------------功能函数------------------
+- (BOOL)playBarHidden {
+    return NO;
+}
+
 
 - (void)onClickTitle {
     
 }
-
 - (void)setTabBarHidden:(BOOL)hidden {
-    TheTabBarViewController.hideTabBar = hidden;
+    self.hidesBottomBarWhenPushed = hidden;
 }
-
 - (void)showTip:(NSString *)string {
     [[MYTipsHelper sharedInstance] showTips:string];
 }
@@ -147,12 +147,11 @@
 }
 
 - (NSArray *)moreTitleArray {
-    // TODO: wmy 如果没有登录了，则将字段换为 @"个人中心"
     return @[@"首页",@"登录", @"分享"];
 }
 
 - (void)clickMoreWithIndex:(NSInteger)index {
-    MYNavigationController *navigationController = (MYNavigationController *)self.navigationController;
+    MYNavigationController *navigationController = (MYNavigationController *)[self navigationController];
     switch (index) {
         case 0:// 首页
             [navigationController backToRoot];
@@ -199,10 +198,6 @@
         [_titleLabel addGestureRecognizer:titleTap];
     }
     return _titleLabel;
-}
-
-- (BOOL)playBarHidden {
-    return NO;
 }
 
 - (BOOL)rightItemHidden {

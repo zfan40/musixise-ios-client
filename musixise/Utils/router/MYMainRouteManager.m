@@ -92,7 +92,13 @@
         thePlayListManager.playIndex = index;
         [thePlayListManager startPlaying];
     }
+    [self openPlayer:dict];
 }
+
++ (void)openPlayer:(NSDictionary *)dict {
+    [router routeUrl:@"musixise://page/MYPlayerViewController"];
+}
+
 
 + (void)page:(NSString *)classString withDictionary:(NSDictionary *)dict {
     Class class = NSClassFromString(classString);
@@ -103,7 +109,6 @@
             if ([viewController isKindOfClass:[MYBaseViewController class]]) {
                 MYBaseViewController *baseViewController = (MYBaseViewController *)viewController;
                 if ([baseViewController mode] == MYBaseViewControllerModeOnlyOne) {
-                    //TODO: wmy 不需要重新创建，直接pop
                     [router.navigationController popToViewController:viewController animated:YES];
                     return;
                 }

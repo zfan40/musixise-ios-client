@@ -18,7 +18,7 @@
 #import <MYUtils/MYSingleDefine.h>
 
 
-@interface MYNavigationController () <UINavigationControllerDelegate,MYMoreViewDelegate>
+@interface MYNavigationController () <UINavigationControllerDelegate,MYMoreViewDelegate,CAAnimationDelegate>
 //@property (nonatomic,strong) id backDelegate;
 
 @property (nonatomic,strong) MYMoreView *moreView;
@@ -32,10 +32,6 @@
 
 #pragma mark - --------------------退出清空------------------
 #pragma mark - --------------------初始化--------------------
-+ (void)initialize
-{
-    UIBarButtonItem *item = [UIBarButtonItem appearanceWhenContainedIn:self, nil];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -90,6 +86,7 @@
                 break;
             }
         }
+        viewController.hidesBottomBarWhenPushed = [(MYBaseViewController *)viewController playBarHidden];
         [super pushViewController:viewController animated:NO];
     }
     
@@ -156,7 +153,6 @@
 
 - (void)backToPre {
     UIViewController *viewController = [self popViewControllerAnimated:NO];
-    UIViewController *topViewController = [self topViewController];
     if ([viewController isKindOfClass:[MYBaseViewController class]]) {
         MYBaseViewController *baseViewController = (MYBaseViewController *)viewController;
         [self animationWithPopType:[baseViewController inComeType]];

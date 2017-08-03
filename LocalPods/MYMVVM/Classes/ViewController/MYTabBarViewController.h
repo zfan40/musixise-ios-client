@@ -15,8 +15,6 @@
 
 @interface MYTabBarViewController : UITabBarController
 
-@property(nonatomic, assign) BOOL hideTabBar;
-
 + (instancetype)sharedInstance;
 
 - (NSArray<MYTabBarModel> *)setUpAllChildViewController;
@@ -24,6 +22,5 @@
 - (MYNavigationController *)currentNavigationVC;
 
 - (void)showtip:(NSString *)tip;
-
 
 @end

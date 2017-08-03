@@ -19,7 +19,6 @@
 @property (nonatomic, strong) NSMutableArray<UITabBarItem *> *items;
 @property(nonatomic, strong) MYTabBar *myTabBar;
 
-
 @end
 
 @implementation MYTabBarViewController
@@ -40,10 +39,7 @@
     self.myTabBar.delegate = self;
     // 给tabBar传递tabBarItem模型
     // 添加自定义tabBar
-    [self.view addSubview:self.myTabBar];
-    self.myTabBar.bottom = self.view.height;
     // 移除系统的tabBar
-    [self.tabBar removeFromSuperview];
     self.selectedIndex = 0;
     [self.myTabBar setSelectIndex:0];
     if (self.childViewControllers.count) {
@@ -70,6 +66,9 @@
         if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
             [tabBarButton removeFromSuperview];
         }
+    }
+    if (!self.myTabBar.superview) {
+        [self.tabBar addSubview:self.myTabBar];
     }
 }
 
@@ -124,11 +123,6 @@
 }
 
 #pragma mark - --------------------属性相关------------------
-
-- (void)setHideTabBar:(BOOL)hideTabBar {
-    _hideTabBar = hideTabBar;
-    self.myTabBar.hidden = hideTabBar;
-}
 
 - (MYTabBar *)myTabBar {
     if (!_myTabBar) {

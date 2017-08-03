@@ -51,6 +51,7 @@ typedef enum {
 - (BOOL)leftItemHidden;
 - (BOOL)playBarHidden;
 
+
 - (NSArray *)moreTitleArray;
 - (void)clickMoreWithIndex:(NSInteger)index;
 
