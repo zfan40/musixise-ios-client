@@ -140,6 +140,10 @@
     self.nextBtn.selected = selected;
 }
 
+- (void)setPlay:(BOOL)isPlay {
+    self.playBtn.selected = isPlay;
+}
+
 #pragma mark private
 
 - (void)nextPlayModeType {

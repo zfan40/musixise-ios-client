@@ -25,6 +25,12 @@
                "method":"play:",
                },
                {
+               "host":"openplayer",
+               "path":"/[\\d-]",
+               "example":"musixise://openplayer",
+               "method":"openPlayer:",
+               },
+               {
                "host":"play",
                "path":"/([\\d-]+)",
                "example":"musixise://play/",

@@ -14,12 +14,15 @@
 
 @interface MYPlayListManager ()
 
-@property (nonatomic, strong) MYWorkListModel *listModel;
 @property(nonatomic, weak) MYWorkViewModel *viewModel;
 
 @end
 
 @implementation MYPlayListManager
+
+- (MYWorkViewModel *)currentModel {
+    return self.viewModel;
+}
 
 - (void)startPlaying {
     // 1. 将当前的model放到引擎中
@@ -38,12 +41,14 @@
         if (self.viewModel != viewModel) {
             self.viewModel = viewModel;
             [self.viewModel play];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kStartPlayingNofitication object:nil];
         }
     }
 }
 
 - (void)pause {
     [thePlayEngine pause];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kStopSongNofitication object:nil];
 }
 
 - (void)resume {
@@ -58,11 +63,13 @@
 - (void)next {
     self.playIndex++;
     [self startPlaying];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNextSongNofitication object:nil];
 }
 
 - (void)pre {
     self.playIndex--;
     [self startPlaying];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPreSongNofitication object:nil];
 }
 
 - (void)setPlayIds:(NSArray<NSString *> *)workIds {
@@ -81,6 +88,11 @@
     _listModel = listModel;
     self.playIndex = 0;
     [thePlayEngine stop];
+}
+
+- (void)setViewModel:(MYWorkViewModel *)viewModel {
+    _viewModel = viewModel;
+    
 }
 
 - (void)setPlayIndex:(NSInteger)playIndex {

@@ -8,6 +8,7 @@
 
 #import <MYUtils/MYBasicSingleton.h>
 #import "MYThirdConstants.h"
+#import "MYShareModelProtocol.h"
 
 @interface MYThirdManager : MYBasicSingleton
 
@@ -15,8 +16,12 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
 
 /**
- *
+ * 根据type登录
  */
 - (void)loginWithType:(MYThirdKitType)type;
+
+
+- (void)shareWithType:(MYThirdKitType)type shareContent:(id<MYShareModelProtocol>)shareModel;
+
 
 @end

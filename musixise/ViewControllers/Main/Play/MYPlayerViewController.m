@@ -9,6 +9,7 @@
 #import "MYPlayerViewController.h"
 #import "MYPlayListManager.h"
 #import "MYPlayerTitleView.h"
+#import "MYWorkViewModel.h"
 #import "MYPlayerBar.h"
 #import "MYPlayerToolBar.h"
 #import "MYWorkListModel.h"
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) MYPlayerToolBar *toolBar;
 @property (nonatomic, strong) UIImageView *logoImageView;
 @property (nonatomic, strong) MYWorkListModel *workListModel;
+@property(nonatomic, weak) MYWorkViewModel *currentViewModel;
 
 @end
 
@@ -43,10 +45,19 @@
     [super viewDidLoad];
     [self initData];
     [self initView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceiveStart) name:kStartPlayingNofitication object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceiveStop) name:kStopSongNofitication object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceiveNext) name:kNextSongNofitication object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceivePre) name:kPreSongNofitication object:nil];
 }
 
+
+
+
 - (void)initData {
-    
+    self.workListModel = [[MYPlayListManager sharedInstance] listModel];
+    self.currentViewModel = [[MYPlayListManager sharedInstance] currentModel];
 }
 
 - (void)initView {
@@ -54,8 +65,8 @@
     [self.view addSubview:self.logoImageView];
     self.logoImageView.top = 30 + self.titleView.bottom;
     self.logoImageView.centerX = kScreenWidth * 0.5;
-    [self.titleView setTitle:@"标题"];
-    [self.titleView setSubTitle:@"副标题"];
+    [self.titleView setTitle:self.currentViewModel.title];
+    [self.titleView setSubTitle:self.currentViewModel.detail];
     
     [self.view addSubview:self.playerBar];
     self.playerBar.bottom = self.view.height;
@@ -63,6 +74,10 @@
 
 #pragma mark - --------------------接口API------------------
 #pragma mark - --------------------父类方法重写--------------
+
+- (void)viewModelDataChanged {
+    [super viewModelDataChanged];
+}
 
 - (BOOL)playBarHidden {
     return YES; 
@@ -76,6 +91,30 @@
     return MYBaseViewControllerModeOnlyOne;
 }
 #pragma mark - --------------------功能函数------------------
+
+- (void)refreshSong {
+    self.currentViewModel = [[MYPlayListManager sharedInstance] currentModel];
+    [self.titleView setTitle:self.currentViewModel.title];
+    [self.titleView setSubTitle:self.currentViewModel.detail];
+}
+
+- (void)onReceiveStart {
+    [self.playerBar setPlay:YES];
+    [self refreshSong];
+}
+
+- (void)onReceivePre {
+    [self refreshSong];
+}
+
+- (void)onReceiveNext {
+    [self refreshSong];
+}
+
+- (void)onReceiveStop {
+    [self.playerBar setPlay:NO];
+}
+
 #pragma mark - --------------------手势事件------------------
 #pragma mark - --------------------按钮事件------------------
 #pragma mark - --------------------代理方法------------------

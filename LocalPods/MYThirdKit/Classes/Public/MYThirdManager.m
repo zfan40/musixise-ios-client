@@ -35,6 +35,10 @@
     }
 }
 
+- (void)shareWithType:(MYThirdKitType)type shareContent:(id<MYShareModelProtocol>)shareModel {
+    //TODO: wmy
+}
+
 - (void)setup {
     //1. 注册微博
     [[MYThirdWeiboManager sharedInstance] setup];

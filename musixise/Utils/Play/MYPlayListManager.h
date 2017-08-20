@@ -11,24 +11,30 @@
 
 #define thePlayListManager [MYPlayListManager sharedInstance]
 
+#define kStartPlayingNofitication @"StartPlayingNofitication"
+#define kStopPlayingNofitication @"StopPlayingNofitication"
+#define kNextSongNofitication @"NextSongNofitication"
+#define kPreSongNofitication @"PreSongNofitication"
+#define kStopSongNofitication @"StopSongNofitication"
+
 @class MYWorkListModel;
+@class MYWorkViewModel;
 
 @interface MYPlayListManager : MYBasicSingleton
-//1. 设置列表管理选项
 
-//2. 播放当前第几首
 @property(nonatomic, assign) NSInteger playIndex;
-//3. 播放开始选项
+
+@property (nonatomic, strong) MYWorkListModel *listModel;
+
 - (void)startPlaying;
-//4. 播放结束选项
+
 - (void)pause;
 - (void)resume;
 - (void)stop;
 - (void)next;
 - (void)pre;
 
-- (void)setListModel:(MYWorkListModel *)listModel;
-
+- (MYWorkViewModel *)currentModel;
 - (void)setPlayIds:(NSArray<NSString *> *)array;
 
 - (void)changeModelWithType:(MYPlayerModeType)type;

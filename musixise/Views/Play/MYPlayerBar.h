@@ -20,4 +20,6 @@
 - (void)setPreBtnSelected:(BOOL)selected;
 - (void)setNextBtnSelected:(BOOL)selected;
 
+- (void)setPlay:(BOOL)isPlay;
+
 @end
